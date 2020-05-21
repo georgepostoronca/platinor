@@ -1,0 +1,10 @@
+.navigation ul li {
+  list-style: none;
+}
+.navigation ul a {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 26px;
+  letter-spacing: 0.1em;
+}

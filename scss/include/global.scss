@@ -7,10 +7,6 @@ html, body {
     line-height: 1;
 }
 
-.container {
-    width: 1300px;
-}
-
 .blockattach {
     height: 100%;
     display: flex;
@@ -28,8 +24,65 @@ p {
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
-    line-height: 29px;
-    /* or 181% */
-
     letter-spacing: -0.01em;
+}
+
+
+ul, ol {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 0px;
+    color: #292929;
+    transition: .2s;
+    text-decoration: none;
+
+    &:hover {
+        color: #C7B386;
+        text-decoration: underline;
+    }
+}
+
+.btn {
+    border: 1px solid #1F1F1F;
+    box-sizing: border-box;
+    border-radius: 60px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    padding: 0 17px;
+    cursor: pointer;
+    transition: .2s;
+    text-decoration: none;
+    outline: none;
+    
+    &:hover {
+        text-decoration: none;
+        border-color: #C7B386;
+        
+        span {
+            color: #C7B386;
+        }
+    }
+    
+    span {
+        transition: .2s;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 11px;
+        line-height: 0px;
+        /* identical to box height, or 0% */
+
+        letter-spacing: 0.1em;
+
+        color: #1F1F1F;
+        position: relative;
+        top: -1px;
+
+    }
 }
