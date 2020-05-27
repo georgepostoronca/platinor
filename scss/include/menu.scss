@@ -37,8 +37,8 @@
             transition: .2s;
 
             &:hover {
-                color: #C7B386;
-                text-decoration: underline;
+                color: #292929;
+                // text-decoration: underline;
             }
         }
 
@@ -54,6 +54,8 @@
 }
 
 .menu {
+    border-bottom: 1px solid #ECECEC;
+
     &__wrap {
         display: flex;
         align-items: center;
@@ -68,6 +70,7 @@
     }
 
     &__logo {
+        display: block;
         img {
             width: 170px;
             height: 32px;
@@ -148,6 +151,10 @@
 
         @media(max-width: 992px) {
             margin-right: 15px;
+        }
+
+        @media(max-width: 768px) {
+            margin-right: 21px;
         }
 
         &:hover {
