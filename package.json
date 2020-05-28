@@ -7,6 +7,7 @@
   },
   "devDependencies": {
     "lodash.debounce": "^4.0.8",
-    "lodash.foreach": "^4.5.0"
+    "lodash.foreach": "^4.5.0",
+    "swiper": "^5.4.1"
   }
 }

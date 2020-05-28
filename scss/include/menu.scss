@@ -62,6 +62,8 @@
 
 .menu {
     border-bottom: 1px solid #ECECEC;
+    position: relative;
+    z-index: 100;
 
     &__wrap {
         display: flex;

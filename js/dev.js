@@ -1,5 +1,6 @@
 import forEach from "lodash.forEach";
 import debounce from "lodash.debounce";
+import Swiper from "swiper";
 
 
 // ==============================
@@ -158,4 +159,28 @@ oepnClose({
     btn: document.querySelector(".js__close-search"),
     el: searchBlock,
     type: "close"
+});
+
+
+
+// Slider
+var swiper = new Swiper('.headslid-slider', {
+    autoHeight: true,
+    pagination: {
+      el: '.headslid__pagination',
+      type: 'progressbar',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+});
+
+
+var headslid = new Swiper('.topproduct-slider', {
+    autoHeight: true,
+    navigation: {
+      nextEl: '.topproduct__arrow .arrow-slider__next',
+      prevEl: '.topproduct__arrow .arrow-slider__prev',
+    },
 });

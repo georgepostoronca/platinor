@@ -99,6 +99,59 @@ a {
     }
 }
 
+.btn-line {
+    outline: none;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    &:hover {
+        span {
+            opacity: .7;
+        }
+    }
+
+    span {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 11px;
+        line-height: 1;
+        letter-spacing: 0.1em;
+        color: #363B3F;
+
+        display: flex;
+        align-items: center;
+        position: relative;
+        transition: .2s;
+
+        &:after {
+            content: "";
+            display: inline-block;
+            width: 47px;
+            height: 2px;
+            background: #C7B386;
+            margin-left: 29px;
+        }
+
+        &:before {
+            content: "";
+            width: 9px;
+            height: 9px;
+            background: #C7B386;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            // transform-origin: center center;
+            border-radius: 100%;
+            transition: .2s;
+        }
+    }
+}
+
 .modalhead {
     display: flex;
     align-items: center;
@@ -167,6 +220,73 @@ a {
             height: 12px;
             fill: #C7B386;
             transition: .2s;
+        }
+    }
+}
+
+.swiper-button-next, .swiper-button-prev {
+    width: 15px;
+    height: 28px;
+    color: #434B50;
+
+    &:after {
+        width: 100%;
+        height: 100%;
+        font-size: 29px;
+    }
+}
+
+.swiper-button-next {
+    right: 0;
+}
+
+.swiper-button-prev {
+    left: 0;
+}
+
+
+// Arow Slider
+.arrow-slider {
+    width: 144px;
+    height: 85px;
+    background: #FBF7F0;
+    border-radius: 120px;
+    display: flex;
+
+    &__prev, &__next {
+        outline: none;
+        cursor: pointer;
+        user-select: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            width: 15px;
+            height: 28px;
+            fill: #1F1F1F;
+            transition: 2s;
+        }
+
+        &.swiper-button-disabled {
+            svg {
+                opacity: .3;
+            }
+        }
+    }
+
+    &__prev {
+        width: 50%;
+        svg {
+            margin-right: -14px;
+        }
+    }
+    
+    &__next {
+        width: 50%;
+
+        svg {
+            margin-left: -14px;
         }
     }
 }

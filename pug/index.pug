@@ -8,10 +8,12 @@ html(lang="en")
     body
         #wrapper.blockattach
             include ./include/menu.pug
-            include ./include/header.pug
+            //- include ./include/header.pug
 
             .blockattach__content
-                | content
+                include ./include/slider.pug
+                include ./include/topproduct.pug
+
 
             include ./include/footer.pug
             include ./include/include.pug

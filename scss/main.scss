@@ -2,9 +2,11 @@
 // font-family: 'Graphik LCG';
 
 @import "../node_modules/normalize.css/normalize";
+@import "../node_modules/swiper/css/swiper.min";
 @import "bootstrap-grid.min";
 
 @import "include/global.scss";
 
 @import "include/menu.scss";
 @import "include/footer.scss";
+@import "include/slider.scss";

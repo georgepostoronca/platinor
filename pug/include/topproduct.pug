@@ -1,0 +1,21 @@
+section.topproduct
+    .container
+        .topproduct__header
+            h1 Популярные товары
+
+            .topproduct__arrow
+                .arrow-slider.swiper-pagination
+                    .arrow-slider__prev
+                        +svg("arrow-left")
+                    .arrow-slider__next
+                        +svg("arrow-right")
+
+        .topproduct__content
+            .topproduct-slider.swiper-container
+                .swiper-wrapper
+                    .swiper-slide
+                        span 1
+                    .swiper-slide
+                        span 2
+                    .swiper-slide
+                        span 3
