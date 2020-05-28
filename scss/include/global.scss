@@ -38,13 +38,16 @@ a {
     font-weight: normal;
     font-size: 13px;
     line-height: 0px;
-    color: #292929;
+    color: #C7B386;
     transition: .2s;
     text-decoration: none;
 
     &:hover {
-        color: #C7B386;
-        text-decoration: underline;
+        color: #1F1F1F;
+    }
+
+    &:focus {
+        color: #595959;
     }
 }
 
@@ -60,13 +63,18 @@ a {
     transition: .2s;
     text-decoration: none;
     outline: none;
+
+    @media(max-width: 992px) {
+        height: 30px;
+        padding: 0 10px;
+    }
     
     &:hover {
         text-decoration: none;
-        border-color: #C7B386;
+        background-color: #1F1F1F;
         
         span {
-            color: #C7B386;
+            color: #fff;
         }
     }
     
@@ -84,5 +92,75 @@ a {
         position: relative;
         top: -1px;
 
+        @media(max-width: 992px) {
+            font-size: 9px;
+        }
+    }
+}
+
+.modalhead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ECECEC;
+
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 23px;
+    padding-bottom: 23px;
+
+    @media(max-width: 370px) {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    span {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 30px;
+        position: relative;
+        top:-2px;
+    }
+
+    svg {
+        width: 17px;
+        height: 17px;
+        cursor: pointer;
+    }
+}
+
+.social {
+    ul {
+        display: block;
+    }
+
+    li {
+        width: auto;
+        margin-right: 7px !important;
+    }
+
+    a {
+        width: 32px;
+        height: 32px;
+        background: #FBF7F0;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            background-color: #C7B386;
+
+            svg {
+                fill: #fff;
+            }
+        }
+        
+        img, svg {
+            width: 12px;
+            height: 12px;
+            fill: #C7B386;
+            transition: .2s;
+        }
     }
 }
