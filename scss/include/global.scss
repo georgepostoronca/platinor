@@ -31,6 +31,7 @@ p {
 ul, ol {
     padding: 0;
     margin: 0;
+    // list-style: none;
 }
 
 a {
@@ -132,11 +133,16 @@ a {
 .social {
     ul {
         display: block;
+        list-style: none;
     }
 
     li {
         width: auto;
-        margin-right: 7px !important;
+        margin-right: 7px;
+
+        &:last-child {
+            margin-right: 0;
+        }
     }
 
     a {
