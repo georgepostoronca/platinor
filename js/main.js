@@ -257,13 +257,43 @@ var swiper = new swiper__WEBPACK_IMPORTED_MODULE_2__["default"]('.headslid-slide
     prevEl: '.swiper-button-prev'
   }
 });
-var headslid = new swiper__WEBPACK_IMPORTED_MODULE_2__["default"]('.topproduct-slider', {
-  autoHeight: true,
+var headslid = new swiper__WEBPACK_IMPORTED_MODULE_2__["default"]('.js__topproduct-slider', {
+  slidesPerView: 3,
+  slidesPerColumn: 2,
+  slidesPerColumnFill: "row",
+  spaceBetween: 24,
   navigation: {
     nextEl: '.topproduct__arrow .arrow-slider__next',
     prevEl: '.topproduct__arrow .arrow-slider__prev'
   }
-});
+}); // Product Slider
+
+(function ProductSlider() {
+  var el = document.querySelectorAll(".product");
+  if (!el) return false;
+  el = [].slice.call(el);
+  console.log(el);
+  el.forEach(function (el, index) {
+    console.log(index);
+    var slider = el.querySelector(".js__product__slider");
+    var pagination = el.querySelector(".product__pagination");
+    setTimeout(function () {
+      var swiper = new swiper__WEBPACK_IMPORTED_MODULE_2__["default"](slider, {
+        autoHeight: true,
+        nested: true,
+        pagination: {
+          el: pagination,
+          clickable: true
+        },
+        on: {
+          init: function init() {
+            el.classList.remove("loading");
+          }
+        }
+      });
+    }, 100 * index);
+  });
+})();
 
 /***/ }),
 /* 1 */
