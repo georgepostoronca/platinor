@@ -67,7 +67,37 @@ if(document.querySelector(".swiper-container")) {
                     init: function() {
                         document.querySelector('.js__topproduct-slider').classList.remove("loading");
                     }
-                }
+                },
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1.15,
+                        slidesPerColumn: 1,
+                        slidesPerColumnFill: "row",
+                        spaceBetween: 20,
+                    },
+                    370: {
+                        slidesPerView: 1.35,
+                        slidesPerColumn: 1,
+                        slidesPerColumnFill: "row",
+                        spaceBetween: 30,
+                    },
+                    500: {
+                        slidesPerView: 1.7,
+                        slidesPerColumn: 1,
+                        slidesPerColumnFill: "row",
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        slidesPerColumn: 2,
+                        slidesPerColumnFill: "row",
+                        spaceBetween: 24,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        slidesPerColumn: 2,
+                        slidesPerColumnFill: "row",
+                    },
+                  }
             });
         }
     });
@@ -256,7 +286,7 @@ oepnClose({
             var $this = item;
             console.log(item);
             var  span = document.createElement("span");
-            if(index == 0) span.classList.add("active")
+            if(index == 0) span.classList.add("active");
             span.addEventListener("mouseover", function(el) {
                 this.classList.add("active");
                 $this.classList.add("active");

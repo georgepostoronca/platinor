@@ -18,6 +18,15 @@
         height: auto;
     }
 
+    &__content {
+        @media(max-width: 768px) {
+            width: calc(100% + 20px);
+        }
+        @media(max-width: 400px) {
+            width: calc(100% + 15px);
+        }
+    }
+
     &__slider {
         &-item {
             overflow: hidden;
