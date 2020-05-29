@@ -11,22 +11,22 @@ section.topproduct
                         +svg("arrow-right")
 
         .topproduct__content
-            .topproduct-slider.js__topproduct-slider.swiper-container
+            .topproduct-slider.js__topproduct-slider.swiper-container.loading
                 .swiper-wrapper
                     each val in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
                         .swiper-slide
                             //- each val in [1,2,3,4]
-                            a(href="#product-1").product.loading
-                                .product__slider.js__product__slider.swiper-container
-                                    .swiper-wrapper
-                                        .swiper-slide.product__slider-item
-                                            img(src="img/image-1.jpg", alt="IMG")
-                                        .swiper-slide.product__slider-item
-                                            img(src="img/image-1.jpg", alt="IMG")
-                                        .swiper-slide.product__slider-item
-                                            img(src="img/image-1.jpg", alt="IMG")
+                            a(href="#product-1").product
+                                .product__slider
+                                    .product__slider-item.active
+                                        img(src="img/image-1.jpg", alt="IMG")
+                                    .product__slider-item
+                                        img(src="img/image-2.jpg", alt="IMG")
+                                    .product__slider-item
+                                        img(src="img/image-3.jpg", alt="IMG")
                                 .product__info
                                     .product__pagination
+
                                     span Подвеска Butterfly
                                     em 14 990₽
                                     button.btn-addcart

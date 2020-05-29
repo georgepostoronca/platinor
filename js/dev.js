@@ -1,16 +1,88 @@
-import forEach from "lodash.forEach";
-import debounce from "lodash.debounce";
-import Swiper from "swiper";
+// import forEach from "lodash.forEach";
+// import debounce from "lodash.debounce";
+// import Swiper from "swiper";
 
+function loadScript(url, callback){
+
+    var script = document.createElement("script")
+    script.type = "text/javascript";
+
+    if (script.readyState){  //IE
+        script.onreadystatechange = function(){
+            if (script.readyState == "loaded" ||
+                    script.readyState == "complete"){
+                script.onreadystatechange = null;
+                callback();
+            }
+        };
+    } else {  //Others
+        script.onload = function(){
+            callback();
+        };
+    }
+
+    script.src = url;
+    document.getElementsByTagName("body")[0].appendChild(script);
+}
+
+
+
+// Init Slider
+if(document.querySelector(".swiper-container")) {
+    loadScript("js/include/swiper.min.js", function() {
+        // Slider
+        if(document.querySelector('.js__headslid-slider')) {
+            var swiper = new Swiper('.js__headslid-slider', {
+                autoHeight: true,
+                pagination: {
+                    el: '.headslid__pagination',
+                    type: 'progressbar',
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                on: {
+                    init: function() {
+                        setTimeout(function() {
+                            document.querySelector('.headslid').classList.remove("loading");
+                        }, 100);
+                    }
+                }
+            });
+        }
+    
+        // headslid
+        if(document.querySelector('.js__topproduct-slider')) {
+            var headslid = new Swiper('.js__topproduct-slider', {
+                slidesPerView: 3,
+                slidesPerColumn: 2,
+                slidesPerColumnFill: "row",
+                spaceBetween: 24,
+                navigation: {
+                    nextEl: '.topproduct__arrow .arrow-slider__next',
+                    prevEl: '.topproduct__arrow .arrow-slider__prev',
+                },
+                on: {
+                    init: function() {
+                        document.querySelector('.js__topproduct-slider').classList.remove("loading");
+                    }
+                }
+            });
+        }
+    });
+}
 
 // ==============================
 // Function
 // ==============================
 var getSiblingsFn = function (elem) {
 
-	// Setup siblings array and get the first sibling
+    // Setup siblings array and get the first sibling
+    console.log("Element: " + elem);
+    
 	var siblings = [];
-	var sibling = elem.parentNode.firstChild;
+	var sibling = elem.parentElement.firstElementChild;
 
 	// Loop through each sibling and push to the array
 	while (sibling) {
@@ -24,7 +96,7 @@ var getSiblingsFn = function (elem) {
 
 function getSiblings(item, func) {
     var siblings = getSiblingsFn(item);
-    forEach(siblings, func);
+    siblings.forEach(func);
 }
 
 
@@ -81,7 +153,9 @@ function isVisible(elem) { //открыто ли условное окно
     var active = "hover";
     var inactive = "no-hover";
 
-    forEach(document.querySelectorAll(element), function(el) {
+    elements = [].slice.call(document.querySelectorAll(element));
+    
+    elements.forEach(function(el) {
         // console.log(el);
         if(el.classList.contains(first)) {
             getSiblings(el, function(el) {
@@ -103,15 +177,17 @@ function isVisible(elem) { //открыто ли условное окно
         el.addEventListener("mouseout", function() {            
             var active = document.querySelector(element + "." + active);
 
-            forEach(document.querySelectorAll(element), function(el) {
+            elements.forEach(function(el) {
                 el.classList.remove(inactive);
                 el.classList.remove(active);
             });
             
-            getSiblings(document.querySelector(element + "." + first), function(el) {
-                el.classList.add(inactive);
-                el.classList.remove(active);
-            });
+            if(document.querySelector(element + "." + first)) {
+                getSiblings(document.querySelector(element + "." + first), function(el) {
+                    el.classList.add(inactive);
+                    el.classList.remove(active);
+                });
+            }
         });
     });
 })();
@@ -162,58 +238,36 @@ oepnClose({
 });
 
 
-// Slider
-var swiper = new Swiper('.headslid-slider', {
-    autoHeight: true,
-    pagination: {
-      el: '.headslid__pagination',
-      type: 'progressbar',
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-});
-
-
-var headslid = new Swiper('.js__topproduct-slider', {
-    slidesPerView: 3,
-    slidesPerColumn: 2,
-    slidesPerColumnFill: "row",
-    spaceBetween: 24,
-    navigation: {
-        nextEl: '.topproduct__arrow .arrow-slider__next',
-        prevEl: '.topproduct__arrow .arrow-slider__prev',
-    }
-});
 
 // Product Slider
 (function ProductSlider() {
     var el = document.querySelectorAll(".product");
-    if(!el) return false; 
+    if(!el.length) return;
+
     el = [].slice.call(el);
-    console.log(el);
-    
-    el.forEach(function(el, index) {
-        console.log(index);
-        
-        var slider = el.querySelector(".js__product__slider");
+    el.forEach(function(el) {
+        // console.log(el);
+        var slider = el.querySelector(".product__slider");
         var pagination = el.querySelector(".product__pagination");
-        setTimeout(function() {
-            var swiper = new Swiper(slider, {
-                autoHeight: true,
-                nested: true,
-                pagination: {
-                  el: pagination,
-                  clickable: true,
-                },
-                on: {
-                    init: function () {
-                        el.classList.remove("loading")
-                    },
-                },
+        var items = [].slice.call(el.querySelectorAll(".product__slider-item"));
+
+        items = [].slice.call(items);
+        items.forEach(function(item, index) {
+            var $this = item;
+            console.log(item);
+            var  span = document.createElement("span");
+            if(index == 0) span.classList.add("active")
+            span.addEventListener("mouseover", function(el) {
+                this.classList.add("active");
+                $this.classList.add("active");
+                getSiblings($this, function(el) {
+                    el.classList.remove("active");
+                });
+                getSiblings(this, function(el) {
+                    el.classList.remove("active");
+                });
             });
-        }, 100 * index)
-        
+            pagination.appendChild(span);
+        });
     });
 })();
