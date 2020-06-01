@@ -102,6 +102,35 @@ if (document.querySelector(".swiper-container")) {
         }
       });
     }
+  
+  
+    // review slider
+    if (document.querySelector('.js__review-slider')) {
+      var reviewslider = new Swiper('.js__review-slider', {
+        slidesPerView: 2,
+        spaceBetween: 74,
+        autoHeight: true,
+        navigation: {
+          nextEl: '.review .arrow-slider__next',
+          prevEl: '.review .arrow-slider__prev',
+        },
+        on: {
+          init: function () {
+            document.querySelector('.js__review-slider').classList.remove("loading");
+          }
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 0,
+          },
+          880: {
+            slidesPerView: 2,
+            spaceBetween: 74,
+          },
+        }
+      });
+    }
   });
 }
 
