@@ -1,34 +1,36 @@
 section.topproduct
-    .container
-        .topproduct__header
-            h1 Популярные товары
+  .container
+    .topproduct__header
+      h1 Популярные товары
 
-            .topproduct__arrow
-                .arrow-slider.swiper-pagination
-                    .arrow-slider__prev
-                        +svg("arrow-left")
-                    .arrow-slider__next
-                        +svg("arrow-right")
+      .topproduct__arrow
+        .arrow-slider
+          .arrow-slider__prev
+            +svg("arrow-left")
+          .arrow-slider__next
+            +svg("arrow-right")
 
-        .topproduct__content
-            .topproduct-slider.js__topproduct-slider.swiper-container.loading
-                .swiper-wrapper
-                    each val in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
-                        .swiper-slide
-                            a(href="#product-1").product
-                                .product__slider
-                                    .product__slider-item.active
-                                        img(src="img/image-1.jpg", alt="IMG")
-                                    .product__slider-item
-                                        img(src="img/image-2.jpg", alt="IMG")
-                                    .product__slider-item
-                                        img(src="img/image-3.jpg", alt="IMG")
+    .topproduct__content
+      .topproduct-slider.js__topproduct-slider.swiper-container.loading
+        .swiper-wrapper
+          each val in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+            .swiper-slide
+              a(href="#product-1").product
+                .product__slider
+                  .product__slider-item.active
+                    img(src="img/image-1.jpg", alt="IMG")
+                  .product__slider-item
+                    img(src="img/image-2.jpg", alt="IMG")
+                  .product__slider-item
+                    img(src="img/image-3.jpg", alt="IMG")
 
-                                .product__info
-                                    .product__pagination
+                .product__info
+                  .product__pagination
 
-                                    span Подвеска Butterfly
-                                    em 14 990₽
-                                    button.btn-addcart
-                                        +svg("cart","cart")
-                                        +svg("check","check")
+                  span Подвеска Butterfly
+                  em 14 990₽
+                  button.btn-addcart
+                    +svg("cart","cart")
+                    +svg("check","check")
+
+        .swiper-pagination

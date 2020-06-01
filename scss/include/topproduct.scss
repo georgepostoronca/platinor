@@ -1,35 +1,94 @@
 .topproduct {
-    &__header {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 58px;
+  margin-bottom: 76px;
+  margin-top: 103px;
 
-        h1 {
-            position: relative;
-            top: -4px;
-            margin-top: 0;
-            margin-bottom: 0;
-        }
+  @media(max-width: 992px) {
+    margin-top: 40px;
+    margin-bottom: 50px;
+  }
+
+  .swiper-wrapper {
+    @media(max-width: 768px) {
+      padding-bottom: 17px;
+    }
+  }
+  
+  &-slider {
+    @media(max-width: 768px) {
+      padding-bottom: 10px !important;
+    }
+  }
+
+  .swiper-pagination {
+    //bottom: 7px;
+    bottom: 0;
+    
+    &-bullet {
+      width: 9px;
+      height: 9px;
+      background: #F0E8D8;
+
+      &.swiper-pagination-bullet-active {
+        background: #C7B386;
+      }
     }
 
-    &__arrow {
-        height: auto;
+    @media(min-width: 769px) {
+      display: none;
+    }
+  }
+
+  .swiper-slide {
+    @media(max-width: 768px) {
+      margin-top: 0 !important;
+    }
+  }
+
+  &__header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 58px;
+  
+    @media(max-width: 992px) {
+      margin-bottom: 26px;
     }
 
-    &__content {
-        @media(max-width: 768px) {
-            width: calc(100% + 20px);
-        }
-        @media(max-width: 400px) {
-            width: calc(100% + 15px);
-        }
+    h1 {
+      position: relative;
+      top: -4px;
+      margin-top: 0;
+      margin-bottom: 0;
+
+      @media(max-width: 992px) {
+        padding-right: 20px;
+        top: -2px;
+      }
+    }
+  }
+
+  &__arrow {
+    height: auto;
+
+    @media(max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__content {
+    @media(max-width: 768px) {
+      width: calc(100% + 20px);
     }
 
-    &__slider {
-        &-item {
-            overflow: hidden;
-        }
+    @media(max-width: 400px) {
+      width: calc(100% + 15px);
     }
+  }
+
+  &__slider {
+    &-item {
+      overflow: hidden;
+    }
+  }
 }
