@@ -1,0 +1,9 @@
+.decor__wrap {
+  padding-left: 36px;
+  padding-right: 36px;
+  padding-bottom: 77px;
+  background-image: url("../img/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #FAFAFA;
+}
