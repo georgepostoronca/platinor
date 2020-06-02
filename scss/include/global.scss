@@ -232,6 +232,21 @@ a {
     height: 17px;
     cursor: pointer;
   }
+  
+  div {
+    position: relative;
+    
+    &:after {
+      content: "";
+      width: 400%;
+      height: 300%;
+      background-color: transparent;
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      transform: translate(-50%, -50%);
+    }
+  }
 }
 
 .social {

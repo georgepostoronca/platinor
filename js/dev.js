@@ -31,8 +31,12 @@ if (document.querySelector(".swiper-container")) {
   loadScript("js/include/swiper.min.js", function () {
     // Slider
     if (document.querySelector('.js__headslid-slider')) {
-      var swiper = new Swiper('.js__headslid-slider', {
+      var firstStart = false;
+      var progresSlideInterval;
+      
+      var headslid = new Swiper('.js__headslid-slider', {
         autoHeight: true,
+        loop: true,
         pagination: {
           el: '.headslid__pagination',
           type: 'progressbar',
@@ -45,15 +49,37 @@ if (document.querySelector(".swiper-container")) {
           init: function () {
             setTimeout(function () {
               document.querySelector('.headslid').classList.remove("loading");
+              firstStart = true;
+              PlaySlider();
             }, 100);
-          }
+          },
+          slideChangeTransitionEnd: function() {
+            if(firstStart) {
+              PlaySlider();
+              firstStart = true;
+            }
+          },
         }
       });
+  
+      function PlaySlider() {
+        console.log("PlaySlider")
+        if(progresSlideInterval) clearInterval(progresSlideInterval);
+        document.querySelector(".headslid").classList.remove("progress-active");
+    
+        setTimeout(function() {
+          document.querySelector(".headslid").classList.add("progress-active");
+          progresSlideInterval = setTimeout(function() {
+            document.querySelector(".headslid").classList.remove("progress-active");
+            headslid.slideNext();
+          }, 4500);
+        }, 10)
+      }
     }
     
-    // headslid
+    // topproduct
     if (document.querySelector('.js__topproduct-slider')) {
-      var headslid = new Swiper('.js__topproduct-slider', {
+      var topproduct = new Swiper('.js__topproduct-slider', {
         slidesPerView: 3,
         slidesPerColumn: 2,
         slidesPerColumnFill: "row",
@@ -131,7 +157,6 @@ if (document.querySelector(".swiper-container")) {
         }
       });
     }
-    
     
     // catalog slider(mobile)
     (function() {
@@ -216,8 +241,7 @@ if (document.querySelector(".swiper-container")) {
     
     
     
-    })(); /* IIFE end */
-    
+    })();
   });
 }
 
