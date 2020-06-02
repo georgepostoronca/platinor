@@ -59,9 +59,19 @@
     
     }
     
+    &:hover {
+      picture {
+
+        img {
+          transform: scale(1.2);
+        }
+      }
+    }
+    
     picture {
       margin-bottom: 40px;
       display: block;
+      overflow: hidden;
   
       @media(max-width: 768px) {
         //width: 215px;
@@ -72,6 +82,7 @@
   
       img {
         max-width: 100%;
+        transition: 2s;
   
         @media(max-width: 768px) {
           width: 100%;
