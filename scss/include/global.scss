@@ -14,7 +14,15 @@ html, body {
   
   &__content {
     flex: 1 0 auto;
+  
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
   }
+}
+
+section {
+  width: 100%;
 }
 
 h1 {
@@ -121,6 +129,70 @@ a {
   display: inline-block;
   position: relative;
   
+  &:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 115%;
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  //&#{&}--reverse {
+  //  span {
+  //    &:before {
+  //      content: "";
+  //      display: inline-block;
+  //      width: 47px;
+  //      height: 1px;
+  //      background: #C7B386;
+  //      transform: none;
+  //      position: relative;
+  //      border: 0;
+  //      margin-right: 29px;
+  //    }
+  //
+  //    &:after {
+  //      content: "";
+  //      width: 8px;
+  //      height: 8px;
+  //      background: #C7B386;
+  //      position: absolute;
+  //      top: 50%;
+  //      left: 0;
+  //      //transform: translateY(-50%);
+  //      // transform-origin: center center;
+  //      border-radius: 100%;
+  //      transition: .2s;
+  //
+  //      transform-origin: center center;
+  //      transform: translateY(-50%) rotate(45deg);
+  //      border: 1px solid #C7B386;
+  //
+  //      margin: 0;
+  //    }
+  //
+  //    &:hover {
+  //      span {
+  //        &:before {
+  //          opacity: 0;
+  //          background: #C7B386 !important;
+  //        }
+  //
+  //        &:after {
+  //          background: transparent !important;
+  //          border-left-color: transparent;
+  //          border-bottom-color: transparent;
+  //          border-radius: 0;
+  //        }
+  //      }
+  //    }
+  //  }
+  //}
+  //
   &:hover {
     span {
       &:before {

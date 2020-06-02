@@ -1,0 +1,125 @@
+.notfound {
+  width: 100%;
+  flex: 1 0 auto;
+  text-align: center;
+  
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  
+  .btn-line {
+    display: inline-block;
+  }
+}
+
+.b404 {
+  width: 722px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  
+  margin-bottom: 87px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  
+  //span {
+  //  font-family: "Ogg", serif;
+  //  font-style: normal;
+  //  font-weight: normal;
+  //  font-size: 350px;
+  //  line-height: 1;
+  //  letter-spacing: 1em;
+  //  color: #C7B386;
+  //}
+  
+  @media(max-width: 768px) {
+    width: 500px;
+    margin-bottom: 20px;
+  }
+  
+  @media(max-width: 560px) {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+  
+  img {
+    width: 246px;
+    
+    @media(max-width: 768px) {
+      width: 160px;
+    }
+  
+    @media(max-width: 560px) {
+      width: 30vw;
+    }
+  }
+  
+  span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 0;
+    color: #868686;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+    @media(max-width: 560px) {
+      font-size: 2vw;
+    }
+  }
+  
+  &:after {
+    content: "4";
+    font-family: "Ogg", serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 350px;
+    line-height: 1;
+    letter-spacing: 1em;
+    color: #C7B386;
+    width: 208px;
+    margin-left: 30px;
+  
+    @media(max-width: 768px) {
+      font-size: 250px;
+      width: 150px;
+      margin-left: 20px;
+    }
+  
+    @media(max-width: 560px) {
+      font-size: 30vw;
+      width: 18vw;
+      text-align: center;
+    }
+  }
+  
+  &:before {
+    content: "4";
+    width: 208px;
+    font-family: "Ogg", serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 350px;
+    line-height: 1;
+    letter-spacing: 1em;
+    color: #E8EBEC;
+    margin-right: 30px;
+  
+    @media(max-width: 768px) {
+      font-size: 250px;
+      width: 150px;
+      margin-right: 20px;
+    }
+  
+    @media(max-width: 560px) {
+      font-size: 30vw;
+      width: 18vw;
+      text-align: center;
+    }
+  }
+}
