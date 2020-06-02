@@ -70,7 +70,6 @@ if (document.querySelector(".swiper-container")) {
       });
   
       function PlaySlider() {
-        console.log("PlaySlider")
         if(progresSlideInterval) clearInterval(progresSlideInterval);
         document.querySelector(".headslid").classList.remove("progress-active");
     
@@ -258,7 +257,6 @@ if (document.querySelector(".swiper-container")) {
 var getSiblingsFn = function (elem) {
   
   // Setup siblings array and get the first sibling
-  console.log("Element: " + elem);
   
   var siblings = [];
   var sibling = elem.parentElement.firstElementChild;
