@@ -79,69 +79,106 @@
 }
 
 
-@font-face {
-  font-family: 'Graphik';
-  src: local('Graphik-Light'),
-  url('../fonts/Graphik/Graphik-Light.woff2') format('woff2'),
-  url('../fonts/Graphik/Graphik-Light.woff') format('woff'),
-  url('../fonts/Graphik/Graphik-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
+//@font-face {
+//  font-family: 'Graphik';
+//  src: local('Graphik-Light'),
+//  url('../fonts/Graphik/Graphik-Light.woff2') format('woff2'),
+//  url('../fonts/Graphik/Graphik-Light.woff') format('woff'),
+//  url('../fonts/Graphik/Graphik-Light.ttf') format('truetype');
+//  font-weight: 300;
+//  font-style: normal;
+//  font-display: swap;
+//}
+//
+//@font-face {
+//  font-family: 'Graphik';
+//  src: local('Graphik-Thin'),
+//  url('../fonts/Graphik/Graphik-Thin.woff2') format('woff2'),
+//  url('../fonts/Graphik/Graphik-Thin.woff') format('woff'),
+//  url('../fonts/Graphik/Graphik-Thin.ttf') format('truetype');
+//  font-weight: 100;
+//  font-style: normal;
+//  font-display: swap;
+//}
+//
+//@font-face {
+//  font-family: 'Graphik';
+//  src: local('Graphik-Medium'),
+//  url('../fonts/Graphik/Graphik-Medium.woff2') format('woff2'),
+//  url('../fonts/Graphik/Graphik-Medium.woff') format('woff'),
+//  url('../fonts/Graphik/Graphik-Medium.ttf') format('truetype');
+//  font-weight: 500;
+//  font-style: normal;
+//  font-display: swap;
+//}
+//
+//@font-face {
+//  font-family: 'Graphik';
+//  src: local('Graphik-Semibold'),
+//  url('../fonts/Graphik/Graphik-Semibold.woff2') format('woff2'),
+//  url('../fonts/Graphik/Graphik-Semibold.woff') format('woff'),
+//  url('../fonts/Graphik/Graphik-Semibold.ttf') format('truetype');
+//  font-weight: 600;
+//  font-style: normal;
+//  font-display: swap;
+//}
+//
+//@font-face {
+//  font-family: 'Graphik';
+//  src: local('Graphik-Regular'),
+//  url('../fonts/Graphik/Graphik-Regular.woff2') format('woff2'),
+//  url('../fonts/Graphik/Graphik-Regular.woff') format('woff'),
+//  url('../fonts/Graphik/Graphik-Regular.ttf') format('truetype');
+//  font-weight: normal;
+//  font-style: normal;
+//  font-display: swap;
+//}
+//
+//@font-face {
+//  font-family: 'Graphik';
+//  src: local('Graphik-Bold'),
+//  url('../fonts/Graphik/Graphik-Bold.woff2') format('woff2'),
+//  url('../fonts/Graphik/Graphik-Bold.woff') format('woff'),
+//  url('../fonts/Graphik/Graphik-Bold.ttf') format('truetype');
+//  font-weight: bold;
+//  font-style: normal;
+//  font-display: swap;
+//}
 
 @font-face {
   font-family: 'Graphik';
-  src: local('Graphik-Thin'),
-  url('../fonts/Graphik/Graphik-Thin.woff2') format('woff2'),
-  url('../fonts/Graphik/Graphik-Thin.woff') format('woff'),
-  url('../fonts/Graphik/Graphik-Thin.ttf') format('truetype');
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Graphik';
-  src: local('Graphik-Medium'),
-  url('../fonts/Graphik/Graphik-Medium.woff2') format('woff2'),
-  url('../fonts/Graphik/Graphik-Medium.woff') format('woff'),
-  url('../fonts/Graphik/Graphik-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Graphik';
-  src: local('Graphik-Semibold'),
-  url('../fonts/Graphik/Graphik-Semibold.woff2') format('woff2'),
-  url('../fonts/Graphik/Graphik-Semibold.woff') format('woff'),
-  url('../fonts/Graphik/Graphik-Semibold.ttf') format('truetype');
+  src: local('Graphik Semibold'), local('Graphik-Semibold'),
+  url('../fonts/Graphik2/Graphik-Semibold.woff2') format('woff2'),
+  url('../fonts/Graphik2/Graphik-Semibold.woff') format('woff');
   font-weight: 600;
   font-style: normal;
-  font-display: swap;
 }
 
 @font-face {
   font-family: 'Graphik';
-  src: local('Graphik-Regular'),
-  url('../fonts/Graphik/Graphik-Regular.woff2') format('woff2'),
-  url('../fonts/Graphik/Graphik-Regular.woff') format('woff'),
-  url('../fonts/Graphik/Graphik-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Graphik';
-  src: local('Graphik-Bold'),
-  url('../fonts/Graphik/Graphik-Bold.woff2') format('woff2'),
-  url('../fonts/Graphik/Graphik-Bold.woff') format('woff'),
-  url('../fonts/Graphik/Graphik-Bold.ttf') format('truetype');
+  src: local('Graphik Bold'), local('Graphik-Bold'),
+  url('../fonts/Graphik2/Graphik-Bold.woff2') format('woff2'),
+  url('../fonts/Graphik2/Graphik-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
-  font-display: swap;
 }
+
+@font-face {
+  font-family: 'Graphik';
+  src: local('Graphik Medium'), local('Graphik-Medium'),
+  url('../fonts/Graphik2/Graphik-Medium.woff2') format('woff2'),
+  url('../fonts/Graphik2/Graphik-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: local('Graphik Regular'), local('Graphik-Regular'),
+  url('../fonts/Graphik2/Graphik-Regular.woff2') format('woff2'),
+  url('../fonts/Graphik2/Graphik-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 

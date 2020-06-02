@@ -1,0 +1,326 @@
+.catalog {
+  @media(max-width: 768px) {
+    margin-top: 48px;
+  }
+  
+  
+  &__slider {
+    @media(max-width: 449px) {
+      width: calc(100% + 15px);
+      border: 0 !important;
+      
+      &:after {
+        content: "";
+        position: absolute;
+        height: 1px;
+        left: 0px;
+        right: 20px;
+        bottom: 0;
+        background-color: #ECECEC;
+      }
+    }
+  
+    @media(max-width: 768px) {
+      border-bottom: 1px solid #ECECEC;
+      padding-bottom: 43px;
+    }
+  }
+  
+  &__grid{
+    @media(min-width: 769px) {
+      clear: both;
+      border-bottom: 1px solid #ECECEC;
+      padding-top: 95px;
+      //padding-bottom: 223px;
+    
+      background: url(../img/ellipse.jpg) 60.1% 52.8% no-repeat;
+      background-size: auto;
+  
+      &:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+      }
+      & { display: inline-block; }
+      /* start commented backslash hack \*/
+      * html & { height: 1%; }
+      & { display: block; }
+      /* close commented backslash hack */
+    }
+  }
+  
+  &__item {
+    display: block;
+    
+    @media(max-width: 768px) {
+    
+    }
+    
+    picture {
+      margin-bottom: 40px;
+      display: block;
+  
+      @media(max-width: 768px) {
+        //width: 215px;
+        width: 100%;
+        height: 259px;
+        background: #FAFAFA;
+      }
+  
+      img {
+        max-width: 100%;
+  
+        @media(max-width: 768px) {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          object-position: center center;
+        }
+      }
+  
+      @media(max-width: 992px) {
+        margin-bottom: 20px;
+      }
+    }
+    
+    span {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 40px;
+      color: #1F1F1F;
+      display: block;
+      width: 100%;
+      margin-bottom: 37px;
+      line-height: 1;
+      
+      @media(max-width: 992px) {
+        font-size: 20px;
+        margin-bottom: 17px;
+      }
+      
+      @media(max-width: 768px) {
+        font-size: 20px;
+        margin-bottom: 11px;
+      }
+    }
+    
+    em {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      color: #1F1F1F;
+      display: block;
+      
+      @media(max-width: 992px) {
+        font-size: 13px;
+      }
+      
+      @media(max-width: 768px) {
+        line-height: 1;
+      }
+      
+      b {
+        font-weight: 500;
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+    }
+    
+    @media(min-width: 769px) {
+      &.x1 {
+        width: 608px;
+        height: 735px;
+        
+        @media(max-width: 1180px) {
+          width: 48%;
+          height: auto;
+        }
+      }
+      
+      &.x2 {
+        width: 503px;
+        height: 735px;
+    
+        @media(max-width: 1180px) {
+          width: 48%;
+          height: auto;
+        }
+      }
+      
+      &.x3 {
+        width: 608px;
+        height: 345px;
+    
+        @media(max-width: 1180px) {
+          width: 48%;
+          height: auto;
+        }
+        
+        @media(min-width: 992px) {
+          picture {
+            margin-bottom: 32px;
+          }
+      
+          span {
+            font-weight: normal;
+            font-size: 30px;
+            margin-bottom: 18px;
+          }
+      
+          em {
+            font-size: 16px;
+          }
+        }
+      }
+      
+      &.x4 {
+        width: 503px;
+        height: 345px;
+    
+        @media(max-width: 1180px) {
+          width: 48%;
+          height: auto;
+        }
+      }
+      
+      &.x5 {
+        width: 286px;
+        height: 345px;
+    
+        @media(max-width: 1180px) {
+          width: 23%;
+          height: auto;
+        }
+    
+        @media(min-width: 992px) {
+          picture {
+            margin-bottom: 32px;
+          }
+      
+          span {
+            font-weight: normal;
+            font-size: 30px;
+            margin-bottom: 18px;
+          }
+      
+          em {
+            font-size: 16px;
+          }
+        }
+      }
+      
+      &.n1 {
+        float: left;
+        margin-bottom: 239px;
+    
+        @media(max-width: 1180px) {
+          margin-bottom: 10%;
+        }
+      }
+      
+      &.n2 {
+        float: right;
+        margin-top: 246px;
+        margin-bottom: 577px;
+    
+        @media(max-width: 1180px) {
+          margin-bottom: 20%;
+          margin-top: 10%;
+        }
+      }
+      
+      &.n3 {
+        float: left;
+        margin-bottom: 238px;
+        margin-right: 34px;
+    
+        @media(max-width: 1180px) {
+          clear: both;
+          margin-right: 2%;
+          margin-bottom: 10%;
+        }
+      }
+      
+      &.n4 {
+        float: left;
+        margin-bottom: 238px;
+    
+        @media(max-width: 1180px) {
+          margin-bottom: 10%;
+        }
+      }
+      
+      &.n5 {
+        float: right;
+        margin-bottom: 223px;
+    
+        @media(max-width: 1180px) {
+          margin-bottom: 10%;
+        }
+      }
+      
+      &.n6 {
+        float: left;
+        margin-bottom: 223px;
+    
+        @media(max-width: 1180px) {
+          margin-bottom: 10%;
+        }
+      }
+    }
+  
+    @media(max-width: 768px) {
+      &.n1 {
+        picture {
+          img {
+            object-position: right bottom;
+          }
+        }
+      }
+  
+      &.n2 {
+        picture {
+          img {
+            object-position: center center;
+          }
+        }
+      }
+  
+      &.n3 {
+        picture {
+          img {
+            object-position: top center;
+          }
+        }
+      }
+  
+      &.n4 {
+        picture {
+          img {
+            object-position: top right;
+          }
+        }
+      }
+  
+      &.n5 {
+        picture {
+          img {
+            object-position: top center;
+          }
+        }
+      }
+  
+      &.n6 {
+        picture {
+          img {
+            object-position: top left;
+          }
+        }
+      }
+    }
+    
+  }
+}

@@ -131,6 +131,93 @@ if (document.querySelector(".swiper-container")) {
         }
       });
     }
+    
+    
+    // catalog slider(mobile)
+    (function() {
+    
+      // breakpoint where swiper will be destroyed
+      // and switches to a dual-column layout
+      const breakpoint = window.matchMedia( '(min-width:768px)' );
+    
+      // keep track of swiper instances to destroy later
+      let mySwiper;
+    
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+    
+      const breakpointChecker = function() {
+      
+        // if larger viewport and multi-row layout needed
+        if ( breakpoint.matches === true ) {
+        
+          // clean up old instances and inline styles when available
+          if ( mySwiper !== undefined ) mySwiper.destroy( true, true );
+          document.querySelector('.js__catalog-slider').classList.remove("loading");
+          // or/and do nothing
+          return;
+        
+          // else if a small viewport and single column layout needed
+        } else if ( breakpoint.matches === false ) {
+        
+          // fire small viewport version of swiper
+          return enableSwiper();
+        
+        }
+      
+      };
+    
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+    
+      const enableSwiper = function() {
+        mySwiper = new Swiper ('.js__catalog-slider', {
+          slidesPerView: 3,
+          spaceBetween: 10,
+          autoHeight: true,
+          on: {
+            init: function () {
+              document.querySelector('.js__catalog-slider').classList.remove("loading");
+            }
+          },
+          breakpoints: {
+            0: {
+              slidesPerView: 1.15,
+              spaceBetween: 10,
+            },
+            370: {
+              slidesPerView: 1.45,
+              spaceBetween: 30,
+            },
+            450: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            600: {
+              slidesPerView: 3,
+              spaceBetween: 10,
+            },
+          }
+        });
+      
+      };
+    
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+    
+      // keep an eye on viewport size changes
+      breakpoint.addListener(breakpointChecker);
+    
+      // kickstart
+      breakpointChecker();
+    
+    
+    
+    })(); /* IIFE end */
+    
   });
 }
 
