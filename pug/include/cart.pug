@@ -1,0 +1,78 @@
+section.cart
+  .container
+    .barticle
+      .barticle__wrap
+        .barticle__head
+          h1 Корзина
+          button Очистить корзину
+
+        .bcart
+          .bcart__item(data-id="10")
+            .bcart__column.bcart__column-info
+              .bcart__column-wrap.bcart__img
+                i
+                  img(src='img/cart-img.jpg', alt="IMG")
+                .bcart__img-text
+                  a(href="#") Кольцо из палладия с бриллиантами
+                  span.bcart__label Размер: 16
+            .bcart__column.bcart__column-price
+              .bcart__column-wrap
+                .price.js__basePrice(data-price='10000')
+                  | 314 990₽
+            .bcart__column.bcart__column-incdec
+              .bcart__column-wrap
+                .incdec(data-id='2')
+                  .incdec__dec
+                    span –
+                  input(type='number', data-action='updatebasket', data-id='1', value='1', min='1')
+                  .incdec__inc
+                    span +
+            .bcart__column
+              .bcart__column-wrap
+                button.bcart__item-btn(data-action='delete', data-id='10')
+                  svg.svg.svg-close(width='50', height='50')
+                    use(xlink:href='ico/sprite.svg#close')
+
+          .bcart__item(data-id="10")
+            .bcart__column.bcart__column-info
+              .bcart__column-wrap.bcart__img
+                i
+                  img(src='img/cart-img2.jpg', alt="IMG")
+                .bcart__img-text
+                  a(href="#") Серьги из алмазов
+            .bcart__column.bcart__column-price
+              .bcart__column-wrap
+                .price.js__basePrice(data-price='10000')
+                  | 14 990₽
+            .bcart__column.bcart__column-incdec
+              .bcart__column-wrap
+                .incdec(data-id='2')
+                  .incdec__dec
+                    span –
+                  input(type='number', data-action='updatebasket', data-id='1', value='1', min='1')
+                  .incdec__inc
+                    span +
+            .bcart__column
+              .bcart__column-wrap
+                button.bcart__item-btn(data-action='delete', data-id='10')
+                  svg.svg.svg-close(width='50', height='50')
+                    use(xlink:href='ico/sprite.svg#close')
+        .bcart-price
+
+          .bcart-price__total
+            em Итого:
+            span
+              b.total-sum 660 000₽
+
+          .bcart-price__btn
+            .btn-submit
+              span ОФОРМИТЬ ЗАКАЗ
+
+
+    //Empty Cart
+    //.cart-empty
+    //  div
+    //    +svg("cart")
+    //    span Ваша корзина пуста
+
+

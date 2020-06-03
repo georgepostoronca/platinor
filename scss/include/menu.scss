@@ -408,6 +408,7 @@
       transform: translateY(10px);
       opacity: 0;
       transition: .2s;
+      pointer-events: none;
       // box-shadow: -2px 2px 10px 0px rgba(#1F1F1F, .1);
       
       @media(max-width: 768px) {
@@ -417,6 +418,7 @@
       &.active {
         transform: translateY(0px);
         opacity: 1;
+        pointer-events: auto;
       }
       
       input {
