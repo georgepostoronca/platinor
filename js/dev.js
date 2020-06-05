@@ -44,6 +44,7 @@ if (document.querySelector(".swiper-container")) {
       var headslid = new Swiper('.js__headslid-slider', {
         autoHeight: true,
         loop: true,
+        threshold: 20,
         pagination: {
           el: '.headslid__pagination',
           type: 'progressbar',
@@ -78,7 +79,7 @@ if (document.querySelector(".swiper-container")) {
           progresSlideInterval = setTimeout(function() {
             document.querySelector(".headslid").classList.remove("progress-active");
             headslid.slideNext();
-          }, 4500);
+          }, 8000);
         }, 10)
       }
     }
@@ -90,6 +91,7 @@ if (document.querySelector(".swiper-container")) {
         slidesPerColumn: 2,
         slidesPerColumnFill: "row",
         spaceBetween: 24,
+        threshold: 20,
         navigation: {
           nextEl: '.topproduct__arrow .arrow-slider__next',
           prevEl: '.topproduct__arrow .arrow-slider__prev',
@@ -99,9 +101,9 @@ if (document.querySelector(".swiper-container")) {
             document.querySelector('.js__topproduct-slider').classList.remove("loading");
           }
         },
-        pagination: {
-          el: '.swiper-pagination',
-        },
+        // pagination: {
+        //   el: '.swiper-pagination',
+        // },
         breakpoints: {
           0: {
             slidesPerView: 1.15,

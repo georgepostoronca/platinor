@@ -1,0 +1,26 @@
+section.indorder
+  .container
+    .indorder__wrap
+      h2 Индивидуальный заказ
+      p Для индивидуального заказа пришлите эскиз или фотографию понравившейся модели, можно добавить ссылку на изделие. Укажите, какой металл и вставки вы хотите, а также примерные характеристики камней. Мы просчитаем стоимость изготовления и согласуем её с Вами.
+      em Для начала работ необходимо внести предоплату 50%
+
+      form.indorder-form
+        .input-block
+          input(type='text' name="name" placeholder="Имя" required)
+          span Заполните данное поле
+
+        .input-block
+          input(type='phone' name="phone" placeholder="Телефон" required)
+          span Заполните данное поле
+
+        .input-block
+          input(type='email' name="email" placeholder="Email" required)
+          span Заполните данное поле
+
+        .textarea-block
+          textarea(name="message" placeholder="Напишите что-нибудь" required)
+
+        .indorder-form__bottom
+          button(type="submit" name="submit").btn-form
+            span ОТПРАВИТЬ

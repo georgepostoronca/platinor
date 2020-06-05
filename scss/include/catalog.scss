@@ -82,7 +82,7 @@
   
       img {
         max-width: 100%;
-        transition: 2s;
+        transition: 4s;
   
         @media(max-width: 768px) {
           width: 100%;
@@ -104,7 +104,7 @@
       color: #1F1F1F;
       display: block;
       width: 100%;
-      margin-bottom: 37px;
+      margin-bottom: 28px;
       line-height: 1;
       
       @media(max-width: 992px) {
@@ -124,6 +124,7 @@
       font-size: 20px;
       color: #1F1F1F;
       display: block;
+      line-height: 1;
       
       @media(max-width: 992px) {
         font-size: 13px;
@@ -143,7 +144,7 @@
     @media(min-width: 769px) {
       &.x1 {
         width: 608px;
-        height: 735px;
+        //height: 735px;
         
         @media(max-width: 1180px) {
           width: 48%;
@@ -153,7 +154,7 @@
       
       &.x2 {
         width: 503px;
-        height: 735px;
+        //height: 735px;
     
         @media(max-width: 1180px) {
           width: 48%;
@@ -163,7 +164,7 @@
       
       &.x3 {
         width: 608px;
-        height: 345px;
+        //height: 345px;
     
         @media(max-width: 1180px) {
           width: 48%;
@@ -189,7 +190,7 @@
       
       &.x4 {
         width: 503px;
-        height: 345px;
+        //height: 345px;
     
         @media(max-width: 1180px) {
           width: 48%;
@@ -199,7 +200,7 @@
       
       &.x5 {
         width: 286px;
-        height: 345px;
+        //height: 345px;
     
         @media(max-width: 1180px) {
           width: 23%;
@@ -225,7 +226,8 @@
       
       &.n1 {
         float: left;
-        margin-bottom: 239px;
+        //margin-bottom: 239px;
+        margin-bottom: 111px;
     
         @media(max-width: 1180px) {
           margin-bottom: 10%;
@@ -235,7 +237,8 @@
       &.n2 {
         float: right;
         margin-top: 246px;
-        margin-bottom: 577px;
+        //margin-bottom: 577px;
+        margin-bottom: 449px;
     
         @media(max-width: 1180px) {
           margin-bottom: 20%;
@@ -245,8 +248,9 @@
       
       &.n3 {
         float: left;
-        margin-bottom: 238px;
+        //margin-bottom: 238px;
         margin-right: 34px;
+        margin-bottom: 143px;
     
         @media(max-width: 1180px) {
           clear: both;
@@ -257,8 +261,9 @@
       
       &.n4 {
         float: left;
-        margin-bottom: 238px;
-    
+        //margin-bottom: 238px;
+        margin-bottom: 143px;
+        
         @media(max-width: 1180px) {
           margin-bottom: 10%;
         }
@@ -266,7 +271,8 @@
       
       &.n5 {
         float: right;
-        margin-bottom: 223px;
+        //margin-bottom: 223px;
+        margin-bottom: 95px;
     
         @media(max-width: 1180px) {
           margin-bottom: 10%;
@@ -275,7 +281,8 @@
       
       &.n6 {
         float: left;
-        margin-bottom: 223px;
+        //margin-bottom: 223px;
+        margin-bottom: 128px;
     
         @media(max-width: 1180px) {
           margin-bottom: 10%;

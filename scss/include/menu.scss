@@ -197,6 +197,7 @@
       padding-top: 10px;
       transition: .5s;
       padding-bottom: 10px;
+      letter-spacing: 0.2px;
       
       &.active {
         color: #1F1F1F;
@@ -485,14 +486,14 @@
   
   &__login {
     @media(max-width: 768px) {
-      display: none;
+      //display: none;
     }
   }
   
   &__open {
     height: 16px;
     width: 22px;
-    fill: #C7B386;
+    fill: #1F1F1F;
     cursor: pointer;
     display: none;
     margin-left: 23px;

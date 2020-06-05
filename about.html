@@ -99,10 +99,19 @@
                   </svg>
                 </div>
               </form>
-            </div><a class="menu__user" href="#user">
-              <svg class="icon">
-                <use xlink:href="ico/sprite.svg#user"></use>
-              </svg></a><a class="menu__login btn" href="#login"><span>ЛИЧНЫЙ КАБИНЕТ</span></a>
+            </div>
+            <!--a(href="#user").menu__user-->
+            <!--    +svg("user")-->
+            <!--a(href="#login").menu__login.btn-->
+            <!--    span ВОЙТИ-->
+            <button class="menu__login btn btn-submenu"><span>
+                <svg class="icon">
+                  <use xlink:href="ico/sprite.svg#user"></use>
+                </svg>ЕВГЕНИЙ</span>
+              <div class="btn-submenu__list"><a href="#Личные-данные">Личные данные</a><a href="#История-заказов">История заказов</a>
+                <hr/><a class="exit" href="#Выйти">Выйти</a>
+              </div>
+            </button>
             <div class="menu__open js__open-menu">
               <svg class="icon">
                 <use xlink:href="ico/sprite.svg#menu"></use>

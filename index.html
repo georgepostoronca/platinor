@@ -99,10 +99,19 @@
                   </svg>
                 </div>
               </form>
-            </div><a class="menu__user" href="#user">
-              <svg class="icon">
-                <use xlink:href="ico/sprite.svg#user"></use>
-              </svg></a><a class="menu__login btn" href="#login"><span>ЛИЧНЫЙ КАБИНЕТ</span></a>
+            </div>
+            <!--a(href="#user").menu__user-->
+            <!--    +svg("user")-->
+            <!--a(href="#login").menu__login.btn-->
+            <!--    span ВОЙТИ-->
+            <button class="menu__login btn btn-submenu"><span>
+                <svg class="icon">
+                  <use xlink:href="ico/sprite.svg#user"></use>
+                </svg>ЕВГЕНИЙ</span>
+              <div class="btn-submenu__list"><a href="#Личные-данные">Личные данные</a><a href="#История-заказов">История заказов</a>
+                <hr/><a class="exit" href="#Выйти">Выйти</a>
+              </div>
+            </button>
             <div class="menu__open js__open-menu">
               <svg class="icon">
                 <use xlink:href="ico/sprite.svg#menu"></use>
@@ -117,19 +126,19 @@
             <div class="headslid-slider swiper-container js__headslid-slider">
               <div class="swiper-wrapper">
                 <div class="swiper-slide"><span>Кольца из платины и золота</span>
-                  <h1>Platinor Rings</h1><img src="img/ring.png" alt="IMG"/>
+                  <h1>Platinor Rings</h1><img src="img/ring.png" srcset="img/ring@2x.png 2x" alt="IMG"/>
                   <div class="headslid__btn">
                     <button class="btn-line"><span>СМОТРЕТЬ КОЛЛЕКЦИЮ</span></button>
                   </div>
                 </div>
                 <div class="swiper-slide"><span>Кольца из платины и золота</span>
-                  <h1>Platinor Rings Platinor Rings</h1><img src="img/ring.png" alt="IMG"/>
+                  <h1>Platinor Rings</h1><img src="img/ring.png" srcset="img/ring@2x.png 2x" alt="IMG"/>
                   <div class="headslid__btn">
                     <button class="btn-line"><span>СМОТРЕТЬ КОЛЛЕКЦИЮ</span></button>
                   </div>
                 </div>
                 <div class="swiper-slide"><span>Кольца из платины и золота</span>
-                  <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1><img src="img/ring.png" alt="IMG"/>
+                  <h1>Platinor Rings</h1><img src="img/ring.png" srcset="img/ring@2x.png 2x" alt="IMG"/>
                   <div class="headslid__btn">
                     <button class="btn-line"><span>СМОТРЕТЬ КОЛЛЕКЦИЮ</span></button>
                   </div>
@@ -147,12 +156,12 @@
           <div class="container">
             <div class="catalog__slider js__catalog-slider swiper-container loading">
               <div class="catalog__grid swiper-wrapper"><a class="swiper-slide catalog__item x1 n1" href="#">
-                  <picture><img src="img/catalog-1.jpg" alt="IMG" loading="lazy"/></picture><span>Броши</span><em>от<b>12 500</b>₽</em></a><a class="swiper-slide catalog__item x4 n2" href="#">
-                  <picture><img src="img/catalog-2.jpg" alt="IMG" loading="lazy"/></picture><span>Кольца</span><em>от<b>10 000</b>₽</em></a><a class="swiper-slide catalog__item x5 n3" href="#">
-                  <picture><img src="img/catalog-3.jpg" alt="IMG" loading="lazy"/></picture><span>Подвески</span><em>от<b>70 000</b>₽</em></a><a class="swiper-slide catalog__item x5 n4" href="#">
-                  <picture><img src="img/catalog-4.jpg" alt="IMG" loading="lazy"/></picture><span>Колье</span><em>от<b>40 000</b>₽</em></a><a class="swiper-slide catalog__item x2 n5" href="#">
-                  <picture><img src="img/catalog-5.jpg" alt="IMG" loading="lazy"/></picture><span>Серьги</span><em>от<b>52 500</b>₽</em></a><a class="swiper-slide catalog__item x3 n6" href="#">
-                  <picture><img src="img/catalog-6.jpg" alt="IMG" loading="lazy"/></picture><span>Цепи</span><em>от<b>125 000</b>₽</em></a></div>
+                  <picture><img src="img/catalog-1.jpg" srcset="img/catalog-1@2x.jpg 2x" alt="IMG" loading="lazy"/></picture><span>Броши</span><em>от<b>12 500</b>₽</em></a><a class="swiper-slide catalog__item x4 n2" href="#">
+                  <picture><img src="img/catalog-2.jpg" srcset="img/catalog-2@2x.jpg 2x" alt="IMG" loading="lazy"/></picture><span>Кольца</span><em>от<b>10 000</b>₽</em></a><a class="swiper-slide catalog__item x5 n3" href="#">
+                  <picture><img src="img/catalog-3.jpg" srcset="img/catalog-3@2x.jpg 2x" alt="IMG" loading="lazy"/></picture><span>Подвески</span><em>от<b>70 000</b>₽</em></a><a class="swiper-slide catalog__item x5 n4" href="#">
+                  <picture><img src="img/catalog-4.jpg" srcset="img/catalog-4@2x.jpg 2x" alt="IMG" loading="lazy"/></picture><span>Колье</span><em>от<b>40 000</b>₽</em></a><a class="swiper-slide catalog__item x2 n5" href="#">
+                  <picture><img src="img/catalog-5.jpg" srcset="img/catalog-5@2x.jpg 2x" alt="IMG" loading="lazy"/></picture><span>Серьги</span><em>от<b>52 500</b>₽</em></a><a class="swiper-slide catalog__item x3 n6" href="#">
+                  <picture><img src="img/catalog-6.jpg" srcset="img/catalog-6@2x.jpg 2x" alt="IMG" loading="lazy"/></picture><span>Цепи</span><em>от<b>125 000</b>₽</em></a></div>
             </div>
           </div>
         </section>
@@ -180,9 +189,10 @@
                 <div class="swiper-wrapper">
                   <div class="swiper-slide"><a class="product" href="#product-1">
                       <div class="product__slider">
-                        <div class="product__slider-item active"><img src="img/image-1.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-2.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-3.jpg" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                       </div>
                       <div class="product__info">
                         <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
@@ -197,9 +207,10 @@
                       </div></a></div>
                   <div class="swiper-slide"><a class="product" href="#product-1">
                       <div class="product__slider">
-                        <div class="product__slider-item active"><img src="img/image-1.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-2.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-3.jpg" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                       </div>
                       <div class="product__info">
                         <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
@@ -214,9 +225,10 @@
                       </div></a></div>
                   <div class="swiper-slide"><a class="product" href="#product-1">
                       <div class="product__slider">
-                        <div class="product__slider-item active"><img src="img/image-1.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-2.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-3.jpg" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                       </div>
                       <div class="product__info">
                         <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
@@ -231,9 +243,10 @@
                       </div></a></div>
                   <div class="swiper-slide"><a class="product" href="#product-1">
                       <div class="product__slider">
-                        <div class="product__slider-item active"><img src="img/image-1.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-2.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-3.jpg" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                       </div>
                       <div class="product__info">
                         <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
@@ -248,9 +261,10 @@
                       </div></a></div>
                   <div class="swiper-slide"><a class="product" href="#product-1">
                       <div class="product__slider">
-                        <div class="product__slider-item active"><img src="img/image-1.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-2.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-3.jpg" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                       </div>
                       <div class="product__info">
                         <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
@@ -265,9 +279,10 @@
                       </div></a></div>
                   <div class="swiper-slide"><a class="product" href="#product-1">
                       <div class="product__slider">
-                        <div class="product__slider-item active"><img src="img/image-1.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-2.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-3.jpg" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                       </div>
                       <div class="product__info">
                         <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
@@ -282,9 +297,10 @@
                       </div></a></div>
                   <div class="swiper-slide"><a class="product" href="#product-1">
                       <div class="product__slider">
-                        <div class="product__slider-item active"><img src="img/image-1.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-2.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-3.jpg" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                       </div>
                       <div class="product__info">
                         <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
@@ -299,9 +315,10 @@
                       </div></a></div>
                   <div class="swiper-slide"><a class="product" href="#product-1">
                       <div class="product__slider">
-                        <div class="product__slider-item active"><img src="img/image-1.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-2.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-3.jpg" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                       </div>
                       <div class="product__info">
                         <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
@@ -316,9 +333,10 @@
                       </div></a></div>
                   <div class="swiper-slide"><a class="product" href="#product-1">
                       <div class="product__slider">
-                        <div class="product__slider-item active"><img src="img/image-1.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-2.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-3.jpg" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                       </div>
                       <div class="product__info">
                         <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
@@ -333,9 +351,10 @@
                       </div></a></div>
                   <div class="swiper-slide"><a class="product" href="#product-1">
                       <div class="product__slider">
-                        <div class="product__slider-item active"><img src="img/image-1.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-2.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-3.jpg" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                       </div>
                       <div class="product__info">
                         <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
@@ -350,9 +369,10 @@
                       </div></a></div>
                   <div class="swiper-slide"><a class="product" href="#product-1">
                       <div class="product__slider">
-                        <div class="product__slider-item active"><img src="img/image-1.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-2.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-3.jpg" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                       </div>
                       <div class="product__info">
                         <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
@@ -367,9 +387,10 @@
                       </div></a></div>
                   <div class="swiper-slide"><a class="product" href="#product-1">
                       <div class="product__slider">
-                        <div class="product__slider-item active"><img src="img/image-1.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-2.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-3.jpg" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                       </div>
                       <div class="product__info">
                         <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
@@ -384,9 +405,10 @@
                       </div></a></div>
                   <div class="swiper-slide"><a class="product" href="#product-1">
                       <div class="product__slider">
-                        <div class="product__slider-item active"><img src="img/image-1.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-2.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-3.jpg" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                       </div>
                       <div class="product__info">
                         <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
@@ -401,9 +423,10 @@
                       </div></a></div>
                   <div class="swiper-slide"><a class="product" href="#product-1">
                       <div class="product__slider">
-                        <div class="product__slider-item active"><img src="img/image-1.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-2.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-3.jpg" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                       </div>
                       <div class="product__info">
                         <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
@@ -418,9 +441,10 @@
                       </div></a></div>
                   <div class="swiper-slide"><a class="product" href="#product-1">
                       <div class="product__slider">
-                        <div class="product__slider-item active"><img src="img/image-1.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-2.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-3.jpg" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                       </div>
                       <div class="product__info">
                         <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
@@ -435,9 +459,10 @@
                       </div></a></div>
                   <div class="swiper-slide"><a class="product" href="#product-1">
                       <div class="product__slider">
-                        <div class="product__slider-item active"><img src="img/image-1.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-2.jpg" alt="IMG" loading="lazy"/></div>
-                        <div class="product__slider-item"><img src="img/image-3.jpg" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                        <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                       </div>
                       <div class="product__info">
                         <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
@@ -458,7 +483,7 @@
         </section>
         <section class="decor">
           <div class="decor__wrap"><em>Если в каталоге нет того, что вам нужно</em>
-            <div class="decor__img"><b>Украшени</b><em>е</em><span>с нуля</span><img class="desktop" src="img/imgtext.png" alt="IMG"/><img class="mobile" src="img/imgtext-mobile.png" alt="IMG"/></div>
+            <div class="decor__img"><b>Украшени</b><em>е</em><span>с нуля</span><img class="desktop" src="img/imgtext.png" srcset="img/imgtext.png 2x" alt="IMG"/><img class="mobile" src="img/imgtext-mobile.png" srcset="img/imgtext-mobile.png 2x" alt="IMG"/></div>
             <p>Вы ищете кольцо на помолвку с бриллиантом другого размера; хотите обручальные кольца, как у известного бренда, но дешевле, или придумали свой дизайн — мы сделаем украшение с нуля</p><a class="btn-line btn-line--textsize btn-line--black"><span>ЗАКАЗАТЬ</span></a>
           </div>
         </section>
