@@ -2,6 +2,15 @@
 // import debounce from "lodash.debounce";
 // import Swiper from "swiper";
 
+// textarea content height
+function textAreaAdjust(o) {
+  var text = o.value;
+  console.log(text);
+  
+  var copy = document.createElement("div");
+  copy.classList.add("copy-block-hidden");
+  
+}
 
 // svg4everybody
 !function(a,b){"function"==typeof define&&define.amd?define([],function(){return a.svg4everybody=b()}):"object"==typeof exports?module.exports=b():a.svg4everybody=b()}(this,function(){/*! svg4everybody v2.0.0 | github.com/jonathantneal/svg4everybody */
@@ -81,11 +90,11 @@ if (document.querySelector(".swiper-container")) {
         clearInterval(progresSlideInterval);
         document.querySelector(".headslid").classList.remove("progress-active");
       }
-  
+      
       function PlaySlider() {
         if(progresSlideInterval) clearInterval(progresSlideInterval);
         document.querySelector(".headslid").classList.remove("progress-active");
-    
+        
         setTimeout(function() {
           document.querySelector(".headslid").classList.add("progress-active");
           progresSlideInterval = setTimeout(function() {
@@ -94,11 +103,10 @@ if (document.querySelector(".swiper-container")) {
           }, 8000);
         }, 10)
       }
-  
+      
       var stopBtn = document.querySelectorAll('.js__headslid-stop')
       stopBtn = [].slice.call(stopBtn);
       stopBtn.forEach(function(el) {
-        console.log(el)
         el.addEventListener("mouseover", function() {
           StopSlider();
         });
@@ -162,8 +170,8 @@ if (document.querySelector(".swiper-container")) {
         }
       });
     }
-  
-  
+    
+    
     // review slider
     if (document.querySelector('.js__review-slider')) {
       var reviewslider = new Swiper('.js__review-slider', {
@@ -194,43 +202,43 @@ if (document.querySelector(".swiper-container")) {
     
     // catalog slider(mobile)
     (function() {
-    
+      
       // breakpoint where swiper will be destroyed
       // and switches to a dual-column layout
       const breakpoint = window.matchMedia( '(min-width:768px)' );
-    
+      
       // keep track of swiper instances to destroy later
       let mySwiper;
-    
-      //////////////////////////////////////////////////////////////////
-      //////////////////////////////////////////////////////////////////
-      //////////////////////////////////////////////////////////////////
-    
-      const breakpointChecker = function() {
       
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+      
+      const breakpointChecker = function() {
+        
         // if larger viewport and multi-row layout needed
         if ( breakpoint.matches === true ) {
-        
+          
           // clean up old instances and inline styles when available
           if ( mySwiper !== undefined ) mySwiper.destroy( true, true );
           document.querySelector('.js__catalog-slider').classList.remove("loading");
           // or/and do nothing
           return;
-        
+          
           // else if a small viewport and single column layout needed
         } else if ( breakpoint.matches === false ) {
-        
+          
           // fire small viewport version of swiper
           return enableSwiper();
-        
+          
         }
-      
+        
       };
-    
+      
       //////////////////////////////////////////////////////////////////
       //////////////////////////////////////////////////////////////////
       //////////////////////////////////////////////////////////////////
-    
+      
       const enableSwiper = function() {
         mySwiper = new Swiper ('.js__catalog-slider', {
           slidesPerView: 3,
@@ -260,21 +268,18 @@ if (document.querySelector(".swiper-container")) {
             },
           }
         });
-      
+        
       };
-    
+      
       //////////////////////////////////////////////////////////////////
       //////////////////////////////////////////////////////////////////
       //////////////////////////////////////////////////////////////////
-    
+      
       // keep an eye on viewport size changes
       breakpoint.addListener(breakpointChecker);
-    
+      
       // kickstart
       breakpointChecker();
-    
-    
-    
     })();
   });
 }
@@ -477,3 +482,15 @@ oepnClose({
     });
   });
 })();
+
+
+// Add class when input is not empty
+var inputs = document.querySelectorAll(".js__input-notempty");
+if(inputs.length) {
+  inputs = [].slice.call(inputs);
+  inputs.forEach(function(el) {
+    el.addEventListener("blur", function(item) {
+      this.value ? this.classList.add("notempty") : this.classList.remove("notempty");
+    })
+  });
+}

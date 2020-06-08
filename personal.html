@@ -161,17 +161,17 @@
               <h2>Индивидуальный заказ</h2>
               <p>Для индивидуального заказа пришлите эскиз или фотографию понравившейся модели, можно добавить ссылку на изделие. Укажите, какой металл и вставки вы хотите, а также примерные характеристики камней. Мы просчитаем стоимость изготовления и согласуем её с Вами.</p><em>Для начала работ необходимо внести предоплату 50%</em>
               <form class="indorder-form">
-                <div class="input-block">
-                  <input type="text" name="name" placeholder="Имя" required="required"/><span>Заполните данное поле</span>
+                <div class="input-block input-block--white">
+                  <input class="js__input-notempty" type="text" name="name" required="required"/><span>Имя</span><em>Заполните данное поле</em>
                 </div>
-                <div class="input-block">
-                  <input type="phone" name="phone" placeholder="Телефон" required="required"/><span>Заполните данное поле</span>
+                <div class="input-block input-block--white">
+                  <input class="js__input-notempty" type="phone" name="phone" required="required"/><span>Телефон</span><em>Заполните данное поле</em>
                 </div>
-                <div class="input-block">
-                  <input type="email" name="email" placeholder="Email" required="required"/><span>Заполните данное поле</span>
+                <div class="input-block input-block--white">
+                  <input class="js__input-notempty" type="email" name="email" required="required"/><span>Email</span><em>Заполните данное поле</em>
                 </div>
-                <div class="textarea-block">
-                  <textarea name="message" placeholder="Напишите что-нибудь" required="required"></textarea>
+                <div class="textarea-block textarea-block--white">
+                  <textarea class="js__input-notempty" name="message" onkeyup="textAreaAdjust(this)" required="required"></textarea><span>Напишите что-нибудь</span><em>Заполните данное поле</em>
                 </div>
                 <div class="indorder-form__bottom">
                   <button class="btn-form" type="submit" name="submit"><span>ОТПРАВИТЬ</span></button>

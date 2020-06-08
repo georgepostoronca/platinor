@@ -6,20 +6,26 @@ section.indorder
       em Для начала работ необходимо внести предоплату 50%
 
       form.indorder-form
-        .input-block
-          input(type='text' name="name" placeholder="Имя" required)
-          span Заполните данное поле
+        .input-block.input-block--white
+          input.js__input-notempty(type='text' name="name" required)
+          span Имя
+          em Заполните данное поле
 
-        .input-block
-          input(type='phone' name="phone" placeholder="Телефон" required)
-          span Заполните данное поле
+        .input-block.input-block--white
+          input.js__input-notempty(type='phone' name="phone" required)
+          span Телефон
+          em Заполните данное поле
 
-        .input-block
-          input(type='email' name="email" placeholder="Email" required)
-          span Заполните данное поле
+        .input-block.input-block--white
+          input.js__input-notempty(type='email' name="email" required)
+          span Email
+          em Заполните данное поле
 
-        .textarea-block
-          textarea(name="message" placeholder="Напишите что-нибудь" required)
+        .textarea-block.textarea-block--white
+          textarea.js__input-notempty(name="message" onkeyup="textAreaAdjust(this)" required)
+          span Напишите что-нибудь
+          em Заполните данное поле
+
 
         .indorder-form__bottom
           button(type="submit" name="submit").btn-form
