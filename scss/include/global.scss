@@ -266,14 +266,15 @@ a {
         margin-bottom: 4px;
         
         &:hover {
-          color: #E0D4B8;
+          color: #C7B386;
         }
       
         &.exit {
           color: #E05C5C;
+          padding-top: 10px;
   
           &:hover {
-            color: #E0D4B8;
+            color: #C7B386;
           }
         }
       }
@@ -437,6 +438,7 @@ a {
       transform-origin: center center;
       transform: translateY(-50%) rotate(45deg);
       border: 1px solid #C7B386;
+      box-sizing: border-box;
     }
   }
 }

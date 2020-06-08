@@ -80,10 +80,6 @@ nav.menu
 
             .menu__search
                 +svg("search", "js__open-search")
-                form(action="").js__search-block
-                    .container
-                        input(type="text", placeholder="Поиск по сайту")
-                        +svg("close", "js__close-search")
 
             //a(href="#user").menu__user
             //    +svg("user")
@@ -107,3 +103,9 @@ nav.menu
 
             .menu__open.js__open-menu
                 +svg("menu")
+
+    form(action="").menu-search.js__search-block
+      .container
+        input(type="text", placeholder="Поиск по сайту")
+        .menu-search__close.js__close-search
+          +svg("close", "js__close-search")

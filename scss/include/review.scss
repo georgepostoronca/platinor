@@ -102,3 +102,36 @@
     color: #8B8B8B;
   }
 }
+
+.review-slider {
+  .swiper-slide {
+    p {
+      opacity: 0;
+      transform: translateY(5%);
+      transition: 1s;
+    }
+    
+    .user {
+      opacity: 0;
+      transform: translateY(20%);
+      transition: .8s;
+      transition-delay: .1s;
+    }
+    
+    &.swiper-slide-active {
+      p, .user {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+    }
+    
+    @media(min-width: 880px) {
+      &.swiper-slide-next {
+        p, .user {
+          opacity: 1;
+          transform: translateY(0%);
+        }
+      }
+    }
+  }
+}

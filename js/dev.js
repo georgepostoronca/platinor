@@ -45,9 +45,15 @@ if (document.querySelector(".swiper-container")) {
         autoHeight: true,
         loop: true,
         threshold: 20,
+        updateOnWindowResize: true,
         pagination: {
           el: '.headslid__pagination',
           type: 'progressbar',
+          clickable: true,
+        },
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true
         },
         navigation: {
           nextEl: '.swiper-button-next',
@@ -69,6 +75,12 @@ if (document.querySelector(".swiper-container")) {
           },
         }
       });
+      
+      
+      function StopSlider() {
+        clearInterval(progresSlideInterval);
+        document.querySelector(".headslid").classList.remove("progress-active");
+      }
   
       function PlaySlider() {
         if(progresSlideInterval) clearInterval(progresSlideInterval);
@@ -82,6 +94,20 @@ if (document.querySelector(".swiper-container")) {
           }, 8000);
         }, 10)
       }
+  
+      var stopBtn = document.querySelectorAll('.js__headslid-stop')
+      stopBtn = [].slice.call(stopBtn);
+      stopBtn.forEach(function(el) {
+        console.log(el)
+        el.addEventListener("mouseover", function() {
+          StopSlider();
+        });
+        
+        el.addEventListener("mouseout", function() {
+          PlaySlider();
+        });
+      });
+      
     }
     
     // topproduct
@@ -403,12 +429,12 @@ var searchBlock = document.querySelector(".js__search-block");
 oepnClose({
   btn: document.querySelector(".js__open-search"),
   el: searchBlock,
-  type: "open",
+  type: "toggle",
   callback: function (el) {
     setTimeout(function () {
-      onClickClose(searchBlock, function () {
-        searchBlock.classList.remove("active");
-      });
+      // onClickClose(searchBlock, function () {
+      //   searchBlock.classList.remove("active");
+      // });
     }, 100);
   }
 });

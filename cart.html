@@ -91,14 +91,6 @@
               <svg class="icon js__open-search">
                 <use xlink:href="ico/sprite.svg#search"></use>
               </svg>
-              <form class="js__search-block" action="">
-                <div class="container">
-                  <input type="text" placeholder="Поиск по сайту"/>
-                  <svg class="icon js__close-search">
-                    <use xlink:href="ico/sprite.svg#close"></use>
-                  </svg>
-                </div>
-              </form>
             </div>
             <!--a(href="#user").menu__user-->
             <!--    +svg("user")-->
@@ -119,6 +111,16 @@
             </div>
           </div>
         </div>
+        <form class="menu-search js__search-block" action="">
+          <div class="container">
+            <input type="text" placeholder="Поиск по сайту"/>
+            <div class="menu-search__close js__close-search">
+              <svg class="icon js__close-search">
+                <use xlink:href="ico/sprite.svg#close"></use>
+              </svg>
+            </div>
+          </div>
+        </form>
       </nav>
       <div class="blockattach__content">
         <section class="cart">
