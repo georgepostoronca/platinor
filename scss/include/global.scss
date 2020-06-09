@@ -572,6 +572,7 @@ a {
   border-radius: 120px;
   display: flex;
   position: relative;
+  transform: translate3d(0,0,0);
   
   @media(max-width: 992px) {
     width: 120px;
@@ -600,11 +601,14 @@ a {
     justify-content: center;
     transition: .2s;
     
+    transform: translate3d(0,0,0);
+    
     svg {
       width: 15px;
       height: 28px;
       fill: #1F1F1F;
       transition: .2s;
+      transform: translate3d(0,0,0);
   
       @media(max-width: 560px) {
         width: 8px;
