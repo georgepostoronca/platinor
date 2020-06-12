@@ -44,6 +44,10 @@ h2 {
   font-size: 45px;
   line-height: 1.2;
   margin: 0 0 36px;
+  
+  @media(max-width: 768px) {
+    font-size: 30px;
+  }
 }
 
 
@@ -988,6 +992,55 @@ a {
   }
 }
 
+.btn-yellow {
+  min-width: 344px;
+  height: 65px;
+  background: #C7B386;
+  border-radius: 5px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  
+  outline: 0;
+  cursor: pointer;
+  border: 1px solid #C7B386;
+  transition: .2s;
+  
+  @media (max-width: 768px) {
+    height: 51px;
+    min-width: 280px;
+  }
+  
+  &:hover {
+    background-color: transparent;
+    
+    span {
+      color: #C7B386;
+    }
+  }
+  
+  &:active {
+    border-color: rgba(#C7B386, .5);
+  }
+  
+  span{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    transition: .2s;
+  
+    @media(max-width: 768px) {
+      font-size: 11px;
+    }
+  }
+}
+
 .loading {
   position: relative;
   
@@ -1142,6 +1195,10 @@ a {
     transform: translateY(-50%);
     transition: .2s;
     pointer-events: none;
+    
+    @media(max-width: 768px) {
+      font-size: 13px;
+    }
   }
   
   em {
@@ -1242,6 +1299,10 @@ a {
     transform: translateY(-50%);
     transition: .2s;
     pointer-events: none;
+  
+    @media(max-width: 768px) {
+      font-size: 13px;
+    }
   }
   
   em {
@@ -1274,4 +1335,13 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px #fff inset;
   transition: background-color 5000s ease-in-out 0s;
+}
+
+input {
+  border-radius: 0;
+  padding: 0;
+}
+
+textarea {
+  border-radius: 0;
 }

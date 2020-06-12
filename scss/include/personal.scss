@@ -206,6 +206,11 @@
 .indorder {
   background: #1F1F1F;
   color: #fff;
+  padding-bottom: 114px;
+  
+  @media(max-width: 705px) {
+    padding-bottom: 34px;
+  }
   
   &__wrap {
     width: 665px;
@@ -215,12 +220,32 @@
   
     padding-top: 89px;
     
+    @media(max-width: 705px) {
+      width: 100%;
+    }
+  
+    @media(max-width: 768px) {
+      padding-top: 29px;
+    }
+    
+    h2 {
+      @media(max-width: 705px) {
+        margin: 0 0 21px;
+      }
+    }
+    
     p {
       font-style: normal;
       font-weight: normal;
       font-size: 20px;
       line-height: 35px;
       margin-bottom: 29px;
+      
+      @media(max-width: 768px) {
+        font-size: 13px;
+        line-height: 24px;
+        margin-bottom: 17px;
+      }
     }
     
     > em {
@@ -230,6 +255,15 @@
       color: #C7B386;
       margin-bottom: 42px;
       display: inline-block;
+      
+      @media(max-width: 768px) {
+        font-size: 13px;
+        line-height: 21px;
+      }
+  
+      @media(max-width: 705px) {
+        margin-bottom: 18px;
+      }
     }
   }
   
@@ -243,10 +277,55 @@
       margin-bottom: 30px;
       margin-top: 30px;
       width: calc(33.3333% - 27px);
+  
+      @media(max-width: 705px) {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 13px;
+      }
     }
     
     .textarea-block {
       width: 100%;
+    }
+    
+    &__bottom {
+      display: flex;
+      align-items: center;
+      margin-top: 48px;
+      flex-wrap: wrap;
+  
+      @media(max-width: 705px) {
+        justify-content: center;
+      }
+      
+      .btn-yellow {
+        @media(max-width: 400px) {
+          min-width: 100%;
+        }
+      }
+      
+      > span {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 21px;
+        color: #737373;
+        margin-left: 30px;
+        width: 251px;
+  
+        @media(max-width: 705px) {
+          //width: 100%;
+          margin-left: 0;
+          margin-top: 23px;
+  
+          font-size: 13px;
+          line-height: 21px;
+          text-align: center;
+          color: #737373;
+          width: 251px;
+        }
+      }
     }
   }
 }

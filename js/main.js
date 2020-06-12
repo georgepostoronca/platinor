@@ -3,14 +3,26 @@
 // import Swiper from "swiper";
 
 // textarea content height
-function textAreaAdjust(o) {
-  var text = o.value;
-  console.log(text);
-  
-  var copy = document.createElement("div");
-  copy.classList.add("copy-block-hidden");
-  
-}
+// function textAreaAdjust(o) {
+//   var text = o.value;
+//   console.log(text);
+//   var copy = document.createElement("div");
+//   var el = o.parentElement.querySelector(".copy-block-hidden");
+//
+//
+//   copy.classList.add("copy-block-hidden");
+//   // copy.innerText = text;
+//   if(!el) {
+//     o.parentElement.appendChild(copy);
+//   }
+//
+//   if(el) {
+//     el.innerText = text;
+//     var height = window.getComputedStyle(el).height;
+//     console.log(height)
+//     o.style.height = height + 50;
+//   }
+// }
 
 // svg4everybody
 !function(a,b){"function"==typeof define&&define.amd?define([],function(){return a.svg4everybody=b()}):"object"==typeof exports?module.exports=b():a.svg4everybody=b()}(this,function(){/*! svg4everybody v2.0.0 | github.com/jonathantneal/svg4everybody */
@@ -20,7 +32,7 @@ svg4everybody();
 
 function loadScript(url, callback) {
   
-  var script = document.createElement("script")
+  var script = document.createElement("script");
   script.type = "text/javascript";
   
   if (script.readyState) {  //IE
