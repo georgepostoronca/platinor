@@ -1,0 +1,135 @@
+.contact {
+  .container {
+    position: relative;
+  }
+  
+  &__wrap {
+    width: 662px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 69px;
+    
+    > em {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      color: #7B7B7B;
+      position: absolute;
+      top: 21px;
+      left: 0;
+    }
+    
+    h1 {
+      margin-top: 0;
+      line-height: 1.1;
+      margin-bottom: 63px;
+    }
+  }
+  
+  &__phone {
+    margin-bottom: 43px;
+    
+    a {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      color: #000000;
+      transition: .2s;
+    
+      &[href^="tel"] {
+        &:after {
+          content: "";
+          width: 1px;
+          height: 15px;
+          transform: rotate(24deg);
+          background-color: #E2E2E2;
+          display: inline-block;
+          margin-left: 20px;
+          margin-right: 16px;
+        }
+        
+        &:hover {
+          color: #C7B386;
+        }
+      }
+      
+      &[href^="mail"] {
+        color: #C7B386;
+        
+        &:hover {
+          color: #000000;
+        }
+      }
+    }
+  }
+  
+  &__time {
+    width: 442px;
+    background: #FBF7F0;
+    border-radius: 5px;
+  
+    display: flex;
+    padding: 33px 33px 37px 32px;
+    justify-content: space-between;
+    margin-bottom: 52px;
+  
+    &-item {
+      b {
+        display: block;
+        width: 100%;
+        font-weight: 500;
+        font-size: 25px;
+        margin-bottom: 17px;
+      }
+      
+      svg {
+        width: 9px;
+        height: 8px;
+        fill: #E2E2E2;
+        margin-right: 7px;
+        margin-left: 4px;
+      }
+      
+      span {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+      }
+    }
+  }
+  
+  &__info {
+    &-item {
+      margin-bottom: 29px;
+      display: flex;
+      
+      em {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 1.2;
+        color: #969696;
+        display: inline-block;
+        width: 94px;
+        vertical-align: top;
+        flex: 0 1 auto;
+      }
+      
+      span {
+        vertical-align: top;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 1.2;
+        color: #000000;
+        //flex: 0 1 calc(100% - 94px);
+        width: calc(100% - 94px);
+      }
+    }
+  }
+}
+
+.map, #map {
+  height: 581px;
+}
