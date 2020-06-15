@@ -1089,6 +1089,18 @@ a {
   width: 100%;
   border-bottom: 1px solid #ECECEC;
   
+  &.max {
+    .title-head__wrap {
+      width: 720px;
+  
+      @media(max-width: 768px) {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+  
   &__wrap {
     width: 665px;
     display: block;
