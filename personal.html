@@ -159,23 +159,36 @@
             <div class="indorder__wrap">
               <h2>Индивидуальный заказ</h2>
               <p>Для индивидуального заказа пришлите эскиз или фотографию понравившейся модели, можно добавить ссылку на изделие. Укажите, какой металл и вставки вы хотите, а также примерные характеристики камней. Мы просчитаем стоимость изготовления и согласуем её с Вами.</p><em>Для начала работ необходимо внести предоплату 50%</em>
-              <form class="indorder-form">
+              <form class="indorder-form js-form-validator" data-submit="indorderSbmit()">
                 <div class="input-block input-block--white">
-                  <input class="js__input-notempty" type="text" name="name" required="required"/><span>Имя</span><em>Заполните данное поле</em>
+                  <input class="js__input-notempty" type="text" name="name" required="required" data-bouncer-target=".errmsg-name"/><span>Имя</span><em class="errmsg errmsg-name">Заполните данное поле</em>
                 </div>
                 <div class="input-block input-block--white">
-                  <input class="js__input-notempty" type="phone" name="phone" required="required"/><span>Телефон</span><em>Заполните данное поле</em>
+                  <input class="js__input-notempty js-phone-mask" type="phone" name="phone" required="required" data-bouncer-target=".errmsg-phone"/><span>Телефон</span><em class="errmsg errmsg-phone">Заполните данное поле</em>
                 </div>
                 <div class="input-block input-block--white">
-                  <input class="js__input-notempty" type="email" name="email" required="required"/><span>Email</span><em>Заполните данное поле</em>
+                  <input class="js__input-notempty" type="email" name="email" required="required" data-bouncer-target=".errmsg-email"/><span>Email</span><em class="errmsg errmsg-email">Заполните данное поле</em>
                 </div>
                 <div class="textarea-block textarea-block--white">
-                  <textarea class="js__input-notempty" name="message" onkeyup="textAreaAdjust(this)" required="required"></textarea><span>Напишите что-нибудь</span><em>Заполните данное поле</em>
+                  <textarea class="js__input-notempty" name="message" onkeyup="textAreaAdjust(this)" required="required" data-bouncer-target=".errmsg-message"></textarea><span>Напишите что-нибудь</span><em class="errmsg errmsg-message">Заполните данное поле</em>
+                </div>
+                <div class="input-file">
+                  <input type="file" multiple="multiple" name="file" required="required" id="input-id-file"/>
+                  <label for="input-id-file">
+                    <svg class="icon">
+                      <use xlink:href="ico/sprite.svg#clip"></use>
+                    </svg><span>Прикрепить файл</span>
+                  </label>
                 </div>
                 <div class="indorder-form__bottom">
                   <button class="btn-yellow" type="submit" name="submit"><span>ОТПРАВИТЬ</span></button><span>Нажимая на кнопку «Отправить», я даю свое согласие с политикой обработки персональных данных</span>
                 </div>
               </form>
+              <script>
+                function indorderSbmit() {
+                  console.log("Submit")
+                }
+              </script>
             </div>
           </div>
         </section>

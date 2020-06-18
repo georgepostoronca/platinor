@@ -622,7 +622,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     
       document.addEventListener('bouncerFormInvalid', function (event) {
         // console.log(event.detail.errors);
-        // console.log(event.detail.errors[0].offsetTop);
+        console.log(event.detail.errors[0].offsetTop);
         window.scrollTo(0, event.detail.errors[0].offsetTop);
       }, false);
     
@@ -667,4 +667,14 @@ if(tahheadfix) {
       tahheadfix.classList.remove("fixed");
     }
   }
+}
+
+
+// Input File
+var inputFile = document.querySelectorAll(".js-input-file");
+if(inputFile) {
+  var items = [].slice.call(inputFile);
+  items.forEach(function() {
+    
+  });
 }
