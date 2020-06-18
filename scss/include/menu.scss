@@ -38,8 +38,9 @@
       text-decoration: none;
       color: #858585;
       transition: .2s;
+      text-transform: uppercase;
       
-      &:hover {
+      &:hover, &.active {
         color: #292929;
       }
     }

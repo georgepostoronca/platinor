@@ -1,28 +1,12 @@
-// import forEach from "lodash.forEach";
-// import debounce from "lodash.debounce";
-// import Swiper from "swiper";
-
-// textarea content height
-// function textAreaAdjust(o) {
-//   var text = o.value;
-//   console.log(text);
-//   var copy = document.createElement("div");
-//   var el = o.parentElement.querySelector(".copy-block-hidden");
-//
-//
-//   copy.classList.add("copy-block-hidden");
-//   // copy.innerText = text;
-//   if(!el) {
-//     o.parentElement.appendChild(copy);
-//   }
-//
-//   if(el) {
-//     el.innerText = text;
-//     var height = window.getComputedStyle(el).height;
-//     console.log(height)
-//     o.style.height = height + 50;
-//   }
-// }
+(function(ELEMENT) {
+  ELEMENT.matches = ELEMENT.matches || ELEMENT.mozMatchesSelector || ELEMENT.msMatchesSelector || ELEMENT.oMatchesSelector || ELEMENT.webkitMatchesSelector;
+  ELEMENT.closest = ELEMENT.closest || function closest(selector) {
+    if (!this) return null;
+    if (this.matches(selector)) return this;
+    if (!this.parentElement) {return null}
+    else return this.parentElement.closest(selector)
+  };
+}(Element.prototype));
 
 // svg4everybody
 !function(a,b){"function"==typeof define&&define.amd?define([],function(){return a.svg4everybody=b()}):"object"==typeof exports?module.exports=b():a.svg4everybody=b()}(this,function(){/*! svg4everybody v2.0.0 | github.com/jonathantneal/svg4everybody */
@@ -505,4 +489,182 @@ if(inputs.length) {
       this.value ? this.classList.add("notempty") : this.classList.remove("notempty");
     })
   });
+}
+
+
+
+// Tabs
+function Tabs(el) {
+  var $this = this;
+  this.root = document.querySelector(el);
+  
+  if(!this.root) return false;
+  
+  if(this.root.querySelectorAll(".js-tabs-btn")) {
+    this.btns = [].slice.call(this.root.querySelectorAll(".js-tabs-btn"));
+  }
+  
+  if(this.root.querySelectorAll(".js-tabs-content")) {
+    this.contents = [].slice.call(this.root.querySelectorAll(".js-tabs-content"));
+  }
+  
+  this.btns[0].classList.add("active");
+  this.contents[0].classList.add("active");
+  
+  this.btns.forEach(function(item) {
+    item.addEventListener("click", function(el) {
+      var index = Array.prototype.slice.call(this.parentElement.children).indexOf(this)
+      
+      this.classList.add("active");
+      $this.contents[index].classList.add("active");
+  
+      getSiblings(this, function (el) {
+        el.classList.remove("active");
+      });
+      getSiblings($this.contents[index], function (el) {
+        el.classList.remove("active");
+      });
+    });
+  });
+}
+var tabs = new Tabs(".js-tabs");
+var tabs2 = new Tabs(".js-tabs2");
+
+
+// Open/Close Newpass input
+oepnClose({
+  btn: document.querySelector(".js-open-newpass"),
+  el: document.querySelector(".js-block-newpass"),
+  type: "toggle",
+  callback: function (el) {
+    var input = [].slice.call(document.querySelectorAll(".js-block-newpass input"));
+    
+    if(document.querySelector(".js-block-newpass").classList.contains("active")) {
+      console.log("True")
+      input.forEach(function(el) {
+        el.required = true;
+      })
+    } else {
+      console.log("False")
+      input.forEach(function(el) {
+        el.required = false;
+        el.value = "";
+      })
+    }
+  }
+});
+
+
+// Include Plugin Validator
+function executeFunctionByName(functionName, context /*, args */) {
+  var args = Array.prototype.slice.call(arguments, 2);
+  var namespaces = functionName.split(".");
+  var func = namespaces.pop();
+  for(var i = 0; i < namespaces.length; i++) {
+    context = context[namespaces[i]];
+  }
+  return context[func].apply(context, args);
+}
+
+
+var validatorClass = document.querySelectorAll(".js-form-validator");
+if(validatorClass.length) {
+  loadScript("js/include/inputmask.min.js", function () {
+    console.log("InputMask Loaded");
+    
+    var el = [].slice.call(document.querySelectorAll(".js-phone-mask"));
+    el.forEach(function(item) {
+      Inputmask({
+        mask: "+9 (999) 999 99 99",
+        onincomplete: function(el) {
+          el.target.value = "";
+        }
+      }).mask(item);
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  var validatorClass = document.querySelectorAll(".js-form-validator");
+  if(validatorClass.length) {
+    loadScript("js/include/bouncer.polyfills.min.js", function () {
+      console.log("Validator Loaded");
+      
+      var bouncer = new Bouncer('.js-form-validator', {
+        disableSubmit: true,
+        fieldClass: 'error', // Applied to fields with errors
+        errorClass: 'error-message', // Applied to the error message for invalid fields
+        fieldPrefix: 'bouncer-field_', // If a field doesn't have a name or ID, one is generated with this prefix
+        errorPrefix: 'bouncer-error_', // Prefix used for error message IDs
+        patterns: {
+          email: /^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$/,
+        },
+        customValidations: {
+          valueMismatch: function (field) {
+          
+            // Look for a selector for a field to compare
+            // If there isn't one, return false (no error)
+            var selector = field.getAttribute('data-bouncer-match');
+            if (!selector) return false;
+          
+            // Get the field to compare
+            var otherField = field.form.querySelector(selector);
+            if (!otherField) return false;
+          
+            // Compare the two field values
+            // We use a negative comparison here because if they do match, the field validates
+            // We want to return true for failures, which can be confusing
+            return otherField.value !== field.value;
+          
+          }
+        },
+      });
+    
+      document.addEventListener('bouncerFormInvalid', function (event) {
+        // console.log(event.detail.errors);
+        // console.log(event.detail.errors[0].offsetTop);
+        window.scrollTo(0, event.detail.errors[0].offsetTop);
+      }, false);
+    
+      document.addEventListener('bouncerFormValid', function (el) {
+        var fn = el.target.dataset.submit;
+        window[fn](el);
+      }, false);
+      
+    });
+  }
+});
+
+
+
+// Tab Table
+var btnopentabtable = [].slice.call(document.querySelectorAll(".js-open-tabtable"));
+if(btnopentabtable.length) {
+  btnopentabtable.forEach(function(el) {
+    el.addEventListener("click", function(item) {
+      var parent = this.closest(".tabtable__item");
+      parent.classList.toggle("active");
+      
+      if(parent.classList.contains("active")) {
+        parent.querySelector("button span").innerText = "Свернуть";
+      } else {
+        parent.querySelector("button span").innerText = "Подробнее";
+      }
+    });
+  });
+}
+
+
+// tabshead check fixed
+var tahheadfix = document.querySelector(".js-tabhead");
+if(tahheadfix) {
+  document.body.onscroll = function(scroll) {
+    if(window.scrollY >= tahheadfix.offsetTop) {
+      console.log("Fixed");
+      tahheadfix.classList.add("fixed");
+    } else {
+      console.log("No Fixed");
+      tahheadfix.classList.remove("fixed");
+    }
+  }
 }

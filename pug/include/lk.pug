@@ -1,0 +1,282 @@
+section.blocklk
+  .container
+    .blocklk__wrap
+      h1 Личный кабинет
+
+      //Tabs
+      .tabs.js-tabs
+        //Head
+        .tabs__head.js-tabhead
+          button(type="button").tabs__btn.js-tabs-btn
+            | ЛИЧНЫЕ ДАННЫЕ
+          button(type="button").tabs__btn.js-tabs-btn
+            | ИСТОРИЯ ЗАКАЗОВ
+
+        //Content
+        .tabs__content
+          .tabs__content-item.js-tabs-content
+            .label.label-success
+              svg(class="icon")
+                use(xlink:href="ico/sprite.svg#check")
+              span Вы успешно изменили пароль
+
+            .label.label-error
+              svg(class="icon")
+                use(xlink:href="ico/sprite.svg#close")
+              span Lorem ipsum dolor sit amet
+
+            form.tabs-form.js-form-validator(data-submit="submitTabsForm")
+              .simple-input
+                label(for="label-id-name") Имя
+                input(id="label-id-name" name="name" required)
+
+              .simple-input.label-max
+                label(for="label-id-familly") Фамилия
+                input(id="label-id-familly" name="familly" required)
+
+              .simple-input
+                label(for="label-id-email") Email
+                input(id="label-id-email" type="email" name="email" required)
+
+              .simple-input.label-max
+                label(for="label-id-phone") Телефон
+                input.js-phone-mask(id="label-id-phone" type="phone" name="phone" required)
+
+              .tabs-form__bottom
+                .input-date
+                  label(for="input-id-date") Дата рождения
+                  input(id="input-id-date" type="date" min="1920-01-01" max="2050-12-31" name="date" placeholder="дд.мм.гггг" required)
+
+                .block-check
+                  span Ваш пол
+                  .input-check
+                    input(id="input-check-gender-m" type="radio" name="gender" value="M" required checked)
+                    label(for="input-check-gender-m") Мужской
+                  .input-check
+                    input(id="input-check-gender-f" type="radio" name="gender" value="F" required)
+                    label(for="input-check-gender-f") Женский
+
+              .tabs-form__newpass.js-block-newpass
+                .simple-input
+                  label(for="label-id-password") Пароль
+                  input(id="label-id-password" type="password" name="password")
+
+                .simple-input.label-max
+                  label(for="label-id-repetpass") Повторить пороль
+                  input(id="label-id-repetpass" type="password" name="repeat-pass" data-bouncer-match="#label-id-password")
+
+              .tabs-form__btns
+                a(href="#rmeove-account").btn-text УДАЛИТЬ АККАУНТ
+
+                .btn-group
+                  button(type="button").btn-silver.js-open-newpass
+                    span ИЗМЕНИТЬ ПАРОЛЬ
+                  button(type="submit" name="submit").btn-black
+                    span СОХРАНИТЬ ИЗМЕНЕНИЯ
+
+            script.
+              function submitTabsForm(fn) {
+                console.log("Submit Tabs Form");
+                console.log(fn);
+              }
+
+          .tabs__content-item.js-tabs-content
+            h3 5 заказов
+
+            .tabtable
+              .tabtable__head
+                span.num Номер заказа
+                span.date Дата заказа
+                span.sum Cумма заказа
+                span.status Статус
+
+              each val in [1, 2, 3, 4, 5]
+                .tabtable__item
+                  span.num.js-open-tabtable
+                    span= "#" + (Math.round(Math.random() * 1000000))
+                    svg(class="icon")
+                      use(xlink:href="ico/sprite.svg#arrow-right")
+                  span.date
+                    em Дата
+                    span 22.03.20
+                  span.sum
+                    em Сумма
+                    span 150₽
+                  span.status.green
+                    em Статус
+                    span Завершен
+                  .button
+                    button.js-open-tabtable
+                      span Подробнее
+                      svg(class="icon")
+                        use(xlink:href="ico/sprite.svg#arrow-right")
+                  .tablelist
+                    .tablelist__head
+                      .img
+                      .article
+                        span Артикул
+                      .name
+                        span Название
+                      .price
+                        span Цена
+                      .amount
+                        span Количество
+                      .total
+                        span Итог
+
+                    each val in [1, 2, 3, 4, 5,6,7,8,9,10]
+                      .tablelist__list
+                        .img
+                          img(src="img/ring2.png" alt="IMG")
+                        .article
+                          a(href="#NM33FRQL55") NM33FRQL55
+                        .name
+                          span Кольцо из палладия с бриллиантами
+                        .price
+                          b 125 350₽
+                        .amount
+                          em Количество:
+                          span= (Math.round(Math.random() * 50))
+                        .total
+                          b 125 350₽
+
+                      .tablelist__list
+                        .img
+                          img(src="img/ring2.png" alt="IMG")
+                        .article
+                          a(href="#NM33FRQL55") NM33FRQL55
+                        .name
+                          span Кольцо из палладия с бриллиантами
+                        .price
+                          b 125 350₽
+                        .amount
+                          em Количество:
+                          span= (Math.round(Math.random() * 10))
+                        .total
+                          b 125 350₽
+
+
+
+                .tabtable__item
+                  span.num.js-open-tabtable
+                    span #0439134
+                    svg(class="icon")
+                      use(xlink:href="ico/sprite.svg#arrow-right")
+                  span.date
+                    em Дата
+                    span 15.03.20
+                  span.sum
+                    em Сумма
+                    span 1 776 050₽
+                  span.status.red
+                    em Статус
+                    span Отменен
+                  .button
+                    button.js-open-tabtable
+                      span Подробнее
+                      svg(class="icon")
+                        use(xlink:href="ico/sprite.svg#arrow-right")
+                  .tablelist
+                    .tablelist__head
+                      .img
+                      .article
+                        span Артикул
+                      .name
+                        span Название
+                      .price
+                        span Цена
+                      .amount
+                        span Количество
+                      .total
+                        span Итог
+                    .tablelist__list
+                      .img
+                        img(src="img/ring2.png" alt="IMG")
+                      .article
+                        a(href="#NM33FRQL55") NM33FRQL55
+                      .name
+                        span Кольцо из палладия с бриллиантами
+                      .price
+                        b 125 350₽
+                      .amount
+                        em Количество:
+                        span 1
+                      .total
+                        b 125 350₽
+
+                    .tablelist__list
+                      .img
+                        img(src="img/ring2.png" alt="IMG")
+                      .article
+                        a(href="#NM33FRQL55") NM33FRQL55
+                      .name
+                        span Кольцо из палладия с бриллиантами
+                      .price
+                        b 125 350₽
+                      .amount
+                        em Количество:
+                        span 1
+                      .total
+                        b 125 350₽
+
+                .tabtable__item
+                  span.num.js-open-tabtable
+                    span #0439134
+                    svg(class="icon")
+                      use(xlink:href="ico/sprite.svg#arrow-right")
+                  span.date
+                    em Дата
+                    span 15.03.20
+                  span.sum
+                    em Сумма
+                    span 1 776 050₽
+                  span.status
+                    em Статус
+                    span В процессе
+                  .button
+                    button.js-open-tabtable
+                      span Подробнее
+                      svg(class="icon")
+                        use(xlink:href="ico/sprite.svg#arrow-right")
+                  .tablelist
+                    .tablelist__head
+                      .img
+                      .article
+                        span Артикул
+                      .name
+                        span Название
+                      .price
+                        span Цена
+                      .amount
+                        span Количество
+                      .total
+                        span Итог
+                    .tablelist__list
+                      .img
+                        img(src="img/ring2.png" alt="IMG")
+                      .article
+                        a(href="#NM33FRQL55") NM33FRQL55
+                      .name
+                        span Кольцо из палладия с бриллиантами
+                      .price
+                        b 125 350₽
+                      .amount
+                        em Количество:
+                        span 1
+                      .total
+                        b 125 350₽
+
+                    .tablelist__list
+                      .img
+                        img(src="img/ring2.png" alt="IMG")
+                      .article
+                        a(href="#NM33FRQL55") NM33FRQL55
+                      .name
+                        span Кольцо из палладия с бриллиантами
+                      .price
+                        b 125 350₽
+                      .amount
+                        em Количество:
+                        span 1
+                      .total
+                        b 125 350₽
