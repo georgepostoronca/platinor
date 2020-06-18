@@ -40,7 +40,7 @@ function loadScript(url, callback) {
 
 // Init Slider
 if (document.querySelector(".swiper-container")) {
-  loadScript("js/include/swiper.min.js", function () {
+  loadScript("./js/include/swiper.min.js", function () {
     // Slider
     if (document.querySelector('.js__headslid-slider')) {
       var firstStart = false;
@@ -587,7 +587,7 @@ if(validatorClass.length) {
 document.addEventListener("DOMContentLoaded", function(event) {
   var validatorClass = document.querySelectorAll(".js-form-validator");
   if(validatorClass.length) {
-    loadScript("js/include/bouncer.polyfills.min.js", function () {
+    loadScript("./js/include/bouncer.polyfills.min.js", function () {
       console.log("Validator Loaded");
       
       var bouncer = new Bouncer('.js-form-validator', {
@@ -675,6 +675,6 @@ var inputFile = document.querySelectorAll(".js-input-file");
 if(inputFile) {
   var items = [].slice.call(inputFile);
   items.forEach(function() {
-    
+  
   });
 }
