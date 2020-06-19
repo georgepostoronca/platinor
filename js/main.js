@@ -679,7 +679,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       loadScript("js/include/filepond-plugin-file-validate-type.min.js", function() {
         loadScript("./js/include/filepond.min.js", function () {
           console.log("File Upload Loaded");
-      
+          
           FilePond.registerPlugin(FilePondPluginFileValidateSize, FilePondPluginFileValidateType);
           
           const inputElement = document.querySelector('input[type="file"]');
@@ -693,11 +693,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
             labelMaxFileSize: 'максимальный размер файла {filesize}',
             acceptedFileTypes: ['image/png','image/jpg','image/jpeg','image/webp','image/gif', 'image/bmp'],
           });
+          
+          window.podfile = pond;
         });
-    
+        
       });
-    
+      
     });
-  
+    
   }
 });

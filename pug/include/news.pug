@@ -1,0 +1,55 @@
+section.news
+  .container
+    .news__wrap
+
+      .news__head
+        h1 Статьи
+
+      .news__grid
+        each val in [1,2,3]
+          .news__item
+            a(href="#")
+              picture
+                img(src="img/news-img.jpg" alt="IMG")
+
+            em 08.04.2020
+
+            a(href="#")
+              h3 Индивидуальный заказ - пирсинг из платины с бриллиантами
+
+            p Рассказываем историю создания украшения для постоянного клиента
+
+            a(href="#").btn-line
+              span ПОДРОБНЕЕ
+
+          .news__item
+            a(href="#")
+              picture
+                img(src="img/news-img2.jpg" alt="IMG")
+
+            em 08.04.2020
+
+            a(href="#")
+              h3 Коллекция "Весна 2020"
+
+            p Рассказываем историю создания украшения для постоянного клиента
+
+            a(href="#").btn-line
+              span ПОДРОБНЕЕ
+
+          .news__item
+            a(href="#")
+              picture
+                img(src="img/news-img3.jpg" alt="IMG")
+
+            em 08.04.2020
+
+            a(href="#")
+              h3 Индивидуальный заказ - пирсинг из платины с бриллиантами
+
+            p Рассказываем историю создания украшения для постоянного клиента
+
+            a(href="#").btn-line
+              span ПОДРОБНЕЕ
+
+      include breadcrumbs.pug

@@ -1,0 +1,61 @@
+.bx-pagination {
+  .bx-pagination-container {
+    ul {
+      list-style: none;
+      display: flex;
+      
+      li {
+        width: 50px;
+        height: 50px;
+        background: #FAFAFA;
+        border-radius: 120px;
+  
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: .2s;
+        
+        &:hover {
+          background: #1F1F1F;
+          
+          span {
+            color: #fff;
+          }
+        }
+        
+        span {
+          font-style: normal;
+          font-weight: normal;
+          font-size: 20px;
+          line-height: 1;
+          color: #797979;
+          position: relative;
+          top: -2px;
+        }
+        
+        &.bx-pag-prev {
+          display: none;
+        }
+        
+        &.bx-pag-next {
+          display: none;
+        }
+        
+        &.bx-active {
+        
+        }
+        
+        > a {
+          span {
+          
+          }
+        }
+        
+        > span {
+        
+        }
+      }
+    }
+  }
+}

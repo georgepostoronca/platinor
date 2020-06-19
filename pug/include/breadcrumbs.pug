@@ -1,0 +1,33 @@
+.bx-pagination
+  .bx-pagination-container
+    ul
+
+      //Ptev
+      li.bx-pag-prev
+        svg.svg.svg-pag-prev(width='50' height='50')
+          use(xlink:href='/local/templates/taf/assets/ico/sprite/sprite.svg#pag-prev')
+
+      li.bx-active
+        span 1
+      li
+        a(href='/info/?PAGEN_2=2')
+          span 2
+      li
+        a(href='/info/?PAGEN_3=3')
+          span 3
+      li
+        a(href='/info/?PAGEN_4=4')
+          span 4
+      li
+        a(href='/info/?PAGEN_5=5')
+          span 5
+      li
+        a(href='/info/?PAGEN_6=6')
+          span 6
+
+      //Next
+      li.bx-pag-next
+        a(href='/info/?PAGEN_2=2')
+          svg.svg.svg-pag-next(width='50' height='50')
+            use(xlink:href='/local/templates/taf/assets/ico/sprite/sprite.svg#pag-next')
+
