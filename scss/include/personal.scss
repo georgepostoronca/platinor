@@ -281,7 +281,8 @@
       @media(max-width: 705px) {
         width: 100%;
         margin-top: 0;
-        margin-bottom: 13px;
+        //margin-bottom: 13px;
+        margin-bottom: 32px;
       }
     }
     
@@ -289,10 +290,14 @@
       width: 100%;
     }
     
+    .input-file {
+      margin-top: 15px;
+    }
+    
     &__bottom {
       display: flex;
       align-items: center;
-      margin-top: 48px;
+      margin-top: 40px;
       flex-wrap: wrap;
   
       @media(max-width: 705px) {

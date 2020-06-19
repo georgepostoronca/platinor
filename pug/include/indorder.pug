@@ -22,17 +22,15 @@ section.indorder
           em.errmsg.errmsg-email Заполните данное поле
 
         .textarea-block.textarea-block--white
-          textarea.js__input-notempty(name="message" onkeyup="textAreaAdjust(this)" required data-bouncer-target=".errmsg-message")
+          textarea.js__input-notempty(name="message" required data-bouncer-target=".errmsg-message")
           span Напишите что-нибудь
           em.errmsg.errmsg-message Заполните данное поле
 
         .input-file.js-input-file
-          input(type="file" multiple name="file" required id="input-id-file")
-          label(for="input-id-file")
-            +svg("clip")
-            span Прикрепить файл
-
-          .input-file__selected
+          input(type="file" multiple name="file[]" required id="input-id-file")
+          //label(for="input-id-file")
+          //  +svg("clip")
+          //  span Прикрепить файл
 
 
         .indorder-form__bottom

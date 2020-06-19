@@ -1256,6 +1256,14 @@ a {
       &:focus {
         border-color: rgba(255, 255, 255, 0.5);
       }
+  
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus {
+        -webkit-box-shadow: 0 0 0 1000px transparent inset;
+        transition: background-color 5000s ease-in-out 0s;
+        -webkit-text-fill-color: rgba(255,255,255,0.5);
+      }
     }
     
     span {
@@ -1592,4 +1600,214 @@ textarea {
 
 .error-message {
   display: none;
+}
+
+
+//Upload File
+//filepond
+.filepond {
+  &--root {
+    height: auto !important;
+    
+    & * {
+      transform: none !important;
+    }
+  }
+  
+  &--browser {
+    width: 0;
+  }
+  
+  &--assistant {
+    //display: none !important;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  &--drop-label {
+    transform: none !important;
+    
+    label {
+      font-size: 0;
+      display: flex;
+      align-items: center;
+      
+      &:before {
+        content: "";
+        width: 15px;
+        height: 17px;
+        background: url("../ico/clip.svg") center center no-repeat;
+        background-size: contain;
+        margin-right: 11px;
+        position: relative;
+        top: 2px;
+      }
+      &:after {
+        content: "Прикрепить файл";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 1;
+        color: #C7B386;
+      }
+      span {
+        display: none;
+      }
+    }
+  }
+  
+  &--data {
+    width: 100%;
+    border: 0;
+    padding: 0;
+  }
+  
+  &--list-scroller {
+    transform: none !important;
+    margin-top: 8px;
+    ul {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      
+      li {
+        width: auto;
+        height: auto !important;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 5px;
+        transform: none !important;
+  
+        margin-right: 8px;
+        margin-bottom: 8px;
+        
+        &[data-filepond-item-state="load-invalid"] {
+          background: #D26C6C;
+  
+          .filepond--file-info {
+            .filepond--file-info-sub {
+              color: #fff;
+            }
+          }
+        }
+  
+        fieldset {
+          height: inherit;
+          border: 0;
+          display: flex;
+          margin: 0;
+          padding: 10px 10px 10px 13px;
+  
+          legend {
+            max-width: initial;
+            display: inline-block;
+  
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 1;
+            color: #FFFFFF;
+  
+            display: none;
+          }
+          
+          .filepond--file-info {
+            display: flex;
+            align-items: center;
+            position: relative;
+            top: -1px;
+            
+            span {
+              font-style: normal;
+              font-weight: normal;
+              font-size: 13px;
+              line-height: 1;
+              color: #FFFFFF;
+            }
+            
+            .filepond--file-info-sub {
+              margin-left: 5px;
+              color: #C7B386;
+              position: relative;
+              //top: -1px;
+              line-height: 1;
+            }
+          }
+          
+          .filepond--file-status {
+            display: none;
+          }
+          
+          .filepond--progress-indicator {
+            display: none;
+          }
+          
+          .filepond--progress-indicator {
+            display: none;
+          }
+          
+          .filepond--processing-complete-indicator {
+            display: none;
+          }
+          
+          .filepond--action-abort-item-load {
+            display: none;
+          }
+          
+          .filepond--action-retry-item-load {
+            display: none;
+          }
+        }
+      }
+    }
+    
+    .filepond--assistant, .filepond--drip, .filepond--data {
+    
+    }
+  }
+  
+  &--file {
+    display: flex;
+    
+    button {
+      width: 12px;
+      height: 12px;
+      background-color: transparent;
+      border: 0;
+      font-size: 0;
+      line-height: 1;
+      order: 2;
+      margin-left: 19px;
+      position: relative;
+      outline: none;
+      cursor: pointer;
+      
+      &:hover {
+        svg {
+          color: #fff;
+        }
+      }
+      
+      svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) !important;
+        width: 25px;
+        height: 25px;
+        fill: #C7B386;
+        color: #C7B386;
+        margin-top: 1px;
+        transition: .2s;
+      }
+      
+      span {
+        display: none;
+      }
+    }
+  }
+  
+  .filepond--assistant, .filepond--drip, .filepond--data {
+    //display: none;
+  }
 }

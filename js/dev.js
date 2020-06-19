@@ -576,9 +576,11 @@ if(validatorClass.length) {
     el.forEach(function(item) {
       Inputmask({
         mask: "+9 (999) 999 99 99",
-        onincomplete: function(el) {
-          el.target.value = "";
-        }
+        clearIncomplete: true,
+        showMaskOnHover: false
+        // onincomplete: function(el) {
+        //   el.target.value = "";
+        // }
       }).mask(item);
     });
   });
@@ -622,8 +624,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     
       document.addEventListener('bouncerFormInvalid', function (event) {
         // console.log(event.detail.errors);
-        console.log(event.detail.errors[0].offsetTop);
-        window.scrollTo(0, event.detail.errors[0].offsetTop);
+        window.scrollTo(0, event.target.offsetTop);
       }, false);
     
       document.addEventListener('bouncerFormValid', function (el) {
@@ -670,11 +671,33 @@ if(tahheadfix) {
 }
 
 
-// Input File
-var inputFile = document.querySelectorAll(".js-input-file");
-if(inputFile) {
-  var items = [].slice.call(inputFile);
-  items.forEach(function() {
+// File Upload
+document.addEventListener("DOMContentLoaded", function(event) {
+  var validatorClass = document.querySelectorAll("input[type='file']");
+  if(validatorClass.length) {
+    loadScript("js/include/filepond-plugin-file-validate-size.js", function() {
+      loadScript("js/include/filepond-plugin-file-validate-type.min.js", function() {
+        loadScript("./js/include/filepond.min.js", function () {
+          console.log("File Upload Loaded");
+      
+          FilePond.registerPlugin(FilePondPluginFileValidateSize, FilePondPluginFileValidateType);
+          
+          const inputElement = document.querySelector('input[type="file"]');
+          const pond = FilePond.create(inputElement, {
+            maxFiles: 10,
+            maxFileSize: "20MB",
+            allowFileTypeValidation: true,
+            labelFileTypeNotAllowed: "Файл неверного типа",
+            fileValidateTypeLabelExpectedTypes: 'допустимые типы {allButLastType} или {lastType}',
+            labelMaxFileSizeExceeded: "Файл слишком большой",
+            labelMaxFileSize: 'максимальный размер файла {filesize}',
+            acceptedFileTypes: ['image/png','image/jpg','image/jpeg','image/webp','image/gif', 'image/bmp'],
+          });
+        });
+    
+      });
+    
+    });
   
-  });
-}
+  }
+});
