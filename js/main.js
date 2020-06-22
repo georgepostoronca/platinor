@@ -671,35 +671,121 @@ if(tahheadfix) {
 }
 
 
-// File Upload
-document.addEventListener("DOMContentLoaded", function(event) {
-  var validatorClass = document.querySelectorAll("input[type='file']");
-  if(validatorClass.length) {
-    loadScript("js/include/filepond-plugin-file-validate-size.js", function() {
-      loadScript("js/include/filepond-plugin-file-validate-type.min.js", function() {
-        loadScript("./js/include/filepond.min.js", function () {
-          console.log("File Upload Loaded");
-          
-          FilePond.registerPlugin(FilePondPluginFileValidateSize, FilePondPluginFileValidateType);
-          
-          const inputElement = document.querySelector('input[type="file"]');
-          const pond = FilePond.create(inputElement, {
-            maxFiles: 10,
-            maxFileSize: "20MB",
-            allowFileTypeValidation: true,
-            labelFileTypeNotAllowed: "Файл неверного типа",
-            fileValidateTypeLabelExpectedTypes: 'допустимые типы {allButLastType} или {lastType}',
-            labelMaxFileSizeExceeded: "Файл слишком большой",
-            labelMaxFileSize: 'максимальный размер файла {filesize}',
-            acceptedFileTypes: ['image/png','image/jpg','image/jpeg','image/webp','image/gif', 'image/bmp'],
-          });
-          
-          window.podfile = pond;
-        });
-        
-      });
-      
-    });
-    
-  }
-});
+// // File Upload
+// document.addEventListener("DOMContentLoaded", function(event) {
+//   var validatorClass = document.querySelectorAll("input[type='file']");
+//   if(validatorClass.length) {
+//     loadScript("js/include/filepond-plugin-file-validate-size.js", function() {
+//       loadScript("js/include/filepond-plugin-file-validate-type.min.js", function() {
+//         loadScript("./js/include/filepond.min.js", function () {
+//           console.log("File Upload Loaded");
+//
+//           FilePond.registerPlugin(FilePondPluginFileValidateSize, FilePondPluginFileValidateType);
+//
+//           const inputElement = document.querySelector('input[type="file"]');
+//           const pond = FilePond.create(inputElement, {
+//             multiple: true,
+//             maxFiles: 10,
+//             maxFileSize: "20MB",
+//             allowFileTypeValidation: true,
+//             labelFileTypeNotAllowed: "Файл неверного типа",
+//             fileValidateTypeLabelExpectedTypes: 'допустимые типы {allButLastType} или {lastType}',
+//             labelMaxFileSizeExceeded: "Файл слишком большой",
+//             labelMaxFileSize: 'максимальный размер файла {filesize}',
+//             acceptedFileTypes: ['image/png','image/jpg','image/jpeg','image/webp','image/gif', 'image/bmp'],
+//           });
+//
+//           window.podfile = pond;
+//         });
+//
+//       });
+//
+//     });
+//   }
+// });
+//
+// document.querySelector(".indorder-form").addEventListener("submit", function(form) {
+//   console.log(this, form);
+//   form.preventDefault();
+//
+//   let transfer = new DataTransfer();
+//   let files = podfile.getFiles();
+//
+//   podfile.getFiles().forEach(function(el) {
+//     transfer.items.add(el.file);
+//
+//     var r = new FileReader();
+//     r.onload = function(){ alert(r.result); };
+//     let res= r.readAsBinaryString(el.file);
+//     console.log(res);
+//     [].slice.call(document.querySelectorAll(".filepond--data input")).forEach(function(item) {
+//       item.value = res
+//     })
+//   });
+//
+//   console.log(files);
+//   console.log(transfer.files);
+//
+//
+//   let data = new FormData(this);
+//   data.append("file", transfer.files)
+//
+//   // const response = fetch('https://example.com/profile/avatar', {
+//   //   method: 'PUT',
+//   //   body: data
+//   // });
+//   // const result = response.json();
+//   // console.log(result)
+//   // console.log(data)
+//
+//   var xhr = new XMLHttpRequest();
+//   xhr.open('POST', '/upload.php', true);
+//   xhr.onload = function(e) {
+//     console.log(e)
+//   };
+//   xhr.send(data);
+// });
+
+
+// var arFiles = [];
+// $(document).on('change', '#upload-btn', function(e) {
+//
+//   var $this = $(this);
+//   var $ctrFiles = $('.ctrFiles');
+//   var value = $this.val();
+//   var fileCnt = $ctrFiles.find('.item').length;
+//
+//   var nameFile = value.match(/[a-zA-Z0-9а-яА-Я\w\s\-\_\.]+\.([A-Za-z]+)$/gmi);
+//   var formatFile = nameFile[0].split(".");
+//
+//   if(!formatFile[formatFile.length - 1].match(/(pdf|xls[x]?|doc[x]?|txt)/gmi)) {
+//     alert("pdf, xls, xlsx, doc, docx, txt");
+//     return false;
+//   }
+//
+//
+//   if(fileCnt >=5) {
+//     $.fancybox.open({
+//       src: "#popup-file-save-error",
+//       type: "inline"
+//     })
+//     return false;
+//   }
+//
+//   if (value && !arFiles.includes(value)) {
+//     arFiles.push(value);
+//     var time = Date.now();
+//     $ctrFiles.append($('<div class="item"><div class="cls"></div><span>' + nameFile + '</span></div>').append($this.clone().attr('id', 'att_' + time).addClass("js__edit-input-file").attr('name', 'attach[]')).append("<label for='att_"+ time +"'><svg class='svg svg-edit'><use xlink:href="+BX.message('PATH_TO_SPRITE')+"></use></svg></label>"));
+//   }
+// });
+//
+// $(document).on("change", ".js__edit-input-file", function() {
+//   var parent = $(this).closest(".item");
+//   var nameFile = $(this).val().match(/[a-zA-Z0-9а-яА-Я\w\s\-\_\.]+\.([A-Za-z]+)$/gmi);
+//   parent.find("span").text(nameFile);
+// })
+//
+// $(document).on('click', '.ctrFiles .item .cls', function(e) {
+//   $(this).closest('.item').remove();
+// });
+
