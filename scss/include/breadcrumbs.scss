@@ -129,9 +129,6 @@
         &.bx-pag-next {
           width: 51px;
           height: 66px;
-          background: #FBF7F0;
-          border-radius: 0 120px 120px 0;
-  
           position: absolute;
           right: 0;
           top:50%;
@@ -157,6 +154,9 @@
             cursor: default;
             opacity: .4;
             font-size: 0;
+            top: 0;
+            display: block;
+            width: 100%;
           }
           
           a,span {
