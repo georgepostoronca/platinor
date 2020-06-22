@@ -106,6 +106,8 @@
       margin-right: auto;
   
       margin-top: 71px;
+      
+      flex-wrap: wrap;
   
       @media(max-width: 768px) {
         margin-top: 20px;
@@ -123,7 +125,8 @@
       img {
         width: calc(50% - 8px);
         margin-top: 0;
-        margin-bottom: 0;
+        //margin-bottom: 0;
+        margin-bottom: 16px;
   
         @media(max-width: 740px) {
           min-width: initial;
