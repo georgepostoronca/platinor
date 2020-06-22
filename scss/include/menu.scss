@@ -67,6 +67,9 @@
   border-bottom: 1px solid #ECECEC;
   position: relative;
   z-index: 100;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
   
   &__wrap {
     display: flex;
