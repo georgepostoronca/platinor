@@ -370,6 +370,42 @@ a {
   //  }
   //}
   //
+  
+  &#{&}--back {
+    span {
+      padding-left: 72px;
+      position: relative;
+      
+      &:after {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 0;
+        //margin-top: 1px;
+      }
+      
+      &:before {
+        right: initial;
+        left: 0;
+        transform: translateY(-50%) rotate(225deg);
+      }
+    }
+    
+    &:hover {
+      span {
+        &:before {
+          //transform: translateY(-50%) rotate(225deg);
+          background: transparent !important;
+          border-left-color: transparent;
+          border-bottom-color: transparent;
+          border-radius: 0;
+          transform: translateY(-50%) rotate(225deg) scale(.85);
+        }
+      }
+    }
+  }
+  
   &:hover {
     span {
       &:before {

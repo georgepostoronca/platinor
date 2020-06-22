@@ -5,6 +5,16 @@
     margin-bottom: 54px;
   }
   
+  &.article {
+    .about__header {
+      h1 {
+        @media(max-width: 768px) {
+          margin-top: 42px;
+        }
+      }
+    }
+  }
+  
   &__header {
     position: relative;
     
@@ -14,6 +24,10 @@
       margin-left: auto;
       margin-right: auto;
       margin-top: 87px;
+  
+      @media(max-width: 1080px) {
+        margin-top: 40px;
+      }
   
       @media(max-width: 1080px) {
         width: 100%;
@@ -66,6 +80,66 @@
         line-height: 25px;
       }
     }
+    
+    > img {
+      max-width: 720px;
+      display: block;
+  
+      margin: 64px auto 86px;
+      
+      @media(max-width: 768px) {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      
+      @media(max-width: 740px) {
+        min-width: initial;
+        width: 100%;
+      }
+    }
+    
+    .img-half {
+      display: flex;
+      justify-content: space-between;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+  
+      margin-top: 71px;
+  
+      @media(max-width: 768px) {
+        margin-top: 20px;
+      }
+  
+      @media(max-width: 740px) {
+        max-width: 100%;
+        width: 100%;
+      }
+  
+      @media(max-width: 500px) {
+        flex-wrap: wrap;
+      }
+      
+      img {
+        width: calc(50% - 8px);
+        margin-top: 0;
+        margin-bottom: 0;
+  
+        @media(max-width: 740px) {
+          min-width: initial;
+          
+        }
+        
+        @media(max-width: 500px) {
+          width: 100%;
+          margin-bottom: 10px;
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
   }
   
   &__label {
@@ -94,6 +168,25 @@
   
       position: relative;
       top: -3px;
+    }
+  }
+  
+  &__link {
+    position: absolute;
+    top: 25px;
+    //top: 112px;
+    
+    
+    @media(max-width: 1080px) {
+      position: relative;
+      //width: 720px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    @media(max-width: 768px) {
+      margin-top: -13px;
     }
   }
 }
