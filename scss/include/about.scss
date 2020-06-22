@@ -18,7 +18,7 @@
   &__header {
     position: relative;
     
-    h1 {
+    h1, h2 {
       width: 720px;
       display: block;
       margin-left: auto;
@@ -57,7 +57,22 @@
       }
     }
     
-    p {
+    a {
+      font-size: 20px;
+      line-height: 1;
+      display: inline;
+      margin-right: 5px;
+      margin-left: 5px;
+  
+      @media(max-width: 768px) {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 25px;
+      }
+    }
+    
+    p, ul {
       width: 720px;
       display: block;
       margin-left: auto;
@@ -68,6 +83,8 @@
       font-size: 20px;
       line-height: 33px;
       color: #1F1F1F;
+      
+      list-style: none;
   
       @media(max-width: 1080px) {
         width: 100%;
@@ -78,6 +95,19 @@
         font-weight: normal;
         font-size: 13px;
         line-height: 25px;
+      }
+      
+      li {
+        margin-bottom: 15px;
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+        
+        b {
+          margin-right: 5px;
+          font-weight: 500;
+        }
       }
     }
     
@@ -178,6 +208,10 @@
     position: absolute;
     top: 25px;
     //top: 112px;
+    
+    a {
+      display: block;
+    }
     
     
     @media(max-width: 1080px) {
