@@ -1,18 +1,69 @@
 const defaultPATH = ".";
 
-(function(ELEMENT) {
+(function (ELEMENT) {
   ELEMENT.matches = ELEMENT.matches || ELEMENT.mozMatchesSelector || ELEMENT.msMatchesSelector || ELEMENT.oMatchesSelector || ELEMENT.webkitMatchesSelector;
   ELEMENT.closest = ELEMENT.closest || function closest(selector) {
     if (!this) return null;
     if (this.matches(selector)) return this;
-    if (!this.parentElement) {return null}
-    else return this.parentElement.closest(selector)
+    if (!this.parentElement) {
+      return null
+    } else return this.parentElement.closest(selector)
   };
 }(Element.prototype));
 
 // svg4everybody
-!function(a,b){"function"==typeof define&&define.amd?define([],function(){return a.svg4everybody=b()}):"object"==typeof exports?module.exports=b():a.svg4everybody=b()}(this,function(){/*! svg4everybody v2.0.0 | github.com/jonathantneal/svg4everybody */
-  function a(a,b){if(b){var c=!a.getAttribute("viewBox")&&b.getAttribute("viewBox"),d=document.createDocumentFragment(),e=b.cloneNode(!0);for(c&&a.setAttribute("viewBox",c);e.childNodes.length;)d.appendChild(e.firstChild);a.appendChild(d)}}function b(b){b.onreadystatechange=function(){if(4===b.readyState){var c=document.createElement("x");c.innerHTML=b.responseText,b.s.splice(0).map(function(b){a(b[0],c.querySelector("#"+b[1].replace(/(\W)/g,"\\$1")))})}},b.onreadystatechange()}function c(c){function d(){for(var c;c=e[0];){var j=c.parentNode;if(j&&/svg/i.test(j.nodeName)){var k=c.getAttribute("xlink:href");if(f&&(!g||g(k,j,c))){var l=k.split("#"),m=l[0],n=l[1];if(j.removeChild(c),m.length){var o=i[m]=i[m]||new XMLHttpRequest;o.s||(o.s=[],o.open("GET",m),o.send()),o.s.push([j,n]),b(o)}else a(j,document.getElementById(n))}}}h(d,17)}c=c||{};var e=document.getElementsByTagName("use"),f="shim"in c?c.shim:/\bEdge\/12\b|\bTrident\/[567]\b|\bVersion\/7.0 Safari\b/.test(navigator.userAgent)||(navigator.userAgent.match(/AppleWebKit\/(\d+)/)||[])[1]<537,g=c.validate,h=window.requestAnimationFrame||setTimeout,i={};f&&d()}return c});
+!function (a, b) {
+  "function" == typeof define && define.amd ? define([], function () {
+    return a.svg4everybody = b()
+  }) : "object" == typeof exports ? module.exports = b() : a.svg4everybody = b()
+}(this, function () {/*! svg4everybody v2.0.0 | github.com/jonathantneal/svg4everybody */
+  function a(a, b) {
+    if (b) {
+      var c = !a.getAttribute("viewBox") && b.getAttribute("viewBox"), d = document.createDocumentFragment(),
+        e = b.cloneNode(!0);
+      for (c && a.setAttribute("viewBox", c); e.childNodes.length;) d.appendChild(e.firstChild);
+      a.appendChild(d)
+    }
+  }
+  
+  function b(b) {
+    b.onreadystatechange = function () {
+      if (4 === b.readyState) {
+        var c = document.createElement("x");
+        c.innerHTML = b.responseText, b.s.splice(0).map(function (b) {
+          a(b[0], c.querySelector("#" + b[1].replace(/(\W)/g, "\\$1")))
+        })
+      }
+    }, b.onreadystatechange()
+  }
+  
+  function c(c) {
+    function d() {
+      for (var c; c = e[0];) {
+        var j = c.parentNode;
+        if (j && /svg/i.test(j.nodeName)) {
+          var k = c.getAttribute("xlink:href");
+          if (f && (!g || g(k, j, c))) {
+            var l = k.split("#"), m = l[0], n = l[1];
+            if (j.removeChild(c), m.length) {
+              var o = i[m] = i[m] || new XMLHttpRequest;
+              o.s || (o.s = [], o.open("GET", m), o.send()), o.s.push([j, n]), b(o)
+            } else a(j, document.getElementById(n))
+          }
+        }
+      }
+      h(d, 17)
+    }
+    
+    c = c || {};
+    var e = document.getElementsByTagName("use"),
+      f = "shim" in c ? c.shim : /\bEdge\/12\b|\bTrident\/[567]\b|\bVersion\/7.0 Safari\b/.test(navigator.userAgent) || (navigator.userAgent.match(/AppleWebKit\/(\d+)/) || [])[1] < 537,
+      g = c.validate, h = window.requestAnimationFrame || setTimeout, i = {};
+    f && d()
+  }
+  
+  return c
+});
 svg4everybody();
 
 
@@ -74,8 +125,8 @@ if (document.querySelector(".swiper-container")) {
               PlaySlider();
             }, 100);
           },
-          slideChangeTransitionEnd: function() {
-            if(firstStart) {
+          slideChangeTransitionEnd: function () {
+            if (firstStart) {
               PlaySlider();
               firstStart = true;
             }
@@ -90,12 +141,12 @@ if (document.querySelector(".swiper-container")) {
       }
       
       function PlaySlider() {
-        if(progresSlideInterval) clearInterval(progresSlideInterval);
+        if (progresSlideInterval) clearInterval(progresSlideInterval);
         document.querySelector(".headslid").classList.remove("progress-active");
         
-        setTimeout(function() {
+        setTimeout(function () {
           document.querySelector(".headslid").classList.add("progress-active");
-          progresSlideInterval = setTimeout(function() {
+          progresSlideInterval = setTimeout(function () {
             document.querySelector(".headslid").classList.remove("progress-active");
             headslid.slideNext();
           }, 8000);
@@ -104,12 +155,12 @@ if (document.querySelector(".swiper-container")) {
       
       var stopBtn = document.querySelectorAll('.js__headslid-stop')
       stopBtn = [].slice.call(stopBtn);
-      stopBtn.forEach(function(el) {
-        el.addEventListener("mouseover", function() {
+      stopBtn.forEach(function (el) {
+        el.addEventListener("mouseover", function () {
           StopSlider();
         });
         
-        el.addEventListener("mouseout", function() {
+        el.addEventListener("mouseout", function () {
           PlaySlider();
         });
       });
@@ -199,11 +250,11 @@ if (document.querySelector(".swiper-container")) {
     }
     
     // catalog slider(mobile)
-    (function() {
+    (function () {
       
       // breakpoint where swiper will be destroyed
       // and switches to a dual-column layout
-      const breakpoint = window.matchMedia( '(min-width:768px)' );
+      const breakpoint = window.matchMedia('(min-width:768px)');
       
       // keep track of swiper instances to destroy later
       let mySwiper;
@@ -212,19 +263,19 @@ if (document.querySelector(".swiper-container")) {
       //////////////////////////////////////////////////////////////////
       //////////////////////////////////////////////////////////////////
       
-      const breakpointChecker = function() {
+      const breakpointChecker = function () {
         
         // if larger viewport and multi-row layout needed
-        if ( breakpoint.matches === true ) {
+        if (breakpoint.matches === true) {
           
           // clean up old instances and inline styles when available
-          if ( mySwiper !== undefined ) mySwiper.destroy( true, true );
+          if (mySwiper !== undefined) mySwiper.destroy(true, true);
           document.querySelector('.js__catalog-slider').classList.remove("loading");
           // or/and do nothing
           return;
           
           // else if a small viewport and single column layout needed
-        } else if ( breakpoint.matches === false ) {
+        } else if (breakpoint.matches === false) {
           
           // fire small viewport version of swiper
           return enableSwiper();
@@ -237,8 +288,8 @@ if (document.querySelector(".swiper-container")) {
       //////////////////////////////////////////////////////////////////
       //////////////////////////////////////////////////////////////////
       
-      const enableSwiper = function() {
-        mySwiper = new Swiper ('.js__catalog-slider', {
+      const enableSwiper = function () {
+        mySwiper = new Swiper('.js__catalog-slider', {
           slidesPerView: 3,
           spaceBetween: 10,
           autoHeight: true,
@@ -484,15 +535,14 @@ oepnClose({
 
 // Add class when input is not empty
 var inputs = document.querySelectorAll(".js__input-notempty");
-if(inputs.length) {
+if (inputs.length) {
   inputs = [].slice.call(inputs);
-  inputs.forEach(function(el) {
-    el.addEventListener("blur", function(item) {
+  inputs.forEach(function (el) {
+    el.addEventListener("blur", function (item) {
       this.value ? this.classList.add("notempty") : this.classList.remove("notempty");
     })
   });
 }
-
 
 
 // Tabs
@@ -500,26 +550,26 @@ function Tabs(el) {
   var $this = this;
   this.root = document.querySelector(el);
   
-  if(!this.root) return false;
+  if (!this.root) return false;
   
-  if(this.root.querySelectorAll(".js-tabs-btn")) {
+  if (this.root.querySelectorAll(".js-tabs-btn")) {
     this.btns = [].slice.call(this.root.querySelectorAll(".js-tabs-btn"));
   }
   
-  if(this.root.querySelectorAll(".js-tabs-content")) {
+  if (this.root.querySelectorAll(".js-tabs-content")) {
     this.contents = [].slice.call(this.root.querySelectorAll(".js-tabs-content"));
   }
   
   this.btns[0].classList.add("active");
   this.contents[0].classList.add("active");
   
-  this.btns.forEach(function(item) {
-    item.addEventListener("click", function(el) {
+  this.btns.forEach(function (item) {
+    item.addEventListener("click", function (el) {
       var index = Array.prototype.slice.call(this.parentElement.children).indexOf(this)
       
       this.classList.add("active");
       $this.contents[index].classList.add("active");
-  
+      
       getSiblings(this, function (el) {
         el.classList.remove("active");
       });
@@ -529,6 +579,7 @@ function Tabs(el) {
     });
   });
 }
+
 var tabs = new Tabs(".js-tabs");
 var tabs2 = new Tabs(".js-tabs2");
 
@@ -541,14 +592,14 @@ oepnClose({
   callback: function (el) {
     var input = [].slice.call(document.querySelectorAll(".js-block-newpass input"));
     
-    if(document.querySelector(".js-block-newpass").classList.contains("active")) {
+    if (document.querySelector(".js-block-newpass").classList.contains("active")) {
       console.log("True")
-      input.forEach(function(el) {
+      input.forEach(function (el) {
         el.required = true;
       })
     } else {
       console.log("False")
-      input.forEach(function(el) {
+      input.forEach(function (el) {
         el.required = false;
         el.value = "";
       })
@@ -562,7 +613,7 @@ function executeFunctionByName(functionName, context /*, args */) {
   var args = Array.prototype.slice.call(arguments, 2);
   var namespaces = functionName.split(".");
   var func = namespaces.pop();
-  for(var i = 0; i < namespaces.length; i++) {
+  for (var i = 0; i < namespaces.length; i++) {
     context = context[namespaces[i]];
   }
   return context[func].apply(context, args);
@@ -570,12 +621,12 @@ function executeFunctionByName(functionName, context /*, args */) {
 
 
 var validatorClass = document.querySelectorAll(".js-form-validator");
-if(validatorClass.length) {
+if (validatorClass.length) {
   loadScript(defaultPATH + "/js/include/inputmask.min.js", function () {
     console.log("InputMask Loaded");
     
     var el = [].slice.call(document.querySelectorAll(".js-phone-mask"));
-    el.forEach(function(item) {
+    el.forEach(function (item) {
       Inputmask({
         mask: "+9 (999) 999 99 99",
         clearIncomplete: true,
@@ -588,9 +639,92 @@ if(validatorClass.length) {
   });
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
+
+// Check Password
+
+function check(pass, input) {
+  if(!$(input).parent().find(".pass-check").length) {
+    $(input).parent().append("<div class='pass-check'><span></span></div>")
+  }
+  
+  var protect = 0;
+  
+  if(pass.length < 8) {
+    $(input).removeClass();
+    $(input).addClass('low');
+    $(input).parent().find(".pass-check span").text("Слабый")
+    return "Слабый";
+  }
+  
+  //a,s,d,f
+  var small = "([a-z]+)";
+  if(pass.match(small)) {
+    protect++;
+  }
+  
+  //A,B,C,D
+  var big = "([A-Z]+)";
+  if(pass.match(big)) {
+    protect++;
+  }
+  //1,2,3,4,5 ... 0
+  var numb = "([0-9]+)";
+  if(pass.match(numb)) {
+    protect++;
+  }
+  //!@#$
+  var vv = /\W/;
+  if(pass.match(vv)) {
+    protect++;
+  }
+  
+  // if(protect == 1) {
+  //   $(input).removeClass();
+  //   $(input).addClass('normal');
+  //
+  //   return "Средний";
+  // }
+  
+  if(protect == 1) {
+    $(input).removeClass("low");
+    $(input).removeClass("good");
+    $(input).removeClass("verygood");
+    $(input).addClass('low');
+    $(input).parent().find(".pass-check span").text("Слабый")
+    return "Слабый";
+  }
+  
+  if(protect == 2) {
+    $(input).removeClass("low");
+    $(input).removeClass("good");
+    $(input).removeClass("verygood");
+    $(input).addClass('normal');
+    $(input).parent().find(".pass-check span").text("Средний")
+    return "Средний";
+  }
+  if(protect == 3) {
+    $(input).removeClass("low");
+    $(input).removeClass("normal");
+    $(input).removeClass("verygood");
+    $(input).addClass('good');
+    $(input).parent().find(".pass-check span").text("Хороший")
+    return "Хороший";
+  }
+  if(protect == 4) {
+    $(input).removeClass("low");
+    $(input).removeClass("normal");
+    $(input).removeClass("good");
+    $(input).addClass('verygood');
+    $(input).parent().find(".pass-check span").text("Высокий")
+    return "Высокий";
+  }
+  
+  console.log(protect)
+}
+
+document.addEventListener("DOMContentLoaded", function (event) {
   var validatorClass = document.querySelectorAll(".js-form-validator");
-  if(validatorClass.length) {
+  if (validatorClass.length) {
     loadScript(defaultPATH + "/js/include/bouncer.polyfills.min.js", function () {
       console.log("Validator Loaded");
       
@@ -610,116 +744,55 @@ document.addEventListener("DOMContentLoaded", function(event) {
             // If there isn't one, return false (no error)
             var selector = field.getAttribute('data-bouncer-match');
             if (!selector) return false;
-          
+            
             // Get the field to compare
             var otherField = field.form.querySelector(selector);
             if (!otherField) return false;
-          
+            
             // Compare the two field values
             // We use a negative comparison here because if they do match, the field validates
             // We want to return true for failures, which can be confusing
             return otherField.value !== field.value;
-          
-          },
-          checkPass: function(field) {
             
+          },
+          checkPass: function (field) {
+          
           }
         },
       });
-    
+      
       document.addEventListener('bouncerFormInvalid', function (event) {
         // console.log(event.detail.errors);
         window.scrollTo(0, event.target.offsetTop);
       }, false);
-    
+      
       document.addEventListener('bouncerFormValid', function (el) {
         var fn = el.target.dataset.submit;
         window[fn](el);
       }, false);
       
       let arrinput = [].slice.apply(document.querySelectorAll("input"));
-      arrinput.forEach(function(input) {
-        input.addEventListener("input", function() {
-          console.log(this.value)
-          let letters = /[A-Z|a-z]/g;
-          let numbers = /[0-9]/g;
-          
-          
-          let value = 0;
-  
-          if(this.value.length >= 8) {
-            value = 1;
-            
-            if(this.value.match(letters)) {
-              value += 1;
-            } else {
-              value = 1;
-            }
-
-            if(this.value.match(numbers)) {
-              value += 1;
-            } else {
-              value = 1;
-            }
-          } else {
-            value = 0;
-          }
-  
-          // if(this.value.match(letters)) {
-          //   value += 1;
-          // } else {
-          //   value -= 1;
-          // }
-          //
-          // if(this.value.match(numbers)) {
-          //   value += 1;
-          // } else {
-          //   value -= 1;
-          // }
-          //
-          // if(this.value.length >= 8) {
-          //   value += 1;
-          // } else {
-          //   value -= 1;
-          // }
-  
-          console.log("Pass: " + value)
-  
-          switch (value) {
-            case 1:
-              this.classList.add("low");
-              this.classList.remove("normal");
-              this.classList.remove("high");
-              break;
-            case 2:
-              this.classList.remove("low");
-              this.classList.add("normal");
-              this.classList.remove("high");
-              break;
-            case 3:
-              this.classList.remove("low");
-              this.classList.remove("normal");
-              this.classList.add("high");
-              break;
-          }
+      arrinput.forEach(function (input) {
+        input.addEventListener("input", function () {
+          console.log(this.value);
+          console.log(check(this.value, this))
         })
-      });
-      
     });
-  }
+    
+  });
+}
 });
-
 
 
 // Tab Table
 var btnopentabtable = [].slice.call(document.querySelectorAll(".js-open-tabtable"));
-if(btnopentabtable.length) {
-  btnopentabtable.forEach(function(el) {
-    el.addEventListener("click", function(item) {
+if (btnopentabtable.length) {
+  btnopentabtable.forEach(function (el) {
+    el.addEventListener("click", function (item) {
       var parent = this.closest(".tabtable__item");
       parent.classList.toggle("active");
       
-      if(parent.classList.contains("active")) {
+      if (parent.classList.contains("active")) {
         parent.querySelector("button span").innerText = "Свернуть";
       } else {
         parent.querySelector("button span").innerText = "Подробнее";
@@ -731,9 +804,9 @@ if(btnopentabtable.length) {
 
 // tabshead check fixed
 var tahheadfix = document.querySelector(".js-tabhead");
-if(tahheadfix) {
-  document.body.onscroll = function(scroll) {
-    if(window.scrollY >= tahheadfix.offsetTop) {
+if (tahheadfix) {
+  document.body.onscroll = function (scroll) {
+    if (window.scrollY >= tahheadfix.offsetTop) {
       console.log("Fixed");
       tahheadfix.classList.add("fixed");
     } else {
@@ -749,44 +822,44 @@ function PhoneCode(el) {
   let inputs = [];
   let activeInput = 0;
   
-  for(let i=1;i<=4;i++) {
+  for (let i = 1; i <= 4; i++) {
     let input = document.createElement("input");
     input.type = "number";
     input.name = "number-" + i;
-    input.min = "1";
+    input.min = "0";
     input.max = "9";
     input.required = true;
-    if(i != 1) input.disabled = true;
+    if (i != 1) input.disabled = true;
     el.append(input);
     inputs.push(input);
   }
   
-  inputs.forEach(function(item) {
-    item.addEventListener("input", function() {
+  inputs.forEach(function (item) {
+    item.addEventListener("input", function () {
       let val = this.value;
       
-      if(this.value != ""){
-        if(parseInt(this.value) < parseInt(this.min)){
+      if (this.value != "") {
+        if (parseInt(this.value) < parseInt(this.min)) {
           this.value = this.min;
         }
-        if(parseInt(this.value) > parseInt(this.max)){
+        if (parseInt(this.value) > parseInt(this.max)) {
           this.value = this.max;
         }
       }
       
-      if(this.value) {
-        if(activeInput == 3) return false;
+      if (this.value) {
+        if (activeInput == 3) return false;
         activeInput++;
         inputs[activeInput].disabled = false;
         inputs[activeInput].focus();
       }
     });
-  
-    item.onkeydown = function(event) {
+    
+    item.onkeydown = function (event) {
       var key = event.keyCode || event.charCode;
-      if( key == 8 || key == 46 ) {
+      if (key == 8 || key == 46) {
         event.target.value = "";
-        if(activeInput == 0) return false;
+        if (activeInput == 0) return false;
         activeInput--;
         inputs[activeInput + 1].disabled = true;
         inputs[activeInput].focus();
@@ -796,19 +869,19 @@ function PhoneCode(el) {
 }
 
 var phonecode = [].slice.call(document.querySelectorAll(".js-phone-code"));
-if(phonecode.length) {
-  phonecode.forEach(function(item, index) {
+if (phonecode.length) {
+  phonecode.forEach(function (item, index) {
     new PhoneCode(item);
   });
 }
 
 // Modal Tab
 var tabmodalbtn = [].slice.call(document.querySelectorAll(".js-tabmodal-btn"));
-if(tabmodalbtn.length) {
-  tabmodalbtn.forEach(function(item) {
-    item.addEventListener("click", function() {
+if (tabmodalbtn.length) {
+  tabmodalbtn.forEach(function (item) {
+    item.addEventListener("click", function () {
       let data = this.dataset.modal;
-  
+      
       getSiblings(this, function (el) {
         el.classList.remove("active");
       });
@@ -819,16 +892,16 @@ if(tabmodalbtn.length) {
       
       document.querySelector(data).classList.add("active");
     })
-  });  
+  });
 }
 
 // Popup
 $(document).on('closing', '.js-modal', function (e) {
   console.log(e)
   
-  if($(".cmodal").length) {
-    if($(e.currentTarget).hasClass("remodal-rel")) {
-      setTimeout(function() {
+  if ($(".cmodal").length) {
+    if ($(e.currentTarget).hasClass("remodal-rel")) {
+      setTimeout(function () {
         $(".remodal-rel .cmodal-item").removeClass("active");
         $(".cmodal-rel-reglogin").addClass("active");
         
@@ -836,15 +909,15 @@ $(document).on('closing', '.js-modal', function (e) {
         $(".cmodal-rel-login").addClass("active");
       }, 300)
     }
-  
-    if($(e.currentTarget).hasClass("remodal-rep")) {
-      setTimeout(function() {
+    
+    if ($(e.currentTarget).hasClass("remodal-rep")) {
+      setTimeout(function () {
         $(".remodal-rep .cmodal-item").removeClass("active");
         $(".cmodal-rep-phone").addClass("active");
       }, 300)
     }
-  
-    $(".cmodal-item form").each(function(item) {
+    
+    $(".cmodal-item form").each(function (item) {
       $(this).get(0).reset();
       $(this).find("input").removeClass("error notempty")
       $(this).find("textarea").removeClass("error")
