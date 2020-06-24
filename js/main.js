@@ -640,9 +640,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
       let arrinput = [].slice.apply(document.querySelectorAll("input"));
       arrinput.forEach(function(input) {
         input.addEventListener("input", function() {
+          console.log(this.value)
           let letters = /[A-Z|a-z]/g;
           let numbers = /[0-9]/g;
-  
+          
+          
           let value = 0;
   
           if(this.value.length >= 8) {
