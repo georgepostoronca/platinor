@@ -1,0 +1,281 @@
+include include/fn.pug
+
+<!DOCTYPE html>
+html(lang="en")
+  head
+    include ./include/head.pug
+
+  body
+    #wrapper.blockattach
+      include ./include/menu.pug
+      //- include ./include/header.pug
+
+      .blockattach__content
+        .container
+          button.popupopen(data-remodal-target="reglogin")
+            span Popup Open
+
+          button.popupopen(data-remodal-target="repass")
+            span RePass
+
+          button.popupopen(data-remodal-target="success")
+            span Success
+
+          button.popupopen(data-remodal-target="request")
+            span Request
+
+
+          .remodal.remodal-rel.js-modal(data-remodal-id='reglogin')
+            .cmodal
+              .cmodal-item.cmodal-rel-reglogin.cmodal-reglogin.active
+                .cmodal-tab__wrap
+                  .cmodal-tab__btn.js-tabmodal-btn.active(data-modal=".cmodal-login")
+                    span Вход
+                  .cmodal-tab__btn.js-tabmodal-btn(data-modal=".cmodal-reg")
+                    span Регистрация
+
+                //Modal Login
+                .cmodal-item.js-tabmodal-content.cmodal-rel-login.cmodal-login.active
+                  form.js-form-validator
+                    h2 Вход
+
+                    .cmodal-social
+                      span Через соц-сети:
+                      +social
+
+                    .input-block
+                      input.js__input-notempty(type='email' name="email" required data-bouncer-target=".errmsg-login-email")
+                      span Email
+                      em.errmsg.errmsg-login-email Заполните данное поле
+
+                    .input-block
+                      input.js__input-notempty(type='password' minlength="8" name="password" required data-bouncer-target=".errmsg-login-password")
+                      span Пароль
+                      em.errmsg.errmsg-login-password Заполните данное поле
+
+                    button(type="submit" name="submit").btn-yellow.cmodal-submit
+                      span ВОЙТИ НА САЙТ
+
+                    .btn-forgot
+
+                      a(href="#Забыли-пароль?")
+                        span Забыли пароль?
+
+
+
+                //Modal Reg
+                .cmodal-item.js-tabmodal-content.cmodal-rel-reg.cmodal-reg
+                  form.js-form-validator(data-submit="modalRegSubmit")
+                    h2 Регистрация
+
+                    .cmodal-social
+                      span Через соц-сети:
+                      +social
+
+                    .input-block
+                      input.js__input-notempty(type='text' name="name" required data-bouncer-target=".errmsg-modal-reg-name")
+                      span Имя
+                      em.errmsg.errmsg-modal-reg-name Заполните данное поле
+
+                    .input-block
+                      input.js__input-notempty(type='text' name="name" required data-bouncer-target=".errmsg-modal-reg-name")
+                      span Фамилия
+                      em.errmsg.errmsg-modal-reg-name Заполните данное поле
+
+                    .input-block
+                      input.js__input-notempty(type='email' name="email" required data-bouncer-target=".errmsg-modal-reg-email")
+                      span Email
+                      em.errmsg.errmsg-modal-reg-email Заполните данное поле
+
+                    .input-block
+                      input.js__input-notempty(id="input-reg-pass" type='password' minlength="8" name="password" required data-bouncer-target=".errmsg-modal-reg-password")
+                      span Пароль
+                      em.errmsg.errmsg-modal-reg-password Заполните данное поле
+
+                    .input-block
+                      input.js__input-notempty(type='password' minlength="8" name="repeat-pass" required data-bouncer-match="#input-reg-pass" data-bouncer-target=".errmsg-modal-reg-repassword")
+                      span Повторите пароль
+                      em.errmsg.errmsg-modal-reg-repassword Заполните данное поле
+
+                    button(type="submit" name="submit").btn-yellow.cmodal-submit
+                      span ЗАРЕГИСТРИРОВАТЬСЯ
+
+                    p Нажимая на кнопку «Зарегистрироваться», вы даете согласие на обработку личных данных в соответствии c политикой конфиденциальности,
+
+
+
+              //Modal Phone
+              .cmodal-item.cmodal-phone.cmodal-rel-phone
+                form.js-form-validator(data-submit="modalPhoneSubmit")
+                  h2 Телефон
+
+                  .input-block
+                    input.js__input-notempty.js-phone-mask(type='phone' name="phone" required data-bouncer-target=".errmsg-modal-phone-phone")
+                    span Телефон
+                    em.errmsg.errmsg-modal-phone-phone Заполните данное поле
+
+                  button(type="submit" name="submit").btn-yellow.cmodal-submit
+                    span Получить код
+
+
+
+              //Modal Phone Number
+              .cmodal-item.cmodal-phonenum.cmodal-middle.cmodal-rel-phonenum
+                form.js-form-validator(data-submit="modalPhoneNumSubmit")
+                  .cmodal-head
+                    h2 Подтверждение телефона
+
+                    span Введите код высланный по указанному телефону
+
+                  .number-block.js-phone-code
+
+                  .cmodal-footer
+                    button(type="submit" name="submit").btn-yellow.cmodal-submit
+                      span ПОДТВЕРДИТЬ
+                    span.text-repeat Отправить повторно можно через 45 секунд
+                    a(href="#resend").link-resend Не приходит СМС
+
+              //Modal Success
+              .cmodal-item.cmodal-success.cmodal-max.cmodal-rel-success
+                +svg("check")
+                h2 Спасибо, ваша заявка была успешно отправлена
+                span В течении 24 часов мы свяжемся с вами
+                button(type="button" data-remodal-action="close").btn-yellow
+                  span ВЕРНУТЬСЯ
+
+
+
+          .remodal.remodal-rep.js-modal(data-remodal-id='repass')
+            .cmodal.cmodal-rep
+
+              //Modal Phone
+              .cmodal-item.cmodal-middle.cmodal-rep-phone.cmodal-phone.active
+                form.js-form-validator(data-submit="modalRepPhoneSubmit")
+
+                  .cmodal-head
+                    h2 Восстановление пароля
+                    span Введите номер телефона и мы вышлем вам код подтверждения
+
+                  .input-block
+                    input.js__input-notempty.js-phone-mask(type='phone' name="phone" required data-bouncer-target=".errmsg-modal-rep-phone")
+                    span Телефон
+                    em.errmsg.errmsg-modal-rep-phone Заполните данное поле
+
+                  button(type="submit" name="submit").btn-yellow.cmodal-submit
+                    span Получить код
+
+              //Modal Phone Number
+              .cmodal-item.cmodal-rep-phonenum.cmodal-phonenum.cmodal-middle
+                form.js-form-validator(data-submit="modalRepPhoneNumSubmit")
+                  .cmodal-head
+                    h2 Подтверждение телефона
+
+                    span Введите код высланный по указанному телефону
+
+                  .number-block.js-phone-code
+
+                  .cmodal-footer
+                    button(type="submit" name="submit").btn-yellow.cmodal-submit
+                      span ПОДТВЕРДИТЬ
+                    span.text-repeat Отправить повторно можно через 45 секунд
+                    a(href="#resend").link-resend Не приходит СМС
+
+              //Modal Reg
+              .cmodal-item.cmodal-rep-pass.cmodal-reg
+                form.js-form-validator(data-submit="modalRepPassSubmit")
+                  h2 Новый пароль
+
+                  .input-block
+                    input.js__input-notempty(id="input-rep-pass" type='password' minlength="8" name="password" required data-bouncer-target=".errmsg-modal-rep-password")
+                    span Придумайте новый пароль
+                    em.errmsg.errmsg-modal-rep-password Заполните данное поле
+
+                  .input-block
+                    input.js__input-notempty(type='password' minlength="8" name="repeat-pass" required data-bouncer-match="#input-rep-pass" data-bouncer-target=".errmsg-modal-rep-repassword")
+                    span Повторите пароль
+                    em.errmsg.errmsg-modal-rep-repassword Заполните данное поле
+
+                  button(type="submit" name="submit").btn-yellow.cmodal-submit
+                    span ИЗМЕНИТЬ ПАРОЛЬ
+
+              //Modal Success
+              .cmodal-item.cmodal-success.cmodal-max.cmodal-rep-success
+                +svg("check")
+                h2 Спасибо, ваша заявка была успешно отправлена
+                span В течении 24 часов мы свяжемся с вами
+                button(type="button" data-remodal-action="close").btn-yellow
+                  span ВЕРНУТЬСЯ
+
+
+          .remodal.remodal-success.js-modal(data-remodal-id='success')
+            .cmodal.cmodal-single
+              //Modal Success
+              .cmodal-item.cmodal-success.cmodal-max.active
+                +svg("check")
+                h2 Спасибо, ваша заявка была успешно отправлена
+                span В течении 24 часов мы свяжемся с вами
+                button(type="button" data-remodal-action="close").btn-yellow
+                  span ВЕРНУТЬСЯ
+
+          .remodal.remodal-request.js-modal(data-remodal-id='request')
+            .cmodal.cmodal-single
+              //Modal Success
+              .cmodal-item.cmodal-middle.active
+                form.js-form-validator
+                  h2 Оставить заявку
+
+                  .input-block
+                    input.js__input-notempty(type='text' name="name" required data-bouncer-target=".errmsg-request-name")
+                    span Email
+                    em.errmsg.errmsg-request-name Заполните данное поле
+
+                  .input-block
+                    input.js__input-notempty.js-phone-mask(type='phone' name="phone" required data-bouncer-target=".errmsg-modal-request-phone")
+                    span Телефон
+                    em.errmsg.errmsg-modal-request-phone Заполните данное поле
+
+                  button(type="submit" name="submit").btn-yellow.cmodal-submit
+                    span ВОЙТИ НА САЙТ
+
+                  p Нажимая на кнопку «Отправить», вы даете согласие на обработку личных данных в соответствии c политикой конфиденциальности,
+
+      script.
+        function modalRegSubmit() {
+          $(".cmodal-rep-phone").removeClass("active");
+          $(".cmodal-rep-phonenum").addClass("active");
+        }
+
+        function modalPhoneSubmit() {
+          $(".cmodal-rel-phone").removeClass("active");
+          $(".cmodal-rel-phonenum").addClass("active");
+        }
+
+        function modalPhoneNumSubmit() {
+          $(".cmodal-rel-phonenum").removeClass("active");
+          $(".cmodal-rel-success").addClass("active");
+        }
+
+        // Rep
+        function modalRepPhoneSubmit() {
+          console.log("modalRepPhoneSubmit")
+          $(".cmodal-rep-phone").removeClass("active");
+          $(".cmodal-rep-phonenum").addClass("active");
+        }
+
+        function modalRepPhoneNumSubmit() {
+          console.log("modalRepPhoneNumSubmit")
+          $(".cmodal-rep-phonenum").removeClass("active");
+          $(".cmodal-rep-pass").addClass("active");
+        }
+
+        function modalRepPassSubmit() {
+          console.log("modalRepPassSubmit")
+          $(".cmodal-rep-pass").removeClass("active");
+          $(".cmodal-rep-success").addClass("active");
+
+        }
+
+      include ./include/footer.pug
+      include ./include/include.pug
+
+

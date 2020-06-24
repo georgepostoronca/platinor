@@ -1847,3 +1847,49 @@ textarea {
     //display: none;
   }
 }
+
+
+.number-block {
+  display: flex;
+  justify-content: space-between;
+  
+  input {
+    width: calc(25% - 16px);
+    text-align: center;
+    border: 0;
+    border-bottom: 1px solid #C4C4C4;
+    
+    appearance: none;
+    outline: none;
+  
+    font-size: 40px;
+    height: 64px;
+    padding-bottom: 19px;
+    transition: .2s;
+    
+    &.error {
+      border-color: #D26C6C;
+      color: #D26C6C;
+    }
+    
+    &:focus {
+      border-color: #1F1F1F;
+    }
+    
+    &[disabled] {
+      background: #fff;
+    }
+  
+    /* Chrome, Safari, Edge, Opera */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  
+    /* Firefox */
+    &[type=number] {
+      -moz-appearance: textfield;
+    }
+  }
+}

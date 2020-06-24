@@ -1,0 +1,12 @@
+.popup {
+  background: rgba(0, 0, 0, 0.2);
+  position: absolute;
+}
+.modal-tab {
+  height: 59px;
+  background: #FBF7F0;
+  border-radius: 0px 4px 0px 0px;
+}
+.modal-tab__btn {
+  width: 50%;
+}

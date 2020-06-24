@@ -4,6 +4,7 @@
 @import "../node_modules/normalize.css/normalize";
 @import "../node_modules/swiper/css/swiper.min";
 @import "bootstrap-grid.min";
+@import "remodal";
 
 @import "include/global.scss";
 
@@ -26,3 +27,4 @@
 @import "include/news.scss";
 @import "include/breadcrumbs.scss";
 @import "include/news.scss";
+@import "include/popup.scss";

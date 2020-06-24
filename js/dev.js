@@ -1,3 +1,5 @@
+const defaultPATH = ".";
+
 (function(ELEMENT) {
   ELEMENT.matches = ELEMENT.matches || ELEMENT.mozMatchesSelector || ELEMENT.msMatchesSelector || ELEMENT.oMatchesSelector || ELEMENT.webkitMatchesSelector;
   ELEMENT.closest = ELEMENT.closest || function closest(selector) {
@@ -40,7 +42,7 @@ function loadScript(url, callback) {
 
 // Init Slider
 if (document.querySelector(".swiper-container")) {
-  loadScript("./js/include/swiper.min.js", function () {
+  loadScript(defaultPATH + "/js/include/swiper.min.js", function () {
     // Slider
     if (document.querySelector('.js__headslid-slider')) {
       var firstStart = false;
@@ -569,7 +571,7 @@ function executeFunctionByName(functionName, context /*, args */) {
 
 var validatorClass = document.querySelectorAll(".js-form-validator");
 if(validatorClass.length) {
-  loadScript("js/include/inputmask.min.js", function () {
+  loadScript(defaultPATH + "/js/include/inputmask.min.js", function () {
     console.log("InputMask Loaded");
     
     var el = [].slice.call(document.querySelectorAll(".js-phone-mask"));
@@ -589,7 +591,7 @@ if(validatorClass.length) {
 document.addEventListener("DOMContentLoaded", function(event) {
   var validatorClass = document.querySelectorAll(".js-form-validator");
   if(validatorClass.length) {
-    loadScript("./js/include/bouncer.polyfills.min.js", function () {
+    loadScript(defaultPATH + "/js/include/bouncer.polyfills.min.js", function () {
       console.log("Validator Loaded");
       
       var bouncer = new Bouncer('.js-form-validator', {
@@ -600,10 +602,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
         errorPrefix: 'bouncer-error_', // Prefix used for error message IDs
         patterns: {
           email: /^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$/,
+          password: /(?=.*\d)(?=.*[a-z|A-Z]).{8,}/,
         },
         customValidations: {
           valueMismatch: function (field) {
-          
             // Look for a selector for a field to compare
             // If there isn't one, return false (no error)
             var selector = field.getAttribute('data-bouncer-match');
@@ -618,6 +620,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
             // We want to return true for failures, which can be confusing
             return otherField.value !== field.value;
           
+          },
+          checkPass: function(field) {
+            
           }
         },
       });
@@ -631,6 +636,72 @@ document.addEventListener("DOMContentLoaded", function(event) {
         var fn = el.target.dataset.submit;
         window[fn](el);
       }, false);
+      
+      let arrinput = [].slice.apply(document.querySelectorAll("input"));
+      arrinput.forEach(function(input) {
+        input.addEventListener("input", function() {
+          let letters = /[A-Z|a-z]/g;
+          let numbers = /[0-9]/g;
+  
+          let value = 0;
+  
+          if(this.value.length >= 8) {
+            value = 1;
+            
+            if(this.value.match(letters)) {
+              value += 1;
+            } else {
+              value = 1;
+            }
+
+            if(this.value.match(numbers)) {
+              value += 1;
+            } else {
+              value = 1;
+            }
+          } else {
+            value = 0;
+          }
+  
+          // if(this.value.match(letters)) {
+          //   value += 1;
+          // } else {
+          //   value -= 1;
+          // }
+          //
+          // if(this.value.match(numbers)) {
+          //   value += 1;
+          // } else {
+          //   value -= 1;
+          // }
+          //
+          // if(this.value.length >= 8) {
+          //   value += 1;
+          // } else {
+          //   value -= 1;
+          // }
+  
+          console.log("Pass: " + value)
+  
+          switch (value) {
+            case 1:
+              this.classList.add("low");
+              this.classList.remove("normal");
+              this.classList.remove("high");
+              break;
+            case 2:
+              this.classList.remove("low");
+              this.classList.add("normal");
+              this.classList.remove("high");
+              break;
+            case 3:
+              this.classList.remove("low");
+              this.classList.remove("normal");
+              this.classList.add("high");
+              break;
+          }
+        })
+      });
       
     });
   }
@@ -671,13 +742,121 @@ if(tahheadfix) {
 }
 
 
+// Phone Code
+function PhoneCode(el) {
+  let inputs = [];
+  let activeInput = 0;
+  
+  for(let i=1;i<=4;i++) {
+    let input = document.createElement("input");
+    input.type = "number";
+    input.name = "number-" + i;
+    input.min = "1";
+    input.max = "9";
+    input.required = true;
+    if(i != 1) input.disabled = true;
+    el.append(input);
+    inputs.push(input);
+  }
+  
+  inputs.forEach(function(item) {
+    item.addEventListener("input", function() {
+      let val = this.value;
+      
+      if(this.value != ""){
+        if(parseInt(this.value) < parseInt(this.min)){
+          this.value = this.min;
+        }
+        if(parseInt(this.value) > parseInt(this.max)){
+          this.value = this.max;
+        }
+      }
+      
+      if(this.value) {
+        if(activeInput == 3) return false;
+        activeInput++;
+        inputs[activeInput].disabled = false;
+        inputs[activeInput].focus();
+      }
+    });
+  
+    item.onkeydown = function(event) {
+      var key = event.keyCode || event.charCode;
+      if( key == 8 || key == 46 ) {
+        event.target.value = "";
+        if(activeInput == 0) return false;
+        activeInput--;
+        inputs[activeInput + 1].disabled = true;
+        inputs[activeInput].focus();
+      }
+    };
+  })
+}
+
+var phonecode = [].slice.call(document.querySelectorAll(".js-phone-code"));
+if(phonecode.length) {
+  phonecode.forEach(function(item, index) {
+    new PhoneCode(item);
+  });
+}
+
+// Modal Tab
+var tabmodalbtn = [].slice.call(document.querySelectorAll(".js-tabmodal-btn"));
+if(tabmodalbtn.length) {
+  tabmodalbtn.forEach(function(item) {
+    item.addEventListener("click", function() {
+      let data = this.dataset.modal;
+  
+      getSiblings(this, function (el) {
+        el.classList.remove("active");
+      });
+      this.classList.add("active");
+      
+      document.querySelector(".cmodal-login").classList.remove("active");
+      document.querySelector(".cmodal-reg").classList.remove("active");
+      
+      document.querySelector(data).classList.add("active");
+    })
+  });  
+}
+
+// Popup
+$(document).on('closing', '.js-modal', function (e) {
+  console.log(e)
+  
+  if($(".cmodal").length) {
+    if($(e.currentTarget).hasClass("remodal-rel")) {
+      setTimeout(function() {
+        $(".remodal-rel .cmodal-item").removeClass("active");
+        $(".cmodal-rel-reglogin").addClass("active");
+        
+        $(".cmodal-tab__btn:first-child").addClass("active").siblings().removeClass("active");
+        $(".cmodal-rel-login").addClass("active");
+      }, 300)
+    }
+  
+    if($(e.currentTarget).hasClass("remodal-rep")) {
+      setTimeout(function() {
+        $(".remodal-rep .cmodal-item").removeClass("active");
+        $(".cmodal-rep-phone").addClass("active");
+      }, 300)
+    }
+  
+    $(".cmodal-item form").each(function(item) {
+      $(this).get(0).reset();
+      $(this).find("input").removeClass("error notempty")
+      $(this).find("textarea").removeClass("error")
+    });
+  }
+});
+
 // // File Upload
 // document.addEventListener("DOMContentLoaded", function(event) {
 //   var validatorClass = document.querySelectorAll("input[type='file']");
 //   if(validatorClass.length) {
 //     loadScript("js/include/filepond-plugin-file-validate-size.js", function() {
 //       loadScript("js/include/filepond-plugin-file-validate-type.min.js", function() {
-//         loadScript("./js/include/filepond.min.js", function () {
+//         loadScript(defaultPATH + "js/include/filepond.min.js", function () {
 //           console.log("File Upload Loaded");
 //
 //           FilePond.registerPlugin(FilePondPluginFileValidateSize, FilePondPluginFileValidateType);
