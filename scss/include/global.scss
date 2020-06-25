@@ -295,6 +295,59 @@ a {
   }
 }
 
+.btn-ico {
+  min-width: 295px;
+  height: 56px;
+  background: #1F1F1F;
+  border-radius: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  
+  outline: none;
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  transition: .2s;
+  box-sizing: border-box;
+  border: 1px solid #1F1F1F;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: transparent;
+    
+    svg {
+      fill: #1F1F1F;
+    }
+    
+    span {
+      color: #1F1F1F;
+    }
+  }
+  
+  svg {
+    width: 20px;
+    height: 18px;
+    fill: #fff;
+    margin-right: 12px;
+    transition: .2s;
+  }
+  
+  span {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    position: relative;
+    top: -2px;
+    transition: .2s;
+  }
+}
+
 .btn-line {
   outline: none;
   background-color: transparent;

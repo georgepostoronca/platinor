@@ -1,23 +1,38 @@
 section.product
-    .container
-        .product-slider
+  .container
+    .product__wrap
+      .product-slider
+        //MAX
+        //.prodslid
+        //  .swiper-container.js__prodslid-slider
+        //  .swiper-wrapper
+        //    each val in [1,2,3,4,5,6]
+        //      .swiper-slide
+        //        img(src="prodslid-1.jpg" srcset="img/prodslid-1@2x.jpg" alt="IMG")
 
-        .product-info
-            .product-article
-                em Артикул: 513110201
+        //MIN
+        //.prodslid-min.swiper-container.js__prodslid-min-slider
+        //  .swiper-wrapper
+        //    each val in [1,2,3,4,5,6]
+        //      .swiper-slide
+        //        img(src="prodslid-1.jpg" srcset="img/prodslid-1@2x.jpg" alt="IMG")
 
-            h1 Кольцо из палладия с бриллиантами
+      .product-info
+        .product-article
+          em Артикул: 513110201
 
-            .product-price
-                span 314 990₽
-                button
-                    +svg("cart")
-                    span ДОБАВИТЬ В КОРЗИНУ
+        h1 Кольцо из палладия с бриллиантами
 
-            .product-social
-                span Свяжитесь с нами:
-                +social()
+        .product-price
+          span 314 990₽
+          button.btn-ico
+            +svg("cart")
+            span ДОБАВИТЬ В КОРЗИНУ
 
-            .product-size
-                b Выберите размер
-                .prodsizeslid
+        .product-social
+          span Свяжитесь с нами:
+          +social()
+
+        .product-size
+          b Выберите размер
+          .prodsizeslid
