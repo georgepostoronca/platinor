@@ -643,83 +643,79 @@ if (validatorClass.length) {
 // Check Password
 
 function check(pass, input) {
-  if(!$(input).parent().find(".pass-check").length) {
-    $(input).parent().append("<div class='pass-check'><span></span></div>")
+  if($(input).attr("name") != "repeat-pass") {
+    if(!$(input).parent().find(".pass-check").length) {
+      $(input).parent().append("<div class='pass-check'><span></span><div></div></div>")
+    }
+    
+    var protect = 0;
+    
+    if(pass.length < 8) {
+      $(input).parent().removeClass('normal');
+      $(input).parent().removeClass("good");
+      $(input).parent().removeClass("verygood");
+      $(input).parent().addClass('low');
+      $(input).parent().find(".pass-check span").text("Минимум 8 символов")
+      return "Минимум 8 символов";
+    }
+    
+    //a,s,d,f
+    var small = "([a-z]+)";
+    if(pass.match(small)) {
+      protect++;
+    }
+    
+    //A,B,C,D
+    var big = "([A-Z]+)";
+    if(pass.match(big)) {
+      protect++;
+    }
+    //1,2,3,4,5 ... 0
+    var numb = "([0-9]+)";
+    if(pass.match(numb)) {
+      protect++;
+    }
+    //!@#$
+    // var vv = /\W/;
+    var vv = /[!@#$]/;
+    if(pass.match(vv)) {
+      protect++;
+    }
+    
+    if(protect == 1) {
+      $(input).parent().removeClass("low");
+      $(input).parent().removeClass("good");
+      $(input).parent().removeClass("verygood");
+      $(input).parent().addClass('low');
+      $(input).parent().find(".pass-check span").text("Слабый")
+      return "Слабый";
+    }
+    
+    if(protect == 2) {
+      $(input).parent().removeClass("low");
+      $(input).parent().removeClass("good");
+      $(input).parent().removeClass("verygood");
+      $(input).parent().addClass('normal');
+      $(input).parent().find(".pass-check span").text("Средний")
+      return "Средний";
+    }
+    if(protect == 3) {
+      $(input).parent().removeClass("low");
+      $(input).parent().removeClass("normal");
+      $(input).parent().removeClass("verygood");
+      $(input).parent().addClass('good');
+      $(input).parent().find(".pass-check span").text("Хороший")
+      return "Хороший";
+    }
+    if(protect == 4) {
+      $(input).parent().removeClass("low");
+      $(input).parent().removeClass("normal");
+      $(input).parent().removeClass("good");
+      $(input).parent().addClass('verygood');
+      $(input).parent().find(".pass-check span").text("Высокий")
+      return "Высокий";
+    }
   }
-  
-  var protect = 0;
-  
-  if(pass.length < 8) {
-    $(input).removeClass();
-    $(input).addClass('low');
-    $(input).parent().find(".pass-check span").text("Слабый")
-    return "Слабый";
-  }
-  
-  //a,s,d,f
-  var small = "([a-z]+)";
-  if(pass.match(small)) {
-    protect++;
-  }
-  
-  //A,B,C,D
-  var big = "([A-Z]+)";
-  if(pass.match(big)) {
-    protect++;
-  }
-  //1,2,3,4,5 ... 0
-  var numb = "([0-9]+)";
-  if(pass.match(numb)) {
-    protect++;
-  }
-  //!@#$
-  var vv = /\W/;
-  if(pass.match(vv)) {
-    protect++;
-  }
-  
-  // if(protect == 1) {
-  //   $(input).removeClass();
-  //   $(input).addClass('normal');
-  //
-  //   return "Средний";
-  // }
-  
-  if(protect == 1) {
-    $(input).removeClass("low");
-    $(input).removeClass("good");
-    $(input).removeClass("verygood");
-    $(input).addClass('low');
-    $(input).parent().find(".pass-check span").text("Слабый")
-    return "Слабый";
-  }
-  
-  if(protect == 2) {
-    $(input).removeClass("low");
-    $(input).removeClass("good");
-    $(input).removeClass("verygood");
-    $(input).addClass('normal');
-    $(input).parent().find(".pass-check span").text("Средний")
-    return "Средний";
-  }
-  if(protect == 3) {
-    $(input).removeClass("low");
-    $(input).removeClass("normal");
-    $(input).removeClass("verygood");
-    $(input).addClass('good');
-    $(input).parent().find(".pass-check span").text("Хороший")
-    return "Хороший";
-  }
-  if(protect == 4) {
-    $(input).removeClass("low");
-    $(input).removeClass("normal");
-    $(input).removeClass("good");
-    $(input).addClass('verygood');
-    $(input).parent().find(".pass-check span").text("Высокий")
-    return "Высокий";
-  }
-  
-  console.log(protect)
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
@@ -754,9 +750,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             // We want to return true for failures, which can be confusing
             return otherField.value !== field.value;
             
-          },
-          checkPass: function (field) {
-          
           }
         },
       });
@@ -771,12 +764,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
         window[fn](el);
       }, false);
       
-      let arrinput = [].slice.apply(document.querySelectorAll("input"));
+      let arrinput = [].slice.apply(document.querySelectorAll("input[type='password']"));
       arrinput.forEach(function (input) {
         input.addEventListener("input", function () {
-          console.log(this.value);
-          console.log(check(this.value, this))
-        })
+          check(this.value, this);
+        });
     });
     
   });
@@ -848,21 +840,31 @@ function PhoneCode(el) {
       }
       
       if (this.value) {
-        if (activeInput == 3) return false;
+        if (activeInput == 3) {
+          nrclick = 0;
+          return false;
+        }
         activeInput++;
         inputs[activeInput].disabled = false;
         inputs[activeInput].focus();
+        nrclick = 0;
       }
     });
     
+    
+    let nrclick = 0;
     item.onkeydown = function (event) {
       var key = event.keyCode || event.charCode;
       if (key == 8 || key == 46) {
-        event.target.value = "";
-        if (activeInput == 0) return false;
-        activeInput--;
-        inputs[activeInput + 1].disabled = true;
-        inputs[activeInput].focus();
+        if(nrclick > 0) {
+          event.target.value = "";
+          if (activeInput == 0) return false;
+          activeInput--;
+          inputs[activeInput + 1].disabled = true;
+          inputs[activeInput].focus();
+          nrclick = 0;
+        }
+        nrclick++;
       }
     };
   })
@@ -896,6 +898,12 @@ if (tabmodalbtn.length) {
 }
 
 // Popup
+
+$('.js-modal').remodal({
+  closeOnOutsideClick: false,
+  hashTracking: false
+});
+
 $(document).on('closing', '.js-modal', function (e) {
   console.log(e)
   
@@ -922,6 +930,22 @@ $(document).on('closing', '.js-modal', function (e) {
       $(this).find("input").removeClass("error notempty")
       $(this).find("textarea").removeClass("error")
     });
+  }
+});
+
+$(document).on('opened', '.js-modal', function (e) {
+  let tmp = document.createElement("div");
+  tmp.dataset.dataRemodalAction = "close";
+  tmp.classList.add("remodal-close");
+  tmp.classList.add("remodal-close-root");
+
+  tmp.addEventListener("click", function() {
+    var close = $(e.currentTarget).closest(".remodal-wrapper").find('[data-remodal-action="close"]')
+    close.trigger("click");
+  });
+  
+  if(!$(e.currentTarget).closest(".remodal-wrapper").find(".remodal-close-root").length) {
+    $(e.currentTarget).closest(".remodal-wrapper").append(tmp)
   }
 });
 

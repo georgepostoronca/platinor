@@ -26,6 +26,7 @@ html(lang="en")
 
 
           .remodal.remodal-rel.js-modal(data-remodal-id='reglogin')
+            button(data-remodal-action="close" class="remodal-close")
             .cmodal
               .cmodal-item.cmodal-rel-reglogin.cmodal-reglogin.active
                 .cmodal-tab__wrap
@@ -132,7 +133,10 @@ html(lang="en")
                   .cmodal-footer
                     button(type="submit" name="submit").btn-yellow.cmodal-submit
                       span ПОДТВЕРДИТЬ
-                    span.text-repeat Отправить повторно можно через 45 секунд
+                    span.text-repeat
+                      | Отправить повторно можно через
+                      span 90
+                      | секунд
                     a(href="#resend").link-resend Не приходит СМС
 
               //Modal Success
@@ -146,6 +150,7 @@ html(lang="en")
 
 
           .remodal.remodal-rep.js-modal(data-remodal-id='repass')
+            button(data-remodal-action="close" class="remodal-close")
             .cmodal.cmodal-rep
 
               //Modal Phone
@@ -177,7 +182,10 @@ html(lang="en")
                   .cmodal-footer
                     button(type="submit" name="submit").btn-yellow.cmodal-submit
                       span ПОДТВЕРДИТЬ
-                    span.text-repeat Отправить повторно можно через 45 секунд
+                    span.text-repeat
+                      | Отправить повторно можно через
+                      span 90
+                      | секунд
                     a(href="#resend").link-resend Не приходит СМС
 
               //Modal Reg
@@ -208,6 +216,7 @@ html(lang="en")
 
 
           .remodal.remodal-success.js-modal(data-remodal-id='success')
+            button(data-remodal-action="close" class="remodal-close")
             .cmodal.cmodal-single
               //Modal Success
               .cmodal-item.cmodal-success.cmodal-max.active
@@ -218,6 +227,7 @@ html(lang="en")
                   span ВЕРНУТЬСЯ
 
           .remodal.remodal-request.js-modal(data-remodal-id='request')
+            button(data-remodal-action="close" class="remodal-close")
             .cmodal.cmodal-single
               //Modal Success
               .cmodal-item.cmodal-middle.active
@@ -239,13 +249,74 @@ html(lang="en")
 
                   p Нажимая на кнопку «Отправить», вы даете согласие на обработку личных данных в соответствии c политикой конфиденциальности,
 
+
+      include ./include/footer.pug
+      include ./include/include.pug
+
       script.
-        function modalRegSubmit() {
-          $(".cmodal-rep-phone").removeClass("active");
-          $(".cmodal-rep-phonenum").addClass("active");
+        $(".link-resend").each(function() {
+          $(this).click(function () {
+
+            if($(this).closest(".remodal").hasClass("remodal-rep")) {
+              $(".remodal-rep .cmodal-item").removeClass("active");
+              $(".cmodal-rep-phone").addClass("active");
+            }
+
+            if ($(this).closest(".remodal").hasClass("remodal-rel")) {
+              $(".remodal-rel .cmodal-item").removeClass("active");
+              $(".cmodal-rel-phone").addClass("active");
+            }
+
+            // startTimer($(".link-resend"), true);
+            clearInterval(timerGlobalId)
+            timervalue1 = 0;
+          });
+        });
+
+
+        /* Функция правильных окончаний для чисел */
+        function getWord(count, ending1, ending2, ending3) {
+          var thisResult = '';
+          var countLast = parseInt(count.toString().substr(-1));
+          if (countLast == 1) {
+            thisResult = ending1;
+          } else if ((countLast >= 2) && (countLast <= 4)) {
+            thisResult = ending2;
+          } else {
+            thisResult = ending3;
+          }
+          if ((count >= 11) && (count <= 14)) {
+            thisResult = ending3;
+          }
+          return count + ' ' + thisResult;
         }
 
-        function modalPhoneSubmit() {
+
+        var timerGlobalId;
+        function startTimer(form, value) {
+          let timer = 90;
+
+          if(timerGlobalId) {
+            clearInterval(timerGlobalId)
+          }
+
+          timerGlobalId = setInterval(function() {
+            timer--;
+            window[value] = timer;
+            form.text(timer);
+
+            if(timer === 0) {
+              clearInterval(timerGlobalId);
+            }
+          }, 1000);
+        }
+
+        function modalRegSubmit() {
+          $(".cmodal-rel-reglogin").removeClass("active");
+          $(".cmodal-rel-phone").addClass("active");
+        }
+
+        function modalPhoneSubmit(form) {
           $(".cmodal-rel-phone").removeClass("active");
           $(".cmodal-rel-phonenum").addClass("active");
         }
@@ -256,10 +327,13 @@ html(lang="en")
         }
 
         // Rep
-        function modalRepPhoneSubmit() {
+        var timervalue1 = 0;
+        function modalRepPhoneSubmit(form) {
           console.log("modalRepPhoneSubmit")
           $(".cmodal-rep-phone").removeClass("active");
           $(".cmodal-rep-phonenum").addClass("active");
+          $(".cmodal-rep-phonenum").find(".text-repeat span").text(90);
+          startTimer($(".cmodal-rep-phonenum").find(".text-repeat span"), "timervalue1");
         }
 
         function modalRepPhoneNumSubmit() {
@@ -272,10 +346,6 @@ html(lang="en")
           console.log("modalRepPassSubmit")
           $(".cmodal-rep-pass").removeClass("active");
           $(".cmodal-rep-success").addClass("active");
-
         }
-
-      include ./include/footer.pug
-      include ./include/include.pug
 
 

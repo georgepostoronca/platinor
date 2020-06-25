@@ -126,6 +126,7 @@
           <button class="popupopen" data-remodal-target="success"><span>Success</span></button>
           <button class="popupopen" data-remodal-target="request"><span>Request</span></button>
           <div class="remodal remodal-rel js-modal" data-remodal-id="reglogin">
+            <button class="remodal-close" data-remodal-action="close"></button>
             <div class="cmodal">
               <div class="cmodal-item cmodal-rel-reglogin cmodal-reglogin active">
                 <div class="cmodal-tab__wrap">
@@ -224,7 +225,7 @@
                   </div>
                   <div class="number-block js-phone-code"></div>
                   <div class="cmodal-footer">
-                    <button class="btn-yellow cmodal-submit" type="submit" name="submit"><span>ПОДТВЕРДИТЬ</span></button><span class="text-repeat">Отправить повторно можно через 45 секунд</span><a class="link-resend" href="#resend">Не приходит СМС</a>
+                    <button class="btn-yellow cmodal-submit" type="submit" name="submit"><span>ПОДТВЕРДИТЬ</span></button><span class="text-repeat">Отправить повторно можно через<span>90</span>секунд</span><a class="link-resend" href="#resend">Не приходит СМС</a>
                   </div>
                 </form>
               </div>
@@ -239,6 +240,7 @@
             </div>
           </div>
           <div class="remodal remodal-rep js-modal" data-remodal-id="repass">
+            <button class="remodal-close" data-remodal-action="close"></button>
             <div class="cmodal cmodal-rep">
               <!--Modal Phone-->
               <div class="cmodal-item cmodal-middle cmodal-rep-phone cmodal-phone active">
@@ -260,7 +262,7 @@
                   </div>
                   <div class="number-block js-phone-code"></div>
                   <div class="cmodal-footer">
-                    <button class="btn-yellow cmodal-submit" type="submit" name="submit"><span>ПОДТВЕРДИТЬ</span></button><span class="text-repeat">Отправить повторно можно через 45 секунд</span><a class="link-resend" href="#resend">Не приходит СМС</a>
+                    <button class="btn-yellow cmodal-submit" type="submit" name="submit"><span>ПОДТВЕРДИТЬ</span></button><span class="text-repeat">Отправить повторно можно через<span>90</span>секунд</span><a class="link-resend" href="#resend">Не приходит СМС</a>
                   </div>
                 </form>
               </div>
@@ -288,6 +290,7 @@
             </div>
           </div>
           <div class="remodal remodal-success js-modal" data-remodal-id="success">
+            <button class="remodal-close" data-remodal-action="close"></button>
             <div class="cmodal cmodal-single">
               <!--Modal Success-->
               <div class="cmodal-item cmodal-success cmodal-max active">
@@ -300,6 +303,7 @@
             </div>
           </div>
           <div class="remodal remodal-request js-modal" data-remodal-id="request">
+            <button class="remodal-close" data-remodal-action="close"></button>
             <div class="cmodal cmodal-single">
               <!--Modal Success-->
               <div class="cmodal-item cmodal-middle active">
@@ -319,43 +323,6 @@
           </div>
         </div>
       </div>
-      <script>
-        function modalRegSubmit() {
-          $(".cmodal-rep-phone").removeClass("active");
-          $(".cmodal-rep-phonenum").addClass("active");
-        }
-        
-        function modalPhoneSubmit() {
-          $(".cmodal-rel-phone").removeClass("active");
-          $(".cmodal-rel-phonenum").addClass("active");
-        }
-        
-        function modalPhoneNumSubmit() {
-          $(".cmodal-rel-phonenum").removeClass("active");
-          $(".cmodal-rel-success").addClass("active");
-        }
-        
-        // Rep
-        function modalRepPhoneSubmit() {
-          console.log("modalRepPhoneSubmit")
-          $(".cmodal-rep-phone").removeClass("active");
-          $(".cmodal-rep-phonenum").addClass("active");
-        }
-        
-        function modalRepPhoneNumSubmit() {
-          console.log("modalRepPhoneNumSubmit")
-          $(".cmodal-rep-phonenum").removeClass("active");
-          $(".cmodal-rep-pass").addClass("active");
-        }
-        
-        function modalRepPassSubmit() {
-          console.log("modalRepPassSubmit")
-          $(".cmodal-rep-pass").removeClass("active");
-          $(".cmodal-rep-success").addClass("active");
-        
-        }
-        
-      </script>
       <footer class="footer">
         <div class="footer__top">
           <div class="container">
@@ -396,6 +363,101 @@
       <script src="js/include/jquery-3.5.1.min.js"></script>
       <script src="js/include/remodal.min.js"></script>
       <script src="js/main.js"></script>
+      <script>
+        $(".link-resend").each(function() {
+          $(this).click(function () {
+        
+            if($(this).closest(".remodal").hasClass("remodal-rep")) {
+              $(".remodal-rep .cmodal-item").removeClass("active");
+              $(".cmodal-rep-phone").addClass("active");
+            }
+        
+            if ($(this).closest(".remodal").hasClass("remodal-rel")) {
+              $(".remodal-rel .cmodal-item").removeClass("active");
+              $(".cmodal-rel-phone").addClass("active");
+            }
+        
+            // startTimer($(".link-resend"), true);
+            clearInterval(timerGlobalId)
+            timervalue1 = 0;
+          });
+        });
+        
+        
+        /* Функция правильных окончаний для чисел */
+        function getWord(count, ending1, ending2, ending3) {
+          var thisResult = '';
+          var countLast = parseInt(count.toString().substr(-1));
+          if (countLast == 1) {
+            thisResult = ending1;
+          } else if ((countLast >= 2) && (countLast <= 4)) {
+            thisResult = ending2;
+          } else {
+            thisResult = ending3;
+          }
+          if ((count >= 11) && (count <= 14)) {
+            thisResult = ending3;
+          }
+          return count + ' ' + thisResult;
+        }
+        
+        
+        var timerGlobalId;
+        function startTimer(form, value) {
+          let timer = 90;
+        
+          if(timerGlobalId) {
+            clearInterval(timerGlobalId)
+          }
+        
+          timerGlobalId = setInterval(function() {
+            timer--;
+            window[value] = timer;
+            form.text(timer);
+        
+            if(timer === 0) {
+              clearInterval(timerGlobalId);
+            }
+          }, 1000);
+        }
+        
+        function modalRegSubmit() {
+          $(".cmodal-rel-reglogin").removeClass("active");
+          $(".cmodal-rel-phone").addClass("active");
+        }
+        
+        function modalPhoneSubmit(form) {
+          $(".cmodal-rel-phone").removeClass("active");
+          $(".cmodal-rel-phonenum").addClass("active");
+        }
+        
+        function modalPhoneNumSubmit() {
+          $(".cmodal-rel-phonenum").removeClass("active");
+          $(".cmodal-rel-success").addClass("active");
+        }
+        
+        // Rep
+        var timervalue1 = 0;
+        function modalRepPhoneSubmit(form) {
+          console.log("modalRepPhoneSubmit")
+          $(".cmodal-rep-phone").removeClass("active");
+          $(".cmodal-rep-phonenum").addClass("active");
+          $(".cmodal-rep-phonenum").find(".text-repeat span").text(90);
+          startTimer($(".cmodal-rep-phonenum").find(".text-repeat span"), "timervalue1");
+        }
+        
+        function modalRepPhoneNumSubmit() {
+          console.log("modalRepPhoneNumSubmit")
+          $(".cmodal-rep-phonenum").removeClass("active");
+          $(".cmodal-rep-pass").addClass("active");
+        }
+        
+        function modalRepPassSubmit() {
+          console.log("modalRepPassSubmit")
+          $(".cmodal-rep-pass").removeClass("active");
+          $(".cmodal-rep-success").addClass("active");
+        }
+      </script>
     </div>
   </body>
 </html>

@@ -1,7 +1,145 @@
+.remodal-overlay {
+  @media(max-width: 580px) {
+    background-color: #fff;
+  }
+}
+
+.remodal-wrapper {
+  @media(max-width: 580px) {
+    padding: 0;
+    //padding-top: 40px;
+  }
+  
+  & > .remodal-close {
+    width: 53px;
+    height: 53px;
+    border-radius: 100%;
+    background: #FFFFFF;
+  
+    position: absolute;
+    top: 71px;
+    left: initial;
+    right: 103px;
+    transition: .2s;
+    
+    @media(max-width: 992px) {
+      top: 20px;
+      right: 20px;
+    }
+  
+    @media(max-width: 580px) {
+      top: 0;
+      right: 0;
+      width: 55px;
+      height: 55px;
+      border-radius: 0;
+    }
+    
+    &:hover {
+      background-color: #1F1F1F;
+  
+      @media(max-width: 580px) {
+        background-color: #fff;
+      }
+      
+      &:before {
+        filter: invert(100);
+  
+        @media(max-width: 580px) {
+          filter: invert(0);
+        }
+      }
+    }
+    
+    &:before {
+      width: 17px;
+      height: 17px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  
+      font-size: 0;
+      transition: .2s;
+      background: url("../ico/close.svg") center center no-repeat;
+      bckground-size: contain;
+    }
+  }
+  
+  &.remodal-is-closing, &.remodal-is-closed {
+    & > .remodal-close {
+      opacity: 0;
+    }
+    
+    .remodal {
+      opacity: 0;
+    }
+  }
+}
 .remodal {
   padding: 0;
   max-width: initial;
   width: auto;
+  
+  @media(max-width: 580px) {
+    width: 100%;
+  }
+  
+  .remodal-close {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+  
+  &[data-remodal-id='reglogin'] {
+    @media(max-width: 580px) {
+      height: 100%;
+      margin-bottom: 0;
+      
+      .cmodal {
+        height: 100%;
+        
+        > .cmodal-item {
+          height: 100%;
+          flex-direction: column;
+          
+          &.active {
+            display: flex;
+            
+            .cmodal-item {
+              height: calc(100% - 55px);
+              flex: 1;
+              overflow: auto;
+              
+              form {
+                width: 100%;
+                //overflow: auto;
+                //height: 100%;
+                //
+                //display: flex;
+                //flex-direction: column;
+                //justify-content: center;
+              }
+              
+              &.active {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                margin: auto;
+                //align-items: center;
+                //flex-direction: column;
+                //justify-content: center;
+                
+                form {
+                  margin: auto;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .cmodal {
@@ -11,6 +149,10 @@
   border-radius: 5px;
   transition: .2s;
   
+  @media(max-width: 580px) {
+    border: 0;
+  }
+  
   &#{&}-single {
     .cmodal-item {
       display: block;
@@ -18,12 +160,18 @@
   }
   
   &-tab {
+  
     
     &__wrap {
       height: 59px;
       background: #FBF7F0;
       border-radius: 0 4px 0 0;
       display: flex;
+  
+      @media(max-width: 580px) {
+        height: 55px;
+        padding-right: 55px;
+      }
     }
     
     &__btn {
@@ -50,6 +198,10 @@
         font-size: 20px;
         line-height: 1;
         color: #1f1f1f;
+  
+        @media(max-width: 580px) {
+          font-size: 16px;
+        }
       }
     }
   }
@@ -58,13 +210,31 @@
     width: 470px;
     padding: 36px 73px 37px;
     display: none;
+  
+    @media(max-width: 580px) {
+      padding: 20px 20px;
+      width: 100%;
+      
+      form {
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+    }
     
     &.cmodal-middle {
       width: 541px;
+      
+      @media(max-width: 581px) {
+        width: 100%;
+      }
     }
     
     &.cmodal-max {
       width: 808px;
+  
+      @media(max-width: 848px) {
+        width: 100%;
+      }
     }
     
     &.active {
@@ -75,10 +245,14 @@
       margin-top: 0;
       margin-bottom: 19px;
       text-align: left;
+  
+      @media(max-width: 580px) {
+        text-align: center;
+      }
     }
     
     .input-block {
-      margin-bottom: 24px;
+      margin-bottom: 30px;
     }
     
     .cmodal-submit {
@@ -112,6 +286,10 @@
       text-align: center;
   
       color: #ACACAC;
+  
+      @media(max-width: 580px) {
+        width: 100%;
+      }
     }
     
     .cmodal-head {
@@ -222,6 +400,19 @@
     padding-right: 50px;
     padding-bottom: 82px;
     position: relative;
+  
+    @media(max-width: 580px) {
+      position: static;
+      padding: 30px 20px;
+      text-align: center;
+      
+      &.active {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
     
     svg {
       width: 62px;
@@ -231,11 +422,19 @@
       position: absolute;
       top: 97px;
       left: 56px;
+      
+      @media(max-width: 580px) {
+        position: static;
+      }
     }
     
     h2 {
       margin-top: 22px;
       margin-bottom: 35px;
+  
+      @media(max-width: 580px) {
+        text-align: center;
+      }
     }
     
     > span {
@@ -248,10 +447,27 @@
       width: 100%;
       display: inline-block;
       margin-bottom: 57px;
+  
+      @media(max-width: 580px) {
+        text-align: center;
+        margin-bottom: 37px;
+      }
     }
     
     button {
       height: 56px;
+  
+      @media(max-width: 580px) {
+        display: inline-block;
+      }
     }
+  }
+}
+
+
+.text-repeat {
+  span {
+    margin-left: 4px;
+    margin-right: 4px;
   }
 }
