@@ -16,3 +16,18 @@ mixin social
       li
         a(href="#in")
           +svg("in")
+
+
+mixin ulogin
+  .ulogin
+    .level Свяжитесь с нами:
+    .value.ulogin-block(data-ulogin="display=buttons;fields=first_name,last_name,email,photo,photo_big;providers=instagram,vkontakte,facebook;hidden=google,mailru,yandex,steam,twiter,odnoklassniki;ulogin_redirect=ya.ru;mobilebuttons=0;redirect_uri=<? echo urlencode('https://'.$_SERVER['SERVER_NAME'] . '/local/templates/template/ajax/soc_login_action.php'); ?>")
+      a.in(href='javascript:void(0)' data-uloginbutton='instagram')
+        span
+          +svg("vk")
+      a.vk(href='javascript:void(0)' data-uloginbutton='vkontakte')
+        span
+          +svg("fb")
+      a.fb(href='javascript:void(0)' data-uloginbutton='facebook')
+        span
+          +svg("in")
