@@ -1,5 +1,3 @@
-const defaultPATH = ".";
-
 (function (ELEMENT) {
   ELEMENT.matches = ELEMENT.matches || ELEMENT.mozMatchesSelector || ELEMENT.msMatchesSelector || ELEMENT.oMatchesSelector || ELEMENT.webkitMatchesSelector;
   ELEMENT.closest = ELEMENT.closest || function closest(selector) {

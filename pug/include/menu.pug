@@ -1,120 +1,120 @@
 nav.navigation
-    .container
-        .row.align-items-center
-            .col-8.col-sm-9.navigation__link
-                ul
-                    li
-                        a(href="#О-САЛОНЕ") О САЛОНЕ
-                    li
-                        a(href="#СТАТЬИ") СТАТЬИ
-                    li
-                        a(href="#АКЦИИ") АКЦИИ
-                    li
-                        a(href="#ЗАКАЗ") ИНДИВИДУАЛЬНЫЙ ЗАКАЗ
-                    li
-                        a(href="#КОНТАКТЫ") КОНТАКТЫ
-            
-            .col-4.col-sm-3
-                .navigation__phone
-                    a(href="tel:+7-(495)-223-60-20") +7 (495) 223-60-20
+  .container
+    .row.align-items-center
+      .col-8.col-sm-9.navigation__link
+        ul
+          li
+            a(href="#О-САЛОНЕ") О САЛОНЕ
+          li
+            a(href="#СТАТЬИ") СТАТЬИ
+          li
+            a(href="#АКЦИИ") АКЦИИ
+          li
+            a(href="#ЗАКАЗ") ИНДИВИДУАЛЬНЫЙ ЗАКАЗ
+          li
+            a(href="#КОНТАКТЫ") КОНТАКТЫ
+
+      .col-4.col-sm-3
+        .navigation__phone
+          a(href="tel:+7-(495)-223-60-20") +7 (495) 223-60-20
 
 
 nav.menu
-    .container.menu__wrap
-        .menu__logo
-            a(href="/")
-                img(src="img/logo.svg", alt="Logo")
-                
-        .menu__nav
-            .menu__nav-head.modalhead
-                span Меню
-                div.js__close-menu
-                  +svg("close")
+  .container.menu__wrap
+    .menu__logo
+      a(href="/")
+        img(src="img/logo.svg", alt="Logo")
 
-            ul.menu__nav-links
-                li.js__menu-hover
-                    a(href="#Обручальные") Обручальные
-                li.js__menu-hover
-                    a(href="#Помолвка") Помолвка
-                li.js__menu-hover
-                    a(href="#Цепи") Цепи
-                li.js__menu-hover
-                    a(href="#Кресты") Кресты
-                li.js__menu-hover
-                    a(href="#Кольца") Кольца
-                li.js__menu-hover
-                    a(href="#Серьги") Серьги
-                li.js__menu-hover
-                    a(href="#Подвески") Подвески
-                li.js__menu-hover
-                  span Другое
-                  ul.menu__nav-submenu
-                    li
-                      a(href="#Браслеты") Браслеты
-                    li
-                      a(href="#Колье") Колье
-                    li
-                      a(href="#Броши") Броши
-                    li
-                      a(href="#Кольца") Кольца
-            
-            .menu__nav-mobile
-                ul
-                    li
-                        a(href="#") О салоне
-                    li
-                        a(href="#") Статьи      
-                    li
-                        a(href="#") Акции        
-                    li
-                        a(href="#") Индивидуальный заказ
-                    li
-                        a(href="#") Контакты        
-                    li
-                        a(href="#") Доставка        
-                    li
-                        a(href="#") Возврат и обмен        
-                    li
-                        a(href="#") Политика конфиденциальности 
+    .menu__nav
+      .menu__nav-head.modalhead
+        span Меню
+        div.js__close-menu
+          +svg("close")
 
-            .menu__nav-footer
-                a(href="tel:+7-(495)-223-60-20") +7 (495) 223-60-20
+      ul.menu__nav-links
+        li.js__menu-hover
+          a(href="#Обручальные") Обручальные
+        li.js__menu-hover
+          a(href="#Помолвка") Помолвка
+        li.js__menu-hover
+          a(href="#Цепи") Цепи
+        li.js__menu-hover
+          a(href="#Кресты") Кресты
+        li.js__menu-hover
+          a(href="#Кольца") Кольца
+        li.js__menu-hover
+          a(href="#Серьги") Серьги
+        li.js__menu-hover
+          a(href="#Подвески") Подвески
+        li.js__menu-hover
+          span Другое
+          ul.menu__nav-submenu
+            li
+              a(href="#Браслеты") Браслеты
+            li
+              a(href="#Колье") Колье
+            li
+              a(href="#Броши") Броши
+            li
+              a(href="#Кольца") Кольца
 
-                +social()
+      .menu__nav-mobile
+        ul
+          li
+            a(href="#") О салоне
+          li
+            a(href="#") Статьи
+          li
+            a(href="#") Акции
+          li
+            a(href="#") Индивидуальный заказ
+          li
+            a(href="#") Контакты
+          li
+            a(href="#") Доставка
+          li
+            a(href="#") Возврат и обмен
+          li
+            a(href="#") Политика конфиденциальности
 
-        .menu__btn
-            .menu__cart
-                +svg("cart")
-                span 1
+      .menu__nav-footer
+        a(href="tel:+7-(495)-223-60-20") +7 (495) 223-60-20
 
-            .menu__search
-                +svg("search", "js__open-search")
+        +social()
 
-            //a(href="#user").menu__user
-            //    +svg("user")
+    .menu__btn
+      .menu__cart
+        +svg("cart")
+        span 1
 
+      .menu__search
+        +svg("search", "js__open-search")
 
-
-            //a(href="#login").menu__login.btn
-            //    span ВОЙТИ
-
-            button.menu__login.btn.btn-submenu
-                span
-                  +svg("user")
-                  | ЕВГЕНИЙ ЕВГЕНИЙ
-
-              .btn-submenu__list
-                  a(href="#Личные-данные") Личные данные
-                  a(href="#История-заказов") История заказов
-                  hr
-                  a(href="#Выйти").exit Выйти
+      //a(href="#user").menu__user
+      //    +svg("user")
 
 
-            .menu__open.js__open-menu
-                +svg("menu")
 
-    form(action="").menu-search.js__search-block
-      .container
-        input(type="text", placeholder="Поиск по сайту")
-        .menu-search__close.js__close-search
-          +svg("close", "js__close-search")
+      //a(href="#login").menu__login.btn
+      //    span ВОЙТИ
+
+      button.menu__login.btn.btn-submenu
+        span
+          +svg("user")
+          | ЕВГЕНИЙ ЕВГЕНИЙ
+
+      .btn-submenu__list
+        a(href="#Личные-данные") Личные данные
+        a(href="#История-заказов") История заказов
+        hr
+        a(href="#Выйти").exit Выйти
+
+
+      .menu__open.js__open-menu
+        +svg("menu")
+
+  form(action="").menu-search.js__search-block
+    .container
+      input(type="text", placeholder="Поиск по сайту")
+      .menu-search__close.js__close-search
+        +svg("close", "js__close-search")
