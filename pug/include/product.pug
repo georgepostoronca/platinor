@@ -29,7 +29,7 @@ section.bproduct
           span 314 990₽
           button.btn-ico
             +svg("cart")
-            span ДОБАВИТЬ В КОРЗИНУ
+            span В КОРЗИНУ
 
         .bproduct-social
           span Свяжитесь с нами:
@@ -158,3 +158,10 @@ section.bproduct
             .bproduct-tab__minimize.js-producttab-minimize
               span Показать все
               +svg("arrow-right")
+
+- var topproductRow = 1;
+- var topproductClass = "topproduct-product";
+include ./topproduct.pug
+- var topproductClass = "topproduct-product topproduct-product--last";
+include ./topproduct.pug
+include ./indorder.pug

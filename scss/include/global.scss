@@ -314,6 +314,11 @@ a {
   border: 1px solid #1F1F1F;
   cursor: pointer;
   
+  @media(max-width: 500px) {
+    min-width: 192px;
+    height: 48px;
+  }
+  
   &:hover {
     background-color: transparent;
     
@@ -332,6 +337,11 @@ a {
     fill: #fff;
     margin-right: 12px;
     transition: .2s;
+  
+    @media(max-width: 500px) {
+      width: 19px;
+      height: 16px;
+    }
   }
   
   span {
@@ -345,6 +355,11 @@ a {
     position: relative;
     top: -2px;
     transition: .2s;
+  
+    @media(max-width: 500px) {
+      font-size: 11px;
+      top: 0;
+    }
   }
 }
 
@@ -713,8 +728,8 @@ a {
   }
   
   a {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     background: #FBF7F0;
     border-radius: 100%;
     display: flex;

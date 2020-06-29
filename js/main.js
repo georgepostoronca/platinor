@@ -164,59 +164,64 @@ if (document.querySelector(".swiper-container")) {
           PlaySlider();
         });
       });
-      
     }
     
     // topproduct
-    if (document.querySelector('.js__topproduct-slider')) {
-      var topproduct = new Swiper('.js__topproduct-slider', {
-        slidesPerView: 3,
-        slidesPerColumn: 2,
-        slidesPerColumnFill: "row",
-        spaceBetween: 24,
-        threshold: 20,
-        navigation: {
-          nextEl: '.topproduct__arrow .arrow-slider__next',
-          prevEl: '.topproduct__arrow .arrow-slider__prev',
-        },
-        on: {
-          init: function () {
-            document.querySelector('.js__topproduct-slider').classList.remove("loading");
+    if (document.querySelectorAll('.js__topproduct-slider').length) {
+      const topproductSlider = [].slice.call(document.querySelectorAll('.js__topproduct-slider'));
+      topproductSlider.forEach(function(item) {
+        console.log(item)
+        console.log(item.dataset)
+        console.log(parseInt(item.dataset.slidrow) || 2)
+        let topproduct = new Swiper(item, {
+          slidesPerView: 3,
+          slidesPerColumn: parseInt(item.dataset.slidrow) || 2,
+          slidesPerColumnFill: "row",
+          spaceBetween: 24,
+          threshold: 20,
+          navigation: {
+            nextEl: item.closest(".topproduct").querySelector(".arrow-slider__next"),
+            prevEl: item.closest(".topproduct").querySelector(".arrow-slider__prev"),
+          },
+          on: {
+            init: function () {
+              item.classList.remove("loading");
+            }
+          },
+          pagination: {
+            el: '.swiper-pagination',
+          },
+          breakpoints: {
+            0: {
+              slidesPerView: 1.15,
+              slidesPerColumn: 1,
+              slidesPerColumnFill: "row",
+              spaceBetween: 20,
+            },
+            370: {
+              slidesPerView: 1.35,
+              slidesPerColumn: 1,
+              slidesPerColumnFill: "row",
+              spaceBetween: 30,
+            },
+            500: {
+              slidesPerView: 1.7,
+              slidesPerColumn: 1,
+              slidesPerColumnFill: "row",
+            },
+            768: {
+              slidesPerView: 2,
+              slidesPerColumn: parseInt(item.dataset.slidrow) || 2,
+              slidesPerColumnFill: "row",
+              spaceBetween: 24,
+            },
+            1024: {
+              slidesPerView: 3,
+              slidesPerColumn: parseInt(item.dataset.slidrow) || 2,
+              slidesPerColumnFill: "row",
+            },
           }
-        },
-        // pagination: {
-        //   el: '.swiper-pagination',
-        // },
-        breakpoints: {
-          0: {
-            slidesPerView: 1.15,
-            slidesPerColumn: 1,
-            slidesPerColumnFill: "row",
-            spaceBetween: 20,
-          },
-          370: {
-            slidesPerView: 1.35,
-            slidesPerColumn: 1,
-            slidesPerColumnFill: "row",
-            spaceBetween: 30,
-          },
-          500: {
-            slidesPerView: 1.7,
-            slidesPerColumn: 1,
-            slidesPerColumnFill: "row",
-          },
-          768: {
-            slidesPerView: 2,
-            slidesPerColumn: 2,
-            slidesPerColumnFill: "row",
-            spaceBetween: 24,
-          },
-          1024: {
-            slidesPerView: 3,
-            slidesPerColumn: 2,
-            slidesPerColumnFill: "row",
-          },
-        }
+        });
       });
     }
     
@@ -267,8 +272,8 @@ if (document.querySelector(".swiper-container")) {
         watchSlidesProgress: true,
         breakpoints: {
           0: {
-            slidesPerView: 1,
-            spaceBetween: 0,
+            slidesPerView: 5,
+            spaceBetween: 5,
           },
           880: {
             slidesPerView: 5,
@@ -314,16 +319,16 @@ if (document.querySelector(".swiper-container")) {
           }
         },
         
-        // breakpoints: {
-        //   0: {
-        //     slidesPerView: 1,
-        //     spaceBetween: 0,
-        //   },
-        //   880: {
-        //     slidesPerView: 5,
-        //     spaceBetween: 9,
-        //   },
-        // }
+        breakpoints: {
+          0: {
+            allowTouchMove: true,
+            noSwiping: true,
+          },
+          1024: {
+            allowTouchMove: false,
+            noSwiping: false,
+          },
+        }
       });
     }
     

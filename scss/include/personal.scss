@@ -292,6 +292,10 @@
     
     .input-file {
       margin-top: 15px;
+      
+      input {
+        width: 100%;
+      }
     }
     
     &__bottom {

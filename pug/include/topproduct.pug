@@ -1,4 +1,4 @@
-section.topproduct
+section.topproduct(class=topproductClass)
   .container
     .topproduct__header
       h1 Популярные товары
@@ -11,7 +11,7 @@ section.topproduct
             +svg("arrow-right")
 
     .topproduct__content
-      .topproduct-slider.js__topproduct-slider.swiper-container.loading
+      .topproduct-slider.js__topproduct-slider.swiper-container.loading(data-slidrow=topproductRow)
         .swiper-wrapper
           each val in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
             .swiper-slide
