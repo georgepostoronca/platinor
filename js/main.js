@@ -170,9 +170,6 @@ if (document.querySelector(".swiper-container")) {
     if (document.querySelectorAll('.js__topproduct-slider').length) {
       const topproductSlider = [].slice.call(document.querySelectorAll('.js__topproduct-slider'));
       topproductSlider.forEach(function(item) {
-        console.log(item)
-        console.log(item.dataset)
-        console.log(parseInt(item.dataset.slidrow) || 2)
         let topproduct = new Swiper(item, {
           slidesPerView: 3,
           slidesPerColumn: parseInt(item.dataset.slidrow) || 2,
