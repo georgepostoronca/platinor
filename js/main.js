@@ -1058,6 +1058,168 @@ if($(".js-producttab").length) {
   });
 }
 
+
+// Custom Select
+const customselect = [].slice.call(document.querySelectorAll(".js-cselect"));
+customselect.forEach(function (item) {
+  const input = [].slice.call(item.querySelectorAll(".js-cselect-input"));
+  const selected = item.querySelector(".js-cselect-selected");
+  const head = item.querySelector(".js-cselect-head");
+  const reset = item.querySelector(".js-cselect-reset");
+  
+  selected.addEventListener("click", function() {
+    head.classList.toggle("active");
+  });
+  
+  
+  jQuery(function($){
+    $(document).mouseup(function (e){ // событие клика по веб-документу
+      var div = $(item); // тут указываем ID элемента
+      if (!div.is(e.target) // если клик был не по нашему блоку
+        && div.has(e.target).length === 0) { // и не по его дочерним элементам
+        head.classList.remove("active");
+      }
+    });
+  });
+  
+  input.forEach(function (el) {
+    el.addEventListener("click", function() {
+      let checkedInput = 0;
+      input.forEach(function (el) {
+        if(el.checked) {
+          checkedInput++;
+        }
+      });
+      
+      let value = this.value;
+      if(this.type === "checkbox") {
+        selected.innerText = "Выбрано " + checkedInput;
+      } else {
+        selected.innerText = value;
+      }
+  
+      head.classList.add("selected");
+    });
+  });
+  
+  reset.addEventListener("click", function() {
+    input.forEach(function (el) {
+      el.checked = false;
+      head.classList.remove("selected");
+      head.classList.remove("active");
+  
+      if(input[0].type === "checkbox") {
+        selected.innerText = "Выбрано 0";
+      } else {
+        selected.innerText = "Не выбрано";
+      }
+    });
+  });
+  
+  if(input[0] && (input[0].type === "checkbox" || input[0].type === "radio")) {
+    input[0].click();
+  }
+});
+
+
+// RangeSlider
+(function () {
+  var range = document.querySelector('.js-range');
+  var wrap = document.querySelector('.js-range-input');
+  var input0 = range.querySelector(".js-range-min");
+  var input1 = range.querySelector(".js-range-max");
+  var inputs = [input0, input1];
+  
+  let min = parseInt(range.dataset.min) || 0;
+  let max = parseInt(range.dataset.max) || 100000;
+  
+  console.log(min,max)
+  
+  noUiSlider.create(wrap, {
+    start: [0, max],
+    connect: true,
+    step: 1,
+    tooltips: [wNumb({
+      decimals: 0,
+      suffix: ' ₽'
+    }), wNumb({
+      decimals: 0,
+      suffix: ' ₽'
+    })],
+    range: {
+      'min': min,
+      'max': max
+    },
+  });
+
+  wrap.noUiSlider.on('update', function (values, handle) {
+    inputs[handle].value = parseInt(values[handle]);
+  });
+  
+  // Listen to keydown events on the input field.
+  inputs.forEach(function (input, handle) {
+    
+    input.addEventListener('change', function () {
+      wrap.noUiSlider.setHandle(handle, this.value);
+    });
+    
+    input.addEventListener('keydown', function (e) {
+      
+      var values = wrap.noUiSlider.get();
+      var value = Number(values[handle]);
+      
+      // [[handle0_down, handle0_up], [handle1_down, handle1_up]]
+      var steps = wrap.noUiSlider.steps();
+      
+      // [down, up]
+      var step = steps[handle];
+      
+      var position;
+      
+      // 13 is enter,
+      // 38 is key up,
+      // 40 is key down.
+      switch (e.which) {
+        
+        case 13:
+          wrap.noUiSlider.setHandle(handle, this.value);
+          break;
+        
+        case 38:
+          
+          // Get step to go increase slider value (up)
+          position = step[1];
+          
+          // false = no step is set
+          if (position === false) {
+            position = 1;
+          }
+          
+          // null = edge of slider
+          if (position !== null) {
+            wrap.noUiSlider.setHandle(handle, value + position);
+          }
+          
+          break;
+        
+        case 40:
+          
+          position = step[0];
+          
+          if (position === false) {
+            position = 1;
+          }
+          
+          if (position !== null) {
+            wrap.noUiSlider.setHandle(handle, value - position);
+          }
+          
+          break;
+      }
+    });
+  });
+})();
+
 // // File Upload
 // document.addEventListener("DOMContentLoaded", function(event) {
 //   var validatorClass = document.querySelectorAll("input[type='file']");

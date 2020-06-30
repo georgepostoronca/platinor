@@ -4,7 +4,8 @@
   "description": "This is a dummy package.json file created by Prepros to manage packages with NPM. You can edit this file to add your own information.",
   "dependencies": {
     "element-closest-polyfill": "^1.0.0",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "nouislider": "^14.6.0"
   },
   "devDependencies": {
     "inputmask": "^5.0.3",

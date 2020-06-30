@@ -1,0 +1,147 @@
+section.pcatalog
+  .container
+    .pcatalog__wrap
+      .pcatalog__head
+        h1 Браслеты
+        em Найдено 135 товаров
+
+        .pcatalog__changegrid
+          button(type="button")
+            +svg("grid-max")
+          button(type="button")
+            +svg("grid-min")
+
+      .pcatalog__filter
+        .filter
+          .custom-select.js-cselect
+            //Label
+            .custom-select__label
+              em Тип изделия
+
+            //Head
+            .custom-select__head.js-cselect-head
+              span.js-cselect-selected
+
+              //Reset
+              .custom-select__reset.js-cselect-reset
+                +svg("close")
+
+            //Content
+            .custom-select__content
+              .custom-select__content-wrap
+                //Input
+                .custom-select__input
+                  input.js-cselect-input(type="radio" name="tipizdelia" value="Браслеты" id="input-filter-braslet-1")
+                  label(for="input-filter-braslet-1")
+                    span Браслеты
+                //Input
+                .custom-select__input
+                  input.js-cselect-input(type="radio" name="tipizdelia" value="Колье" id="input-filter-kolie-1")
+                  label(for="input-filter-kolie-1")
+                    span Колье
+                //Input
+                .custom-select__input
+                  input.js-cselect-input(type="radio" name="tipizdelia" value="Кольца" id="input-filter-kolita-1")
+                  label(for="input-filter-kolita-1")
+                    span Кольца
+                //Input
+                .custom-select__input
+                  input.js-cselect-input(type="radio" name="tipizdelia" value="Подвески" id="input-filter-podveski-1")
+                  label(for="input-filter-podveski-1")
+                    span Подвески
+                //Input
+                .custom-select__input
+                  input.js-cselect-input(type="radio" name="tipizdelia" value="Помолвка" id="input-filter-pomolvka-1")
+                  label(for="input-filter-pomolvka-1")
+                    span Помолвка
+                //Input
+                .custom-select__input
+                  input.js-cselect-input(type="radio" name="tipizdelia" value="Серьги" id="input-filter-sergi-1")
+                  label(for="input-filter-sergi-1")
+                    span Серьги
+                //Input
+                .custom-select__input
+                  input.js-cselect-input(type="radio" name="tipizdelia" value="Цепочки" id="input-filter-tepociki-1")
+                  label(for="input-filter-tepociki-1")
+                    span Цепочки
+
+          .custom-select.js-cselect
+            //Label
+            .custom-select__label
+              em Вставки
+
+            //Head
+            .custom-select__head.js-cselect-head
+              span.js-cselect-selected
+
+              //Reset
+              .custom-select__reset.js-cselect-reset
+                +svg("close")
+
+            //Content
+            .custom-select__content
+              .custom-select__content-wrap
+                //Input
+                .custom-select__input
+                  input.js-cselect-input(type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-braslet-2")
+                  label(for="input-filter-braslet-2")
+                    span Браслеты
+                //Input
+                .custom-select__input
+                  input.js-cselect-input(type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-kolie-2")
+                  label(for="input-filter-kolie-2")
+                    span Колье
+                //Input
+                .custom-select__input
+                  input.js-cselect-input(type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-kolita-2")
+                  label(for="input-filter-kolita-2")
+                    span Кольца
+                //Input
+                .custom-select__input
+                  input.js-cselect-input(type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-podveski-2")
+                  label(for="input-filter-podveski-2")
+                    span Подвески
+                //Input
+                .custom-select__input
+                  input.js-cselect-input(type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-pomolvka-2")
+                  label(for="input-filter-pomolvka-2")
+                    span Помолвка
+                //Input
+                .custom-select__input
+                  input.js-cselect-input(type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-sergi-2")
+                  label(for="input-filter-sergi-2")
+                    span Серьги
+                //Input
+                .custom-select__input
+                  input.js-cselect-input(type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-tepociki-2")
+                  label(for="input-filter-tepociki-2")
+                    span Цепочки
+
+          .custom-select.js-cselect
+            //Label
+            .custom-select__label
+              em Цена
+
+            //Head
+            .custom-select__head.js-cselect-head
+              span.js-cselect-selected 0 - 250₽
+
+              //Reset
+              .custom-select__reset.js-cselect-reset
+                +svg("close")
+
+            //Content
+            .custom-select__content
+              .custom-select__content-wrap.range
+                .custom-range.js-range
+                  .custom-range-inputs
+                    .custom-range-input
+                      span от
+                      input.js-range-min(type="number")
+                    .custom-range-input
+                      span до
+                      input.js-range-max(type="number")
+                  .js-range-input(data-min="0" data-max="200000")
+
+
+      .pcatalog__grid
