@@ -1780,6 +1780,12 @@ input {
   appearance: none;
 }
 
+:not([class^="bx"]), :not(.catalog-filter) {
+  input {
+    appearance: auto;
+  }
+}
+
 input[type="date"] {
   width: 140px;
   height: 56px;
@@ -2320,7 +2326,8 @@ textarea {
       }
       
       &.range {
-        padding: 25px 18px 54px;
+        //padding: 25px 18px 54px;
+        padding: 25px 18px 30px;
       }
     }
     
@@ -2512,12 +2519,16 @@ textarea {
       &.noUi-handle-upper {
         .noUi-tooltip {
           //right: 0;
+          transform: translate(-100%,0);
+          margin-left: 11px;
         }
       }
       
       &.noUi-handle-lower {
         .noUi-tooltip {
           //right: 0;
+          transform: translate(0,0);
+          margin-left: -11px;
         }
       }
       

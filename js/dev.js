@@ -1100,6 +1100,12 @@ customselect.forEach(function (item) {
   
       head.classList.add("selected");
     });
+  
+    el.addEventListener("change", function() {
+      if($("[class^='js-range']").length) {
+        
+      }
+    });
   });
   
   reset.addEventListener("click", function() {
@@ -1139,13 +1145,13 @@ customselect.forEach(function (item) {
     start: [0, max],
     connect: true,
     step: 1,
-    tooltips: [wNumb({
-      decimals: 0,
-      suffix: ' ₽'
-    }), wNumb({
-      decimals: 0,
-      suffix: ' ₽'
-    })],
+    // tooltips: [wNumb({
+    //   decimals: 0,
+    //   suffix: ' ₽'
+    // }), wNumb({
+    //   decimals: 0,
+    //   suffix: ' ₽'
+    // })],
     range: {
       'min': min,
       'max': max
@@ -1154,6 +1160,12 @@ customselect.forEach(function (item) {
 
   wrap.noUiSlider.on('update', function (values, handle) {
     inputs[handle].value = parseInt(values[handle]);
+  });
+  
+  let event = new Event('change');
+  wrap.noUiSlider.on('change', function (values, handle) {
+    console.log("End")
+    inputs[handle].dispatchEvent(event);
   });
   
   // Listen to keydown events on the input field.
@@ -1219,6 +1231,9 @@ customselect.forEach(function (item) {
     });
   });
 })();
+
+
+
 
 // // File Upload
 // document.addEventListener("DOMContentLoaded", function(event) {
