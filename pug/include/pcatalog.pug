@@ -5,143 +5,414 @@ section.pcatalog
         h1 Браслеты
         em Найдено 135 товаров
 
+      .pcatalog__links
+        .pcatalog__links-wrap
+          em Все разделы:
+          ul
+            li.active
+              a(href="#") Браслеты
+            li
+              a(href="#") Колье
+            li
+              a(href="#") Кольца
+            li
+              a(href="#") Подвески
+            li
+              a(href="#") Помолвка
+            li
+              a(href="#") Серьги
+            li
+              a(href="#") Цепочки
+            li
+              a(href="#") Колье
+            li
+              a(href="#") Броши
+
         .pcatalog__changegrid
-          button(type="button")
+          button(type="button" onclick="ChangeGrid(this)").max.active
             +svg("grid-max")
-          button(type="button")
+          button(type="button" onclick="ChangeGrid(this)").min
             +svg("grid-min")
 
       .pcatalog__filter
-        .filter
-          .custom-select.js-cselect
-            //Label
-            .custom-select__label
-              em Тип изделия
+        form.filter
+          .filter__select
+            //Select Radio
+            .custom-select.js-cselect
+              //Label
+              .custom-select__label
+                em Металл
 
-            //Head
-            .custom-select__head.js-cselect-head
-              span.js-cselect-selected
+              //Head
+              .custom-select__head.js-cselect-head
+                span.js-cselect-selected Не выбрано
 
-              //Reset
-              .custom-select__reset.js-cselect-reset
-                +svg("close")
+                //Reset
+                .custom-select__reset.js-cselect-reset
+                  +svg("close")
 
-            //Content
-            .custom-select__content
-              .custom-select__content-wrap
-                //Input
-                .custom-select__input
-                  input.js-cselect-input(type="radio" name="tipizdelia" value="Браслеты" id="input-filter-braslet-1")
-                  label(for="input-filter-braslet-1")
-                    span Браслеты
-                //Input
-                .custom-select__input
-                  input.js-cselect-input(type="radio" name="tipizdelia" value="Колье" id="input-filter-kolie-1")
-                  label(for="input-filter-kolie-1")
-                    span Колье
-                //Input
-                .custom-select__input
-                  input.js-cselect-input(type="radio" name="tipizdelia" value="Кольца" id="input-filter-kolita-1")
-                  label(for="input-filter-kolita-1")
-                    span Кольца
-                //Input
-                .custom-select__input
-                  input.js-cselect-input(type="radio" name="tipizdelia" value="Подвески" id="input-filter-podveski-1")
-                  label(for="input-filter-podveski-1")
-                    span Подвески
-                //Input
-                .custom-select__input
-                  input.js-cselect-input(type="radio" name="tipizdelia" value="Помолвка" id="input-filter-pomolvka-1")
-                  label(for="input-filter-pomolvka-1")
-                    span Помолвка
-                //Input
-                .custom-select__input
-                  input.js-cselect-input(type="radio" name="tipizdelia" value="Серьги" id="input-filter-sergi-1")
-                  label(for="input-filter-sergi-1")
-                    span Серьги
-                //Input
-                .custom-select__input
-                  input.js-cselect-input(type="radio" name="tipizdelia" value="Цепочки" id="input-filter-tepociki-1")
-                  label(for="input-filter-tepociki-1")
-                    span Цепочки
-
-          .custom-select.js-cselect
-            //Label
-            .custom-select__label
-              em Вставки
-
-            //Head
-            .custom-select__head.js-cselect-head
-              span.js-cselect-selected
-
-              //Reset
-              .custom-select__reset.js-cselect-reset
-                +svg("close")
-
-            //Content
-            .custom-select__content
-              .custom-select__content-wrap
-                //Input
-                .custom-select__input
-                  input.js-cselect-input(type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-braslet-2")
-                  label(for="input-filter-braslet-2")
-                    span Браслеты
-                //Input
-                .custom-select__input
-                  input.js-cselect-input(type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-kolie-2")
-                  label(for="input-filter-kolie-2")
-                    span Колье
-                //Input
-                .custom-select__input
-                  input.js-cselect-input(type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-kolita-2")
-                  label(for="input-filter-kolita-2")
-                    span Кольца
-                //Input
-                .custom-select__input
-                  input.js-cselect-input(type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-podveski-2")
-                  label(for="input-filter-podveski-2")
-                    span Подвески
-                //Input
-                .custom-select__input
-                  input.js-cselect-input(type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-pomolvka-2")
-                  label(for="input-filter-pomolvka-2")
-                    span Помолвка
-                //Input
-                .custom-select__input
-                  input.js-cselect-input(type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-sergi-2")
-                  label(for="input-filter-sergi-2")
-                    span Серьги
-                //Input
-                .custom-select__input
-                  input.js-cselect-input(type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-tepociki-2")
-                  label(for="input-filter-tepociki-2")
-                    span Цепочки
-
-          .custom-select.js-cselect
-            //Label
-            .custom-select__label
-              em Цена
-
-            //Head
-            .custom-select__head.js-cselect-head
-              span.js-cselect-selected 0 - 250₽
-
-              //Reset
-              .custom-select__reset.js-cselect-reset
-                +svg("close")
-
-            //Content
-            .custom-select__content
-              .custom-select__content-wrap.range
-                .custom-range.js-range
-                  .custom-range-inputs
-                    .custom-range-input
-                      span от
-                      input.js-range-min(type="number")
-                    .custom-range-input
-                      span до
-                      input.js-range-max(type="number")
-                  .js-range-input(data-min="0" data-max="200000")
+              //Content
+              .custom-select__content
+                .custom-select__content-wrap
+                  //Input
+                  .custom-select__input
+                    input.js-cselect-input(type="radio" name="metal" value="Платина" id="input-filter-metal-1")
+                    label(for="input-filter-metal-1")
+                      span Платина
+                  //Input
+                  .custom-select__input
+                    input.js-cselect-input(type="radio" name="metal" value="Платина 2" id="input-filter-metal-2")
+                    label(for="input-filter-metal-2")
+                      span Платина 2
+                  //Input
+                  .custom-select__input
+                    input.js-cselect-input(type="radio" name="metal" value="Платина 3" id="input-filter-metal-3")
+                    label(for="input-filter-metal-3")
+                      span Платина 3
+                  //Input
+                  .custom-select__input
+                    input.js-cselect-input(type="radio" name="metal" value="Платина 4" id="input-filter-metal-4")
+                    label(for="input-filter-metal-4")
+                      span Платина 4
 
 
-      .pcatalog__grid
+
+
+            //Range
+            .custom-select.js-cselect
+              //Label
+              .custom-select__label
+                em Цена
+
+              //Head
+              .custom-select__head.js-cselect-head
+                span.js-cselect-selected 0 - 250₽
+
+                //Reset
+                .custom-select__reset.js-cselect-reset
+                  +svg("close")
+
+              //Content
+              .custom-select__content
+                .custom-select__content-wrap.range
+                  .custom-range.js-range
+                    .custom-range-inputs
+                      .custom-range-input
+                        span от
+                        input.js-range-result.js-range-min(type="number", name="range-min", value="0")
+                      .custom-range-input
+                        span до
+                        input.js-range-result.js-range-max(type="number" name="range-max", value="20000")
+                    .js-range-input(data-min="10" data-max="20000")
+
+
+
+
+            //Select Checkbox
+            .custom-select.js-cselect
+              //Label
+              .custom-select__label
+                em Вставки
+
+              //Head
+              .custom-select__head.js-cselect-head
+                span.js-cselect-selected Не выбрано
+
+                //Reset
+                .custom-select__reset.js-cselect-reset
+                  +svg("close")
+
+              //Content
+              .custom-select__content
+                .custom-select__content-wrap
+                  //Input
+                  .custom-select__input
+                    input.js-cselect-input(type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-braslet-2")
+                    label(for="input-filter-braslet-2")
+                      span Браслеты
+                  //Input
+                  .custom-select__input
+                    input.js-cselect-input(type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-kolie-2")
+                    label(for="input-filter-kolie-2")
+                      span Колье
+                  //Input
+                  .custom-select__input
+                    input.js-cselect-input(type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-kolita-2")
+                    label(for="input-filter-kolita-2")
+                      span Кольца
+                  //Input
+                  .custom-select__input
+                    input.js-cselect-input(type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-podveski-2")
+                    label(for="input-filter-podveski-2")
+                      span Подвески
+                  //Input
+                  .custom-select__input
+                    input.js-cselect-input(type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-pomolvka-2")
+                    label(for="input-filter-pomolvka-2")
+                      span Помолвка
+                  //Input
+                  .custom-select__input
+                    input.js-cselect-input(type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-sergi-2")
+                    label(for="input-filter-sergi-2")
+                      span Серьги
+                  //Input
+                  .custom-select__input
+                    input.js-cselect-input(type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-tepociki-2")
+                    label(for="input-filter-tepociki-2")
+                      span Цепочки
+
+
+
+
+            //Select Checkbox
+            .custom-select.js-cselect
+              //Label
+              .custom-select__label
+                em Вставки
+
+              //Head
+              .custom-select__head.js-cselect-head
+                span.js-cselect-selected Не выбрано
+
+                //Reset
+                .custom-select__reset.js-cselect-reset
+                  +svg("close")
+
+              //Content
+              .custom-select__content
+                .custom-select__content-wrap
+                  //Input
+                  .custom-select__input
+                    input.js-cselect-input(type="radio" name="gender" value="Мужчина" id="input-filter-male")
+                    label(for="input-filter-male")
+                      span Мужчина
+                  //Input
+                  .custom-select__input
+                    input.js-cselect-input(type="radio" name="gender" value="Женщина" id="input-filter-female")
+                    label(for="input-filter-female")
+                      span Женщина
+
+
+
+            //Select Dropdown
+            .custom-select.js-cselect
+              //Label
+              .custom-select__label
+                em Другие фильтры
+
+              //Head
+              .custom-select__head.js-cselect-head
+                span.js-cselect-selected Не выбрано
+
+                //Reset
+                .custom-select__reset.js-cselect-reset
+                  +svg("close")
+
+              //Content
+              .custom-select__content
+                .custom-select__content-wrap.dropdown
+                  .custom-select__dropdown.js-cselect-dropdown
+                    .custom-select__dropdown-head
+                      label
+                        input(type="checkbox").js-notindexed
+                        span
+                      span Цвет ремешка
+                      +svg("arrow-left")
+
+                    .custom-select__dropdown-content
+                      //Input
+                      .custom-select__input.color
+                        input.js-cselect-input(type="checkbox" name="color" value="green" id="input-filter-color-1")
+                        label(for="input-filter-color-1")
+                          span Зеленый
+                          em(style="background: #54A62C;")
+                      //Input
+                      .custom-select__input.color
+                        input.js-cselect-input(type="checkbox" name="color" value="red" id="input-filter-color-2")
+                        label(for="input-filter-color-2")
+                          span Красный
+                          em(style="background: #CB3229")
+                      //Input
+                      .custom-select__input.color
+                        input.js-cselect-input(type="checkbox" name="color" value="yellow" id="input-filter-color-3")
+                        label(for="input-filter-color-3")
+                          span Желтый
+                          em(style="background: #E2C422;")
+                      //Input
+                      .custom-select__input.color
+                        input.js-cselect-input(type="checkbox" name="color" value="orange" id="input-filter-color-4")
+                        label(for="input-filter-color-4")
+                          span Оранжевый
+                          em(style="background: #DA7B24;")
+
+                  .custom-select__dropdown.js-cselect-dropdown
+                    .custom-select__dropdown-head
+                      label
+                        input(type="checkbox").js-notindexed
+                        span
+                      span Проба
+                      +svg("arrow-left")
+
+                    .custom-select__dropdown-content
+                      //Input
+                      .custom-select__input
+                        input.js-cselect-input(type="checkbox" name="proba" value="1" id="input-filter-proba-1")
+                        label(for="input-filter-proba-1")
+                          span Зеленый
+                      //Input
+                      .custom-select__input
+                        input.js-cselect-input(type="checkbox" name="proba" value="2" id="input-filter-proba-2")
+                        label(for="input-filter-proba-2")
+                          span Красный
+                      //Input
+                      .custom-select__input
+                        input.js-cselect-input(type="checkbox" name="proba" value="3" id="input-filter-proba-3")
+                        label(for="input-filter-proba-3")
+                          span Желтый
+                      //Input
+                      .custom-select__input
+                        input.js-cselect-input(type="checkbox" name="proba" value="4" id="input-filter-proba-4")
+                        label(for="input-filter-proba-4")
+                          span Оранжевый
+
+                  .custom-select__dropdown.js-cselect-dropdown
+                    .custom-select__dropdown-head
+                      label
+                        input(type="checkbox").js-notindexed
+                        span
+                      span Есть в наличии
+                      +svg("arrow-left")
+
+                    .custom-select__dropdown-content
+                      //Input
+                      .custom-select__input
+                        input.js-cselect-input(type="checkbox" name="areaviable" value="1" id="input-filter-areaviable-1")
+                        label(for="input-filter-areaviable-1")
+                          span Зеленый
+                      //Input
+                      .custom-select__input
+                        input.js-cselect-input(type="checkbox" name="areaviable" value="2" id="input-filter-areaviable-2")
+                        label(for="input-filter-areaviable-2")
+                          span Красный
+                      //Input
+                      .custom-select__input
+                        input.js-cselect-input(type="checkbox" name="areaviable" value="3" id="input-filter-areaviable-3")
+                        label(for="input-filter-areaviable-3")
+                          span Желтый
+                      //Input
+                      .custom-select__input
+                        input.js-cselect-input(type="checkbox" name="areaviable" value="4" id="input-filter-areaviable-4")
+                        label(for="input-filter-areaviable-4")
+                          span Оранжевый
+
+
+
+
+          .filter__sort
+            //Select Radio
+            .custom-select.js-cselect.right.nocheck
+              //Label
+              .custom-select__label
+                em Сортировка
+
+              //Head
+              .custom-select__head.js-cselect-head
+                span.js-cselect-selected Не выбрано
+
+                //Reset
+                .custom-select__reset.js-cselect-reset
+                  +svg("close")
+
+              //Content
+              .custom-select__content
+                .custom-select__content-wrap
+                  //Input
+                  .custom-select__input
+                    input.js-cselect-input(type="radio" name="sort" value="По цене" id="filter-sort-1")
+                    label(for="filter-sort-1")
+                      span По цене
+                  //Input
+                  .custom-select__input
+                    input.js-cselect-input(type="radio" name="sort" value="По цене 2" id="filter-sort-2")
+                    label(for="filter-sort-2")
+                      span По цене 2
+                  //Input
+                  .custom-select__input
+                    input.js-cselect-input(type="radio" name="sort" value="По цене 3" id="filter-sort-3")
+                    label(for="filter-sort-3")
+                      span По цене 3
+                  //Input
+                  .custom-select__input
+                    input.js-cselect-input(type="radio" name="sort" value="По цене 4" id="filter-sort-4")
+                    label(for="filter-sort-4")
+                      span По цене 4
+
+          .filter-bottom
+            .filter-selected
+              .filter-selected__item
+                span ПЛАТИНА
+                button(type="button")
+                  +svg("close")
+              .filter-selected__item
+                span АМЕТИСТ
+                button(type="button")
+                  +svg("close")
+              .filter-selected__item
+                span АГАТ
+                button(type="button")
+                  +svg("close")
+              .filter-selected__item
+                span ДЛЯ МУЖЧИН
+                button(type="button")
+                  +svg("close")
+
+            button(type="reset").filter-reset
+              span ОЧИСТИТЬ ФИЛЬТРЫ
+
+      .pcatalog__grid.js-changegrid
+        each val in [1,2,3,4,5,6,7,8,9]
+          .product
+            .product__label.sale
+              span СКИДКА 50%
+            a(href="#").product__slider
+              .product__slider-item.active
+                img(src="img/image-1.jpg", srcset="img/image-1@2x.jpg 2x", alt="IMG", loading="lazy")
+              .product__slider-item
+                img(src="img/image-2.jpg", srcset="img/image-2@2x.jpg 2x", alt="IMG", loading="lazy")
+              .product__slider-item
+                img(src="img/image-3.jpg", srcset="img/image-3@2x.jpg 2x", alt="IMG", loading="lazy")
+              .product__slider-item
+                img(src="img/image-3.jpg", srcset="img/image-3@2x.jpg 2x", alt="IMG", loading="lazy")
+
+            .product__info
+              .product__pagination
+
+              span Подвеска Butterfly
+              em 14 990₽
+              button.btn-addcart(aria-label="addTocart")
+                +svg("cart","cart")
+                +svg("check","check")
+
+          .product
+            .product__label.best
+              span БЕСТСЕЛЛЕР
+            a(href="#").product__slider
+              .product__slider-item.active
+                img(src="img/image-1.jpg", srcset="img/image-1@2x.jpg 2x", alt="IMG", loading="lazy")
+              .product__slider-item
+                img(src="img/image-2.jpg", srcset="img/image-2@2x.jpg 2x", alt="IMG", loading="lazy")
+              .product__slider-item
+                img(src="img/image-3.jpg", srcset="img/image-3@2x.jpg 2x", alt="IMG", loading="lazy")
+              .product__slider-item
+                img(src="img/image-3.jpg", srcset="img/image-3@2x.jpg 2x", alt="IMG", loading="lazy")
+
+            .product__info
+              .product__pagination
+
+              span Подвеска Butterfly
+              em 14 990₽
+              button.btn-addcart(aria-label="addTocart")
+                +svg("cart","cart")
+                +svg("check","check")
+
+      include breadcrumbs.pug

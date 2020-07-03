@@ -72,6 +72,7 @@
           
           border-radius: 0;
           background: transparent;
+          margin-right: 0;
   
           @media(max-width: 768px) {
             width: 40px;
@@ -137,6 +138,7 @@
   
           border-radius: 0;
           background: transparent;
+          margin-right: 0;
   
           transition: .2s;
           &:hover {

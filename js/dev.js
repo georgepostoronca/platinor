@@ -90,6 +90,9 @@ function loadScript(url, callback) {
 
 
 // Init Slider
+var productSlider = "!!";
+var productSize = "!!";
+
 if (document.querySelector(".swiper-container")) {
   loadScript(defaultPATH + "/js/include/swiper.min.js", function () {
     // Slider
@@ -220,7 +223,6 @@ if (document.querySelector(".swiper-container")) {
       });
     }
     
-    
     // review slider
     if (document.querySelector('.js__review-slider')) {
       var reviewslider = new Swiper('.js__review-slider', {
@@ -249,83 +251,92 @@ if (document.querySelector(".swiper-container")) {
       });
     }
   
-    // prodslid-min slider
-    if (document.querySelector('.js__prodslid-min-slider')) {
-      var prodslidMin = new Swiper('.js__prodslid-min-slider', {
-        slidesPerView: 5,
-        spaceBetween: 9,
-        navigation: {
-          nextEl: '.prodslid-min-button-next',
-          prevEl: '.prodslid-min-button-prev',
-        },
-        on: {
-          init: function () {
-            document.querySelector('.js__prodslid-min-slider').classList.remove("loading");
-          }
-        },
-        watchSlidesVisibility: true,
-        watchSlidesProgress: true,
-        breakpoints: {
-          0: {
-            slidesPerView: 5,
-            spaceBetween: 5,
+    // Product Slider
+    productSlider = function productSliders() {
+      console.log("Reinit Product Slider");
+      
+      // prodslid-min slider
+      if (document.querySelector('.js__prodslid-min-slider')) {
+        var prodslidMin = new Swiper('.js__prodslid-min-slider', {
+          slidesPerView: 5,
+          spaceBetween: 9,
+          navigation: {
+            nextEl: '.prodslid-min-button-next',
+            prevEl: '.prodslid-min-button-prev',
           },
-          880: {
-            slidesPerView: 5,
-            spaceBetween: 9,
+          on: {
+            init: function () {
+              document.querySelector('.js__prodslid-min-slider').classList.remove("loading");
+            }
           },
-        }
-      });
-    }
-    
-    // prodslid slider
-    if (document.querySelector('.js__prodslid-slider')) {
-      var prodslider = new Swiper('.js__prodslid-slider', {
-        slidesPerView: 1,
-        autoHeight: true,
-        on: {
-          init: function () {
-            document.querySelector('.js__prodslid-slider').classList.remove("loading");
+          watchSlidesVisibility: true,
+          watchSlidesProgress: true,
+          breakpoints: {
+            0: {
+              slidesPerView: 5,
+              spaceBetween: 5,
+            },
+            880: {
+              slidesPerView: 5,
+              spaceBetween: 9,
+            },
           }
-        },
-        thumbs: {
-          swiper: prodslidMin
-        }
-      });
+        });
+      }
+      
+      // prodslid slider
+      if (document.querySelector('.js__prodslid-slider')) {
+        var prodslider = new Swiper('.js__prodslid-slider', {
+          slidesPerView: 1,
+          autoHeight: true,
+          on: {
+            init: function () {
+              document.querySelector('.js__prodslid-slider').classList.remove("loading");
+            }
+          },
+          thumbs: {
+            swiper: prodslidMin
+          }
+        });
+      }
     }
+    productSlider();
   
     // prodsizeslid slider
-    if (document.querySelector('.js__prodsizeslid-slider')) {
-      var prodslidMin = new Swiper('.js__prodsizeslid-slider', {
-        // slidesPerView: 5,
-        // spaceBetween: 9,
-        slidesPerView: 'auto',
-        allowTouchMove: false,
-        noSwiping: false,
-        preventClicks: false,
-        preventClicksPropagation: false,
-        navigation: {
-          nextEl: '.prodsizeslid-button-next',
-          prevEl: '.prodsizeslid-button-prev',
-        },
-        on: {
-          init: function () {
-            document.querySelector('.js__prodsizeslid-slider').classList.remove("loading");
+    productSize = function prodsizeslid() {
+      if (document.querySelector('.js__prodsizeslid-slider')) {
+        var prodslidMin = new Swiper('.js__prodsizeslid-slider', {
+          // slidesPerView: 5,
+          // spaceBetween: 9,
+          slidesPerView: 'auto',
+          allowTouchMove: false,
+          noSwiping: false,
+          preventClicks: false,
+          preventClicksPropagation: false,
+          navigation: {
+            nextEl: '.prodsizeslid-button-next',
+            prevEl: '.prodsizeslid-button-prev',
+          },
+          on: {
+            init: function () {
+              document.querySelector('.js__prodsizeslid-slider').classList.remove("loading");
+            }
+          },
+          
+          breakpoints: {
+            0: {
+              allowTouchMove: true,
+              noSwiping: true,
+            },
+            1024: {
+              allowTouchMove: false,
+              noSwiping: false,
+            },
           }
-        },
-        
-        breakpoints: {
-          0: {
-            allowTouchMove: true,
-            noSwiping: true,
-          },
-          1024: {
-            allowTouchMove: false,
-            noSwiping: false,
-          },
-        }
-      });
+        });
+      }
     }
+    productSize();
     
     // catalog slider(mobile)
     (function () {
@@ -412,6 +423,8 @@ if (document.querySelector(".swiper-container")) {
     })();
   });
 }
+
+console.log(productSlider)
 
 // ==============================
 // Function
@@ -1030,116 +1043,50 @@ $(document).on('opened', '.js-modal', function (e) {
 });
 
 // Product Tab
-if($(".js-producttab").length) {
-  $(".js-producttab-btn").each(function() {
-    $(this).click(function() {
-      let index = $(this).index();
-      $(this).addClass("active").siblings().removeClass("active");
-      $(this).closest(".js-producttab").find(".bproduct-tab__info").eq(index).addClass("active").siblings().removeClass("active");
+productTab = function() {
+  if($(".js-producttab").length) {
+    $(".js-producttab-btn").each(function() {
+      $(this).click(function() {
+        let index = $(this).index();
+        $(this).addClass("active").siblings().removeClass("active");
+        $(this).closest(".js-producttab").find(".bproduct-tab__info").eq(index).addClass("active").siblings().removeClass("active");
+      });
     });
-  });
-  
-  $(".js-producttab-minimize").each(function() {
-    let open = "Показать все";
-    let close = "Скрыть";
-    $(this).click(function() {
-      let parent = $(".bproduct-tab__info");
-      
-      if(parent.hasClass("max")) {
-        parent.removeClass("max");
-        $(this).removeClass("active");
-        $(this).find("span").text(open)
-      } else {
-        parent.addClass("max");
-        $(this).addClass("active");
-        $(this).find("span").text(close)
-      }
-    });
-  });
-}
-
-
-// Custom Select
-const customselect = [].slice.call(document.querySelectorAll(".js-cselect"));
-customselect.forEach(function (item) {
-  const input = [].slice.call(item.querySelectorAll(".js-cselect-input"));
-  const selected = item.querySelector(".js-cselect-selected");
-  const head = item.querySelector(".js-cselect-head");
-  const reset = item.querySelector(".js-cselect-reset");
-  
-  selected.addEventListener("click", function() {
-    head.classList.toggle("active");
-  });
-  
-  
-  jQuery(function($){
-    $(document).mouseup(function (e){ // событие клика по веб-документу
-      var div = $(item); // тут указываем ID элемента
-      if (!div.is(e.target) // если клик был не по нашему блоку
-        && div.has(e.target).length === 0) { // и не по его дочерним элементам
-        head.classList.remove("active");
-      }
-    });
-  });
-  
-  input.forEach(function (el) {
-    el.addEventListener("click", function() {
-      let checkedInput = 0;
-      input.forEach(function (el) {
-        if(el.checked) {
-          checkedInput++;
+    
+    $(".js-producttab-minimize").each(function() {
+      let open = "Показать все";
+      let close = "Скрыть";
+      $(this).click(function() {
+        let parent = $(this).closest(".bproduct-tab__info");
+        
+        if(parent.hasClass("max")) {
+          parent.removeClass("max");
+          $(this).removeClass("active");
+          $(this).find("span").text(open)
+        } else {
+          parent.addClass("max");
+          $(this).addClass("active");
+          $(this).find("span").text(close)
         }
       });
-      
-      let value = this.value;
-      if(this.type === "checkbox") {
-        selected.innerText = "Выбрано " + checkedInput;
-      } else {
-        selected.innerText = value;
-      }
-  
-      head.classList.add("selected");
     });
-  
-    el.addEventListener("change", function() {
-      if($("[class^='js-range']").length) {
-        
-      }
-    });
-  });
-  
-  reset.addEventListener("click", function() {
-    input.forEach(function (el) {
-      el.checked = false;
-      head.classList.remove("selected");
-      head.classList.remove("active");
-  
-      if(input[0].type === "checkbox") {
-        selected.innerText = "Выбрано 0";
-      } else {
-        selected.innerText = "Не выбрано";
-      }
-    });
-  });
-  
-  if(input[0] && (input[0].type === "checkbox" || input[0].type === "radio")) {
-    input[0].click();
   }
-});
+}
+productTab();
 
 
 // RangeSlider
 (function () {
   var range = document.querySelector('.js-range');
+  if(!document.querySelector('.js-range')) return false;
+  
   var wrap = document.querySelector('.js-range-input');
   var input0 = range.querySelector(".js-range-min");
   var input1 = range.querySelector(".js-range-max");
   var inputs = [input0, input1];
   
-  let min = parseInt(range.dataset.min) || 0;
-  let max = parseInt(range.dataset.max) || 100000;
-  
-  console.log(min,max)
+  let min = parseInt(wrap.dataset.min) || 0;
+  let max = parseInt(wrap.dataset.max) || 1000000;
   
   noUiSlider.create(wrap, {
     start: [0, max],
@@ -1157,7 +1104,7 @@ customselect.forEach(function (item) {
       'max': max
     },
   });
-
+  
   wrap.noUiSlider.on('update', function (values, handle) {
     inputs[handle].value = parseInt(values[handle]);
   });
@@ -1233,7 +1180,210 @@ customselect.forEach(function (item) {
 })();
 
 
+// Custom Select
+const customselect = [].slice.call(document.querySelectorAll(".js-cselect"));
+customselect.forEach(function (item) {
+  const input = [].slice.call(item.querySelectorAll("input"));
+  const selected = item.querySelector(".js-cselect-selected");
+  const head = item.querySelector(".js-cselect-head");
+  const reset = item.querySelector(".js-cselect-reset");
+  
+  const form = input[0].form;
+  
+  const min = item.querySelector(".js-range-min");
+  const max = item.querySelector(".js-range-max");
+  
+  let arrFilter = [];
+  
+  if(min && max) {
+    selected.innerText = min.value + (min.value > 0 ? "₽" : "") +" - " + max.value + (max.value > 0 ? "₽" : "");
+  }
+  
+  selected.addEventListener("click", function() {
+    head.classList.toggle("active");
+    item.classList.remove("dishov");
+  });
+  
+  jQuery(function($){
+    $(document).mouseup(function (e){ // событие клика по веб-документу
+      var div = $(item); // тут указываем ID элемента
+      if (!div.is(e.target) // если клик был не по нашему блоку
+        && div.has(e.target).length === 0) { // и не по его дочерним элементам
+        head.classList.remove("active");
+      }
+    });
+  });
+  
+  input.forEach(function (el) {
+    el.addEventListener("click", function() {
+      if(this.classList.contains("js-range-result")) return false;
+      if(this.classList.contains("js-notindexed")) return false;
+      
+      let checkedInput = 0;
+      input.forEach(function (el) {
+        if(el.classList.contains("js-notindexed")) return false;
+        if(el.checked) {
+          checkedInput++;
+        }
+      });
+      
+      let value = this.value;
+      if(this.type === "checkbox") {
+        if(checkedInput == 0) {
+          selected.innerText = "Не выбрано";
+          head.classList.remove("selected");
+          head.classList.remove("active");
+        } else {
+          selected.innerText = "Выбрано " + checkedInput;
+        }
+      } else {
+        selected.innerText = value;
+        if(item.classList.contains("nocheck")) {
+          head.classList.remove("active");
+          item.classList.add("dishov");
+        }
+      }
+  
+      head.classList.add("selected");
+    });
+  
+    el.addEventListener("change", function() {
+      if(this.classList.contains("js-range-result")) {
+        selected.innerText = min.value + (min.value > 0 ? "₽" : "") +" - " + max.value + (max.value > 0 ? "₽" : "");
+      }
+      
+      arrFilter.push(this.value);
+      // console.log(arrFilter)
+    });
+  });
+  
+  reset.addEventListener("click", function() {
+    input.forEach(function (el) {
+      el.checked = false;
+      head.classList.remove("selected");
+      head.classList.remove("active");
+  
+      if(input[0].type === "checkbox") {
+        selected.innerText = "Не выбрано";
+      } else {
+        selected.innerText = "Не выбрано";
+      }
+    });
+  });
+  
+  if(!item.querySelector(".js-cselect-dropdown")) {
+    if(input[0] && (input[0].type === "checkbox" || input[0].type === "radio")) {
+      input[0].click();
+    }
+  }
+  
+  // Reset form
+  form.addEventListener("reset", function() {
+    console.log("Reset");
+  
+    input.forEach(function (el) {
+      el.checked = false;
+      head.classList.remove("selected");
+      head.classList.remove("active");
+    
+      if(input[0].type === "checkbox") {
+        selected.innerText = "Не выбрано";
+      } else {
+        selected.innerText = "Не выбрано";
+      }
+    });
+  })
+});
 
+
+// SelectDropDown Check/Uncheck
+$(".js-cselect-dropdown").each(function() {
+  let root = $(this).closest(".js-cselect-dropdown");
+  let input = $(this).find(".js-notindexed");
+  const head = $(this).closest(".custom-select__dropdown");
+  const headParent = $(this).closest(".js-cselect").find(".js-cselect-head");
+  let inputs = $(this)
+                  .closest(".js-cselect-dropdown")
+                  .find(".custom-select__dropdown-content input");
+  
+  const dropdown = root.closest(".dropdown");
+  const parent = $(this).closest(".js-cselect");
+  const selected = parent.find(".js-cselect-selected");
+  
+  let inputLength = inputs.length;
+  let inputChecked = 0;
+  
+  console.log(head)
+  head.on("click", function() {
+    $(this).toggleClass("open")
+  });
+  
+  input.on("change", function() {
+    // inputs.each(function() {
+    //   $(this).trigger("click");
+    // });
+    
+    if($(this).prop("checked")) {
+      root.addClass("open")
+      inputs.each(function() {
+        this.checked = true;
+        inputChecked++;
+      })
+    } else {
+      root.removeClass("open")
+      inputs.each(function() {
+        this.checked = false;
+        inputChecked = 0;
+      })
+    }
+    
+    let num = 0;
+    dropdown.find("input:not(.js-notindexed)").each(function() {
+      if($(this).prop("checked")) {
+        num++;
+      }
+    })
+    selected.text("Выбрано " + num);
+    headParent.addClass("selected");
+  });
+  
+  inputs.each(function() {
+    // inputChecked = 0;
+    $(this).on("change", function() {
+      if($(this).prop("checked")) {
+        inputChecked++;
+      } else {
+        inputChecked--;
+      }
+  
+      console.log(inputChecked)
+      if(inputChecked == 0) {
+        input.prop("checked", false)
+      } else {
+        input.prop("checked", true)
+      }
+    });
+  });
+});
+
+
+function ChangeGrid(el) {
+  const parent = el.parentElement;
+  const max = parent.querySelector(".max");
+  const min = parent.querySelector(".min");
+  
+  const grid = document.querySelector(".js-changegrid");
+  
+  if(el.classList.contains("max")) {
+      max.classList.add("active");
+      min.classList.remove("active");
+      grid.classList.remove("min")
+  } else {
+      max.classList.remove("active");
+      min.classList.add("active");
+      grid.classList.add("min")
+  }
+}
 
 // // File Upload
 // document.addEventListener("DOMContentLoaded", function(event) {

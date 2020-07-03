@@ -133,13 +133,28 @@
             <div class="pcatalog__wrap">
               <div class="pcatalog__head">
                 <h1>Браслеты</h1><em>Найдено 135 товаров</em>
+              </div>
+              <div class="pcatalog__links">
+                <div class="pcatalog__links-wrap"><em>Все разделы:</em>
+                  <ul>
+                    <li class="active"><a href="#">Браслеты</a></li>
+                    <li><a href="#">Колье</a></li>
+                    <li><a href="#">Кольца</a></li>
+                    <li><a href="#">Подвески</a></li>
+                    <li><a href="#">Помолвка</a></li>
+                    <li><a href="#">Серьги</a></li>
+                    <li><a href="#">Цепочки</a></li>
+                    <li><a href="#">Колье</a></li>
+                    <li><a href="#">Броши</a></li>
+                  </ul>
+                </div>
                 <div class="pcatalog__changegrid">
-                  <button type="button">
+                  <button class="max active" type="button" onclick="ChangeGrid(this)">
                     <svg class="icon">
                       <use xlink:href="ico/sprite.svg#grid-max"></use>
                     </svg>
                   </button>
-                  <button type="button">
+                  <button class="min" type="button" onclick="ChangeGrid(this)">
                     <svg class="icon">
                       <use xlink:href="ico/sprite.svg#grid-min"></use>
                     </svg>
@@ -147,145 +162,688 @@
                 </div>
               </div>
               <div class="pcatalog__filter">
-                <div class="filter">
-                  <div class="custom-select js-cselect">
-                    <!--Label-->
-                    <div class="custom-select__label"><em>Тип изделия</em></div>
-                    <!--Head-->
-                    <div class="custom-select__head js-cselect-head"><span class="js-cselect-selected"></span>
-                      <!--Reset-->
-                      <div class="custom-select__reset js-cselect-reset">
-                        <svg class="icon">
-                          <use xlink:href="ico/sprite.svg#close"></use>
-                        </svg>
+                <form class="filter">
+                  <div class="filter__select">
+                    <!--Select Radio-->
+                    <div class="custom-select js-cselect">
+                      <!--Label-->
+                      <div class="custom-select__label"><em>Металл</em></div>
+                      <!--Head-->
+                      <div class="custom-select__head js-cselect-head"><span class="js-cselect-selected">Не выбрано</span>
+                        <!--Reset-->
+                        <div class="custom-select__reset js-cselect-reset">
+                          <svg class="icon">
+                            <use xlink:href="ico/sprite.svg#close"></use>
+                          </svg>
+                        </div>
                       </div>
-                    </div>
-                    <!--Content-->
-                    <div class="custom-select__content">
-                      <div class="custom-select__content-wrap">
-                        <!--Input-->
-                        <div class="custom-select__input">
-                          <input class="js-cselect-input" type="radio" name="tipizdelia" value="Браслеты" id="input-filter-braslet-1"/>
-                          <label for="input-filter-braslet-1"><span>Браслеты</span></label>
-                        </div>
-                        <!--Input-->
-                        <div class="custom-select__input">
-                          <input class="js-cselect-input" type="radio" name="tipizdelia" value="Колье" id="input-filter-kolie-1"/>
-                          <label for="input-filter-kolie-1"><span>Колье</span></label>
-                        </div>
-                        <!--Input-->
-                        <div class="custom-select__input">
-                          <input class="js-cselect-input" type="radio" name="tipizdelia" value="Кольца" id="input-filter-kolita-1"/>
-                          <label for="input-filter-kolita-1"><span>Кольца</span></label>
-                        </div>
-                        <!--Input-->
-                        <div class="custom-select__input">
-                          <input class="js-cselect-input" type="radio" name="tipizdelia" value="Подвески" id="input-filter-podveski-1"/>
-                          <label for="input-filter-podveski-1"><span>Подвески</span></label>
-                        </div>
-                        <!--Input-->
-                        <div class="custom-select__input">
-                          <input class="js-cselect-input" type="radio" name="tipizdelia" value="Помолвка" id="input-filter-pomolvka-1"/>
-                          <label for="input-filter-pomolvka-1"><span>Помолвка</span></label>
-                        </div>
-                        <!--Input-->
-                        <div class="custom-select__input">
-                          <input class="js-cselect-input" type="radio" name="tipizdelia" value="Серьги" id="input-filter-sergi-1"/>
-                          <label for="input-filter-sergi-1"><span>Серьги</span></label>
-                        </div>
-                        <!--Input-->
-                        <div class="custom-select__input">
-                          <input class="js-cselect-input" type="radio" name="tipizdelia" value="Цепочки" id="input-filter-tepociki-1"/>
-                          <label for="input-filter-tepociki-1"><span>Цепочки</span></label>
+                      <!--Content-->
+                      <div class="custom-select__content">
+                        <div class="custom-select__content-wrap">
+                          <!--Input-->
+                          <div class="custom-select__input">
+                            <input class="js-cselect-input" type="radio" name="metal" value="Платина" id="input-filter-metal-1"/>
+                            <label for="input-filter-metal-1"><span>Платина</span></label>
+                          </div>
+                          <!--Input-->
+                          <div class="custom-select__input">
+                            <input class="js-cselect-input" type="radio" name="metal" value="Платина 2" id="input-filter-metal-2"/>
+                            <label for="input-filter-metal-2"><span>Платина 2</span></label>
+                          </div>
+                          <!--Input-->
+                          <div class="custom-select__input">
+                            <input class="js-cselect-input" type="radio" name="metal" value="Платина 3" id="input-filter-metal-3"/>
+                            <label for="input-filter-metal-3"><span>Платина 3</span></label>
+                          </div>
+                          <!--Input-->
+                          <div class="custom-select__input">
+                            <input class="js-cselect-input" type="radio" name="metal" value="Платина 4" id="input-filter-metal-4"/>
+                            <label for="input-filter-metal-4"><span>Платина 4</span></label>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="custom-select js-cselect">
-                    <!--Label-->
-                    <div class="custom-select__label"><em>Вставки</em></div>
-                    <!--Head-->
-                    <div class="custom-select__head js-cselect-head"><span class="js-cselect-selected"></span>
-                      <!--Reset-->
-                      <div class="custom-select__reset js-cselect-reset">
-                        <svg class="icon">
-                          <use xlink:href="ico/sprite.svg#close"></use>
-                        </svg>
-                      </div>
-                    </div>
-                    <!--Content-->
-                    <div class="custom-select__content">
-                      <div class="custom-select__content-wrap">
-                        <!--Input-->
-                        <div class="custom-select__input">
-                          <input class="js-cselect-input" type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-braslet-2"/>
-                          <label for="input-filter-braslet-2"><span>Браслеты</span></label>
-                        </div>
-                        <!--Input-->
-                        <div class="custom-select__input">
-                          <input class="js-cselect-input" type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-kolie-2"/>
-                          <label for="input-filter-kolie-2"><span>Колье</span></label>
-                        </div>
-                        <!--Input-->
-                        <div class="custom-select__input">
-                          <input class="js-cselect-input" type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-kolita-2"/>
-                          <label for="input-filter-kolita-2"><span>Кольца</span></label>
-                        </div>
-                        <!--Input-->
-                        <div class="custom-select__input">
-                          <input class="js-cselect-input" type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-podveski-2"/>
-                          <label for="input-filter-podveski-2"><span>Подвески</span></label>
-                        </div>
-                        <!--Input-->
-                        <div class="custom-select__input">
-                          <input class="js-cselect-input" type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-pomolvka-2"/>
-                          <label for="input-filter-pomolvka-2"><span>Помолвка</span></label>
-                        </div>
-                        <!--Input-->
-                        <div class="custom-select__input">
-                          <input class="js-cselect-input" type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-sergi-2"/>
-                          <label for="input-filter-sergi-2"><span>Серьги</span></label>
-                        </div>
-                        <!--Input-->
-                        <div class="custom-select__input">
-                          <input class="js-cselect-input" type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-tepociki-2"/>
-                          <label for="input-filter-tepociki-2"><span>Цепочки</span></label>
+                    <!--Range-->
+                    <div class="custom-select js-cselect">
+                      <!--Label-->
+                      <div class="custom-select__label"><em>Цена</em></div>
+                      <!--Head-->
+                      <div class="custom-select__head js-cselect-head"><span class="js-cselect-selected">0 - 250₽</span>
+                        <!--Reset-->
+                        <div class="custom-select__reset js-cselect-reset">
+                          <svg class="icon">
+                            <use xlink:href="ico/sprite.svg#close"></use>
+                          </svg>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                  <div class="custom-select js-cselect">
-                    <!--Label-->
-                    <div class="custom-select__label"><em>Цена</em></div>
-                    <!--Head-->
-                    <div class="custom-select__head js-cselect-head"><span class="js-cselect-selected">0 - 250₽</span>
-                      <!--Reset-->
-                      <div class="custom-select__reset js-cselect-reset">
-                        <svg class="icon">
-                          <use xlink:href="ico/sprite.svg#close"></use>
-                        </svg>
-                      </div>
-                    </div>
-                    <!--Content-->
-                    <div class="custom-select__content">
-                      <div class="custom-select__content-wrap range">
-                        <div class="custom-range js-range">
-                          <div class="custom-range-inputs">
-                            <div class="custom-range-input"><span>от</span>
-                              <input class="js-range-min" type="number"/>
+                      <!--Content-->
+                      <div class="custom-select__content">
+                        <div class="custom-select__content-wrap range">
+                          <div class="custom-range js-range">
+                            <div class="custom-range-inputs">
+                              <div class="custom-range-input"><span>от</span>
+                                <input class="js-range-result js-range-min" type="number" name="range-min" value="0"/>
+                              </div>
+                              <div class="custom-range-input"><span>до</span>
+                                <input class="js-range-result js-range-max" type="number" name="range-max" value="20000"/>
+                              </div>
                             </div>
-                            <div class="custom-range-input"><span>до</span>
-                              <input class="js-range-max" type="number"/>
+                            <div class="js-range-input" data-min="10" data-max="20000"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--Select Checkbox-->
+                    <div class="custom-select js-cselect">
+                      <!--Label-->
+                      <div class="custom-select__label"><em>Вставки</em></div>
+                      <!--Head-->
+                      <div class="custom-select__head js-cselect-head"><span class="js-cselect-selected">Не выбрано</span>
+                        <!--Reset-->
+                        <div class="custom-select__reset js-cselect-reset">
+                          <svg class="icon">
+                            <use xlink:href="ico/sprite.svg#close"></use>
+                          </svg>
+                        </div>
+                      </div>
+                      <!--Content-->
+                      <div class="custom-select__content">
+                        <div class="custom-select__content-wrap">
+                          <!--Input-->
+                          <div class="custom-select__input">
+                            <input class="js-cselect-input" type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-braslet-2"/>
+                            <label for="input-filter-braslet-2"><span>Браслеты</span></label>
+                          </div>
+                          <!--Input-->
+                          <div class="custom-select__input">
+                            <input class="js-cselect-input" type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-kolie-2"/>
+                            <label for="input-filter-kolie-2"><span>Колье</span></label>
+                          </div>
+                          <!--Input-->
+                          <div class="custom-select__input">
+                            <input class="js-cselect-input" type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-kolita-2"/>
+                            <label for="input-filter-kolita-2"><span>Кольца</span></label>
+                          </div>
+                          <!--Input-->
+                          <div class="custom-select__input">
+                            <input class="js-cselect-input" type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-podveski-2"/>
+                            <label for="input-filter-podveski-2"><span>Подвески</span></label>
+                          </div>
+                          <!--Input-->
+                          <div class="custom-select__input">
+                            <input class="js-cselect-input" type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-pomolvka-2"/>
+                            <label for="input-filter-pomolvka-2"><span>Помолвка</span></label>
+                          </div>
+                          <!--Input-->
+                          <div class="custom-select__input">
+                            <input class="js-cselect-input" type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-sergi-2"/>
+                            <label for="input-filter-sergi-2"><span>Серьги</span></label>
+                          </div>
+                          <!--Input-->
+                          <div class="custom-select__input">
+                            <input class="js-cselect-input" type="checkbox" name="tipizdelia" value="tipizdelia" id="input-filter-tepociki-2"/>
+                            <label for="input-filter-tepociki-2"><span>Цепочки</span></label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--Select Checkbox-->
+                    <div class="custom-select js-cselect">
+                      <!--Label-->
+                      <div class="custom-select__label"><em>Вставки</em></div>
+                      <!--Head-->
+                      <div class="custom-select__head js-cselect-head"><span class="js-cselect-selected">Не выбрано</span>
+                        <!--Reset-->
+                        <div class="custom-select__reset js-cselect-reset">
+                          <svg class="icon">
+                            <use xlink:href="ico/sprite.svg#close"></use>
+                          </svg>
+                        </div>
+                      </div>
+                      <!--Content-->
+                      <div class="custom-select__content">
+                        <div class="custom-select__content-wrap">
+                          <!--Input-->
+                          <div class="custom-select__input">
+                            <input class="js-cselect-input" type="radio" name="gender" value="Мужчина" id="input-filter-male"/>
+                            <label for="input-filter-male"><span>Мужчина</span></label>
+                          </div>
+                          <!--Input-->
+                          <div class="custom-select__input">
+                            <input class="js-cselect-input" type="radio" name="gender" value="Женщина" id="input-filter-female"/>
+                            <label for="input-filter-female"><span>Женщина</span></label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--Select Dropdown-->
+                    <div class="custom-select js-cselect">
+                      <!--Label-->
+                      <div class="custom-select__label"><em>Другие фильтры</em></div>
+                      <!--Head-->
+                      <div class="custom-select__head js-cselect-head"><span class="js-cselect-selected">Не выбрано</span>
+                        <!--Reset-->
+                        <div class="custom-select__reset js-cselect-reset">
+                          <svg class="icon">
+                            <use xlink:href="ico/sprite.svg#close"></use>
+                          </svg>
+                        </div>
+                      </div>
+                      <!--Content-->
+                      <div class="custom-select__content">
+                        <div class="custom-select__content-wrap dropdown">
+                          <div class="custom-select__dropdown js-cselect-dropdown">
+                            <div class="custom-select__dropdown-head">
+                              <label>
+                                <input class="js-notindexed" type="checkbox"/><span></span>
+                              </label><span>Цвет ремешка</span>
+                              <svg class="icon">
+                                <use xlink:href="ico/sprite.svg#arrow-left"></use>
+                              </svg>
+                            </div>
+                            <div class="custom-select__dropdown-content">
+                              <!--Input-->
+                              <div class="custom-select__input color">
+                                <input class="js-cselect-input" type="checkbox" name="color" value="green" id="input-filter-color-1"/>
+                                <label for="input-filter-color-1"><span>Зеленый</span><em style="background: #54A62C;"></em></label>
+                              </div>
+                              <!--Input-->
+                              <div class="custom-select__input color">
+                                <input class="js-cselect-input" type="checkbox" name="color" value="red" id="input-filter-color-2"/>
+                                <label for="input-filter-color-2"><span>Красный</span><em style="background: #CB3229"></em></label>
+                              </div>
+                              <!--Input-->
+                              <div class="custom-select__input color">
+                                <input class="js-cselect-input" type="checkbox" name="color" value="yellow" id="input-filter-color-3"/>
+                                <label for="input-filter-color-3"><span>Желтый</span><em style="background: #E2C422;"></em></label>
+                              </div>
+                              <!--Input-->
+                              <div class="custom-select__input color">
+                                <input class="js-cselect-input" type="checkbox" name="color" value="orange" id="input-filter-color-4"/>
+                                <label for="input-filter-color-4"><span>Оранжевый</span><em style="background: #DA7B24;"></em></label>
+                              </div>
                             </div>
                           </div>
-                          <div class="js-range-input" data-min="0" data-max="200000"></div>
+                          <div class="custom-select__dropdown js-cselect-dropdown">
+                            <div class="custom-select__dropdown-head">
+                              <label>
+                                <input class="js-notindexed" type="checkbox"/><span></span>
+                              </label><span>Проба</span>
+                              <svg class="icon">
+                                <use xlink:href="ico/sprite.svg#arrow-left"></use>
+                              </svg>
+                            </div>
+                            <div class="custom-select__dropdown-content">
+                              <!--Input-->
+                              <div class="custom-select__input">
+                                <input class="js-cselect-input" type="checkbox" name="proba" value="1" id="input-filter-proba-1"/>
+                                <label for="input-filter-proba-1"><span>Зеленый</span></label>
+                              </div>
+                              <!--Input-->
+                              <div class="custom-select__input">
+                                <input class="js-cselect-input" type="checkbox" name="proba" value="2" id="input-filter-proba-2"/>
+                                <label for="input-filter-proba-2"><span>Красный</span></label>
+                              </div>
+                              <!--Input-->
+                              <div class="custom-select__input">
+                                <input class="js-cselect-input" type="checkbox" name="proba" value="3" id="input-filter-proba-3"/>
+                                <label for="input-filter-proba-3"><span>Желтый</span></label>
+                              </div>
+                              <!--Input-->
+                              <div class="custom-select__input">
+                                <input class="js-cselect-input" type="checkbox" name="proba" value="4" id="input-filter-proba-4"/>
+                                <label for="input-filter-proba-4"><span>Оранжевый</span></label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="custom-select__dropdown js-cselect-dropdown">
+                            <div class="custom-select__dropdown-head">
+                              <label>
+                                <input class="js-notindexed" type="checkbox"/><span></span>
+                              </label><span>Есть в наличии</span>
+                              <svg class="icon">
+                                <use xlink:href="ico/sprite.svg#arrow-left"></use>
+                              </svg>
+                            </div>
+                            <div class="custom-select__dropdown-content">
+                              <!--Input-->
+                              <div class="custom-select__input">
+                                <input class="js-cselect-input" type="checkbox" name="areaviable" value="1" id="input-filter-areaviable-1"/>
+                                <label for="input-filter-areaviable-1"><span>Зеленый</span></label>
+                              </div>
+                              <!--Input-->
+                              <div class="custom-select__input">
+                                <input class="js-cselect-input" type="checkbox" name="areaviable" value="2" id="input-filter-areaviable-2"/>
+                                <label for="input-filter-areaviable-2"><span>Красный</span></label>
+                              </div>
+                              <!--Input-->
+                              <div class="custom-select__input">
+                                <input class="js-cselect-input" type="checkbox" name="areaviable" value="3" id="input-filter-areaviable-3"/>
+                                <label for="input-filter-areaviable-3"><span>Желтый</span></label>
+                              </div>
+                              <!--Input-->
+                              <div class="custom-select__input">
+                                <input class="js-cselect-input" type="checkbox" name="areaviable" value="4" id="input-filter-areaviable-4"/>
+                                <label for="input-filter-areaviable-4"><span>Оранжевый</span></label>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
+                  </div>
+                  <div class="filter__sort">
+                    <!--Select Radio-->
+                    <div class="custom-select js-cselect right nocheck">
+                      <!--Label-->
+                      <div class="custom-select__label"><em>Сортировка</em></div>
+                      <!--Head-->
+                      <div class="custom-select__head js-cselect-head"><span class="js-cselect-selected">Не выбрано</span>
+                        <!--Reset-->
+                        <div class="custom-select__reset js-cselect-reset">
+                          <svg class="icon">
+                            <use xlink:href="ico/sprite.svg#close"></use>
+                          </svg>
+                        </div>
+                      </div>
+                      <!--Content-->
+                      <div class="custom-select__content">
+                        <div class="custom-select__content-wrap">
+                          <!--Input-->
+                          <div class="custom-select__input">
+                            <input class="js-cselect-input" type="radio" name="sort" value="По цене" id="filter-sort-1"/>
+                            <label for="filter-sort-1"><span>По цене</span></label>
+                          </div>
+                          <!--Input-->
+                          <div class="custom-select__input">
+                            <input class="js-cselect-input" type="radio" name="sort" value="По цене 2" id="filter-sort-2"/>
+                            <label for="filter-sort-2"><span>По цене 2</span></label>
+                          </div>
+                          <!--Input-->
+                          <div class="custom-select__input">
+                            <input class="js-cselect-input" type="radio" name="sort" value="По цене 3" id="filter-sort-3"/>
+                            <label for="filter-sort-3"><span>По цене 3</span></label>
+                          </div>
+                          <!--Input-->
+                          <div class="custom-select__input">
+                            <input class="js-cselect-input" type="radio" name="sort" value="По цене 4" id="filter-sort-4"/>
+                            <label for="filter-sort-4"><span>По цене 4</span></label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="filter-bottom">
+                    <div class="filter-selected">
+                      <div class="filter-selected__item"><span>ПЛАТИНА</span>
+                        <button type="button">
+                          <svg class="icon">
+                            <use xlink:href="ico/sprite.svg#close"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <div class="filter-selected__item"><span>АМЕТИСТ</span>
+                        <button type="button">
+                          <svg class="icon">
+                            <use xlink:href="ico/sprite.svg#close"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <div class="filter-selected__item"><span>АГАТ</span>
+                        <button type="button">
+                          <svg class="icon">
+                            <use xlink:href="ico/sprite.svg#close"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <div class="filter-selected__item"><span>ДЛЯ МУЖЧИН</span>
+                        <button type="button">
+                          <svg class="icon">
+                            <use xlink:href="ico/sprite.svg#close"></use>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <button class="filter-reset" type="reset"><span>ОЧИСТИТЬ ФИЛЬТРЫ</span></button>
+                  </div>
+                </form>
+              </div>
+              <div class="pcatalog__grid js-changegrid">
+                <div class="product">
+                  <div class="product__label sale"><span>СКИДКА 50%</span></div><a class="product__slider" href="#">
+                    <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div></a>
+                  <div class="product__info">
+                    <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
+                    <button class="btn-addcart" aria-label="addTocart">
+                      <svg class="icon cart">
+                        <use xlink:href="ico/sprite.svg#cart"></use>
+                      </svg>
+                      <svg class="icon check">
+                        <use xlink:href="ico/sprite.svg#check"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__label best"><span>БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
+                    <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div></a>
+                  <div class="product__info">
+                    <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
+                    <button class="btn-addcart" aria-label="addTocart">
+                      <svg class="icon cart">
+                        <use xlink:href="ico/sprite.svg#cart"></use>
+                      </svg>
+                      <svg class="icon check">
+                        <use xlink:href="ico/sprite.svg#check"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__label sale"><span>СКИДКА 50%</span></div><a class="product__slider" href="#">
+                    <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div></a>
+                  <div class="product__info">
+                    <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
+                    <button class="btn-addcart" aria-label="addTocart">
+                      <svg class="icon cart">
+                        <use xlink:href="ico/sprite.svg#cart"></use>
+                      </svg>
+                      <svg class="icon check">
+                        <use xlink:href="ico/sprite.svg#check"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__label best"><span>БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
+                    <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div></a>
+                  <div class="product__info">
+                    <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
+                    <button class="btn-addcart" aria-label="addTocart">
+                      <svg class="icon cart">
+                        <use xlink:href="ico/sprite.svg#cart"></use>
+                      </svg>
+                      <svg class="icon check">
+                        <use xlink:href="ico/sprite.svg#check"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__label sale"><span>СКИДКА 50%</span></div><a class="product__slider" href="#">
+                    <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div></a>
+                  <div class="product__info">
+                    <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
+                    <button class="btn-addcart" aria-label="addTocart">
+                      <svg class="icon cart">
+                        <use xlink:href="ico/sprite.svg#cart"></use>
+                      </svg>
+                      <svg class="icon check">
+                        <use xlink:href="ico/sprite.svg#check"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__label best"><span>БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
+                    <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div></a>
+                  <div class="product__info">
+                    <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
+                    <button class="btn-addcart" aria-label="addTocart">
+                      <svg class="icon cart">
+                        <use xlink:href="ico/sprite.svg#cart"></use>
+                      </svg>
+                      <svg class="icon check">
+                        <use xlink:href="ico/sprite.svg#check"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__label sale"><span>СКИДКА 50%</span></div><a class="product__slider" href="#">
+                    <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div></a>
+                  <div class="product__info">
+                    <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
+                    <button class="btn-addcart" aria-label="addTocart">
+                      <svg class="icon cart">
+                        <use xlink:href="ico/sprite.svg#cart"></use>
+                      </svg>
+                      <svg class="icon check">
+                        <use xlink:href="ico/sprite.svg#check"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__label best"><span>БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
+                    <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div></a>
+                  <div class="product__info">
+                    <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
+                    <button class="btn-addcart" aria-label="addTocart">
+                      <svg class="icon cart">
+                        <use xlink:href="ico/sprite.svg#cart"></use>
+                      </svg>
+                      <svg class="icon check">
+                        <use xlink:href="ico/sprite.svg#check"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__label sale"><span>СКИДКА 50%</span></div><a class="product__slider" href="#">
+                    <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div></a>
+                  <div class="product__info">
+                    <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
+                    <button class="btn-addcart" aria-label="addTocart">
+                      <svg class="icon cart">
+                        <use xlink:href="ico/sprite.svg#cart"></use>
+                      </svg>
+                      <svg class="icon check">
+                        <use xlink:href="ico/sprite.svg#check"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__label best"><span>БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
+                    <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div></a>
+                  <div class="product__info">
+                    <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
+                    <button class="btn-addcart" aria-label="addTocart">
+                      <svg class="icon cart">
+                        <use xlink:href="ico/sprite.svg#cart"></use>
+                      </svg>
+                      <svg class="icon check">
+                        <use xlink:href="ico/sprite.svg#check"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__label sale"><span>СКИДКА 50%</span></div><a class="product__slider" href="#">
+                    <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div></a>
+                  <div class="product__info">
+                    <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
+                    <button class="btn-addcart" aria-label="addTocart">
+                      <svg class="icon cart">
+                        <use xlink:href="ico/sprite.svg#cart"></use>
+                      </svg>
+                      <svg class="icon check">
+                        <use xlink:href="ico/sprite.svg#check"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__label best"><span>БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
+                    <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div></a>
+                  <div class="product__info">
+                    <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
+                    <button class="btn-addcart" aria-label="addTocart">
+                      <svg class="icon cart">
+                        <use xlink:href="ico/sprite.svg#cart"></use>
+                      </svg>
+                      <svg class="icon check">
+                        <use xlink:href="ico/sprite.svg#check"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__label sale"><span>СКИДКА 50%</span></div><a class="product__slider" href="#">
+                    <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div></a>
+                  <div class="product__info">
+                    <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
+                    <button class="btn-addcart" aria-label="addTocart">
+                      <svg class="icon cart">
+                        <use xlink:href="ico/sprite.svg#cart"></use>
+                      </svg>
+                      <svg class="icon check">
+                        <use xlink:href="ico/sprite.svg#check"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__label best"><span>БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
+                    <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div></a>
+                  <div class="product__info">
+                    <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
+                    <button class="btn-addcart" aria-label="addTocart">
+                      <svg class="icon cart">
+                        <use xlink:href="ico/sprite.svg#cart"></use>
+                      </svg>
+                      <svg class="icon check">
+                        <use xlink:href="ico/sprite.svg#check"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__label sale"><span>СКИДКА 50%</span></div><a class="product__slider" href="#">
+                    <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div></a>
+                  <div class="product__info">
+                    <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
+                    <button class="btn-addcart" aria-label="addTocart">
+                      <svg class="icon cart">
+                        <use xlink:href="ico/sprite.svg#cart"></use>
+                      </svg>
+                      <svg class="icon check">
+                        <use xlink:href="ico/sprite.svg#check"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__label best"><span>БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
+                    <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div></a>
+                  <div class="product__info">
+                    <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
+                    <button class="btn-addcart" aria-label="addTocart">
+                      <svg class="icon cart">
+                        <use xlink:href="ico/sprite.svg#cart"></use>
+                      </svg>
+                      <svg class="icon check">
+                        <use xlink:href="ico/sprite.svg#check"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__label sale"><span>СКИДКА 50%</span></div><a class="product__slider" href="#">
+                    <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div></a>
+                  <div class="product__info">
+                    <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
+                    <button class="btn-addcart" aria-label="addTocart">
+                      <svg class="icon cart">
+                        <use xlink:href="ico/sprite.svg#cart"></use>
+                      </svg>
+                      <svg class="icon check">
+                        <use xlink:href="ico/sprite.svg#check"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="product">
+                  <div class="product__label best"><span>БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
+                    <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
+                    <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div></a>
+                  <div class="product__info">
+                    <div class="product__pagination"></div><span>Подвеска Butterfly</span><em>14 990₽</em>
+                    <button class="btn-addcart" aria-label="addTocart">
+                      <svg class="icon cart">
+                        <use xlink:href="ico/sprite.svg#cart"></use>
+                      </svg>
+                      <svg class="icon check">
+                        <use xlink:href="ico/sprite.svg#check"></use>
+                      </svg>
+                    </button>
                   </div>
                 </div>
               </div>
-              <div class="pcatalog__grid"></div>
+              <div class="bx-pagination">
+                <div class="bx-pagination-container">
+                  <ul>
+                    <li class="bx-pag-prev"><span>&Vcy;&pcy;&iecy;&rcy;&iecy;&dcy;</span></li>
+                    <li><a href="/articles/?" onclick="BX.ajax.insertToNode('/articles/?&amp;bxajaxid=7b107d4ca9de65041128371b03802885', 'comp_7b107d4ca9de65041128371b03802885'); return false;"><span>1</span></a></li>
+                    <li class="bx-active"><span>2</span></li>
+                    <li class="bx-pag-next"><a href="/articles/?" onclick="BX.ajax.insertToNode('/articles/?&amp;bxajaxid=7b107d4ca9de65041128371b03802885', 'comp_7b107d4ca9de65041128371b03802885'); return false;"><span>&Ncy;&acy;&zcy;&acy;&dcy;</span></a></li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </section>
