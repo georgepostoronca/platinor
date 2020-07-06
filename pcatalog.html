@@ -105,10 +105,11 @@
             <button class="menu__login btn btn-submenu"><span>
                 <svg class="icon">
                   <use xlink:href="ico/sprite.svg#user"></use>
-                </svg>ЕВГЕНИЙ ЕВГЕНИЙ</span></button>
-            <div class="btn-submenu__list"><a href="#Личные-данные">Личные данные</a><a href="#История-заказов">История заказов</a>
-              <hr/><a class="exit" href="#Выйти">Выйти</a>
-            </div>
+                </svg>ЕВГЕНИЙ ЕВГЕНИЙ</span>
+              <div class="btn-submenu__list"><a href="#Личные-данные">Личные данные</a><a href="#История-заказов">История заказов</a>
+                <hr/><a class="exit" href="#Выйти">Выйти</a>
+              </div>
+            </button>
             <div class="menu__open js__open-menu">
               <svg class="icon">
                 <use xlink:href="ico/sprite.svg#menu"></use>
@@ -131,37 +132,46 @@
         <section class="pcatalog">
           <div class="container">
             <div class="pcatalog__wrap">
-              <div class="pcatalog__head">
-                <h1>Браслеты</h1><em>Найдено 135 товаров</em>
-              </div>
-              <div class="pcatalog__links">
-                <div class="pcatalog__links-wrap"><em>Все разделы:</em>
-                  <ul>
-                    <li class="active"><a href="#">Браслеты</a></li>
-                    <li><a href="#">Колье</a></li>
-                    <li><a href="#">Кольца</a></li>
-                    <li><a href="#">Подвески</a></li>
-                    <li><a href="#">Помолвка</a></li>
-                    <li><a href="#">Серьги</a></li>
-                    <li><a href="#">Цепочки</a></li>
-                    <li><a href="#">Колье</a></li>
-                    <li><a href="#">Броши</a></li>
-                  </ul>
+              <div class="pcatalog__contain">
+                <div class="pcatalog__head">
+                  <h1>Браслеты</h1><em>135 товаров</em>
                 </div>
-                <div class="pcatalog__changegrid">
-                  <button class="max active" type="button" onclick="ChangeGrid(this)">
-                    <svg class="icon">
-                      <use xlink:href="ico/sprite.svg#grid-max"></use>
-                    </svg>
-                  </button>
-                  <button class="min" type="button" onclick="ChangeGrid(this)">
-                    <svg class="icon">
-                      <use xlink:href="ico/sprite.svg#grid-min"></use>
-                    </svg>
-                  </button>
+                <div class="pcatalog__links">
+                  <div class="pcatalog__links-wrap"><em>Все разделы:</em>
+                    <ul>
+                      <li class="active"><a href="#">Браслеты</a></li>
+                      <li><a href="#">Колье</a></li>
+                      <li><a href="#">Кольца</a></li>
+                      <li><a href="#">Подвески</a></li>
+                      <li><a href="#">Помолвка</a></li>
+                      <li><a href="#">Серьги</a></li>
+                      <li><a href="#">Цепочки</a></li>
+                      <li><a href="#">Колье</a></li>
+                      <li><a href="#">Броши</a></li>
+                    </ul>
+                  </div>
+                  <div class="pcatalog__changegrid">
+                    <button class="max active" type="button" onclick="ChangeGrid(this)">
+                      <svg class="icon">
+                        <use xlink:href="ico/sprite.svg#grid-max"></use>
+                      </svg>
+                    </button>
+                    <button class="min" type="button" onclick="ChangeGrid(this)">
+                      <svg class="icon">
+                        <use xlink:href="ico/sprite.svg#grid-min"></use>
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
               <div class="pcatalog__filter">
+                <div class="pcatalog__filter-head"><span>Фильтры</span>
+                  <button type="button">
+                    <svg class="icon">
+                      <use xlink:href="ico/sprite.svg#close"></use>
+                    </svg>
+                  </button>
+                </div>
                 <form class="filter">
                   <div class="filter__select">
                     <!--Select Radio-->
@@ -175,6 +185,7 @@
                           <svg class="icon">
                             <use xlink:href="ico/sprite.svg#close"></use>
                           </svg>
+                          <button type="button">Сбросить</button>
                         </div>
                       </div>
                       <!--Content-->
@@ -214,6 +225,7 @@
                           <svg class="icon">
                             <use xlink:href="ico/sprite.svg#close"></use>
                           </svg>
+                          <button type="button">Сбросить</button>
                         </div>
                       </div>
                       <!--Content-->
@@ -244,6 +256,7 @@
                           <svg class="icon">
                             <use xlink:href="ico/sprite.svg#close"></use>
                           </svg>
+                          <button type="button">Сбросить</button>
                         </div>
                       </div>
                       <!--Content-->
@@ -298,6 +311,7 @@
                           <svg class="icon">
                             <use xlink:href="ico/sprite.svg#close"></use>
                           </svg>
+                          <button type="button">Сбросить</button>
                         </div>
                       </div>
                       <!--Content-->
@@ -327,6 +341,7 @@
                           <svg class="icon">
                             <use xlink:href="ico/sprite.svg#close"></use>
                           </svg>
+                          <button type="button">Сбросить</button>
                         </div>
                       </div>
                       <!--Content-->
@@ -444,6 +459,7 @@
                           <svg class="icon">
                             <use xlink:href="ico/sprite.svg#close"></use>
                           </svg>
+                          <button type="button">Сбросить</button>
                         </div>
                       </div>
                       <!--Content-->
@@ -505,6 +521,7 @@
                       </div>
                     </div>
                     <button class="filter-reset" type="reset"><span>ОЧИСТИТЬ ФИЛЬТРЫ</span></button>
+                    <button class="filter-close" type="button"><span>СОХРАНИТЬ</span></button>
                   </div>
                 </form>
               </div>

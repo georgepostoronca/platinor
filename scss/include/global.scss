@@ -2242,20 +2242,25 @@ textarea {
   
   z-index: 10;
   
-  &.right {
-    
-    .custom-select__content {
-      left: initial;
-      right: 0;
-      
-      &:after {
-        left: initial;
-        right: 18px;
-      }
+  &.zindex {
+    z-index: 15;
+  }
   
-      &:before {
+  &.right {
+    @media(min-width: 1081px) {
+      .custom-select__content {
         left: initial;
-        right: 17px;
+        right: 0;
+        
+        &:after {
+          left: initial;
+          right: 18px;
+        }
+    
+        &:before {
+          left: initial;
+          right: 17px;
+        }
       }
     }
   }
@@ -2289,6 +2294,10 @@ textarea {
   &__label {
     margin-bottom: 9px;
     
+    @media(max-width: 1200px) {
+      margin-bottom: 4px;
+    }
+    
     em {
       width: 100%;
       font-style: normal;
@@ -2305,7 +2314,7 @@ textarea {
     //padding-left: 10px;
     padding-right: 10px;
     
-    height: 32px;
+    //height: 32px;
     border-radius: 4px;
     cursor: pointer;
     transition: .2s;
@@ -2336,8 +2345,10 @@ textarea {
       position: relative;
       top: -1px;
   
-      padding-top: 4px;
-      padding-bottom: 4px;
+      //padding-top: 4px;
+      padding-top: 8px;
+      //padding-bottom: 4px;
+      padding-bottom: 8px;
       transition: .2s;
     }
     
@@ -2404,6 +2415,10 @@ textarea {
     svg {
       width: 8px;
       height: 8px;
+    }
+    
+    button {
+      display: none;
     }
   }
   

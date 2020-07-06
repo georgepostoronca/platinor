@@ -1,40 +1,47 @@
 section.pcatalog
   .container
     .pcatalog__wrap
-      .pcatalog__head
-        h1 Браслеты
-        em Найдено 135 товаров
+      .pcatalog__contain
+        .pcatalog__head
+          h1 Браслеты
+          em 135 товаров
 
-      .pcatalog__links
-        .pcatalog__links-wrap
-          em Все разделы:
-          ul
-            li.active
-              a(href="#") Браслеты
-            li
-              a(href="#") Колье
-            li
-              a(href="#") Кольца
-            li
-              a(href="#") Подвески
-            li
-              a(href="#") Помолвка
-            li
-              a(href="#") Серьги
-            li
-              a(href="#") Цепочки
-            li
-              a(href="#") Колье
-            li
-              a(href="#") Броши
+        .pcatalog__links
+          .pcatalog__links-wrap
+            em Все разделы:
+            ul
+              li.active
+                a(href="#") Браслеты
+              li
+                a(href="#") Колье
+              li
+                a(href="#") Кольца
+              li
+                a(href="#") Подвески
+              li
+                a(href="#") Помолвка
+              li
+                a(href="#") Серьги
+              li
+                a(href="#") Цепочки
+              li
+                a(href="#") Колье
+              li
+                a(href="#") Броши
 
-        .pcatalog__changegrid
-          button(type="button" onclick="ChangeGrid(this)").max.active
-            +svg("grid-max")
-          button(type="button" onclick="ChangeGrid(this)").min
-            +svg("grid-min")
+          .pcatalog__changegrid
+            button(type="button" onclick="ChangeGrid(this)").max.active
+              +svg("grid-max")
+            button(type="button" onclick="ChangeGrid(this)").min
+              +svg("grid-min")
 
       .pcatalog__filter
+        .pcatalog__filter-head
+          span Фильтры
+
+          button(type="button")
+            +svg("close")
+
         form.filter
           .filter__select
             //Select Radio
@@ -50,6 +57,7 @@ section.pcatalog
                 //Reset
                 .custom-select__reset.js-cselect-reset
                   +svg("close")
+                  button(type="button") Сбросить
 
               //Content
               .custom-select__content
@@ -91,6 +99,7 @@ section.pcatalog
                 //Reset
                 .custom-select__reset.js-cselect-reset
                   +svg("close")
+                  button(type="button") Сбросить
 
               //Content
               .custom-select__content
@@ -121,6 +130,7 @@ section.pcatalog
                 //Reset
                 .custom-select__reset.js-cselect-reset
                   +svg("close")
+                  button(type="button") Сбросить
 
               //Content
               .custom-select__content
@@ -177,6 +187,7 @@ section.pcatalog
                 //Reset
                 .custom-select__reset.js-cselect-reset
                   +svg("close")
+                  button(type="button") Сбросить
 
               //Content
               .custom-select__content
@@ -207,6 +218,7 @@ section.pcatalog
                 //Reset
                 .custom-select__reset.js-cselect-reset
                   +svg("close")
+                  button(type="button") Сбросить
 
               //Content
               .custom-select__content
@@ -322,6 +334,7 @@ section.pcatalog
                 //Reset
                 .custom-select__reset.js-cselect-reset
                   +svg("close")
+                  button(type="button") Сбросить
 
               //Content
               .custom-select__content
@@ -368,6 +381,10 @@ section.pcatalog
 
             button(type="reset").filter-reset
               span ОЧИСТИТЬ ФИЛЬТРЫ
+
+            button(type="button").filter-close
+              span СОХРАНИТЬ
+
 
       .pcatalog__grid.js-changegrid
         each val in [1,2,3,4,5,6,7,8,9]

@@ -1201,6 +1201,7 @@ customselect.forEach(function (item) {
   
   selected.addEventListener("click", function() {
     head.classList.toggle("active");
+    item.classList.toggle("zindex");
     item.classList.remove("dishov");
   });
   
@@ -1210,6 +1211,7 @@ customselect.forEach(function (item) {
       if (!div.is(e.target) // если клик был не по нашему блоку
         && div.has(e.target).length === 0) { // и не по его дочерним элементам
         head.classList.remove("active");
+        item.classList.remove("zindex");
       }
     });
   });
@@ -1233,6 +1235,7 @@ customselect.forEach(function (item) {
           selected.innerText = "Не выбрано";
           head.classList.remove("selected");
           head.classList.remove("active");
+          item.classList.remove("zindex");
         } else {
           selected.innerText = "Выбрано " + checkedInput;
         }
@@ -1240,6 +1243,7 @@ customselect.forEach(function (item) {
         selected.innerText = value;
         if(item.classList.contains("nocheck")) {
           head.classList.remove("active");
+          item.classList.remove("zindex");
           item.classList.add("dishov");
         }
       }
