@@ -1182,6 +1182,7 @@ productTab();
 
 // Custom Select
 const customselect = [].slice.call(document.querySelectorAll(".js-cselect"));
+let arrFilter = [];
 customselect.forEach(function (item) {
   const input = [].slice.call(item.querySelectorAll("input"));
   const selected = item.querySelector(".js-cselect-selected");
@@ -1193,7 +1194,6 @@ customselect.forEach(function (item) {
   const min = item.querySelector(".js-range-min");
   const max = item.querySelector(".js-range-max");
   
-  let arrFilter = [];
   
   if(min && max) {
     selected.innerText = min.value + (min.value > 0 ? "₽" : "") +" - " + max.value + (max.value > 0 ? "₽" : "");
@@ -1229,7 +1229,8 @@ customselect.forEach(function (item) {
         }
       });
       
-      let value = this.value;
+      // let value = this.value;
+      let value = this.dataset.value;
       if(this.type === "checkbox") {
         if(checkedInput == 0) {
           selected.innerText = "Не выбрано";
@@ -1256,7 +1257,25 @@ customselect.forEach(function (item) {
         selected.innerText = min.value + (min.value > 0 ? "₽" : "") +" - " + max.value + (max.value > 0 ? "₽" : "");
       }
       
-      arrFilter.push(this.value);
+      let $this = this;
+      function addSelectedItem(element, index, array) {
+        if(element.el === $this) {
+          console.log("false");
+          // return false;
+        } else {
+          console.log("true");
+          // return true;
+        }
+      }
+      
+      arrFilter.push({
+        el: this,
+        value: this.dataset.value
+      });
+      
+      // if(arrFilter.find(addSelectedItem)) {
+      // }
+      //
       // console.log(arrFilter)
     });
   });
@@ -1302,72 +1321,72 @@ customselect.forEach(function (item) {
 
 // SelectDropDown Check/Uncheck
 $(".js-cselect-dropdown").each(function() {
-  let root = $(this).closest(".js-cselect-dropdown");
-  let input = $(this).find(".js-notindexed");
+  // let root = $(this).closest(".js-cselect-dropdown");
+  // let input = $(this).find(".js-notindexed");
   const head = $(this).closest(".custom-select__dropdown");
-  const headParent = $(this).closest(".js-cselect").find(".js-cselect-head");
-  let inputs = $(this)
-                  .closest(".js-cselect-dropdown")
-                  .find(".custom-select__dropdown-content input");
+  // const headParent = $(this).closest(".js-cselect").find(".js-cselect-head");
+  // let inputs = $(this)
+  //                 .closest(".js-cselect-dropdown")
+  //                 .find(".custom-select__dropdown-content input");
+  //
+  // const dropdown = root.closest(".dropdown");
+  // const parent = $(this).closest(".js-cselect");
+  // const selected = parent.find(".js-cselect-selected");
+  //
+  // let inputLength = inputs.length;
+  // let inputChecked = 0;
   
-  const dropdown = root.closest(".dropdown");
-  const parent = $(this).closest(".js-cselect");
-  const selected = parent.find(".js-cselect-selected");
-  
-  let inputLength = inputs.length;
-  let inputChecked = 0;
-  
-  console.log(head)
+  // console.log(head)
   head.on("click", function() {
     $(this).toggleClass("open")
   });
   
-  input.on("change", function() {
-    // inputs.each(function() {
-    //   $(this).trigger("click");
-    // });
-    
-    if($(this).prop("checked")) {
-      root.addClass("open")
-      inputs.each(function() {
-        this.checked = true;
-        inputChecked++;
-      })
-    } else {
-      root.removeClass("open")
-      inputs.each(function() {
-        this.checked = false;
-        inputChecked = 0;
-      })
-    }
-    
-    let num = 0;
-    dropdown.find("input:not(.js-notindexed)").each(function() {
-      if($(this).prop("checked")) {
-        num++;
-      }
-    })
-    selected.text("Выбрано " + num);
-    headParent.addClass("selected");
-  });
-  
-  inputs.each(function() {
-    // inputChecked = 0;
-    $(this).on("change", function() {
-      if($(this).prop("checked")) {
-        inputChecked++;
-      } else {
-        inputChecked--;
-      }
-  
-      console.log(inputChecked)
-      if(inputChecked == 0) {
-        input.prop("checked", false)
-      } else {
-        input.prop("checked", true)
-      }
-    });
-  });
+  // input.on("change", function() {
+  //   // inputs.each(function() {
+  //   //   $(this).trigger("click");
+  //   // });
+  //
+  //   if($(this).prop("checked")) {
+  //     root.addClass("open")
+  //     inputs.each(function() {
+  //       this.checked = true;
+  //       inputChecked++;
+  //     })
+  //   } else {
+  //     root.removeClass("open")
+  //     inputs.each(function() {
+  //       this.checked = false;
+  //       inputChecked = 0;
+  //     })
+  //   }
+  //
+  //   let num = 0;
+  //   dropdown.find("input:not(.js-notindexed)").each(function() {
+  //     if($(this).prop("checked")) {
+  //       num++;
+  //     }
+  //   })
+  //   selected.text("Выбрано " + num);
+  //   headParent.addClass("selected");
+  // });
+  //
+  // inputs.each(function() {
+  //   // inputChecked = 0;
+  //   $(this).on("change", function() {
+  //     if($(this).prop("checked")) {
+  //       inputChecked++;
+  //     } else {
+  //       inputChecked--;
+  //     }
+  //
+  //     console.log(inputChecked)
+  //     if(inputChecked == 0) {
+  //       input.prop("checked", false)
+  //     } else {
+  //       input.prop("checked", true)
+  //     }
+  //   });
+  // });
 });
 
 
