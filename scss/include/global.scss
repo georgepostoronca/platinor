@@ -7,6 +7,11 @@ html, body {
   min-width: 320px;
 }
 
+body.block-scroll {
+  overflow: hidden;
+  touch-action: none;
+}
+
 .blockattach {
   min-height: 100%;
   display: flex;
@@ -1100,6 +1105,10 @@ a {
     
     @media(max-width: 400px) {
       padding-bottom: 15px;
+    }
+  
+    @media(max-width: 768px) {
+      padding-right: 45px;
     }
     
     span {
@@ -2350,6 +2359,10 @@ textarea {
       //padding-bottom: 4px;
       padding-bottom: 8px;
       transition: .2s;
+  
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     
     svg {

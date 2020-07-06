@@ -36,14 +36,14 @@ section.pcatalog
               +svg("grid-min")
 
       .pcatalog__filter
-        .pcatalog__filter-head
-          span Фильтры
-
-          button(type="button")
-            +svg("close")
 
         form.filter
-          .filter__select
+          .filter__select.js-filter
+            .pcatalog__filter-head
+              span Фильтры
+
+              button(type="button").js-close-filter
+                +svg("close")
             //Select Radio
             .custom-select.js-cselect
               //Label
@@ -320,7 +320,20 @@ section.pcatalog
 
 
 
+
+            .filter__select-bottom
+              button(type="reset").filter-reset
+                span ОЧИСТИТЬ ФИЛЬТРЫ
+
+              button(type="button").filter-close.js-close-filter
+                span СОХРАНИТЬ
+
+          //Sort
           .filter__sort
+            button(type="button").filter-open.js-open-filter
+              +svg("filter")
+              span ФИЛЬТРЫ
+
             //Select Radio
             .custom-select.js-cselect.right.nocheck
               //Label
@@ -346,19 +359,14 @@ section.pcatalog
                       span По цене
                   //Input
                   .custom-select__input
-                    input.js-cselect-input(type="radio" name="sort" value="По цене 2" id="filter-sort-2")
+                    input.js-cselect-input(type="radio" name="sort" value="По популярности" id="filter-sort-2")
                     label(for="filter-sort-2")
-                      span По цене 2
+                      span По популярности
                   //Input
                   .custom-select__input
-                    input.js-cselect-input(type="radio" name="sort" value="По цене 3" id="filter-sort-3")
+                    input.js-cselect-input(type="radio" name="sort" value="По рейтингу" id="filter-sort-3")
                     label(for="filter-sort-3")
-                      span По цене 3
-                  //Input
-                  .custom-select__input
-                    input.js-cselect-input(type="radio" name="sort" value="По цене 4" id="filter-sort-4")
-                    label(for="filter-sort-4")
-                      span По цене 4
+                      span По рейтингу
 
           .filter-bottom
             .filter-selected
@@ -381,9 +389,6 @@ section.pcatalog
 
             button(type="reset").filter-reset
               span ОЧИСТИТЬ ФИЛЬТРЫ
-
-            button(type="button").filter-close
-              span СОХРАНИТЬ
 
 
       .pcatalog__grid.js-changegrid

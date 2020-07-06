@@ -165,15 +165,15 @@
                 </div>
               </div>
               <div class="pcatalog__filter">
-                <div class="pcatalog__filter-head"><span>Фильтры</span>
-                  <button type="button">
-                    <svg class="icon">
-                      <use xlink:href="ico/sprite.svg#close"></use>
-                    </svg>
-                  </button>
-                </div>
                 <form class="filter">
-                  <div class="filter__select">
+                  <div class="filter__select js-filter">
+                    <div class="pcatalog__filter-head"><span>Фильтры</span>
+                      <button class="js-close-filter" type="button">
+                        <svg class="icon">
+                          <use xlink:href="ico/sprite.svg#close"></use>
+                        </svg>
+                      </button>
+                    </div>
                     <!--Select Radio-->
                     <div class="custom-select js-cselect">
                       <!--Label-->
@@ -446,8 +446,18 @@
                         </div>
                       </div>
                     </div>
+                    <div class="filter__select-bottom">
+                      <button class="filter-reset" type="reset"><span>ОЧИСТИТЬ ФИЛЬТРЫ</span></button>
+                      <button class="filter-close js-close-filter" type="button"><span>СОХРАНИТЬ</span></button>
+                    </div>
                   </div>
+                  <!--Sort-->
                   <div class="filter__sort">
+                    <button class="filter-open js-open-filter" type="button">
+                      <svg class="icon">
+                        <use xlink:href="ico/sprite.svg#filter"></use>
+                      </svg><span>ФИЛЬТРЫ</span>
+                    </button>
                     <!--Select Radio-->
                     <div class="custom-select js-cselect right nocheck">
                       <!--Label-->
@@ -472,18 +482,13 @@
                           </div>
                           <!--Input-->
                           <div class="custom-select__input">
-                            <input class="js-cselect-input" type="radio" name="sort" value="По цене 2" id="filter-sort-2"/>
-                            <label for="filter-sort-2"><span>По цене 2</span></label>
+                            <input class="js-cselect-input" type="radio" name="sort" value="По популярности" id="filter-sort-2"/>
+                            <label for="filter-sort-2"><span>По популярности</span></label>
                           </div>
                           <!--Input-->
                           <div class="custom-select__input">
-                            <input class="js-cselect-input" type="radio" name="sort" value="По цене 3" id="filter-sort-3"/>
-                            <label for="filter-sort-3"><span>По цене 3</span></label>
-                          </div>
-                          <!--Input-->
-                          <div class="custom-select__input">
-                            <input class="js-cselect-input" type="radio" name="sort" value="По цене 4" id="filter-sort-4"/>
-                            <label for="filter-sort-4"><span>По цене 4</span></label>
+                            <input class="js-cselect-input" type="radio" name="sort" value="По рейтингу" id="filter-sort-3"/>
+                            <label for="filter-sort-3"><span>По рейтингу</span></label>
                           </div>
                         </div>
                       </div>
@@ -521,7 +526,6 @@
                       </div>
                     </div>
                     <button class="filter-reset" type="reset"><span>ОЧИСТИТЬ ФИЛЬТРЫ</span></button>
-                    <button class="filter-close" type="button"><span>СОХРАНИТЬ</span></button>
                   </div>
                 </form>
               </div>

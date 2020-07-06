@@ -1389,6 +1389,17 @@ function ChangeGrid(el) {
   }
 }
 
+// Open Filter
+$(".js-open-filter").click(function() {
+  $(".js-filter").addClass("active");
+  $("body").addClass("block-scroll");
+});
+
+$(".js-close-filter").click(function() {
+  $(".js-filter").removeClass("active");
+  $("body").removeClass("block-scroll");
+});
+
 // // File Upload
 // document.addEventListener("DOMContentLoaded", function(event) {
 //   var validatorClass = document.querySelectorAll("input[type='file']");
