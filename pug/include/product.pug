@@ -40,16 +40,23 @@ section.bproduct
             p Размера нет в наличии?
               a(href="#") Оставьте заявку
               | и мы свяжемся с вами для уточнения деталей
+              //.prodsizeslid
+              //  .swiper-container.js__prodsizeslid-slider
+              //    .swiper-wrapper
+              //      each val in [1,2,3,4,5,6,7,8,9,10,11,12]
+              //        .swiper-slide
+              //          input(type="radio" id="prodsize-input-"+val name="prodsize" value=val)
+              //          label(for="prodsize-input-"+val)
+              //            span #{val}
+              //  .swiper-button-prev.prodsizeslid-button-prev
+              //  .swiper-button-next.prodsizeslid-button-next
           .prodsizeslid
-            .swiper-container.js__prodsizeslid-slider
-              .swiper-wrapper
-                each val in [1,2,3,4,5,6,7,8,9,10,11,12]
-                  .swiper-slide
-                    input(type="radio" id="prodsize-input-"+val name="prodsize" value=val)
-                    label(for="prodsize-input-"+val)
-                      span #{val}
-            .swiper-button-prev.prodsizeslid-button-prev
-            .swiper-button-next.prodsizeslid-button-next
+            .prodsizeslid__wrap(onscroll="scrolled(this)")
+              each val in [1,2,3,4,5,6,7,8,9,10,11,12]
+                .prodsizeslid-item
+                  input.tqOffer(type='radio' name='15' value='15' id="id-" + val)
+                  label(for='id-' + val)
+                    span #{val}
 
         .bproduct-tab.js-producttab
           //Head

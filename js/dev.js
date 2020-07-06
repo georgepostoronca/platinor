@@ -1,3 +1,21 @@
+function scrolled(o) {
+    if (o.offsetWidth + o.scrollLeft == o.scrollWidth) {
+        o.parentNode.classList.add("end");
+        o.parentNode.classList.remove("between");
+        o.parentNode.classList.remove("start");
+    } else {
+        o.parentNode.classList.remove("end");
+        o.parentNode.classList.add("between");
+        o.parentNode.classList.remove("start");
+    }
+
+    if (o.scrollLeft == 0) {
+        o.parentNode.classList.remove("end");
+        o.parentNode.classList.remove("between");
+        o.parentNode.classList.add("start");
+    }
+}
+
 (function (ELEMENT) {
     ELEMENT.matches = ELEMENT.matches || ELEMENT.mozMatchesSelector || ELEMENT.msMatchesSelector || ELEMENT.oMatchesSelector || ELEMENT.webkitMatchesSelector;
     ELEMENT.closest = ELEMENT.closest || function closest(selector) {
@@ -1257,7 +1275,7 @@ customselect.forEach(function (item) {
             if (this.classList.contains("js-range-result")) {
                 selected.innerText = min.value + (min.value > 0 ? "₽" : "") + " - " + max.value + (max.value > 0 ? "₽" : "");
             }
-            
+
             $(".filter-selected").empty();
             let arr = [];
             $(".js-filter").find("input").each(function () {
