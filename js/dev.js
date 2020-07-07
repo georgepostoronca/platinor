@@ -1462,22 +1462,68 @@ $(".js-close-filter").click(function () {
 
 
 // Scroll Size
-// (function () {
-//   let root = document.querySelector(".js-scrollsize");
-//   let wrap = root.querySelector(".js-scrollsize-wrap");
-//   let prev = root.querySelector(".js-scrollsize-prev");
-//   let next = root.querySelector(".js-scrollsize-next");
-//   let item = root.querySelector(".js-scrollsize-item");
-//
-//   prev.addEventListener("click", function () {
-//     let scrollLeft = wrap.scrollLeft;
-//     console.log(scrollLeft)
-//   });
-//
-//   next.addEventListener("click", function () {
-//
-//   });
-// })();
+(function () {
+  let root = document.querySelector(".js-scrollsize");
+  if(!root) return false;
+  let wrap = root.querySelector(".js-scrollsize-wrap");
+  let prev = root.querySelector(".js-scrollsize-prev");
+  let next = root.querySelector(".js-scrollsize-next");
+  let item = root.querySelector(".js-scrollsize-item");
+  
+  console.log(wrap.scrollLeft, wrap.scrollWidth, wrap.offsetWidth)
+  
+  if(wrap.scrollWidth == wrap.offsetWidth) {
+    root.classList.add("no-arrow");
+  } else {
+    root.classList.remove("no-arrow");
+  }
+  
+  window.addEventListener("resize", function() {
+    if(wrap.scrollWidth == wrap.offsetWidth) {
+      root.classList.add("no-arrow");
+    } else {
+      root.classList.remove("no-arrow");
+    }
+  });
+  
+  function checkBtnDisable() {
+    if(wrap.scrollLeft === 0) {
+      prev.classList.add("disable")
+      next.classList.remove("disable")
+    } else if(wrap.scrollLeft === wrap.scrollWidth - wrap.offsetWidth) {
+      prev.classList.remove("disable")
+      next.classList.add("disable")
+    } else {
+      prev.classList.remove("disable")
+      next.classList.remove("disable")
+    }
+  }
+  checkBtnDisable();
+  
+  // function checkInputChecked() {
+  //   let inputs = $(root).find("input");
+  //   console.log($(root).find("input:checked"));
+  //
+  //   // if($(root).find("input:checked"))
+  //
+  //   inputs.each(function() {
+  //     $(this).on("change", function() {
+  //       $(this).parent().addClass("checked").siblings().removeClass("checked");
+  //     });
+  //   });
+  // }
+  // checkInputChecked();
+  
+  prev.addEventListener("click", function () {
+    wrap.scrollLeft -= item.clientWidth;
+    checkBtnDisable();
+  });
+
+  next.addEventListener("click", function () {
+    wrap.scrollLeft += item.clientWidth;
+    checkBtnDisable();
+  });
+})();
 
 
 // // File Upload
