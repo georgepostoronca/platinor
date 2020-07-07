@@ -37,7 +37,7 @@ section.pcatalog
 
       .pcatalog__filter
 
-        form.filter
+        form.filter(data-submit="filterSubmit")
           .filter__select.js-filter
             .pcatalog__filter-head
               span Фильтры
@@ -390,7 +390,10 @@ section.pcatalog
             button(type="reset").filter-reset
               span ОЧИСТИТЬ ФИЛЬТРЫ
 
-
+        script.
+          function filterSubmit(form) {
+            console.log(form, "filterSubmit")
+          }
       .pcatalog__grid.js-changegrid
         each val in [1,2,3,4,5,6,7,8,9]
           .product

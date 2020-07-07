@@ -165,7 +165,7 @@
                 </div>
               </div>
               <div class="pcatalog__filter">
-                <form class="filter">
+                <form class="filter" data-submit="filterSubmit">
                   <div class="filter__select js-filter">
                     <div class="pcatalog__filter-head"><span>Фильтры</span>
                       <button class="js-close-filter" type="button">
@@ -516,6 +516,11 @@
                     <button class="filter-reset" type="reset"><span>ОЧИСТИТЬ ФИЛЬТРЫ</span></button>
                   </div>
                 </form>
+                <script>
+                  function filterSubmit(form) {
+                    console.log(form, "filterSubmit")
+                  }
+                </script>
               </div>
               <div class="pcatalog__grid js-changegrid">
                 <div class="product">

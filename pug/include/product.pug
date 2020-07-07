@@ -50,13 +50,15 @@ section.bproduct
               //            span #{val}
               //  .swiper-button-prev.prodsizeslid-button-prev
               //  .swiper-button-next.prodsizeslid-button-next
-          .prodsizeslid
-            .prodsizeslid__wrap(onscroll="scrolled(this)")
+          .prodsizeslid.js-scrollsize
+            .prodsizeslid__prev.js-scrollsize-prev
+            .prodsizeslid__wrap.js-scrollsize-wrap(onscroll="scrolled(this)")
               each val in [1,2,3,4,5,6,7,8,9,10,11,12]
-                .prodsizeslid-item
+                .prodsizeslid-item.js-scrollsize-item
                   input.tqOffer(type='radio' name='15' value='15' id="id-" + val)
                   label(for='id-' + val)
                     span #{val}
+            .prodsizeslid__next.js-scrollsize-next
 
         .bproduct-tab.js-producttab
           //Head
