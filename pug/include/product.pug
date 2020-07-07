@@ -34,6 +34,24 @@ section.bproduct
         .bproduct-social
           span Свяжитесь с нами:
           +social()
+
+        .bproduct-rock
+          .bproduct-rock__head
+            b Выберите размер
+          .bproduct-rock__content
+            label(for='bproduct-rock-1')
+              input#bproduct-rock-1(type='radio' name="select-rock")
+              span Фионит
+            label(for='bproduct-rock-2')
+              input#bproduct-rock-2(type='radio' name="select-rock")
+              span Бриллиант
+            label(for='bproduct-rock-3')
+              input#bproduct-rock-3(type='radio' name="select-rock")
+              span Алмаз
+            label(for='bproduct-rock-4')
+              input#bproduct-rock-4(type='radio' name="select-rock")
+              span Изумруд
+
         .bproduct-size
           .bproduct-size__head
             b Выберите размер
