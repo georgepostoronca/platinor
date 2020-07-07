@@ -1133,6 +1133,10 @@ productTab();
     inputs[handle].dispatchEvent(event);
   });
   
+  wrap.addEventListener("resetRange", function() {
+    wrap.noUiSlider.reset();
+  });
+  
   // Listen to keydown events on the input field.
   inputs.forEach(function (input, handle) {
     
@@ -1200,6 +1204,8 @@ productTab();
 
 // Custom Select
 const customselect = [].slice.call(document.querySelectorAll(".js-cselect"));
+const btnReset = [].slice.call(document.querySelectorAll(".js-form-reset"));
+
 let arrFilter = [];
 customselect.forEach(function (item) {
   const input = [].slice.call(item.querySelectorAll("input"));
@@ -1233,6 +1239,83 @@ customselect.forEach(function (item) {
       }
     });
   });
+  
+  // Init
+  function init() {
+    let checkedInput = 0;
+    input.forEach(function (el) {
+      if (el.classList.contains("js-notindexed")) return false;
+      if (el.checked) {
+        checkedInput++;
+      } else {
+        return false;
+      }
+      
+      let value = el.dataset.value;
+      if (el.type === "checkbox") {
+        if (checkedInput == 0) {
+          selected.innerText = "Не выбрано";
+          head.classList.remove("selected");
+          head.classList.remove("active");
+          item.classList.remove("zindex");
+        } else {
+          selected.innerText = "Выбрано " + checkedInput;
+        }
+      } else {
+        selected.innerText = value;
+        if (item.classList.contains("nocheck")) {
+          head.classList.remove("active");
+          item.classList.remove("zindex");
+          item.classList.add("dishov");
+        }
+      }
+      head.classList.add("selected");
+    });
+  }
+  setTimeout(function() {
+    init();
+  }, 100)
+  
+  // Render Selected
+  function renderSelectedItem() {
+    $(".filter-selected").empty();
+    let arr = [];
+    $(".js-filter").find("input").each(function () {
+      if ($(this).prop("checked")) {
+        arr.push(this);
+      }
+    });
+    
+    arr.forEach(function (item) {
+      let tmp = document.createElement("div")
+      tmp.classList.add("filter-selected__item");
+      
+      let span = document.createElement("span")
+      let button = document.createElement("button")
+      button.type = "button";
+      
+      button.addEventListener("click", function () {
+        $(item).trigger("click");
+        item.checked = false;
+        
+        if (!$(item).closest(".custom-select__content").find("input:checked").length) {
+          // console.log("true")
+          $(item).closest(".js-cselect").find(".js-cselect-head").removeClass("selected");
+        }
+        if (item.type == "radio") {
+          $(item).closest(".js-cselect").find(".js-cselect-selected").text("Не выбрано");
+        }
+        
+        $(tmp).remove();
+      });
+      
+      span.innerText = item.dataset.value
+      
+      tmp.append(span);
+      tmp.append(button);
+      $(".filter-selected").append($(tmp))
+    });
+  }
   
   input.forEach(function (el) {
     el.addEventListener("click", function () {
@@ -1269,50 +1352,16 @@ customselect.forEach(function (item) {
       
       head.classList.add("selected");
     });
+  
+    renderSelectedItem();
     
+    // Input Change
     el.addEventListener("change", function () {
-      
       if (this.classList.contains("js-range-result")) {
         selected.innerText = min.value + (min.value > 0 ? "₽" : "") + " - " + max.value + (max.value > 0 ? "₽" : "");
       }
-      
-      $(".filter-selected").empty();
-      let arr = [];
-      $(".js-filter").find("input").each(function () {
-        if ($(this).prop("checked")) {
-          arr.push(this);
-        }
-      });
-      
-      arr.forEach(function (item) {
-        let tmp = document.createElement("div")
-        tmp.classList.add("filter-selected__item");
-        
-        let span = document.createElement("span")
-        let button = document.createElement("button")
-        button.type = "button";
-        
-        button.addEventListener("click", function () {
-          $(item).trigger("click");
-          item.checked = false;
-          
-          if (!$(item).closest(".custom-select__content").find("input:checked").length) {
-            console.log("true")
-            $(item).closest(".js-cselect").find(".js-cselect-head").removeClass("selected");
-          }
-          if (item.type == "radio") {
-            $(item).closest(".js-cselect").find(".js-cselect-selected").text("Не выбрано");
-          }
-          
-          $(tmp).remove();
-        });
-        
-        span.innerText = item.dataset.value
-        
-        tmp.append(span);
-        tmp.append(button);
-        $(".filter-selected").append($(tmp))
-      });
+  
+      renderSelectedItem();
       
       let submitData = this.form.dataset.submit;
       window[submitData](this.form);
@@ -1331,6 +1380,10 @@ customselect.forEach(function (item) {
         selected.innerText = "Не выбрано";
       }
     });
+    
+    setTimeout(function() {
+      renderSelectedItem();
+    }, 100);
   });
   
   // if (!item.querySelector(".js-cselect-dropdown")) {
@@ -1340,25 +1393,27 @@ customselect.forEach(function (item) {
   // }
   
   // Reset form
-  form.addEventListener("reset", function () {
-    // console.log("Reset");
-    
-    $(".filter-selected").empty();
-    
-    input.forEach(function (el) {
-      el.checked = false;
-      head.classList.remove("selected");
-      head.classList.remove("active");
+  btnReset.forEach(function(el) {
+    el.addEventListener("click", function () {
+      $(".filter-selected").empty();
+  
+      const resetEvent = new Event("resetRange");
+      document.querySelector('.js-range-input').dispatchEvent(resetEvent);
       
-      if (input[0].type === "checkbox") {
-        selected.innerText = "Не выбрано";
-      } else {
-        selected.innerText = "Не выбрано";
-      }
-    });
-  })
+      input.forEach(function (el) {
+        el.checked = false;
+        head.classList.remove("selected");
+        head.classList.remove("active");
+        
+        if (input[0].type === "checkbox") {
+          selected.innerText = "Не выбрано";
+        } else {
+          selected.innerText = "Не выбрано";
+        }
+      });
+    })
+  });
 });
-
 
 // SelectDropDown Check/Uncheck
 $(".js-cselect-dropdown").each(function () {
