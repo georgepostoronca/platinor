@@ -12,6 +12,10 @@ html(lang="en")
 
       .blockattach__content
         .container
+
+          .number-block.js-phone-code
+          br
+
           button.popupopen(data-remodal-target="reglogin")
             span Popup Open
 
@@ -50,7 +54,7 @@ html(lang="en")
                       em.errmsg.errmsg-login-email Заполните данное поле
 
                     .input-block
-                      input.js__input-notempty(type='password' minlength="8" name="password" required data-bouncer-target=".errmsg-login-password")
+                      input.js__input-notempty.js-no-pass-check(type='password' minlength="8" name="password" required data-bouncer-target=".errmsg-login-password")
                       span Пароль
                       em.errmsg.errmsg-login-password Заполните данное поле
 

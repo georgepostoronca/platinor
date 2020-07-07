@@ -271,7 +271,7 @@ if (document.querySelector(".swiper-container")) {
     
     // Product Slider
     productSlider = function productSliders() {
-      console.log("Reinit Product Slider");
+      // console.log("Reinit Product Slider");
       
       // prodslid-min slider
       if (document.querySelector('.js__prodslid-min-slider')) {
@@ -733,27 +733,20 @@ function executeFunctionByName(functionName, context /*, args */) {
 
 var validatorClass = document.querySelectorAll(".js-form-validator");
 if (validatorClass.length) {
-  loadScript(defaultPATH + "/js/include/inputmask.min.js", function () {
-    console.log("InputMask Loaded");
+  loadScript(defaultPATH + "/js/include/jquery.maskedinput.min.js", function () {
+    console.log("maskedinput Loaded");
     
     var el = [].slice.call(document.querySelectorAll(".js-phone-mask"));
     el.forEach(function (item) {
-      Inputmask({
-        mask: "+9 (999) 999 99 99",
-        clearIncomplete: true,
-        showMaskOnHover: false
-        // onincomplete: function(el) {
-        //   el.target.value = "";
-        // }
-      }).mask(item);
+      $(item).mask("+9 (999) 999 99 99",{autoclear: true});
     });
   });
 }
 
 
 // Check Password
-
 function check(pass, input) {
+  if($(input).hasClass("js-no-pass-check")) return false;
   if ($(input).attr("name") != "repeat-pass") {
     if (!$(input).parent().find(".pass-check").length) {
       $(input).parent().append("<div class='pass-check'><span></span><div></div></div>")
@@ -771,13 +764,13 @@ function check(pass, input) {
     }
     
     //a,s,d,f
-    var small = "([a-z]+)";
+    var small = "([a-zа-я]+)";
     if (pass.match(small)) {
       protect++;
     }
     
     //A,B,C,D
-    var big = "([A-Z]+)";
+    var big = "([A-ZА-Я]+)";
     if (pass.match(big)) {
       protect++;
     }
@@ -932,15 +925,28 @@ function PhoneCode(el) {
     input.min = "0";
     input.max = "9";
     input.required = true;
+    
     if (i != 1) input.disabled = true;
     el.append(input);
     inputs.push(input);
   }
   
-  inputs.forEach(function (item) {
+  // el.addEventListener("resetPhoneCode", function() {
+  //   activeInput = 0;
+  //   inputs.forEach(function (item, index) {
+  //     if (index != 0) input.disabled = true;
+  //   });
+  // });
+  
+  inputs.forEach(function (item, index) {
+    if(index == 0) {
+      item.addEventListener("focus", function() {
+        activeInput = 0;
+      });
+    }
+    
     item.addEventListener("input", function () {
       let val = this.value;
-      
       if (this.value != "") {
         if (parseInt(this.value) < parseInt(this.min)) {
           this.value = this.min;
@@ -984,7 +990,7 @@ function PhoneCode(el) {
 var phonecode = [].slice.call(document.querySelectorAll(".js-phone-code"));
 if (phonecode.length) {
   phonecode.forEach(function (item, index) {
-    new PhoneCode(item);
+    PhoneCode(item);
   });
 }
 
@@ -1016,7 +1022,6 @@ $('.js-modal').remodal({
 });
 
 $(document).on('closing', '.js-modal', function (e) {
-  console.log(e)
   
   if ($(".cmodal").length) {
     if ($(e.currentTarget).hasClass("remodal-rel")) {
@@ -1524,9 +1529,7 @@ $(".js-close-filter").click(function () {
   let prev = root.querySelector(".js-scrollsize-prev");
   let next = root.querySelector(".js-scrollsize-next");
   let item = root.querySelector(".js-scrollsize-item");
-  
-  console.log(wrap.scrollLeft, wrap.scrollWidth, wrap.offsetWidth)
-  
+ 
   if(wrap.scrollWidth == wrap.offsetWidth) {
     root.classList.add("no-arrow");
   } else {

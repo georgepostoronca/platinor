@@ -294,9 +294,10 @@
   position: relative;
   margin-bottom: 19px;
   
+  
   .swiper-slide {
     background: #FAFAFA;
-    height: 100%;
+    height: 528px;
 
     @media(max-width: 1080px) {
       height: 400px;
@@ -492,6 +493,9 @@
   &__wrap {
     display: flex;
     overflow: auto;
+  
+    scrollbar-color: transparent transparent;
+    scrollbar-width: thin;
 
     &::-webkit-scrollbar {
       width: 1px;
@@ -847,7 +851,7 @@
     
     &:after {
       content: "";
-      background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 60%, rgba(255,255,255,0.4) 80%, rgba(0,0,0,0) 100%);
+      background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(#fff,0) 100%);
       width: 100%;
       height: 30px;
       position: absolute;
