@@ -166,7 +166,7 @@
             <div class="indorder__wrap">
               <h2>Индивидуальный заказ</h2>
               <p>Для индивидуального заказа пришлите эскиз или фотографию понравившейся модели, можно добавить ссылку на изделие. Укажите, какой металл и вставки вы хотите, а также примерные характеристики камней. Мы просчитаем стоимость изготовления и согласуем её с Вами.</p><em>Для начала работ необходимо внести предоплату 50%</em>
-              <form class="indorder-form" data-submit="indorderSbmit">
+              <form class="indorder-form js-form-validator" data-submit="indorderSbmit" enctype="multipart/form-data">
                 <div class="input-block input-block--white">
                   <input class="js__input-notempty" type="text" name="name" required="required" data-bouncer-target=".errmsg-name"/><span>Имя</span><em class="errmsg errmsg-name">Заполните данное поле</em>
                 </div>
@@ -179,18 +179,24 @@
                 <div class="textarea-block textarea-block--white">
                   <textarea class="js__input-notempty" name="message" required="required" data-bouncer-target=".errmsg-message"></textarea><span>Напишите что-нибудь</span><em class="errmsg errmsg-message">Заполните данное поле</em>
                 </div>
-                <div class="input-file js-input-file">
-                  <input type="file" multiple="multiple" name="file[]" required="required" id="input-id-file"/>
-                  <!--label(for="input-id-file")-->
-                  <!--  +svg("clip")-->
-                  <!--  span Прикрепить файл-->
+                <div class="form-upload-file">
+                  <label class="button large-btn support-form__upload-btn" for="upload-btn">
+                    <input class="opacity-control" id="upload-btn" type="file"/><span>
+                      <svg class="icon">
+                        <use xlink:href="ico/sprite.svg#clip"></use>
+                      </svg><em>ПРИКРЕПИТЬ ФАЙЛ</em></span>
+                  </label>
+                  <!--.upload-note Вы можете присоединить не более 5-х документов (фотографии, копии накладных и т.д.)-->
+                  <div class="ctrFiles"></div>
                 </div>
                 <div class="indorder-form__bottom">
                   <button class="btn-yellow" type="submit" name="submit"><span>ОТПРАВИТЬ</span></button><span>Нажимая на кнопку «Отправить», я даю свое согласие с политикой обработки персональных данных</span>
                 </div>
               </form>
               <script>
-                function indorderSbmit() {
+                function indorderSbmit(form) {
+                  console.log(form.target);
+                  console.log($(form.target).serializeArray());
                   console.log("Submit")
                 }
               </script>

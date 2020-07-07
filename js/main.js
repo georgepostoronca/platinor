@@ -8,7 +8,7 @@ function scrolled(o) {
     o.parentNode.classList.add("between");
     o.parentNode.classList.remove("start");
   }
-  
+
   if (o.scrollLeft == 0) {
     o.parentNode.classList.remove("end");
     o.parentNode.classList.remove("between");
@@ -41,7 +41,7 @@ function scrolled(o) {
       a.appendChild(d)
     }
   }
-  
+
   function b(b) {
     b.onreadystatechange = function () {
       if (4 === b.readyState) {
@@ -52,7 +52,7 @@ function scrolled(o) {
       }
     }, b.onreadystatechange()
   }
-  
+
   function c(c) {
     function d() {
       for (var c; c = e[0];) {
@@ -70,24 +70,24 @@ function scrolled(o) {
       }
       h(d, 17)
     }
-    
+
     c = c || {};
     var e = document.getElementsByTagName("use"),
       f = "shim" in c ? c.shim : /\bEdge\/12\b|\bTrident\/[567]\b|\bVersion\/7.0 Safari\b/.test(navigator.userAgent) || (navigator.userAgent.match(/AppleWebKit\/(\d+)/) || [])[1] < 537,
       g = c.validate, h = window.requestAnimationFrame || setTimeout, i = {};
     f && d()
   }
-  
+
   return c
 });
 svg4everybody();
 
 
 function loadScript(url, callback) {
-  
+
   var script = document.createElement("script");
   script.type = "text/javascript";
-  
+
   if (script.readyState) {  //IE
     script.onreadystatechange = function () {
       if (script.readyState == "loaded" ||
@@ -101,7 +101,7 @@ function loadScript(url, callback) {
       callback();
     };
   }
-  
+
   script.src = url;
   document.getElementsByTagName("body")[0].appendChild(script);
 }
@@ -117,7 +117,7 @@ if (document.querySelector(".swiper-container")) {
     if (document.querySelector('.js__headslid-slider')) {
       var firstStart = false;
       var progresSlideInterval;
-      
+
       var headslid = new Swiper('.js__headslid-slider', {
         autoHeight: true,
         loop: true,
@@ -152,17 +152,17 @@ if (document.querySelector(".swiper-container")) {
           },
         }
       });
-      
-      
+
+
       function StopSlider() {
         clearInterval(progresSlideInterval);
         document.querySelector(".headslid").classList.remove("progress-active");
       }
-      
+
       function PlaySlider() {
         if (progresSlideInterval) clearInterval(progresSlideInterval);
         document.querySelector(".headslid").classList.remove("progress-active");
-        
+
         setTimeout(function () {
           document.querySelector(".headslid").classList.add("progress-active");
           progresSlideInterval = setTimeout(function () {
@@ -171,20 +171,20 @@ if (document.querySelector(".swiper-container")) {
           }, 8000);
         }, 10)
       }
-      
+
       var stopBtn = document.querySelectorAll('.js__headslid-stop')
       stopBtn = [].slice.call(stopBtn);
       stopBtn.forEach(function (el) {
         el.addEventListener("mouseover", function () {
           StopSlider();
         });
-        
+
         el.addEventListener("mouseout", function () {
           PlaySlider();
         });
       });
     }
-    
+
     // topproduct
     if (document.querySelectorAll('.js__topproduct-slider').length) {
       const topproductSlider = [].slice.call(document.querySelectorAll('.js__topproduct-slider'));
@@ -240,7 +240,7 @@ if (document.querySelector(".swiper-container")) {
         });
       });
     }
-    
+
     // review slider
     if (document.querySelector('.js__review-slider')) {
       var reviewslider = new Swiper('.js__review-slider', {
@@ -268,11 +268,11 @@ if (document.querySelector(".swiper-container")) {
         }
       });
     }
-    
+
     // Product Slider
     productSlider = function productSliders() {
       // console.log("Reinit Product Slider");
-      
+
       // prodslid-min slider
       if (document.querySelector('.js__prodslid-min-slider')) {
         var prodslidMin = new Swiper('.js__prodslid-min-slider', {
@@ -301,7 +301,7 @@ if (document.querySelector(".swiper-container")) {
           }
         });
       }
-      
+
       // prodslid slider
       if (document.querySelector('.js__prodslid-slider')) {
         var prodslider = new Swiper('.js__prodslid-slider', {
@@ -319,7 +319,7 @@ if (document.querySelector(".swiper-container")) {
       }
     }
     productSlider();
-    
+
     // prodsizeslid slider
     productSize = function prodsizeslid() {
       if (document.querySelector('.js__prodsizeslid-slider')) {
@@ -340,7 +340,7 @@ if (document.querySelector(".swiper-container")) {
               document.querySelector('.js__prodsizeslid-slider').classList.remove("loading");
             }
           },
-          
+
           breakpoints: {
             0: {
               allowTouchMove: true,
@@ -355,26 +355,26 @@ if (document.querySelector(".swiper-container")) {
       }
     }
     productSize();
-    
+
     // catalog slider(mobile)
     (function () {
-      
+
       // breakpoint where swiper will be destroyed
       // and switches to a dual-column layout
       const breakpoint = window.matchMedia('(min-width:768px)');
-      
+
       // keep track of swiper instances to destroy later
       let mySwiper;
-      
+
       //////////////////////////////////////////////////////////////////
       //////////////////////////////////////////////////////////////////
       //////////////////////////////////////////////////////////////////
-      
+
       const breakpointChecker = function () {
-        
+
         // if larger viewport and multi-row layout needed
         if (breakpoint.matches === true) {
-          
+
           // clean up old instances and inline styles when available
           if (mySwiper !== undefined) mySwiper.destroy(true, true);
           if (document.querySelector('.js__catalog-slider')) {
@@ -382,21 +382,21 @@ if (document.querySelector(".swiper-container")) {
           }
           // or/and do nothing
           return;
-          
+
           // else if a small viewport and single column layout needed
         } else if (breakpoint.matches === false) {
-          
+
           // fire small viewport version of swiper
           return enableSwiper();
-          
+
         }
-        
+
       };
-      
+
       //////////////////////////////////////////////////////////////////
       //////////////////////////////////////////////////////////////////
       //////////////////////////////////////////////////////////////////
-      
+
       const enableSwiper = function () {
         mySwiper = new Swiper('.js__catalog-slider', {
           slidesPerView: 3,
@@ -426,16 +426,16 @@ if (document.querySelector(".swiper-container")) {
             },
           }
         });
-        
+
       };
-      
+
       //////////////////////////////////////////////////////////////////
       //////////////////////////////////////////////////////////////////
       //////////////////////////////////////////////////////////////////
-      
+
       // keep an eye on viewport size changes
       breakpoint.addListener(breakpointChecker);
-      
+
       // kickstart
       breakpointChecker();
     })();
@@ -448,12 +448,12 @@ console.log(productSlider)
 // Function
 // ==============================
 var getSiblingsFn = function (elem) {
-  
+
   // Setup siblings array and get the first sibling
-  
+
   var siblings = [];
   var sibling = elem.parentElement.firstElementChild;
-  
+
   // Loop through each sibling and push to the array
   while (sibling) {
     if (sibling.nodeType === 1 && sibling !== elem) {
@@ -481,10 +481,10 @@ function oepnClose(arg) {
   */
   var open = arg.btn;
   var cl = arg.className || "active";
-  
+
   if (open) {
     open.addEventListener((arg.event ? arg.event : "click"), function () {
-      
+
       if (arg.type == "open") {
         arg.el.classList.add(cl);
       } else if (arg.type == "toggle") {
@@ -492,7 +492,7 @@ function oepnClose(arg) {
       } else {
         arg.el.classList.remove(cl);
       }
-      
+
       if (arg.callback) {
         arg.callback(this);
       }
@@ -508,7 +508,7 @@ function onClickClose(elem, fn) { // вызвать в момент показа
       document.removeEventListener('click', outsideClickListener);
     }
   }
-  
+
   document.addEventListener('click', outsideClickListener)
 }
 
@@ -526,9 +526,9 @@ function isVisible(elem) { //открыто ли условное окно
   var first = "active";
   var active = "hover";
   var inactive = "no-hover";
-  
+
   elements = [].slice.call(document.querySelectorAll(element));
-  
+
   elements.forEach(function (el) {
     // console.log(el);
     if (el.classList.contains(first)) {
@@ -537,25 +537,25 @@ function isVisible(elem) { //открыто ли условное окно
         el.classList.remove(active);
       });
     }
-    
+
     el.addEventListener("mouseover", function () {
       this.classList.add(active);
       this.classList.remove(inactive);
-      
+
       getSiblings(this, function (el) {
         el.classList.add(inactive);
         el.classList.remove(active);
       });
     });
-    
+
     el.addEventListener("mouseout", function () {
       var active = document.querySelector(element + "." + active);
-      
+
       elements.forEach(function (el) {
         el.classList.remove(inactive);
         el.classList.remove(active);
       });
-      
+
       if (document.querySelector(element + "." + first)) {
         getSiblings(document.querySelector(element + "." + first), function (el) {
           el.classList.add(inactive);
@@ -616,13 +616,13 @@ oepnClose({
 (function ProductSlider() {
   var el = document.querySelectorAll(".product");
   if (!el.length) return;
-  
+
   el = [].slice.call(el);
   el.forEach(function (el) {
     var slider = el.querySelector(".product__slider");
     var pagination = el.querySelector(".product__pagination");
     var items = [].slice.call(el.querySelectorAll(".product__slider-item"));
-    
+
     items = [].slice.call(items);
     items.forEach(function (item, index) {
       var $this = item;
@@ -660,27 +660,27 @@ if (inputs.length) {
 function Tabs(el) {
   var $this = this;
   this.root = document.querySelector(el);
-  
+
   if (!this.root) return false;
-  
+
   if (this.root.querySelectorAll(".js-tabs-btn")) {
     this.btns = [].slice.call(this.root.querySelectorAll(".js-tabs-btn"));
   }
-  
+
   if (this.root.querySelectorAll(".js-tabs-content")) {
     this.contents = [].slice.call(this.root.querySelectorAll(".js-tabs-content"));
   }
-  
+
   this.btns[0].classList.add("active");
   this.contents[0].classList.add("active");
-  
+
   this.btns.forEach(function (item) {
     item.addEventListener("click", function (el) {
       var index = Array.prototype.slice.call(this.parentElement.children).indexOf(this)
-      
+
       this.classList.add("active");
       $this.contents[index].classList.add("active");
-      
+
       getSiblings(this, function (el) {
         el.classList.remove("active");
       });
@@ -702,7 +702,7 @@ oepnClose({
   type: "toggle",
   callback: function (el) {
     var input = [].slice.call(document.querySelectorAll(".js-block-newpass input"));
-    
+
     if (document.querySelector(".js-block-newpass").classList.contains("active")) {
       console.log("True")
       input.forEach(function (el) {
@@ -735,10 +735,10 @@ var validatorClass = document.querySelectorAll(".js-form-validator");
 if (validatorClass.length) {
   loadScript(defaultPATH + "/js/include/jquery.maskedinput.min.js", function () {
     console.log("maskedinput Loaded");
-    
+
     var el = [].slice.call(document.querySelectorAll(".js-phone-mask"));
     el.forEach(function (item) {
-      $(item).mask("+9 (999) 999 99 99",{autoclear: true});
+      $(item).mask("+9 (999) 999 99 99", {autoclear: true});
     });
   });
 }
@@ -746,14 +746,14 @@ if (validatorClass.length) {
 
 // Check Password
 function check(pass, input) {
-  if($(input).hasClass("js-no-pass-check")) return false;
+  if ($(input).hasClass("js-no-pass-check")) return false;
   if ($(input).attr("name") != "repeat-pass") {
     if (!$(input).parent().find(".pass-check").length) {
       $(input).parent().append("<div class='pass-check'><span></span><div></div></div>")
     }
-    
+
     var protect = 0;
-    
+
     if (pass.length < 8) {
       $(input).parent().removeClass('normal');
       $(input).parent().removeClass("good");
@@ -762,13 +762,13 @@ function check(pass, input) {
       $(input).parent().find(".pass-check span").text("Минимум 8 символов")
       return "Минимум 8 символов";
     }
-    
+
     //a,s,d,f
     var small = "([a-zа-я]+)";
     if (pass.match(small)) {
       protect++;
     }
-    
+
     //A,B,C,D
     var big = "([A-ZА-Я]+)";
     if (pass.match(big)) {
@@ -785,7 +785,7 @@ function check(pass, input) {
     if (pass.match(vv)) {
       protect++;
     }
-    
+
     if (protect == 1) {
       $(input).parent().removeClass("low");
       $(input).parent().removeClass("good");
@@ -794,7 +794,7 @@ function check(pass, input) {
       $(input).parent().find(".pass-check span").text("Слабый")
       return "Слабый";
     }
-    
+
     if (protect == 2) {
       $(input).parent().removeClass("low");
       $(input).parent().removeClass("good");
@@ -827,7 +827,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   if (validatorClass.length) {
     loadScript(defaultPATH + "/js/include/bouncer.polyfills.min.js", function () {
       console.log("Validator Loaded");
-      
+
       var bouncer = new Bouncer('.js-form-validator', {
         disableSubmit: true,
         fieldClass: 'error', // Applied to fields with errors
@@ -844,37 +844,37 @@ document.addEventListener("DOMContentLoaded", function (event) {
             // If there isn't one, return false (no error)
             var selector = field.getAttribute('data-bouncer-match');
             if (!selector) return false;
-            
+
             // Get the field to compare
             var otherField = field.form.querySelector(selector);
             if (!otherField) return false;
-            
+
             // Compare the two field values
             // We use a negative comparison here because if they do match, the field validates
             // We want to return true for failures, which can be confusing
             return otherField.value !== field.value;
-            
+
           }
         },
       });
-      
+
       document.addEventListener('bouncerFormInvalid', function (event) {
         // console.log(event.detail.errors);
         window.scrollTo(0, event.target.offsetTop);
       }, false);
-      
+
       document.addEventListener('bouncerFormValid', function (el) {
         var fn = el.target.dataset.submit;
         window[fn](el);
       }, false);
-      
+
       let arrinput = [].slice.apply(document.querySelectorAll("input[type='password']"));
       arrinput.forEach(function (input) {
         input.addEventListener("input", function () {
           check(this.value, this);
         });
       });
-      
+
     });
   }
 });
@@ -887,7 +887,7 @@ if (btnopentabtable.length) {
     el.addEventListener("click", function (item) {
       var parent = this.closest(".tabtable__item");
       parent.classList.toggle("active");
-      
+
       if (parent.classList.contains("active")) {
         parent.querySelector("button span").innerText = "Свернуть";
       } else {
@@ -917,7 +917,7 @@ if (tahheadfix) {
 function PhoneCode(el) {
   let inputs = [];
   let activeInput = 0;
-  
+
   for (let i = 1; i <= 4; i++) {
     let input = document.createElement("input");
     input.type = "number";
@@ -925,26 +925,26 @@ function PhoneCode(el) {
     input.min = "0";
     input.max = "9";
     input.required = true;
-    
+
     if (i != 1) input.disabled = true;
     el.append(input);
     inputs.push(input);
   }
-  
+
   // el.addEventListener("resetPhoneCode", function() {
   //   activeInput = 0;
   //   inputs.forEach(function (item, index) {
   //     if (index != 0) input.disabled = true;
   //   });
   // });
-  
+
   inputs.forEach(function (item, index) {
-    if(index == 0) {
-      item.addEventListener("focus", function() {
+    if (index == 0) {
+      item.addEventListener("focus", function () {
         activeInput = 0;
       });
     }
-    
+
     item.addEventListener("input", function () {
       let val = this.value;
       if (this.value != "") {
@@ -955,7 +955,7 @@ function PhoneCode(el) {
           this.value = this.max;
         }
       }
-      
+
       if (this.value) {
         if (activeInput == 3) {
           nrclick = 0;
@@ -967,8 +967,8 @@ function PhoneCode(el) {
         nrclick = 0;
       }
     });
-    
-    
+
+
     let nrclick = 0;
     item.onkeydown = function (event) {
       var key = event.keyCode || event.charCode;
@@ -1000,15 +1000,15 @@ if (tabmodalbtn.length) {
   tabmodalbtn.forEach(function (item) {
     item.addEventListener("click", function () {
       let data = this.dataset.modal;
-      
+
       getSiblings(this, function (el) {
         el.classList.remove("active");
       });
       this.classList.add("active");
-      
+
       document.querySelector(".cmodal-login").classList.remove("active");
       document.querySelector(".cmodal-reg").classList.remove("active");
-      
+
       document.querySelector(data).classList.add("active");
     })
   });
@@ -1022,25 +1022,25 @@ $('.js-modal').remodal({
 });
 
 $(document).on('closing', '.js-modal', function (e) {
-  
+
   if ($(".cmodal").length) {
     if ($(e.currentTarget).hasClass("remodal-rel")) {
       setTimeout(function () {
         $(".remodal-rel .cmodal-item").removeClass("active");
         $(".cmodal-rel-reglogin").addClass("active");
-        
+
         $(".cmodal-tab__btn:first-child").addClass("active").siblings().removeClass("active");
         $(".cmodal-rel-login").addClass("active");
       }, 300)
     }
-    
+
     if ($(e.currentTarget).hasClass("remodal-rep")) {
       setTimeout(function () {
         $(".remodal-rep .cmodal-item").removeClass("active");
         $(".cmodal-rep-phone").addClass("active");
       }, 300)
     }
-    
+
     $(".cmodal-item form").each(function (item) {
       $(this).get(0).reset();
       $(this).find("input").removeClass("error notempty")
@@ -1054,12 +1054,12 @@ $(document).on('opened', '.js-modal', function (e) {
   tmp.dataset.dataRemodalAction = "close";
   tmp.classList.add("remodal-close");
   tmp.classList.add("remodal-close-root");
-  
+
   tmp.addEventListener("click", function () {
     var close = $(e.currentTarget).closest(".remodal-wrapper").find('[data-remodal-action="close"]')
     close.trigger("click");
   });
-  
+
   if (!$(e.currentTarget).closest(".remodal-wrapper").find(".remodal-close-root").length) {
     $(e.currentTarget).closest(".remodal-wrapper").append(tmp)
   }
@@ -1075,13 +1075,13 @@ productTab = function () {
         $(this).closest(".js-producttab").find(".bproduct-tab__info").eq(index).addClass("active").siblings().removeClass("active");
       });
     });
-    
+
     $(".js-producttab-minimize").each(function () {
       let open = "Показать все";
       let close = "Скрыть";
       $(this).click(function () {
         let parent = $(this).closest(".bproduct-tab__info");
-        
+
         if (parent.hasClass("max")) {
           parent.removeClass("max");
           $(this).removeClass("active");
@@ -1102,15 +1102,15 @@ productTab();
 (function () {
   var range = document.querySelector('.js-range');
   if (!document.querySelector('.js-range')) return false;
-  
+
   var wrap = document.querySelector('.js-range-input');
   var input0 = range.querySelector(".js-range-min");
   var input1 = range.querySelector(".js-range-max");
   var inputs = [input0, input1];
-  
+
   let min = parseInt(wrap.dataset.min) || 0;
   let max = parseInt(wrap.dataset.max) || 1000000;
-  
+
   noUiSlider.create(wrap, {
     start: [0, max],
     connect: true,
@@ -1127,79 +1127,79 @@ productTab();
       'max': max
     },
   });
-  
+
   wrap.noUiSlider.on('update', function (values, handle) {
     inputs[handle].value = parseInt(values[handle]);
   });
-  
+
   let event = new Event('change');
   wrap.noUiSlider.on('change', function (values, handle) {
     console.log("End")
     inputs[handle].dispatchEvent(event);
   });
-  
-  wrap.addEventListener("resetRange", function() {
+
+  wrap.addEventListener("resetRange", function () {
     wrap.noUiSlider.reset();
   });
-  
+
   // Listen to keydown events on the input field.
   inputs.forEach(function (input, handle) {
-    
+
     input.addEventListener('change', function () {
       wrap.noUiSlider.setHandle(handle, this.value);
     });
-    
+
     input.addEventListener('keydown', function (e) {
-      
+
       var values = wrap.noUiSlider.get();
       var value = Number(values[handle]);
-      
+
       // [[handle0_down, handle0_up], [handle1_down, handle1_up]]
       var steps = wrap.noUiSlider.steps();
-      
+
       // [down, up]
       var step = steps[handle];
-      
+
       var position;
-      
+
       // 13 is enter,
       // 38 is key up,
       // 40 is key down.
       switch (e.which) {
-        
+
         case 13:
           wrap.noUiSlider.setHandle(handle, this.value);
           break;
-        
+
         case 38:
-          
+
           // Get step to go increase slider value (up)
           position = step[1];
-          
+
           // false = no step is set
           if (position === false) {
             position = 1;
           }
-          
+
           // null = edge of slider
           if (position !== null) {
             wrap.noUiSlider.setHandle(handle, value + position);
           }
-          
+
           break;
-        
+
         case 40:
-          
+
           position = step[0];
-          
+
           if (position === false) {
             position = 1;
           }
-          
+
           if (position !== null) {
             wrap.noUiSlider.setHandle(handle, value - position);
           }
-          
+
           break;
       }
     });
@@ -1217,23 +1217,23 @@ customselect.forEach(function (item) {
   const selected = item.querySelector(".js-cselect-selected");
   const head = item.querySelector(".js-cselect-head");
   const reset = item.querySelector(".js-cselect-reset");
-  
+
   const form = input[0].form;
-  
+
   const min = item.querySelector(".js-range-min");
   const max = item.querySelector(".js-range-max");
-  
-  
+
+
   if (min && max) {
     selected.innerText = min.value + (min.value > 0 ? "₽" : "") + " - " + max.value + (max.value > 0 ? "₽" : "");
   }
-  
+
   selected.addEventListener("click", function () {
     head.classList.toggle("active");
     item.classList.toggle("zindex");
     item.classList.remove("dishov");
   });
-  
+
   jQuery(function ($) {
     $(document).mouseup(function (e) { // событие клика по веб-документу
       var div = $(item); // тут указываем ID элемента
@@ -1244,7 +1244,7 @@ customselect.forEach(function (item) {
       }
     });
   });
-  
+
   // Init
   function init() {
     let checkedInput = 0;
@@ -1255,7 +1255,7 @@ customselect.forEach(function (item) {
       } else {
         return false;
       }
-      
+
       let value = el.dataset.value;
       if (el.type === "checkbox") {
         if (checkedInput == 0) {
@@ -1277,10 +1277,11 @@ customselect.forEach(function (item) {
       head.classList.add("selected");
     });
   }
-  setTimeout(function() {
+
+  setTimeout(function () {
     init();
   }, 100)
-  
+
   // Render Selected
   function renderSelectedItem() {
     $(".filter-selected").empty();
@@ -1290,19 +1291,19 @@ customselect.forEach(function (item) {
         arr.push(this);
       }
     });
-    
+
     arr.forEach(function (item) {
       let tmp = document.createElement("div")
       tmp.classList.add("filter-selected__item");
-      
+
       let span = document.createElement("span")
       let button = document.createElement("button")
       button.type = "button";
-      
+
       button.addEventListener("click", function () {
         $(item).trigger("click");
         item.checked = false;
-        
+
         if (!$(item).closest(".custom-select__content").find("input:checked").length) {
           // console.log("true")
           $(item).closest(".js-cselect").find(".js-cselect-head").removeClass("selected");
@@ -1310,23 +1311,23 @@ customselect.forEach(function (item) {
         if (item.type == "radio") {
           $(item).closest(".js-cselect").find(".js-cselect-selected").text("Не выбрано");
         }
-        
+
         $(tmp).remove();
       });
-      
+
       span.innerText = item.dataset.value
-      
+
       tmp.append(span);
       tmp.append(button);
       $(".filter-selected").append($(tmp))
     });
   }
-  
+
   input.forEach(function (el) {
     el.addEventListener("click", function () {
       if (this.classList.contains("js-range-result")) return false;
       if (this.classList.contains("js-notindexed")) return false;
-      
+
       let checkedInput = 0;
       input.forEach(function (el) {
         if (el.classList.contains("js-notindexed")) return false;
@@ -1334,7 +1335,7 @@ customselect.forEach(function (item) {
           checkedInput++;
         }
       });
-      
+
       // let value = this.value;
       let value = this.dataset.value;
       if (this.type === "checkbox") {
@@ -1354,62 +1355,62 @@ customselect.forEach(function (item) {
           item.classList.add("dishov");
         }
       }
-      
+
       head.classList.add("selected");
     });
-  
+
     renderSelectedItem();
-    
+
     // Input Change
     el.addEventListener("change", function () {
       if (this.classList.contains("js-range-result")) {
         selected.innerText = min.value + (min.value > 0 ? "₽" : "") + " - " + max.value + (max.value > 0 ? "₽" : "");
       }
-  
+
       renderSelectedItem();
-      
+
       let submitData = this.form.dataset.submit;
       window[submitData](this.form);
     });
   });
-  
+
   reset.addEventListener("click", function () {
     input.forEach(function (el) {
       el.checked = false;
       head.classList.remove("selected");
       head.classList.remove("active");
-      
+
       if (input[0].type === "checkbox") {
         selected.innerText = "Не выбрано";
       } else {
         selected.innerText = "Не выбрано";
       }
     });
-    
-    setTimeout(function() {
+
+    setTimeout(function () {
       renderSelectedItem();
     }, 100);
   });
-  
+
   // if (!item.querySelector(".js-cselect-dropdown")) {
   //   if (input[0] && (input[0].type === "checkbox" || input[0].type === "radio")) {
   //     input[0].click();
   //   }
   // }
-  
+
   // Reset form
-  btnReset.forEach(function(el) {
+  btnReset.forEach(function (el) {
     el.addEventListener("click", function () {
       $(".filter-selected").empty();
-  
+
       const resetEvent = new Event("resetRange");
       document.querySelector('.js-range-input').dispatchEvent(resetEvent);
-      
+
       input.forEach(function (el) {
         el.checked = false;
         head.classList.remove("selected");
         head.classList.remove("active");
-        
+
         if (input[0].type === "checkbox") {
           selected.innerText = "Не выбрано";
         } else {
@@ -1436,12 +1437,12 @@ $(".js-cselect-dropdown").each(function () {
   //
   // let inputLength = inputs.length;
   // let inputChecked = 0;
-  
+
   // console.log(head)
   head.on("click", function () {
     $(this).toggleClass("open")
   });
-  
+
   // input.on("change", function() {
   //   // inputs.each(function() {
   //   //   $(this).trigger("click");
@@ -1495,9 +1496,9 @@ function ChangeGrid(el) {
   const parent = el.parentElement;
   const max = parent.querySelector(".max");
   const min = parent.querySelector(".min");
-  
+
   const grid = document.querySelector(".js-changegrid");
-  
+
   if (el.classList.contains("max")) {
     max.classList.add("active");
     min.classList.remove("active");
@@ -1524,31 +1525,31 @@ $(".js-close-filter").click(function () {
 // Scroll Size
 (function () {
   let root = document.querySelector(".js-scrollsize");
-  if(!root) return false;
+  if (!root) return false;
   let wrap = root.querySelector(".js-scrollsize-wrap");
   let prev = root.querySelector(".js-scrollsize-prev");
   let next = root.querySelector(".js-scrollsize-next");
   let item = root.querySelector(".js-scrollsize-item");
- 
-  if(wrap.scrollWidth == wrap.offsetWidth) {
+
+  if (wrap.scrollWidth == wrap.offsetWidth) {
     root.classList.add("no-arrow");
   } else {
     root.classList.remove("no-arrow");
   }
-  
-  window.addEventListener("resize", function() {
-    if(wrap.scrollWidth == wrap.offsetWidth) {
+
+  window.addEventListener("resize", function () {
+    if (wrap.scrollWidth == wrap.offsetWidth) {
       root.classList.add("no-arrow");
     } else {
       root.classList.remove("no-arrow");
     }
   });
-  
+
   function checkBtnDisable() {
-    if(wrap.scrollLeft === 0) {
+    if (wrap.scrollLeft === 0) {
       prev.classList.add("disable")
       next.classList.remove("disable")
-    } else if(wrap.scrollLeft === wrap.scrollWidth - wrap.offsetWidth) {
+    } else if (wrap.scrollLeft === wrap.scrollWidth - wrap.offsetWidth) {
       prev.classList.remove("disable")
       next.classList.add("disable")
     } else {
@@ -1556,8 +1557,9 @@ $(".js-close-filter").click(function () {
       next.classList.remove("disable")
     }
   }
+
   checkBtnDisable();
-  
+
   // function checkInputChecked() {
   //   let inputs = $(root).find("input");
   //   console.log($(root).find("input:checked"));
@@ -1571,7 +1573,7 @@ $(".js-close-filter").click(function () {
   //   });
   // }
   // checkInputChecked();
-  
+
   prev.addEventListener("click", function () {
     wrap.scrollLeft -= item.clientWidth;
     checkBtnDisable();
@@ -1584,39 +1586,6 @@ $(".js-close-filter").click(function () {
 })();
 
 
-// // File Upload
-// document.addEventListener("DOMContentLoaded", function(event) {
-//   var validatorClass = document.querySelectorAll("input[type='file']");
-//   if(validatorClass.length) {
-//     loadScript("js/include/filepond-plugin-file-validate-size.js", function() {
-//       loadScript("js/include/filepond-plugin-file-validate-type.min.js", function() {
-//         loadScript(defaultPATH + "js/include/filepond.min.js", function () {
-//           console.log("File Upload Loaded");
-//
-//           FilePond.registerPlugin(FilePondPluginFileValidateSize, FilePondPluginFileValidateType);
-//
-//           const inputElement = document.querySelector('input[type="file"]');
-//           const pond = FilePond.create(inputElement, {
-//             multiple: true,
-//             maxFiles: 10,
-//             maxFileSize: "20MB",
-//             allowFileTypeValidation: true,
-//             labelFileTypeNotAllowed: "Файл неверного типа",
-//             fileValidateTypeLabelExpectedTypes: 'допустимые типы {allButLastType} или {lastType}',
-//             labelMaxFileSizeExceeded: "Файл слишком большой",
-//             labelMaxFileSize: 'максимальный размер файла {filesize}',
-//             acceptedFileTypes: ['image/png','image/jpg','image/jpeg','image/webp','image/gif', 'image/bmp'],
-//           });
-//
-//           window.podfile = pond;
-//         });
-//
-//       });
-//
-//     });
-//   }
-// });
-//
 // document.querySelector(".indorder-form").addEventListener("submit", function(form) {
 //   console.log(this, form);
 //   form.preventDefault();
@@ -1660,45 +1629,50 @@ $(".js-close-filter").click(function () {
 // });
 
 
-// var arFiles = [];
-// $(document).on('change', '#upload-btn', function(e) {
-//
-//   var $this = $(this);
-//   var $ctrFiles = $('.ctrFiles');
-//   var value = $this.val();
-//   var fileCnt = $ctrFiles.find('.item').length;
-//
-//   var nameFile = value.match(/[a-zA-Z0-9а-яА-Я\w\s\-\_\.]+\.([A-Za-z]+)$/gmi);
-//   var formatFile = nameFile[0].split(".");
-//
-//   if(!formatFile[formatFile.length - 1].match(/(pdf|xls[x]?|doc[x]?|txt)/gmi)) {
-//     alert("pdf, xls, xlsx, doc, docx, txt");
-//     return false;
-//   }
-//
-//
-//   if(fileCnt >=5) {
-//     $.fancybox.open({
-//       src: "#popup-file-save-error",
-//       type: "inline"
-//     })
-//     return false;
-//   }
-//
-//   if (value && !arFiles.includes(value)) {
-//     arFiles.push(value);
-//     var time = Date.now();
-//     $ctrFiles.append($('<div class="item"><div class="cls"></div><span>' + nameFile + '</span></div>').append($this.clone().attr('id', 'att_' + time).addClass("js__edit-input-file").attr('name', 'attach[]')).append("<label for='att_"+ time +"'><svg class='svg svg-edit'><use xlink:href="+BX.message('PATH_TO_SPRITE')+"></use></svg></label>"));
-//   }
-// });
-//
-// $(document).on("change", ".js__edit-input-file", function() {
-//   var parent = $(this).closest(".item");
-//   var nameFile = $(this).val().match(/[a-zA-Z0-9а-яА-Я\w\s\-\_\.]+\.([A-Za-z]+)$/gmi);
-//   parent.find("span").text(nameFile);
-// })
-//
-// $(document).on('click', '.ctrFiles .item .cls', function(e) {
-//   $(this).closest('.item').remove();
-// });
+var arFiles = [];
+$(document).on('change', '#upload-btn', function (e) {
+
+  var $this = $(this);
+  var $ctrFiles = $('.ctrFiles');
+  var value = $this.val();
+  var fileCnt = $ctrFiles.find('.item').length;
+
+  var nameFile = value.match(/[a-zA-Z0-9а-яА-Я\w\s\-\_\.]+\.([A-Za-z]+)$/gmi);
+  var formatFile = nameFile[0].split(".");
+
+  if (!formatFile[formatFile.length - 1].match(/(jpg|jpeg|png|webp)/gmi)) {
+    alert("jpg,jpeg,webp,png");
+    return false;
+  }
+
+
+  if (fileCnt >= 5) {
+    alert("Не больше 5 файлов");
+    return false;
+  }
+
+  console.log(arFiles)
+  if (value && !arFiles.includes(value)) {
+    arFiles.push(value);
+    var time = Date.now();
+    $ctrFiles.append(
+      $('<div class="item"><div class="cls">' +
+        '</div>' +
+        '<span>' + nameFile + '</span>' +
+        '</div>')
+        .append($this.clone().attr('id', 'att_' + time).addClass("js__edit-input-file")
+          .attr('name', 'attach[]'))
+        .append("<label for='att_" + time + "'></label>"));
+  }
+});
+
+$(document).on("change", ".js__edit-input-file", function () {
+  var parent = $(this).closest(".item");
+  var nameFile = $(this).val().match(/[a-zA-Z0-9а-яА-Я\w\s\-\_\.]+\.([A-Za-z]+)$/gmi);
+  parent.find("span").text(nameFile);
+})
+
+$(document).on('click', '.ctrFiles .item .cls', function (e) {
+  $(this).closest('.item').remove();
+});
 
