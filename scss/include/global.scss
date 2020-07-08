@@ -998,6 +998,7 @@ a {
   height: 558px;
   background: #FAFAFA;
   overflow: hidden;
+  //overflow-y: hidden;
   position: relative;
   display: flex;
   align-items: flex-end;
@@ -1111,6 +1112,31 @@ a {
     @media(max-width: 768px) {
       padding-right: 45px;
     }
+    
+    &:after {
+      content: "";
+      width: 10px;
+      height: 100%;
+      background: #fff;
+      position: absolute;
+      top: 0;
+      right: -4px;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    &:before {
+      content: "";
+      width: 10px;
+      height: 100%;
+      background: #fff;
+      position: absolute;
+      top: 0;
+      left: -4px;
+      z-index: -1;
+      pointer-events: none;
+    }
+    
     
     span {
       font-style: normal;
