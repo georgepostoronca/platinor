@@ -952,12 +952,14 @@ function PhoneCode(el) {
           this.value = this.min;
         }
         if (parseInt(this.value) > parseInt(this.max)) {
-          this.value = this.max;
+          this.value = this.dataset.value;
         }
       }
+      this.dataset.value = this.value;
 
       if (this.value) {
         if (activeInput == 3) {
+          // this.blur();
           nrclick = 0;
           return false;
         }
@@ -967,13 +969,19 @@ function PhoneCode(el) {
         nrclick = 0;
       }
     });
+    
+    item.addEventListener("focus", function() {
+      let index = $(this).index();
+      this.value = "";
+      activeInput = index;
+    });
 
 
     let nrclick = 0;
     item.onkeydown = function (event) {
       var key = event.keyCode || event.charCode;
       if (key == 8 || key == 46) {
-        if (nrclick > 0) {
+        if (nrclick > 0 || !this.value) {
           event.target.value = "";
           if (activeInput == 0) return false;
           activeInput--;
