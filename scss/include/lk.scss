@@ -397,6 +397,13 @@
         margin-top: 13px;
       }
     }
+  
+    @media(max-width: 768px) {
+      .btn-text {
+        order: 2;
+        margin-top: 13px;
+      }
+    }
     
     .btn-group {
       @media(max-width: 768px) {
@@ -404,7 +411,9 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        margin-top: 20px;
+        //margin-top: 20px;
+        
+        order: 1;
       }
   
       @media(max-width: 380px) {
@@ -508,8 +517,9 @@
     justify-content: center;
     cursor: pointer;
     outline: none;
-    padding-bottom: 2px;
+    padding-bottom: 3px;
     user-select: none;
+    border: 1px solid #EBEBEB;
     
     @media(max-width: 580px) {
       height: 45px;
@@ -620,6 +630,12 @@
       .num svg {
         transform: rotate(270deg);
       }
+      
+      .button {
+        svg {
+          transform: rotate(-90deg);
+        }
+      }
     }
   
   }
@@ -693,7 +709,10 @@
   }
   
   .date, .sum, .status {
-    margin-bottom: 17px;
+  
+    @media(max-width: 768px) {
+      margin-bottom: 17px;
+    }
     
     em {
       display: none;

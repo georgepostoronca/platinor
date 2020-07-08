@@ -649,8 +649,16 @@ var inputs = document.querySelectorAll(".js__input-notempty");
 if (inputs.length) {
   inputs = [].slice.call(inputs);
   inputs.forEach(function (el) {
+    el.addEventListener("focus", function() {
+      console.log("Focus");
+      this.classList.add("focus");
+    });
     el.addEventListener("blur", function (item) {
-      this.value ? this.classList.add("notempty") : this.classList.remove("notempty");
+      let $this = this;
+      setTimeout(function() {
+        if(!$this.value) $this.classList.remove("focus")
+        console.log("blur")
+      }, 100)
     })
   });
 }

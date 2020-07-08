@@ -44,6 +44,10 @@
   &__content {
     padding: 82px 206px 86px calc(calc(100% - 720px) / 2);
   
+    @media(max-width: 1600px) {
+      padding-right: 5%;
+    }
+  
     @media(max-width: 1200px) {
       padding: 82px 20px 86px calc(calc(100% - 720px) / 2);
     }

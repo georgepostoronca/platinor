@@ -1515,7 +1515,7 @@ a {
       color: rgba(255, 255, 255, 0.5);
       border-color: rgba(255, 255, 255, 0.5);
   
-      &:focus {
+      &.focus {
         border-color: rgba(255, 255, 255, 0.5);
       }
   
@@ -1554,8 +1554,8 @@ a {
     transition: .2s;
     
   
-    &:focus {
-      &:not(.notempty) + span {
+    &.focus {
+      & + span {
         font-size: 13px;
         transform: translateY(-28px);
         color: #828282;
@@ -1563,7 +1563,7 @@ a {
     }
     
   
-    &:focus {
+    &.focus {
       border-color: transparent;
       border-color: #1F1F1F;
     
@@ -1572,11 +1572,11 @@ a {
       }
     }
   
-    &.notempty + span {
-      font-size: 13px;
-      transform: translateY(-28px);
-      color: #828282;
-    }
+    //+ span {
+    //  font-size: 13px;
+    //  transform: translateY(-28px);
+    //  color: #828282;
+    //}
     
     &.error {
       color: #D26C6C;
