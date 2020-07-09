@@ -627,7 +627,10 @@ oepnClose({
     items.forEach(function (item, index) {
       var $this = item;
       var span = document.createElement("span");
-      if (index == 0) span.classList.add("active");
+      if (index == 0) {
+        $this.classList.add("active");
+        span.classList.add("active");
+      }
       span.addEventListener("mouseover", function (el) {
         this.classList.add("active");
         $this.classList.add("active");
