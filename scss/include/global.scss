@@ -325,7 +325,7 @@ a {
     height: 48px;
   }
   
-  &:hover {
+  &:hover:not(.progress) {
     background-color: transparent;
     
     svg {
@@ -1291,37 +1291,37 @@ a {
     }
   }
   
-  &.progress {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  
-    svg.cart, svg.eye, svg.check {
-      opacity: 0;
-    }
-    
-    &:before {
-      content: "";
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background-color: #fff;
-      opacity: 0.6;
-      animation: sk-bounce 2.0s infinite ease-in-out;
-    }
-  
-    &:after {
-      content: "";
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background-color: #fff;
-      opacity: 0.6;
-      position: absolute;
-      animation: sk-bounce 2.0s infinite ease-in-out;
-      animation-delay: -1.0s;
-    }
-  }
+  //&.progress {
+  //  display: flex;
+  //  align-items: center;
+  //  justify-content: center;
+  //
+  //  svg.cart, svg.eye, svg.check {
+  //    opacity: 0;
+  //  }
+  //
+  //  &:before {
+  //    content: "";
+  //    width: 24px;
+  //    height: 24px;
+  //    border-radius: 50%;
+  //    background-color: #fff;
+  //    opacity: 0.6;
+  //    animation: sk-bounce 2.0s infinite ease-in-out;
+  //  }
+  //
+  //  &:after {
+  //    content: "";
+  //    width: 24px;
+  //    height: 24px;
+  //    border-radius: 50%;
+  //    background-color: #fff;
+  //    opacity: 0.6;
+  //    position: absolute;
+  //    animation: sk-bounce 2.0s infinite ease-in-out;
+  //    animation-delay: -1.0s;
+  //  }
+  //}
 }
 
 @keyframes sk-bounce {
@@ -3085,5 +3085,87 @@ textarea {
         color: #C7B386;
       }
     }
+  }
+}
+
+
+button, .btn--progress {
+  &.progress:not(.check) {
+    display: inline-block;
+    position: relative;
+    pointer-events: none;
+    user-select: none;
+    
+    & * {
+      visibility: hidden;
+      opacity: 0;
+    }
+    
+    &:after, &:before {
+      visibility: visible;
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      position: absolute;
+      border: 3px solid #fff;
+      opacity: 1;
+      border-radius: 50%;
+      animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    &:after {
+      animation-delay: -0.5s;
+    }
+  }
+  
+  &.check:not(.progress) {
+    position: relative;
+    background: #fff;
+    border: 1px solid #1F1F1F;
+    pointer-events: none;
+    user-select: none;
+  
+    &:after, &:before {
+      display: none;
+    }
+    
+    & * {
+      visibility: hidden;
+      opacity: 0;
+    }
+    &:after {
+      display: block;
+      content: "";
+      width: 20px;
+      height: 20px;
+      visibility: visible;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: url("../ico/check.svg") center center no-repeat;
+      background-size: contain;
+      filter: invert(100%);
+    }
+  }
+}
+
+@keyframes lds-ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    //top: 0px;
+    //left: 0px;
+    width: 30px;
+    height: 30px;
+    opacity: 0;
   }
 }
