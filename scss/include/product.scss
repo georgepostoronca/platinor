@@ -205,6 +205,8 @@
         display: inline-block;
         margin-top: 5px;
         margin-bottom: 5px;
+        cursor: pointer;
+        user-select: none;
         
         input {
           width: 0;
