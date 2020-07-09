@@ -1290,6 +1290,45 @@ a {
       opacity: 0
     }
   }
+  
+  &.progress {
+    
+    &:before {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+    }
+  
+    &:after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      opacity: .2;
+    }
+  }
+}
+
+@keyframes progressAddToCart {
+  from {
+    width: 0;
+    height: 0;
+  }
+  
+  to {
+  
+  }
 }
 
 .btn-submit {

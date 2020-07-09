@@ -622,7 +622,8 @@ oepnClose({
     var slider = el.querySelector(".product__slider");
     var pagination = el.querySelector(".product__pagination");
     var items = [].slice.call(el.querySelectorAll(".product__slider-item"));
-
+  
+    if(items.length == 0) return false;
     items = [].slice.call(items);
     items.forEach(function (item, index) {
       var $this = item;
@@ -641,7 +642,10 @@ oepnClose({
           el.classList.remove("active");
         });
       });
-      pagination.appendChild(span);
+      
+      if(pagination) {
+        pagination.appendChild(span);
+      }
     });
   });
 })();

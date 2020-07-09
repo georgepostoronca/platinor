@@ -13,7 +13,40 @@ section.topproduct(class=topproductClass)
     .topproduct__content
       .topproduct-slider.js__topproduct-slider.swiper-container.loading(data-slidrow=topproductRow)
         .swiper-wrapper
-          each val in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+          each val in [1,2,3,4,5,6,7,8,9,]
+            //Slide
+            .swiper-slide
+              a(href="#product-1").product
+                .product__slider
+                  .product__slider-item
+                    img(src="img/image-1.jpg", srcset="img/image-1@2x.jpg 2x", alt="IMG", loading="lazy")
+                .product__info
+
+
+                  span Подвеска Butterfly
+                  em 14 990₽
+                  button.btn-addcart(aria-label="addTocart").progress
+                    +svg("cart","cart")
+                    +svg("check","check")
+
+            //Slide
+            .swiper-slide
+              a(href="#product-1").product
+                .product__slider
+                  .product__slider-item
+                    img(src="img/image-1.jpg", srcset="img/image-1@2x.jpg 2x", alt="IMG", loading="lazy")
+                  .product__slider-item
+                    img(src="img/image-3.jpg", srcset="img/image-3@2x.jpg 2x", alt="IMG", loading="lazy")
+                .product__info
+                  .product__pagination
+
+                  span Подвеска Butterfly
+                  em 14 990₽
+                  button.btn-addcart(aria-label="addTocart").progress
+                    +svg("cart","cart")
+                    +svg("check","check")
+
+            //Slide
             .swiper-slide
               a(href="#product-1").product
                 .product__slider
@@ -31,16 +64,15 @@ section.topproduct(class=topproductClass)
 
                   span Подвеска Butterfly
                   em 14 990₽
-                  button.btn-addcart(aria-label="addTocart")
+                  button.btn-addcart(aria-label="addTocart").progress
                     +svg("cart","cart")
                     +svg("check","check")
 
+            //Slide
             .swiper-slide
               a(href="#product-1").product
                 .product__slider
                 .product__info
-                  .product__pagination
-
                   span Подвеска Butterfly
                   em 14 990₽
                   button.btn-addcart(aria-label="addTocart")
