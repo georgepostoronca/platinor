@@ -1076,7 +1076,7 @@ a {
     }
   }
   
-  &:hover {
+  &:hover, &.active {
     @media(min-width: 1025px) {
       .product__info {
         transform: translateY(0);
