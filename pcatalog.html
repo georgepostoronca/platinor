@@ -40,13 +40,13 @@
               </div>
             </div>
             <ul class="menu__nav-links">
-              <li class="js__menu-hover"><a href="#Обручальные">Обручальные</a></li>
-              <li class="js__menu-hover"><a href="#Помолвка">Помолвка</a></li>
-              <li class="js__menu-hover"><a href="#Цепи">Цепи</a></li>
-              <li class="js__menu-hover"><a href="#Кресты">Кресты</a></li>
-              <li class="js__menu-hover"><a href="#Кольца">Кольца</a></li>
-              <li class="js__menu-hover"><a href="#Серьги">Серьги</a></li>
-              <li class="js__menu-hover"><a href="#Подвески">Подвески</a></li>
+              <li class="js__menu-hover"><a href="#Обручальные">Кольца</a></li>
+              <li class="js__menu-hover"><a href="#Помолвка">Цепи</a></li>
+              <li class="js__menu-hover"><a href="#Цепи">Браслеты</a></li>
+              <li class="js__menu-hover"><a href="#Кресты">Серьги</a></li>
+              <li class="js__menu-hover"><a href="#Кольца">Броши</a></li>
+              <li class="js__menu-hover"><a href="#Серьги">Гребни</a></li>
+              <li class="js__menu-hover"><a href="#Подвески">Зажимы для галстука</a></li>
               <li class="js__menu-hover"><span>Другое</span>
                 <ul class="menu__nav-submenu">
                   <li><a href="#Браслеты">Браслеты</a></li>
@@ -167,7 +167,10 @@
               <div class="pcatalog__filter">
                 <form class="filter" data-submit="filterSubmit">
                   <div class="filter__select js-filter">
-                    <div class="pcatalog__filter-head"><span>Фильтры</span>
+                    <div class="pcatalog__filter-head"><span>
+                        <svg class="icon">
+                          <use xlink:href="ico/sprite.svg#filter"></use>
+                        </svg><span>Фильтры</span></span>
                       <button class="js-close-filter" type="button">
                         <svg class="icon">
                           <use xlink:href="ico/sprite.svg#close"></use>
@@ -193,7 +196,7 @@
                         <div class="custom-select__content-wrap">
                           <!--Input-->
                           <div class="custom-select__input">
-                            <input class="js-cselect-input" type="radio" name="metal" checked="checked" data-value="Платина" value="Платина" id="input-filter-metal-1"/>
+                            <input class="js-cselect-input" type="radio" name="metal" data-value="Платина" value="Платина" id="input-filter-metal-1"/>
                             <label for="input-filter-metal-1"><span>Платина</span></label>
                           </div>
                           <!--Input-->
@@ -219,7 +222,7 @@
                       <!--Label-->
                       <div class="custom-select__label"><em>Цена</em></div>
                       <!--Head-->
-                      <div class="custom-select__head js-cselect-head"><span class="js-cselect-selected">0 - 250₽</span>
+                      <div class="custom-select__head js-cselect-head"><span class="js-cselect-selected">10₽ - 20000₽</span>
                         <!--Reset-->
                         <div class="custom-select__reset js-cselect-reset">
                           <svg class="icon">
@@ -274,12 +277,12 @@
                           </div>
                           <!--Input-->
                           <div class="custom-select__input">
-                            <input class="js-cselect-input" type="checkbox" name="tipizdelia" checked="checked" data-value="Кольца" value="tipizdelia" id="input-filter-kolita-2"/>
+                            <input class="js-cselect-input" type="checkbox" name="tipizdelia" data-value="Кольца" value="tipizdelia" id="input-filter-kolita-2"/>
                             <label for="input-filter-kolita-2"><span>Кольца</span></label>
                           </div>
                           <!--Input-->
                           <div class="custom-select__input">
-                            <input class="js-cselect-input" type="checkbox" name="tipizdelia" checked="checked" data-value="Подвески" value="tipizdelia" id="input-filter-podveski-2"/>
+                            <input class="js-cselect-input" type="checkbox" name="tipizdelia" data-value="Подвески" value="tipizdelia" id="input-filter-podveski-2"/>
                             <label for="input-filter-podveski-2"><span>Подвески</span></label>
                           </div>
                           <!--Input-->
@@ -289,7 +292,7 @@
                           </div>
                           <!--Input-->
                           <div class="custom-select__input">
-                            <input class="js-cselect-input" type="checkbox" name="tipizdelia" checked="checked" data-value="Серьги" value="tipizdelia" id="input-filter-sergi-2"/>
+                            <input class="js-cselect-input" type="checkbox" name="tipizdelia" data-value="Серьги" value="tipizdelia" id="input-filter-sergi-2"/>
                             <label for="input-filter-sergi-2"><span>Серьги</span></label>
                           </div>
                           <!--Input-->
@@ -349,9 +352,9 @@
                         <div class="custom-select__content-wrap dropdown">
                           <div class="custom-select__dropdown js-cselect-dropdown">
                             <div class="custom-select__dropdown-head">
-                              <label>
-                                <input class="js-notindexed" type="checkbox"/><span></span>
-                              </label><span>Цвет ремешка</span>
+                              <!--label-->
+                              <!--  input(type="checkbox").js-notindexed-->
+                              <!--  span--><span>Цвет ремешка</span>
                               <svg class="icon">
                                 <use xlink:href="ico/sprite.svg#arrow-left"></use>
                               </svg>
@@ -359,31 +362,31 @@
                             <div class="custom-select__dropdown-content">
                               <!--Input-->
                               <div class="custom-select__input color">
-                                <input class="js-cselect-input" type="checkbox" checked="checked" name="color" data-value="Зеленый" value="green" id="input-filter-color-1"/>
+                                <input class="js-cselect-input" type="checkbox" name="color" data-value="Зеленый" value="green" id="input-filter-color-1"/>
                                 <label for="input-filter-color-1"><span>Зеленый</span><em style="background: #54A62C;"></em></label>
                               </div>
                               <!--Input-->
                               <div class="custom-select__input color">
-                                <input class="js-cselect-input" type="checkbox" checked="checked" name="color" data-value="Красный" value="red" id="input-filter-color-2"/>
+                                <input class="js-cselect-input" type="checkbox" name="color" data-value="Красный" value="red" id="input-filter-color-2"/>
                                 <label for="input-filter-color-2"><span>Красный</span><em style="background: #CB3229"></em></label>
                               </div>
                               <!--Input-->
                               <div class="custom-select__input color">
-                                <input class="js-cselect-input" type="checkbox" checked="checked" name="color" data-value="Желтый" value="yellow" id="input-filter-color-3"/>
+                                <input class="js-cselect-input" type="checkbox" name="color" data-value="Желтый" value="yellow" id="input-filter-color-3"/>
                                 <label for="input-filter-color-3"><span>Желтый</span><em style="background: #E2C422;"></em></label>
                               </div>
                               <!--Input-->
                               <div class="custom-select__input color">
-                                <input class="js-cselect-input" type="checkbox" checked="checked" name="color" data-value="Оранжевый" value="orange" id="input-filter-color-4"/>
+                                <input class="js-cselect-input" type="checkbox" name="color" data-value="Оранжевый" value="orange" id="input-filter-color-4"/>
                                 <label for="input-filter-color-4"><span>Оранжевый</span><em style="background: #DA7B24;"></em></label>
                               </div>
                             </div>
                           </div>
                           <div class="custom-select__dropdown js-cselect-dropdown">
                             <div class="custom-select__dropdown-head">
-                              <label>
-                                <input class="js-notindexed" type="checkbox"/><span></span>
-                              </label><span>Проба</span>
+                              <!--label-->
+                              <!--  input(type="checkbox").js-notindexed-->
+                              <!--  span--><span>Проба</span>
                               <svg class="icon">
                                 <use xlink:href="ico/sprite.svg#arrow-left"></use>
                               </svg>
@@ -413,9 +416,9 @@
                           </div>
                           <div class="custom-select__dropdown js-cselect-dropdown">
                             <div class="custom-select__dropdown-head">
-                              <label>
-                                <input class="js-notindexed" type="checkbox"/><span></span>
-                              </label><span>Есть в наличии</span>
+                              <!--label-->
+                              <!--  input(type="checkbox").js-notindexed-->
+                              <!--  span--><span>Есть в наличии</span>
                               <svg class="icon">
                                 <use xlink:href="ico/sprite.svg#arrow-left"></use>
                               </svg>
@@ -524,7 +527,7 @@
               </div>
               <div class="pcatalog__grid js-changegrid">
                 <div class="product">
-                  <div class="product__label sale"><span>СКИДКА 50%</span></div><a class="product__slider" href="#">
+                  <div class="product__label"><span class="sale">СКИДКА 50%</span><span class="best">БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
                     <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
@@ -542,7 +545,7 @@
                   </div>
                 </div>
                 <div class="product">
-                  <div class="product__label best"><span>БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
+                  <div class="product__label"><span class="best">БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
                     <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
@@ -560,7 +563,7 @@
                   </div>
                 </div>
                 <div class="product">
-                  <div class="product__label sale"><span>СКИДКА 50%</span></div><a class="product__slider" href="#">
+                  <div class="product__label"><span class="sale">СКИДКА 50%</span><span class="best">БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
                     <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
@@ -578,7 +581,7 @@
                   </div>
                 </div>
                 <div class="product">
-                  <div class="product__label best"><span>БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
+                  <div class="product__label"><span class="best">БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
                     <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
@@ -596,7 +599,7 @@
                   </div>
                 </div>
                 <div class="product">
-                  <div class="product__label sale"><span>СКИДКА 50%</span></div><a class="product__slider" href="#">
+                  <div class="product__label"><span class="sale">СКИДКА 50%</span><span class="best">БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
                     <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
@@ -614,7 +617,7 @@
                   </div>
                 </div>
                 <div class="product">
-                  <div class="product__label best"><span>БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
+                  <div class="product__label"><span class="best">БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
                     <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
@@ -632,7 +635,7 @@
                   </div>
                 </div>
                 <div class="product">
-                  <div class="product__label sale"><span>СКИДКА 50%</span></div><a class="product__slider" href="#">
+                  <div class="product__label"><span class="sale">СКИДКА 50%</span><span class="best">БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
                     <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
@@ -650,7 +653,7 @@
                   </div>
                 </div>
                 <div class="product">
-                  <div class="product__label best"><span>БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
+                  <div class="product__label"><span class="best">БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
                     <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
@@ -668,7 +671,7 @@
                   </div>
                 </div>
                 <div class="product">
-                  <div class="product__label sale"><span>СКИДКА 50%</span></div><a class="product__slider" href="#">
+                  <div class="product__label"><span class="sale">СКИДКА 50%</span><span class="best">БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
                     <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
@@ -686,7 +689,7 @@
                   </div>
                 </div>
                 <div class="product">
-                  <div class="product__label best"><span>БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
+                  <div class="product__label"><span class="best">БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
                     <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
@@ -704,7 +707,7 @@
                   </div>
                 </div>
                 <div class="product">
-                  <div class="product__label sale"><span>СКИДКА 50%</span></div><a class="product__slider" href="#">
+                  <div class="product__label"><span class="sale">СКИДКА 50%</span><span class="best">БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
                     <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
@@ -722,7 +725,7 @@
                   </div>
                 </div>
                 <div class="product">
-                  <div class="product__label best"><span>БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
+                  <div class="product__label"><span class="best">БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
                     <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
@@ -740,7 +743,7 @@
                   </div>
                 </div>
                 <div class="product">
-                  <div class="product__label sale"><span>СКИДКА 50%</span></div><a class="product__slider" href="#">
+                  <div class="product__label"><span class="sale">СКИДКА 50%</span><span class="best">БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
                     <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
@@ -758,7 +761,7 @@
                   </div>
                 </div>
                 <div class="product">
-                  <div class="product__label best"><span>БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
+                  <div class="product__label"><span class="best">БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
                     <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
@@ -776,7 +779,7 @@
                   </div>
                 </div>
                 <div class="product">
-                  <div class="product__label sale"><span>СКИДКА 50%</span></div><a class="product__slider" href="#">
+                  <div class="product__label"><span class="sale">СКИДКА 50%</span><span class="best">БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
                     <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
@@ -794,7 +797,7 @@
                   </div>
                 </div>
                 <div class="product">
-                  <div class="product__label best"><span>БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
+                  <div class="product__label"><span class="best">БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
                     <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
@@ -812,7 +815,7 @@
                   </div>
                 </div>
                 <div class="product">
-                  <div class="product__label sale"><span>СКИДКА 50%</span></div><a class="product__slider" href="#">
+                  <div class="product__label"><span class="sale">СКИДКА 50%</span><span class="best">БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
                     <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
@@ -830,7 +833,7 @@
                   </div>
                 </div>
                 <div class="product">
-                  <div class="product__label best"><span>БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
+                  <div class="product__label"><span class="best">БЕСТСЕЛЛЕР</span></div><a class="product__slider" href="#">
                     <div class="product__slider-item active"><img src="img/image-1.jpg" srcset="img/image-1@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-2.jpg" srcset="img/image-2@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
                     <div class="product__slider-item"><img src="img/image-3.jpg" srcset="img/image-3@2x.jpg 2x" alt="IMG" loading="lazy"/></div>
@@ -899,6 +902,202 @@
           <div class="container"><span>© 2020, ООО «Русская Платиновая Компания». Все права защищены.</span><a href="rusodot.ru">Дизайн и разработка — RUSO</a></div>
         </div>
       </footer>
+      <div class="remodal remodal-rel js-modal" data-remodal-id="reglogin">
+        <button class="remodal-close" data-remodal-action="close"></button>
+        <div class="cmodal">
+          <div class="cmodal-item cmodal-rel-reglogin cmodal-reglogin active">
+            <div class="cmodal-tab__wrap">
+              <div class="cmodal-tab__btn js-tabmodal-btn active" data-modal=".cmodal-login"><span>Вход</span></div>
+              <div class="cmodal-tab__btn js-tabmodal-btn" data-modal=".cmodal-reg"><span>Регистрация</span></div>
+            </div>
+            <!--Modal Login-->
+            <div class="cmodal-item js-tabmodal-content cmodal-rel-login cmodal-login active">
+              <form class="js-form-validator">
+                <h2>Вход</h2>
+                <div class="cmodal-social"><span>Через соц-сети:</span>
+                  <div class="social">
+                    <ul>
+                      <li><a href="#vk">
+                          <svg class="icon">
+                            <use xlink:href="ico/sprite.svg#vk"></use>
+                          </svg></a></li>
+                      <li><a href="#fb">
+                          <svg class="icon">
+                            <use xlink:href="ico/sprite.svg#fb"></use>
+                          </svg></a></li>
+                      <li><a href="#in">
+                          <svg class="icon">
+                            <use xlink:href="ico/sprite.svg#in"></use>
+                          </svg></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="input-block">
+                  <input class="js__input-notempty" type="email" name="email" required="required" data-bouncer-target=".errmsg-login-email"/><span>Email</span><em class="errmsg errmsg-login-email">Заполните данное поле</em>
+                </div>
+                <div class="input-block">
+                  <input class="js__input-notempty js-no-pass-check" type="password" minlength="8" name="password" required="required" data-bouncer-target=".errmsg-login-password"/><span>Пароль</span><em class="errmsg errmsg-login-password">Заполните данное поле</em>
+                </div>
+                <button class="btn-yellow cmodal-submit" type="submit" name="submit"><span>ВОЙТИ НА САЙТ</span></button>
+                <div class="btn-forgot"><a href="#Забыли-пароль?"><span>Забыли пароль?</span></a></div>
+              </form>
+            </div>
+            <!--Modal Reg-->
+            <div class="cmodal-item js-tabmodal-content cmodal-rel-reg cmodal-reg">
+              <form class="js-form-validator" data-submit="modalRegSubmit">
+                <h2>Регистрация</h2>
+                <div class="cmodal-social"><span>Через соц-сети:</span>
+                  <div class="social">
+                    <ul>
+                      <li><a href="#vk">
+                          <svg class="icon">
+                            <use xlink:href="ico/sprite.svg#vk"></use>
+                          </svg></a></li>
+                      <li><a href="#fb">
+                          <svg class="icon">
+                            <use xlink:href="ico/sprite.svg#fb"></use>
+                          </svg></a></li>
+                      <li><a href="#in">
+                          <svg class="icon">
+                            <use xlink:href="ico/sprite.svg#in"></use>
+                          </svg></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="input-block">
+                  <input class="js__input-notempty" type="text" name="name" required="required" data-bouncer-target=".errmsg-modal-reg-name"/><span>Имя</span><em class="errmsg errmsg-modal-reg-name">Заполните данное поле</em>
+                </div>
+                <div class="input-block">
+                  <input class="js__input-notempty" type="text" name="name" required="required" data-bouncer-target=".errmsg-modal-reg-name"/><span>Фамилия</span><em class="errmsg errmsg-modal-reg-name">Заполните данное поле</em>
+                </div>
+                <div class="input-block">
+                  <input class="js__input-notempty" type="email" name="email" required="required" data-bouncer-target=".errmsg-modal-reg-email"/><span>Email</span><em class="errmsg errmsg-modal-reg-email">Заполните данное поле</em>
+                </div>
+                <div class="input-block">
+                  <input class="js__input-notempty" id="input-reg-pass" type="password" minlength="8" name="password" required="required" data-bouncer-target=".errmsg-modal-reg-password"/><span>Пароль</span><em class="errmsg errmsg-modal-reg-password">Заполните данное поле</em>
+                </div>
+                <div class="input-block">
+                  <input class="js__input-notempty" type="password" minlength="8" name="repeat-pass" required="required" data-bouncer-match="#input-reg-pass" data-bouncer-target=".errmsg-modal-reg-repassword"/><span>Повторите пароль</span><em class="errmsg errmsg-modal-reg-repassword">Заполните данное поле</em>
+                </div>
+                <button class="btn-yellow cmodal-submit" type="submit" name="submit"><span>ЗАРЕГИСТРИРОВАТЬСЯ</span></button>
+                <p>Нажимая на кнопку «Зарегистрироваться», вы даете согласие на обработку личных данных в соответствии c политикой конфиденциальности,</p>
+              </form>
+            </div>
+          </div>
+          <!--Modal Phone-->
+          <div class="cmodal-item cmodal-phone cmodal-rel-phone">
+            <form class="js-form-validator" data-submit="modalPhoneSubmit">
+              <h2>Телефон</h2>
+              <div class="input-block">
+                <input class="js__input-notempty js-phone-mask" type="phone" name="phone" required="required" data-bouncer-target=".errmsg-modal-phone-phone"/><span>Телефон</span><em class="errmsg errmsg-modal-phone-phone">Заполните данное поле</em>
+              </div>
+              <button class="btn-yellow cmodal-submit" type="submit" name="submit"><span>Получить код</span></button>
+            </form>
+          </div>
+          <!--Modal Phone Number-->
+          <div class="cmodal-item cmodal-phonenum cmodal-middle cmodal-rel-phonenum">
+            <form class="js-form-validator" data-submit="modalPhoneNumSubmit">
+              <div class="cmodal-head">
+                <h2>Подтверждение телефона</h2><span>Введите код высланный по указанному телефону</span>
+              </div>
+              <div class="number-block js-phone-code"></div>
+              <div class="cmodal-footer">
+                <button class="btn-yellow cmodal-submit" type="submit" name="submit"><span>ПОДТВЕРДИТЬ</span></button><span class="text-repeat">Отправить повторно можно через<span>90</span>секунд</span><a class="link-resend" href="#resend">Не приходит СМС</a>
+              </div>
+            </form>
+          </div>
+          <!--Modal Success-->
+          <div class="cmodal-item cmodal-success cmodal-max cmodal-rel-success">
+            <svg class="icon">
+              <use xlink:href="ico/sprite.svg#check"></use>
+            </svg>
+            <h2>Спасибо, ваша заявка была успешно отправлена</h2><span>В течении 24 часов мы свяжемся с вами</span>
+            <button class="btn-yellow" type="button" data-remodal-action="close"><span>ВЕРНУТЬСЯ</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="remodal remodal-rep js-modal" data-remodal-id="repass">
+        <button class="remodal-close" data-remodal-action="close"></button>
+        <div class="cmodal cmodal-rep">
+          <!--Modal Phone-->
+          <div class="cmodal-item cmodal-middle cmodal-rep-phone cmodal-phone active">
+            <form class="js-form-validator" data-submit="modalRepPhoneSubmit">
+              <div class="cmodal-head">
+                <h2>Восстановление пароля</h2><span>Введите номер телефона и мы вышлем вам код подтверждения</span>
+              </div>
+              <div class="input-block">
+                <input class="js__input-notempty js-phone-mask" type="phone" name="phone" required="required" data-bouncer-target=".errmsg-modal-rep-phone"/><span>Телефон</span><em class="errmsg errmsg-modal-rep-phone">Заполните данное поле</em>
+              </div>
+              <button class="btn-yellow cmodal-submit" type="submit" name="submit"><span>Получить код</span></button>
+            </form>
+          </div>
+          <!--Modal Phone Number-->
+          <div class="cmodal-item cmodal-rep-phonenum cmodal-phonenum cmodal-middle">
+            <form class="js-form-validator" data-submit="modalRepPhoneNumSubmit">
+              <div class="cmodal-head">
+                <h2>Подтверждение телефона</h2><span>Введите код высланный по указанному телефону</span>
+              </div>
+              <div class="number-block js-phone-code"></div>
+              <div class="cmodal-footer">
+                <button class="btn-yellow cmodal-submit" type="submit" name="submit"><span>ПОДТВЕРДИТЬ</span></button><span class="text-repeat">Отправить повторно можно через<span>90</span>секунд</span><a class="link-resend" href="#resend">Не приходит СМС</a>
+              </div>
+            </form>
+          </div>
+          <!--Modal Reg-->
+          <div class="cmodal-item cmodal-rep-pass cmodal-reg">
+            <form class="js-form-validator" data-submit="modalRepPassSubmit">
+              <h2>Новый пароль</h2>
+              <div class="input-block">
+                <input class="js__input-notempty" id="input-rep-pass" type="password" minlength="8" name="password" required="required" data-bouncer-target=".errmsg-modal-rep-password"/><span>Придумайте новый пароль</span><em class="errmsg errmsg-modal-rep-password">Заполните данное поле</em>
+              </div>
+              <div class="input-block">
+                <input class="js__input-notempty" type="password" minlength="8" name="repeat-pass" required="required" data-bouncer-match="#input-rep-pass" data-bouncer-target=".errmsg-modal-rep-repassword"/><span>Повторите пароль</span><em class="errmsg errmsg-modal-rep-repassword">Заполните данное поле</em>
+              </div>
+              <button class="btn-yellow cmodal-submit" type="submit" name="submit"><span>ИЗМЕНИТЬ ПАРОЛЬ</span></button>
+            </form>
+          </div>
+          <!--Modal Success-->
+          <div class="cmodal-item cmodal-success cmodal-max cmodal-rep-success">
+            <svg class="icon">
+              <use xlink:href="ico/sprite.svg#check"></use>
+            </svg>
+            <h2>Спасибо, ваша заявка была успешно отправлена</h2><span>В течении 24 часов мы свяжемся с вами</span>
+            <button class="btn-yellow" type="button" data-remodal-action="close"><span>ВЕРНУТЬСЯ</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="remodal remodal-success js-modal" data-remodal-id="success">
+        <button class="remodal-close" data-remodal-action="close"></button>
+        <div class="cmodal cmodal-single">
+          <!--Modal Success-->
+          <div class="cmodal-item cmodal-success cmodal-max active">
+            <svg class="icon">
+              <use xlink:href="ico/sprite.svg#check"></use>
+            </svg>
+            <h2>Спасибо, ваша заявка была успешно отправлена</h2><span>В течении 24 часов мы свяжемся с вами</span>
+            <button class="btn-yellow" type="button" data-remodal-action="close"><span>ВЕРНУТЬСЯ</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="remodal remodal-request js-modal" data-remodal-id="request">
+        <button class="remodal-close" data-remodal-action="close"></button>
+        <div class="cmodal cmodal-single">
+          <!--Modal Success-->
+          <div class="cmodal-item cmodal-middle active">
+            <form class="js-form-validator">
+              <h2>Оставить заявку</h2>
+              <div class="input-block">
+                <input class="js__input-notempty" type="text" name="name" required="required" data-bouncer-target=".errmsg-request-name"/><span>Email</span><em class="errmsg errmsg-request-name">Заполните данное поле</em>
+              </div>
+              <div class="input-block">
+                <input class="js__input-notempty js-phone-mask" type="phone" name="phone" required="required" data-bouncer-target=".errmsg-modal-request-phone"/><span>Телефон</span><em class="errmsg errmsg-modal-request-phone">Заполните данное поле</em>
+              </div>
+              <button class="btn-yellow cmodal-submit" type="submit" name="submit"><span>ВОЙТИ НА САЙТ</span></button>
+              <p>Нажимая на кнопку «Отправить», вы даете согласие на обработку личных данных в соответствии c политикой конфиденциальности,</p>
+            </form>
+          </div>
+        </div>
+      </div>
       <script src="js/include/jquery-3.5.1.min.js"></script>
       <script src="js/include/remodal.min.js"></script>
       <script src="js/include/nouislider.min.js"></script>

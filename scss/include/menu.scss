@@ -102,8 +102,10 @@
       height: 32px;
       
       @media(max-width: 1180px) {
-        width: 130px;
-        height: 25px;
+        //width: 130px;
+        //height: 25px;
+        width: 110px;
+        height: 22px;
       }
       
       @media(max-width: 800px) and (min-width: 769px) {
@@ -192,7 +194,7 @@
       display: flex;
       list-style: none;
       position: relative;
-      top: -3px;
+      top: -1px;
       
       @media(max-width: 992px) {
         top: -1px;
@@ -200,7 +202,7 @@
     }
     
     li {
-      margin-right: 44px;
+      margin-right: 25px;
       
       @media(max-width: 1280px) {
         margin-right: 20px;
@@ -271,6 +273,10 @@
     
         &.no-hover {
           color: #A5A5A5;
+        }
+  
+        @media(max-width: 1280px) {
+          font-size: 12px;
         }
     
         @media(max-width: 860px) {
@@ -447,6 +453,10 @@
     
     .btn {
       margin-left: 27px;
+  
+      @media(max-width: 1280px) {
+        margin-left: 15px;
+      }
       
       @media(max-width: 992px) {
         margin-left: 15px;
@@ -565,9 +575,10 @@
         font-style: normal;
         font-weight: normal;
         font-size: 20px;
-        line-height: 0px;
+        line-height: 1;
         color: #292929;
         outline: none;
+  
         
         &::placeholder {
           color: #D8D8D8;
@@ -713,8 +724,12 @@
   
     padding-right: 60px;
   
+  
+    padding-bottom: 5px;
+  
     &::placeholder {
       color: #D8D8D8;
+      font-weight: normal;
     }
   
     @media(max-width: 992px) {

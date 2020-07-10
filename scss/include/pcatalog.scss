@@ -25,6 +25,7 @@
   
   &__head {
     margin-bottom: 25px;
+    margin-top: 25px;
   
     @media(max-width: 992px) {
       display: flex;
@@ -32,8 +33,10 @@
       align-items: flex-end;
       width: 100%;
   
-      margin-top: 16px;
+      margin-top: 15px;
     }
+    
+    
     
     h1 {
       margin-top: 0;
@@ -53,6 +56,10 @@
       @media(max-width: 992px) {
         font-size: 13px;
         position: relative;
+        top: -9px;
+      }
+  
+      @media(max-width: 768px) {
         top: -4px;
       }
     }
@@ -300,7 +307,7 @@
           position: fixed;
           left: 0;
           bottom: 0;
-          z-index: 10;
+          z-index: 99;
           margin-top: 0;
           background: #FFFFFF;
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
@@ -375,10 +382,21 @@
         font-size: 30px;
         line-height: 1;
         color: #1F1F1F;
+  
+        display: flex;
+        align-items: center;
         
         @media(max-width: 992px) {
           position: relative;
           top: -4px;
+        }
+        
+        svg {
+          width: 20px;
+          height: 20px;
+          margin-right: 10px;
+          position: relative;
+          top: -1px;
         }
       }
       
@@ -763,6 +781,9 @@
       }
       
       & .custom-select__reset {
+        position: relative;
+        top: -2px;
+        
         svg {
           display: none;
         }
@@ -889,6 +910,7 @@
         letter-spacing: 0.1em;
         color: #1F1F1F;
         text-transform: uppercase;
+        cursor: default;
       }
       
       button {
@@ -903,6 +925,7 @@
         background: transparent;
         display: block;
         outline: none;
+        transition: .2s;
 
 
         background: url("../ico/close.svg") center center no-repeat;
@@ -920,6 +943,7 @@
         }
         
         &:hover {
+          transform: scale(1.5);
           svg {
             fill: #1F1F1F;
           }
@@ -971,7 +995,7 @@
   }
   
   &__sort {
-    @media(max-width: 1080px) {
+    @media(max-width: 992px) {
       width: 100%;
     }
   
@@ -981,7 +1005,8 @@
     
     @media(max-width: 992px) {
       display: flex;
-      width: 335px;
+      //width: 335px;
+      width: 100%;
       
       .filter-open {
         width: 50%;
@@ -1045,15 +1070,18 @@
           
           span {
             margin: 0;
-            padding: 0 25px 0 0;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            opacity: 1;
+            padding: 5px 30px 5px 0;
           }
           
           &:after {
             right: 10px;
             left: initial;
+            margin-top: 1px;
+            filter: none;
           }
         }
         

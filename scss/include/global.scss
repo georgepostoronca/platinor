@@ -156,6 +156,19 @@ a {
   &-submenu {
     position: relative;
     
+    span {
+      max-width: 150px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      line-height: 1;
+      
+      svg {
+        flex: 1 0 auto;
+      }
+    }
+    
     &:hover {
       .btn-submenu__list {
         transform: translateY(0);
@@ -948,6 +961,11 @@ a {
       
       top: 14px;
       left: 14px;
+  
+      @media(max-width: 370px) {
+        top: 10px;
+        left: 10px;
+      }
       
       span {
         font-size: 11px;
@@ -1008,24 +1026,30 @@ a {
   }
   
   &__label {
-    min-width: 125px;
-    height: 35px;
-    background: #C7B386;
-    border-radius: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    
     
     position: absolute;
     top: 18px;
     left: 18px;
     z-index: 5;
     //transition: .2s;
+  
+    @media(max-width: 370px) {
+      top: 10px;
+      left: 10px;
+    }
     
     span {
+      min-width: 125px;
+      height: 35px;
+      border-radius: 5px;
+      padding-left: 5px;
+      padding-right: 5px;
+  
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
       font-style: normal;
       font-weight: 500;
       font-size: 13px;
@@ -1034,14 +1058,22 @@ a {
       color: #FFFFFF;
       position: relative;
       top: -1px;
+      margin-bottom: 10px;
       //transition: .2s;
+      
+      @media(max-width: 370px) {
+        font-size: 12px;
+        height: 30px;
+        min-width: inherit;
+        margin-bottom: 5px;
+      }
     }
     
-    &.sale {
+    & .sale {
       background: #C7B386;
     }
     
-    &.best {
+    & .best {
       background: #1F1F1F;
     }
   }
@@ -1500,8 +1532,12 @@ a {
     text-transform: uppercase;
     transition: .2s;
   
+    top: -2px;
+    position: relative;
+  
     @media(max-width: 768px) {
       font-size: 11px;
+      top: -1px;
     }
   }
 }
@@ -1624,6 +1660,15 @@ a {
         transition: background-color 5000s ease-in-out 0s;
         -webkit-text-fill-color: rgba(255,255,255,0.5);
       }
+  
+      &.error {
+        color: #D26C6C;
+        border-color: #D26C6C;
+    
+        & + span {
+          color: #D26C6C;
+        }
+      }
     }
     
     span {
@@ -1655,7 +1700,7 @@ a {
     &.focus {
       & + span {
         font-size: 13px;
-        transform: translateY(-28px);
+        transform: translateY(-30px);
         color: #828282;
       }
     }
@@ -1863,6 +1908,15 @@ a {
     textarea {
       color: rgba(255, 255, 255, 0.5);
       border-color: rgba(255, 255, 255, 0.5);
+  
+      &.error {
+        color: #D26C6C;
+        border-color: #D26C6C;
+    
+        & + span {
+          color: #D26C6C;
+        }
+      }
     }
     
     span {
@@ -1896,17 +1950,21 @@ a {
       }
     }
     
-    &:focus {
-      &:not(.notempty) + span {
-        font-size: 13px;
-        transform: translateY(-28px);
-        color: #828282;
-      }
+    //&.focus {
+    //  &:not(.notempty) + span {
+    //    font-size: 13px;
+    //    transform: translateY(-28px);
+    //    color: #828282;
+    //  }
+    //}
+  
+    &.focus {
+      height: 60px;
     }
-    
-    &.notempty + span {
+  
+    &.focus + span {
       font-size: 13px;
-      transform: translateY(-28px);
+      transform: translateY(-30px);
       color: #828282;
     }
     
@@ -1932,9 +1990,10 @@ a {
     color: #1F1F1F;
     
     position: absolute;
-    top: 50%;
-    left: 2px;
-    transform: translateY(-50%);
+    //top: 50%;
+    top: 12px;
+    left: -1px;
+    //transform: translateY(-50%);
     transition: .2s;
     pointer-events: none;
   
@@ -2355,7 +2414,7 @@ textarea {
   }
   
   &.right {
-    @media(min-width: 1081px) {
+    @media(min-width: 992px) {
       .custom-select__content {
         left: initial;
         right: 0;
@@ -2445,7 +2504,7 @@ textarea {
     span {
       font-style: normal;
       font-weight: normal;
-      font-size: 16px;
+      font-size: 15px;
       line-height: 1;
       color: #1F1F1F;
       margin-right: 5px;
@@ -2456,7 +2515,7 @@ textarea {
       //padding-top: 4px;
       padding-top: 8px;
       //padding-bottom: 4px;
-      padding-bottom: 8px;
+      padding-bottom: 9px;
       transition: .2s;
   
       white-space: nowrap;
@@ -3022,6 +3081,12 @@ textarea {
         font-size: 13px;
         line-height: 1;
         color: #FFFFFF;
+  
+  
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 236px;
       }
 
       input {
@@ -3090,7 +3155,7 @@ textarea {
 
 
 button, .btn--progress {
-  &.progress:not(.check) {
+  &.progress {
     display: inline-block;
     position: relative;
     pointer-events: none;
@@ -3123,7 +3188,7 @@ button, .btn--progress {
     }
   }
   
-  &.check:not(.progress) {
+  &.check {
     position: relative;
     background: #fff;
     border: 1px solid #1F1F1F;

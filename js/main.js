@@ -289,6 +289,8 @@ if (document.querySelector(".swiper-container")) {
           },
           watchSlidesVisibility: true,
           watchSlidesProgress: true,
+          preventClicks: false,
+          preventClicksPropagation: false,
           breakpoints: {
             0: {
               slidesPerView: 5,
@@ -657,14 +659,14 @@ if (inputs.length) {
   inputs = [].slice.call(inputs);
   inputs.forEach(function (el) {
     el.addEventListener("focus", function() {
-      console.log("Focus");
+      // console.log("Focus");
       this.classList.add("focus");
     });
     el.addEventListener("blur", function (item) {
       let $this = this;
       setTimeout(function() {
         if(!$this.value) $this.classList.remove("focus")
-        console.log("blur")
+        // console.log("blur")
       }, 100)
     })
   });
@@ -1072,7 +1074,15 @@ $(document).on('closing', '.js-modal', function (e) {
   }
 });
 
+
 $(document).on('opened', '.js-modal', function (e) {
+  
+  let form = this.querySelector("form");
+  if(form) {
+    let firstInput = form.querySelectorAll("input")[0];
+    firstInput.focus();
+  }
+  
   let tmp = document.createElement("div");
   tmp.dataset.dataRemodalAction = "close";
   tmp.classList.add("remodal-close");
@@ -1110,6 +1120,10 @@ productTab = function () {
           $(this).removeClass("active");
           $(this).find("span").text(open)
         } else {
+          let body = $("html, body");
+          body.stop().animate({
+            scrollTop: $(".bproduct-tab").offset().top - $(".menu").height() - 20},
+            500, 'swing');
           parent.addClass("max");
           $(this).addClass("active");
           $(this).find("span").text(close)
@@ -1175,7 +1189,7 @@ productTab();
     input.addEventListener('keydown', function (e) {
 
       var values = wrap.noUiSlider.get();
-      var value = Number(values[handle]);
+      var value = Number(values[handle]) + "₽";
 
       // [[handle0_down, handle0_up], [handle1_down, handle1_up]]
       var steps = wrap.noUiSlider.steps();
@@ -1693,9 +1707,17 @@ $(document).on("change", ".js__edit-input-file", function () {
   var parent = $(this).closest(".item");
   var nameFile = $(this).val().match(/[a-zA-Z0-9а-яА-Я\w\s\-\_\.]+\.([A-Za-z]+)$/gmi);
   parent.find("span").text(nameFile);
-})
+});
 
 $(document).on('click', '.ctrFiles .item .cls', function (e) {
   $(this).closest('.item').remove();
 });
 
+$(document).on('focus', 'input[type="phone"]', function (e) {
+  if(!e.currentTarget.value) {
+    setTimeout(function() {
+      console.log("Start")
+      e.currentTarget.setSelectionRange(0,0);
+    }, 200);
+  }
+});

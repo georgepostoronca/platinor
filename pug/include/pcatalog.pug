@@ -40,7 +40,9 @@ section.pcatalog
         form.filter(data-submit="filterSubmit")
           .filter__select.js-filter
             .pcatalog__filter-head
-              span Фильтры
+              span
+                +svg("filter")
+                span Фильтры
 
               button(type="button").js-close-filter
                 +svg("close")
@@ -64,7 +66,7 @@ section.pcatalog
                 .custom-select__content-wrap
                   //Input
                   .custom-select__input
-                    input.js-cselect-input(type="radio" name="metal" checked data-value="Платина" value="Платина" id="input-filter-metal-1")
+                    input.js-cselect-input(type="radio" name="metal" data-value="Платина" value="Платина" id="input-filter-metal-1")
                     label(for="input-filter-metal-1")
                       span Платина
                   //Input
@@ -94,7 +96,7 @@ section.pcatalog
 
               //Head
               .custom-select__head.js-cselect-head
-                span.js-cselect-selected 0 - 250₽
+                span.js-cselect-selected 10₽ - 20000₽
 
                 //Reset
                 .custom-select__reset.js-cselect-reset
@@ -147,12 +149,12 @@ section.pcatalog
                       span Колье
                   //Input
                   .custom-select__input
-                    input.js-cselect-input(type="checkbox" name="tipizdelia" checked data-value="Кольца" value="tipizdelia" id="input-filter-kolita-2")
+                    input.js-cselect-input(type="checkbox" name="tipizdelia" data-value="Кольца" value="tipizdelia" id="input-filter-kolita-2")
                     label(for="input-filter-kolita-2")
                       span Кольца
                   //Input
                   .custom-select__input
-                    input.js-cselect-input(type="checkbox" name="tipizdelia" checked data-value="Подвески" value="tipizdelia" id="input-filter-podveski-2")
+                    input.js-cselect-input(type="checkbox" name="tipizdelia" data-value="Подвески" value="tipizdelia" id="input-filter-podveski-2")
                     label(for="input-filter-podveski-2")
                       span Подвески
                   //Input
@@ -162,7 +164,7 @@ section.pcatalog
                       span Помолвка
                   //Input
                   .custom-select__input
-                    input.js-cselect-input(type="checkbox" name="tipizdelia" checked data-value="Серьги" value="tipizdelia" id="input-filter-sergi-2")
+                    input.js-cselect-input(type="checkbox" name="tipizdelia" data-value="Серьги" value="tipizdelia" id="input-filter-sergi-2")
                     label(for="input-filter-sergi-2")
                       span Серьги
                   //Input
@@ -225,43 +227,43 @@ section.pcatalog
                 .custom-select__content-wrap.dropdown
                   .custom-select__dropdown.js-cselect-dropdown
                     .custom-select__dropdown-head
-                      label
-                        input(type="checkbox").js-notindexed
-                        span
+                      //label
+                      //  input(type="checkbox").js-notindexed
+                      //  span
                       span Цвет ремешка
                       +svg("arrow-left")
 
                     .custom-select__dropdown-content
                       //Input
                       .custom-select__input.color
-                        input.js-cselect-input(type="checkbox" checked name="color" data-value="Зеленый" value="green" id="input-filter-color-1")
+                        input.js-cselect-input(type="checkbox" name="color" data-value="Зеленый" value="green" id="input-filter-color-1")
                         label(for="input-filter-color-1")
                           span Зеленый
                           em(style="background: #54A62C;")
                       //Input
                       .custom-select__input.color
-                        input.js-cselect-input(type="checkbox" checked name="color" data-value="Красный" value="red" id="input-filter-color-2")
+                        input.js-cselect-input(type="checkbox" name="color" data-value="Красный" value="red" id="input-filter-color-2")
                         label(for="input-filter-color-2")
                           span Красный
                           em(style="background: #CB3229")
                       //Input
                       .custom-select__input.color
-                        input.js-cselect-input(type="checkbox" checked name="color" data-value="Желтый" value="yellow" id="input-filter-color-3")
+                        input.js-cselect-input(type="checkbox" name="color" data-value="Желтый" value="yellow" id="input-filter-color-3")
                         label(for="input-filter-color-3")
                           span Желтый
                           em(style="background: #E2C422;")
                       //Input
                       .custom-select__input.color
-                        input.js-cselect-input(type="checkbox" checked name="color" data-value="Оранжевый" value="orange" id="input-filter-color-4")
+                        input.js-cselect-input(type="checkbox" name="color" data-value="Оранжевый" value="orange" id="input-filter-color-4")
                         label(for="input-filter-color-4")
                           span Оранжевый
                           em(style="background: #DA7B24;")
 
                   .custom-select__dropdown.js-cselect-dropdown
                     .custom-select__dropdown-head
-                      label
-                        input(type="checkbox").js-notindexed
-                        span
+                      //label
+                      //  input(type="checkbox").js-notindexed
+                      //  span
                       span Проба
                       +svg("arrow-left")
 
@@ -289,9 +291,9 @@ section.pcatalog
 
                   .custom-select__dropdown.js-cselect-dropdown
                     .custom-select__dropdown-head
-                      label
-                        input(type="checkbox").js-notindexed
-                        span
+                      //label
+                      //  input(type="checkbox").js-notindexed
+                      //  span
                       span Есть в наличии
                       +svg("arrow-left")
 
@@ -397,8 +399,9 @@ section.pcatalog
       .pcatalog__grid.js-changegrid
         each val in [1,2,3,4,5,6,7,8,9]
           .product
-            .product__label.sale
-              span СКИДКА 50%
+            .product__label
+              span.sale СКИДКА 50%
+              span.best БЕСТСЕЛЛЕР
             a(href="#").product__slider
               .product__slider-item.active
                 img(src="img/image-1.jpg", srcset="img/image-1@2x.jpg 2x", alt="IMG", loading="lazy")
@@ -419,8 +422,8 @@ section.pcatalog
                 +svg("check","check")
 
           .product
-            .product__label.best
-              span БЕСТСЕЛЛЕР
+            .product__label
+              span.best БЕСТСЕЛЛЕР
             a(href="#").product__slider
               .product__slider-item.active
                 img(src="img/image-1.jpg", srcset="img/image-1@2x.jpg 2x", alt="IMG", loading="lazy")
