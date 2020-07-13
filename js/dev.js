@@ -1427,6 +1427,9 @@ customselect.forEach(function (item) {
     setTimeout(function () {
       renderSelectedItem();
     }, 100);
+  
+    let submitData = this.closest("form").dataset.submit;
+    window[submitData](this.closest("form"));
   });
 
   // if (!item.querySelector(".js-cselect-dropdown")) {
@@ -1454,6 +1457,9 @@ customselect.forEach(function (item) {
           selected.innerText = "Не выбрано";
         }
       });
+  
+      let submitData = this.closest("form").dataset.submit;
+      window[submitData](this.closest("form"));
     })
   });
 });
