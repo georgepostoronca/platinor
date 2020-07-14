@@ -10,6 +10,7 @@
     .container {
       padding-top: 1px;
     }
+    
     &__text {
       width: 665px;
       margin-left: auto;
@@ -36,7 +37,7 @@
         }
         
         @media(max-width: 768px) {
-          font-size: 16px;
+          font-size: 15px;
           line-height: 27px;
           margin-bottom: 11px;
         }
@@ -196,7 +197,7 @@
       color: #1F1F1F;
       
       @media(max-width: 768px) {
-        font-size: 16px;
+        font-size: 15px;
         line-height: 27px;
       }
     }
@@ -242,8 +243,8 @@
       margin-bottom: 29px;
       
       @media(max-width: 768px) {
-        font-size: 13px;
-        line-height: 24px;
+        font-size: 15px;
+        line-height: 27px;
         margin-bottom: 17px;
       }
     }

@@ -136,6 +136,8 @@ if (document.querySelector(".swiper-container")) {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         },
+        preventClicks: false,
+        preventClicksPropagation: false,
         on: {
           init: function () {
             setTimeout(function () {
@@ -602,6 +604,19 @@ oepnClose({
       // onClickClose(searchBlock, function () {
       //   searchBlock.classList.remove("active");
       // });
+  
+      el.classList.toggle("active");
+        
+      jQuery(function ($) {
+        $(document).mouseup(function (e) { // событие клика по веб-документу
+          var div = $(searchBlock); // тут указываем ID элемента
+          if (!div.is(e.target) // если клик был не по нашему блоку
+            && div.has(e.target).length === 0) { // и не по его дочерним элементам
+            searchBlock.classList.remove("active");
+            el.classList.remove("active");
+          }
+        });
+      });
     }, 100);
   }
 });
@@ -610,7 +625,10 @@ oepnClose({
 oepnClose({
   btn: document.querySelector(".js__close-search"),
   el: searchBlock,
-  type: "close"
+  type: "close",
+  callback: function () {
+    document.querySelector(".js__open-search").classList.remove("active");
+  }
 });
 
 
@@ -660,13 +678,26 @@ if (inputs.length) {
   inputs.forEach(function (el) {
     el.addEventListener("focus", function() {
       // console.log("Focus");
-      this.classList.add("focus");
+      let $this = this;
+      setTimeout(function() {
+        $this.classList.add("focus");
+      });
+  
+      if(el === document.activeElement) {
+        setTimeout(function() {
+          $this.classList.add("focus");
+        }, 200);
+      }
     });
     el.addEventListener("blur", function (item) {
       let $this = this;
       setTimeout(function() {
         if(!$this.value) $this.classList.remove("focus")
         // console.log("blur")
+        
+        if(!$this.value) {
+          $this.classList.add("error")
+        }
       }, 100)
     })
   });
@@ -781,13 +812,13 @@ function check(pass, input) {
     }
 
     //a,s,d,f
-    var small = "([a-zа-я]+)";
+    var small = "([a-zа-яё]+)";
     if (pass.match(small)) {
       protect++;
     }
 
     //A,B,C,D
-    var big = "([A-ZА-Я]+)";
+    var big = "([A-ZА-ЯЁ]+)";
     if (pass.match(big)) {
       protect++;
     }
@@ -802,6 +833,12 @@ function check(pass, input) {
     if (pass.match(vv)) {
       protect++;
     }
+    
+    if (pass.length > 16) {
+      protect++;
+    }
+    
+    
 
     if (protect == 1) {
       $(input).parent().removeClass("low");
@@ -821,14 +858,21 @@ function check(pass, input) {
       return "Средний";
     }
     if (protect == 3) {
+      // $(input).parent().removeClass("low");
+      // $(input).parent().removeClass("normal");
+      // $(input).parent().removeClass("verygood");
+      // $(input).parent().addClass('good');
+      // $(input).parent().find(".pass-check span").text("Хороший")
+      // return "Хороший";
+  
       $(input).parent().removeClass("low");
       $(input).parent().removeClass("normal");
-      $(input).parent().removeClass("verygood");
-      $(input).parent().addClass('good');
-      $(input).parent().find(".pass-check span").text("Хороший")
-      return "Хороший";
+      $(input).parent().removeClass("good");
+      $(input).parent().addClass('verygood');
+      $(input).parent().find(".pass-check span").text("Высокий")
+      return "Высокий";
     }
-    if (protect == 4) {
+    if (protect >= 4) {
       $(input).parent().removeClass("low");
       $(input).parent().removeClass("normal");
       $(input).parent().removeClass("good");
@@ -853,7 +897,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         errorPrefix: 'bouncer-error_', // Prefix used for error message IDs
         patterns: {
           email: /^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$/,
-          password: /(?=.*\d)(?=.*[a-z|A-Z]).{8,}/,
+          password: /(?=.*\d)(?=.*[a-zа-яё|A-ZА-ЯЁ]).{8,}/,
         },
         customValidations: {
           valueMismatch: function (field) {
@@ -1722,8 +1766,28 @@ $(document).on('click', '.ctrFiles .item .cls', function (e) {
 $(document).on('focus', 'input[type="phone"]', function (e) {
   if(!e.currentTarget.value) {
     setTimeout(function() {
-      console.log("Start")
       e.currentTarget.setSelectionRange(0,0);
     }, 200);
   }
 });
+
+
+// FadeIn
+const fadein = document.querySelectorAll(".js-fadein");
+if(fadein.length) {
+  let fade = [].slice.call(fadein);
+  const imageObserver = new IntersectionObserver(function(entries, imgObserver) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        if(!entry.target.classList.contains("animate")) {
+          console.log(entry.target)
+          entry.target.classList.add("animate");
+        }
+      }
+    })
+  });
+  
+  fade.forEach(function(v) {
+    imageObserver.observe(v);
+  })
+}
