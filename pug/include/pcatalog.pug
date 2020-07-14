@@ -332,6 +332,25 @@ section.pcatalog
 
           //Sort
           .filter__sort
+            .ring-type
+              label(for="ring1")
+                input(type="radio" id="ring1" name="ring")
+                span
+                  +svg("ring1")
+                  em Обручальные
+
+              label(for="ring2")
+                input(type="radio" id="ring2" name="ring")
+                span
+                  +svg("ring2")
+                  em Помолвочные
+
+              label(for="ring3")
+                input(type="radio" id="ring3" name="ring")
+                span
+                  +svg("ring3")
+                  em Обычные
+
             button(type="button").filter-open.js-open-filter
               +svg("filter")
               span ФИЛЬТРЫ
@@ -369,6 +388,8 @@ section.pcatalog
                     input.js-cselect-input(type="radio" name="sort" data-value="По рейтингу" value="По рейтингу" id="filter-sort-3")
                     label(for="filter-sort-3")
                       span По рейтингу
+
+
 
           .filter-bottom
             .filter-selected
