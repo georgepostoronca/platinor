@@ -549,11 +549,16 @@ a {
     align-items: center;
     position: relative;
     transition: .5s;
-  
-    background: linear-gradient(90deg, #C7B386 0, #C7B386 50%, #1F1F1F 50%, #1F1F1F 100%) 100%;
-    background-size: 200% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    
+    
+    @media(min-width: 1024px) {
+      @supports (-webkit-text-fill-color: transparent) {
+        background: linear-gradient(90deg, #C7B386 0, #C7B386 50%, #1F1F1F 50%, #1F1F1F 100%) 100%;
+        background-size: 200% 100%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
     
     &:after {
       content: "";
@@ -2184,13 +2189,15 @@ textarea {
   .pass-check {
     display: flex;
     align-items: center;
-    margin-top: 5px;
+    margin-top: 12px;
     position: absolute;
     width: 100%;
     
     opacity: 0;
     transition: .2s;
-    
+    @media(max-width: 768px) {
+      margin-top: 5px;
+    }
     span {
       font-style: normal;
       font-weight: normal;
@@ -3522,4 +3529,9 @@ button, .btn--progress {
       }
     }
   }
+}
+
+
+div[class^="swiper-button"] {
+  outline: none;
 }

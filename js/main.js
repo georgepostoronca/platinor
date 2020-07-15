@@ -115,6 +115,12 @@ if (document.querySelector(".swiper-container")) {
   loadScript(defaultPATH + "/js/include/swiper.min.js", function () {
     // Slider
     if (document.querySelector('.js__headslid-slider')) {
+      const i = Swiper.prototype.init;
+      Swiper.prototype.init = function () {
+        this.touchEventsData.formElements = '*';
+        i.call(this);
+      };
+      
       var firstStart = false;
       var progresSlideInterval;
 

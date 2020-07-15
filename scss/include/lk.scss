@@ -651,12 +651,8 @@
     @media(max-width: 768px) {
       width: 100%;
       border-bottom: 1px solid #ECECEC;
-      
-      padding-left: 24px;
-      padding-right: 24px;
-      padding-top: 13px;
-      //padding-top: 15px;
-      padding-bottom: 15px;
+  
+      padding: 13px 24px 15px;
   
       display: flex;
       justify-content: space-between;
@@ -670,6 +666,9 @@
         fill: #C7B386;
         width: 9px;
         height: 12px;
+  
+        position: relative;
+        top: 1px;
       }
       
       span {
