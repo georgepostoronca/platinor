@@ -1512,6 +1512,13 @@ customselect.forEach(function (item) {
       window[submitData](this.closest("form"));
     })
   });
+  
+  $(".ring-type input").each(function() {
+    $(this).on("change", function() {
+      let submitData = this.form.dataset.submit;
+      window[submitData](this.form);
+    })
+  });
 });
 
 // SelectDropDown Check/Uncheck
@@ -1679,49 +1686,6 @@ $(".js-close-filter").click(function () {
 })();
 
 
-// document.querySelector(".indorder-form").addEventListener("submit", function(form) {
-//   console.log(this, form);
-//   form.preventDefault();
-//
-//   let transfer = new DataTransfer();
-//   let files = podfile.getFiles();
-//
-//   podfile.getFiles().forEach(function(el) {
-//     transfer.items.add(el.file);
-//
-//     var r = new FileReader();
-//     r.onload = function(){ alert(r.result); };
-//     let res= r.readAsBinaryString(el.file);
-//     console.log(res);
-//     [].slice.call(document.querySelectorAll(".filepond--data input")).forEach(function(item) {
-//       item.value = res
-//     })
-//   });
-//
-//   console.log(files);
-//   console.log(transfer.files);
-//
-//
-//   let data = new FormData(this);
-//   data.append("file", transfer.files)
-//
-//   // const response = fetch('https://example.com/profile/avatar', {
-//   //   method: 'PUT',
-//   //   body: data
-//   // });
-//   // const result = response.json();
-//   // console.log(result)
-//   // console.log(data)
-//
-//   var xhr = new XMLHttpRequest();
-//   xhr.open('POST', '/upload.php', true);
-//   xhr.onload = function(e) {
-//     console.log(e)
-//   };
-//   xhr.send(data);
-// });
-
-
 var arFiles = [];
 $(document).on('change', '#upload-btn', function (e) {
 
@@ -1733,7 +1697,7 @@ $(document).on('change', '#upload-btn', function (e) {
   var nameFile = value.match(/[a-zA-Z0-9а-яА-Я\w\s\-\_\.]+\.([A-Za-z]+)$/gmi);
   var formatFile = nameFile[0].split(".");
 
-  if (!formatFile[formatFile.length - 1].match(/(jpg|jpeg|png|webp)/gmi)) {
+  if (!formatFile[formatFile.length - 1].match(/(gif|png|raw|bmp|jpg|jpeg|tiff)/gmi)) {
     alert("jpg,jpeg,webp,png");
     return false;
   }
