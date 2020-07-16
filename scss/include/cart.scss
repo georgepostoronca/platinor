@@ -180,6 +180,11 @@
         flex: 0 1 auto;
       }
       
+      &.no-image {
+        background: url("../ico/no-image.svg") center center no-repeat;
+        background-size: 50% 50%;
+      }
+      
       img {
         max-width: 100%;
       }

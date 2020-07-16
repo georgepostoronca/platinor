@@ -1786,7 +1786,7 @@ if(fadein.length) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         if(!entry.target.classList.contains("animate")) {
-          console.log(entry.target)
+          // console.log(entry.target)
           entry.target.classList.add("animate");
         }
       }
