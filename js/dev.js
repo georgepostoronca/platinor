@@ -1797,3 +1797,20 @@ if(fadein.length) {
     imageObserver.observe(v);
   })
 }
+
+
+const formsIntersect = document.querySelectorAll("form");
+if(formsIntersect.length) {
+  let fade = [].slice.call(formsIntersect);
+  const imageObserver = new IntersectionObserver(function(entries, imgObserver) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll("input")[0].focus()
+      }
+    })
+  });
+  
+  fade.forEach(function(v) {
+    imageObserver.observe(v);
+  })
+}
