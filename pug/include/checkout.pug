@@ -1,0 +1,345 @@
+section.checkout
+  .container
+    .checkout__wrap
+      h1 Оформление заказа
+
+      .checkout__form
+        form.js-form-validator(data-submit="checkoutSubmit")
+          .checkout__form-item
+            .checkout__form-head
+              .half
+                div
+                  .label-check
+                    +svg("check")
+                    span Заполните данные
+                div
+                  em Вы можете войти, чтобы данные заполнились автоматически
+                  button(type="button").btn-silver
+                    span ВОЙТИ В АККАУНТ
+
+            .checkout__form-content
+              .input-block
+                input.js__input-notempty(type='text' name="text" required data-bouncer-target=".errmsg-checkout-name")
+                span Имя
+                em.errmsg.errmsg-checkout-name Заполните данное поле
+
+              .input-block
+                input.js__input-notempty(type='text' name="lastname" data-bouncer-target=".errmsg-checkout-name")
+                span Фамилия
+                em.errmsg.errmsg-checkout-name Заполните данное поле
+
+              .input-block
+                input.js__input-notempty(type='email' name="email" data-bouncer-target=".errmsg-checkout-email")
+                span Email
+                em.errmsg.errmsg-checkout-email Заполните данное поле
+
+              .input-block
+                input.js__input-notempty.js-phone-mask(type='phone' name="phone" required data-bouncer-target=".errmsg-checkout-phone")
+                span Телефон
+                em.errmsg.errmsg-checkout-phone Заполните данное поле
+
+          .checkout__form-item
+            .checkout__form-head
+              .half
+                div
+                  .label-check
+                    +svg("check")
+                    span Доставка
+                div
+                  label.pickupstore(for="id-pickupstore")
+                    input(type="checkbox", id="id-pickupstore")
+                    span Забрать заказ из магазина
+
+            .checkout__form-content
+              .checkout-map
+                //Inputs
+                .checkout-map__inputs
+                  .input-block
+                    input.js__input-notempty(type='text' name="city" required data-bouncer-target=".errmsg-checkout-city")
+                    span Город
+                    em.errmsg.errmsg-checkout-city Заполните данное поле
+
+                  .input-block
+                    input.js__input-notempty(type='text' name="street" required data-bouncer-target=".errmsg-checkout-street")
+                    span Улица
+                    em.errmsg.errmsg-checkout-street Заполните данное поле
+
+                  .input-block
+                    input.js__input-notempty(type='text' name="house" required data-bouncer-target=".errmsg-checkout-house")
+                    span Дом
+                    em.errmsg.errmsg-checkout-house Заполните данное поле
+
+                  .input-block
+                    input.js__input-notempty(type='text' name="korpus" required data-bouncer-target=".errmsg-checkout-korpus")
+                    span Корпус
+                    em.errmsg.errmsg-checkout-korpus Заполните данное поле
+
+                  .input-block
+                    input.js__input-notempty(type='text' name="podezd" required data-bouncer-target=".errmsg-checkout-podezd")
+                    span Подъезд
+                    em.errmsg.errmsg-checkout-podezd Заполните данное поле
+
+                  .input-block
+                    input.js__input-notempty(type='text' name="kvartira" required data-bouncer-target=".errmsg-checkout-kvartira")
+                    span Квартира
+                    em.errmsg.errmsg-checkout-kvartira Заполните данное поле
+
+                  .input-block
+                    input.js__input-notempty(type='text' name="etaj" required data-bouncer-target=".errmsg-checkout-etaj")
+                    span Этаж
+                    em.errmsg.errmsg-checkout-etaj Заполните данное поле
+
+
+                //Map
+                .checkout-map__map
+                  em Россия, Москва
+                  h2 Малый Конюшковский переулок дом 2
+
+                  div
+                    a(href="tel:+7(495)223-60-20") +7 (495) 223-60-20
+                    a(href="tel:+7(495)517-74-46") +7 (495) 517-74-46
+                    span Пн-Пт: 10 - 20, Сб-Вс: 11-20
+
+                  .map
+                    script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3oaj0lWo8FPlp3REB-FOl4qiMbDTup8A&callback=initMap")
+                    script.
+                      function initMap() {
+                        map = new google.maps.Map(document.getElementById('map'), {
+                          center: {lat: -34.397, lng: 150.644},
+                          zoom: 8,
+                          panControl: false,
+                          zoomControl: false,
+                          mapTypeControl: false,
+                          scaleControl: false,
+                          streetViewControl: false,
+                          overviewMapControl: false,
+                          rotateControl: false,
+                          fullscreenControl: false,
+                          style: [
+                            {
+                              "elementType": "geometry",
+                              "stylers": [
+                                {
+                                  "color": "#f5f5f5"
+                                }
+                              ]
+                            },
+                            {
+                              "elementType": "labels.icon",
+                              "stylers": [
+                                {
+                                  "visibility": "off"
+                                }
+                              ]
+                            },
+                            {
+                              "elementType": "labels.text.fill",
+                              "stylers": [
+                                {
+                                  "color": "#616161"
+                                }
+                              ]
+                            },
+                            {
+                              "elementType": "labels.text.stroke",
+                              "stylers": [
+                                {
+                                  "color": "#f5f5f5"
+                                }
+                              ]
+                            },
+                            {
+                              "featureType": "administrative.land_parcel",
+                              "elementType": "labels.text.fill",
+                              "stylers": [
+                                {
+                                  "color": "#bdbdbd"
+                                }
+                              ]
+                            },
+                            {
+                              "featureType": "poi",
+                              "elementType": "geometry",
+                              "stylers": [
+                                {
+                                  "color": "#eeeeee"
+                                }
+                              ]
+                            },
+                            {
+                              "featureType": "poi",
+                              "elementType": "labels.text.fill",
+                              "stylers": [
+                                {
+                                  "color": "#757575"
+                                }
+                              ]
+                            },
+                            {
+                              "featureType": "poi.park",
+                              "elementType": "geometry",
+                              "stylers": [
+                                {
+                                  "color": "#e5e5e5"
+                                }
+                              ]
+                            },
+                            {
+                              "featureType": "poi.park",
+                              "elementType": "labels.text.fill",
+                              "stylers": [
+                                {
+                                  "color": "#9e9e9e"
+                                }
+                              ]
+                            },
+                            {
+                              "featureType": "road",
+                              "elementType": "geometry",
+                              "stylers": [
+                                {
+                                  "color": "#ffffff"
+                                }
+                              ]
+                            },
+                            {
+                              "featureType": "road.arterial",
+                              "elementType": "labels.text.fill",
+                              "stylers": [
+                                {
+                                  "color": "#757575"
+                                }
+                              ]
+                            },
+                            {
+                              "featureType": "road.highway",
+                              "elementType": "geometry",
+                              "stylers": [
+                                {
+                                  "color": "#dadada"
+                                }
+                              ]
+                            },
+                            {
+                              "featureType": "road.highway",
+                              "elementType": "labels.text.fill",
+                              "stylers": [
+                                {
+                                  "color": "#616161"
+                                }
+                              ]
+                            },
+                            {
+                              "featureType": "road.local",
+                              "elementType": "labels.text.fill",
+                              "stylers": [
+                                {
+                                  "color": "#9e9e9e"
+                                }
+                              ]
+                            },
+                            {
+                              "featureType": "transit.line",
+                              "elementType": "geometry",
+                              "stylers": [
+                                {
+                                  "color": "#e5e5e5"
+                                }
+                              ]
+                            },
+                            {
+                              "featureType": "transit.station",
+                              "elementType": "geometry",
+                              "stylers": [
+                                {
+                                  "color": "#eeeeee"
+                                }
+                              ]
+                            },
+                            {
+                              "featureType": "water",
+                              "elementType": "geometry",
+                              "stylers": [
+                                {
+                                  "color": "#c9c9c9"
+                                }
+                              ]
+                            },
+                            {
+                              "featureType": "water",
+                              "elementType": "labels.text.fill",
+                              "stylers": [
+                                {
+                                  "color": "#9e9e9e"
+                                }
+                              ]
+                            }
+                          ]
+                        });
+                      }
+                    #map
+
+                .checkout__textarea
+                  span Комментарий к заказу
+                  .textarea-block.textarea-block--white
+                    textarea.js__input-notempty(name="message" data-bouncer-target=".errmsg--checkoutmessage")
+                    span Напишите что-нибудь
+                    em.errmsg.errmsg--checkoutmessage Заполните данное поле
+
+          .checkout__form-item
+            .checkout__form-head
+              .half
+                div
+                  .label-check
+                    +svg("check")
+                    span Оплата
+
+            .checkout__form-content
+              .payment-radio
+                  label(form="payment-radio-1").text-top
+                    input(type="radio" name="payment" id="payment-radio-1")
+                    b При получении
+                    span Оплата курьеру картой или наличными
+
+                  label(form="payment-radio-3")
+                    input(type="radio" name="payment" id="payment-radio-3")
+                    b Счет для юридических лиц
+
+                  label(form="payment-radio-4")
+                    input(type="radio" name="payment" id="payment-radio-4")
+                    b Яндекс.Касса
+
+
+
+
+
+      .checkout__result
+        .checkout__result-wrap
+          .checkout__result-head
+            span Итого
+            em 9 500₽
+
+          .checkout__result-content
+            .line
+              span Товаров на сумму
+              em 12 500₽
+            .line
+              span Скидка
+              em 2 500₽
+            .line
+              span Доставка курьером
+              em 780₽
+            .line
+              span Оплата
+              em Наличными
+
+          .checkout__result-footer
+            label.policy-check
+              input(type="checkbox" name="policy")
+              span Я даю согласие на обработку личных данных в соответствии c
+                a(href="#policy") политикой конфиденциальности
+
+            button(type="submit" name="submit").btn-black
+              span ПОДТВЕРДИТЬ ЗАКАЗ
+
+

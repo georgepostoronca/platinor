@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Platinor</title>
+    <link rel="shortcut icon" href="ico/favicon24.png" type="image/png"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <script>const defaultPATH = ".";</script>
+  </head>
+  <body>
+    <div class="blockattach" id="wrapper">
+      <nav class="navigation">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-8 col-sm-9 navigation__link">
+              <ul>
+                <li><a href="#О-САЛОНЕ">О САЛОНЕ</a></li>
+                <li><a href="#СТАТЬИ">СТАТЬИ</a></li>
+                <li><a href="#АКЦИИ">АКЦИИ</a></li>
+                <li><a href="#ЗАКАЗ">ИНДИВИДУАЛЬНЫЙ ЗАКАЗ</a></li>
+                <li><a href="#КОНТАКТЫ">КОНТАКТЫ</a></li>
+              </ul>
+            </div>
+            <div class="col-4 col-sm-3">
+              <div class="navigation__phone"><a href="tel:+7-(495)-223-60-20">+7 (495) 223-60-20</a></div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <nav class="menu">
+        <div class="container menu__wrap">
+          <div class="menu__logo"><a href="/"><img src="img/logo.svg" alt="Logo"/></a></div>
+          <div class="menu__nav">
+            <div class="menu__nav-head modalhead"><span>Меню</span>
+              <div class="js__close-menu">
+                <svg class="icon">
+                  <use xlink:href="ico/sprite.svg#close"></use>
+                </svg>
+              </div>
+            </div>
+            <ul class="menu__nav-links">
+              <li class="js__menu-hover"><a href="#Обручальные">Кольца</a></li>
+              <li class="js__menu-hover"><a href="#Помолвка">Цепи</a></li>
+              <li class="js__menu-hover"><a href="#Цепи">Браслеты</a></li>
+              <li class="js__menu-hover"><a href="#Кресты">Серьги</a></li>
+              <li class="js__menu-hover"><a href="#Кольца">Броши</a></li>
+              <li class="js__menu-hover"><a href="#Серьги">Гребни</a></li>
+              <li class="js__menu-hover"><a href="#Подвески">Зажимы для галстука</a></li>
+              <li class="js__menu-hover"><span>Другое</span>
+                <ul class="menu__nav-submenu">
+                  <li><a href="#Браслеты">Браслеты</a></li>
+                  <li><a href="#Колье">Колье</a></li>
+                  <li><a href="#Броши">Броши</a></li>
+                  <li><a href="#Кольца">Кольца</a></li>
+                </ul>
+              </li>
+            </ul>
+            <div class="menu__nav-mobile">
+              <ul>
+                <li><a href="#">О салоне</a></li>
+                <li><a href="#">Статьи</a></li>
+                <li><a href="#">Акции</a></li>
+                <li><a href="#">Индивидуальный заказ</a></li>
+                <li><a href="#">Контакты</a></li>
+                <li><a href="#">Доставка</a></li>
+                <li><a href="#">Возврат и обмен</a></li>
+                <li><a href="#">Политика конфиденциальности</a></li>
+              </ul>
+            </div>
+            <div class="menu__nav-footer"><a href="tel:+7-(495)-223-60-20">+7 (495) 223-60-20</a>
+              <div class="social">
+                <ul>
+                  <li><a href="#vk">
+                      <svg class="icon">
+                        <use xlink:href="ico/sprite.svg#vk"></use>
+                      </svg></a></li>
+                  <li><a href="#fb">
+                      <svg class="icon">
+                        <use xlink:href="ico/sprite.svg#fb"></use>
+                      </svg></a></li>
+                  <li><a href="#in">
+                      <svg class="icon">
+                        <use xlink:href="ico/sprite.svg#in"></use>
+                      </svg></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="menu__btn">
+            <div class="menu__cart">
+              <svg class="icon">
+                <use xlink:href="ico/sprite.svg#cart"></use>
+              </svg><span>1</span>
+            </div>
+            <div class="menu__search">
+              <svg class="icon js__open-search">
+                <use xlink:href="ico/sprite.svg#search"></use>
+              </svg>
+            </div>
+            <!--a(href="#user").menu__user-->
+            <!--    +svg("user")--><a class="menu__login btn" href="#login"><span>ВОЙТИ</span></a>
+            <!--button.menu__login.btn.btn-submenu-->
+            <!--  span-->
+            <!--    +svg("user")-->
+            <!--    | ЕВГЕНИЙ ЕВГЕНИЙ-->
+            <!---->
+            <!--  .btn-submenu__list-->
+            <!--    a(href="#Личные-данные") Личные данные-->
+            <!--    a(href="#История-заказов") История заказов-->
+            <!--    hr-->
+            <!--    a(href="#Выйти").exit Выйти-->
+            <div class="menu__open js__open-menu">
+              <svg class="icon">
+                <use xlink:href="ico/sprite.svg#menu"></use>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <form class="menu-search js__search-block" action="">
+          <div class="container">
+            <input type="text" placeholder="Поиск по сайту"/>
+            <div class="menu-search__close js__close-search">
+              <svg class="icon js__close-search">
+                <use xlink:href="ico/sprite.svg#close"></use>
+              </svg>
+            </div>
+          </div>
+        </form>
+      </nav>
+      <div class="blockattach__content">
+        <section class="checkout">
+          <div class="container">
+            <div class="checkout__wrap">
+              <h1>Оформление заказа</h1>
+              <div class="checkout__form">
+                <form class="js-form-validator" data-submit="checkoutSubmit">
+                  <div class="checkout__form-item">
+                    <div class="checkout__form-head">
+                      <div class="half">
+                        <div>
+                          <div class="label-check">
+                            <svg class="icon">
+                              <use xlink:href="ico/sprite.svg#check"></use>
+                            </svg><span>Заполните данные</span>
+                          </div>
+                        </div>
+                        <div><em>Вы можете войти, чтобы данные заполнились автоматически</em>
+                          <button class="btn-silver" type="button"><span>ВОЙТИ В АККАУНТ</span></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="checkout__form-content">
+                      <div class="input-block">
+                        <input class="js__input-notempty" type="text" name="text" required="required" data-bouncer-target=".errmsg-checkout-name"/><span>Имя</span><em class="errmsg errmsg-checkout-name">Заполните данное поле</em>
+                      </div>
+                      <div class="input-block">
+                        <input class="js__input-notempty" type="text" name="lastname" data-bouncer-target=".errmsg-checkout-name"/><span>Фамилия</span><em class="errmsg errmsg-checkout-name">Заполните данное поле</em>
+                      </div>
+                      <div class="input-block">
+                        <input class="js__input-notempty" type="email" name="email" data-bouncer-target=".errmsg-checkout-email"/><span>Email</span><em class="errmsg errmsg-checkout-email">Заполните данное поле</em>
+                      </div>
+                      <div class="input-block">
+                        <input class="js__input-notempty js-phone-mask" type="phone" name="phone" required="required" data-bouncer-target=".errmsg-checkout-phone"/><span>Телефон</span><em class="errmsg errmsg-checkout-phone">Заполните данное поле</em>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="checkout__form-item">
+                    <div class="checkout__form-head">
+                      <div class="half">
+                        <div>
+                          <div class="label-check">
+                            <svg class="icon">
+                              <use xlink:href="ico/sprite.svg#check"></use>
+                            </svg><span>Доставка</span>
+                          </div>
+                        </div>
+                        <div>
+                          <label class="pickupstore" for="id-pickupstore">
+                            <input type="checkbox" id="id-pickupstore"/><span>Забрать заказ из магазина</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="checkout__form-content">
+                      <div class="checkout-map">
+                        <!--Inputs-->
+                        <div class="checkout-map__inputs">
+                          <div class="input-block">
+                            <input class="js__input-notempty" type="text" name="city" required="required" data-bouncer-target=".errmsg-checkout-city"/><span>Город</span><em class="errmsg errmsg-checkout-city">Заполните данное поле</em>
+                          </div>
+                          <div class="input-block">
+                            <input class="js__input-notempty" type="text" name="street" required="required" data-bouncer-target=".errmsg-checkout-street"/><span>Улица</span><em class="errmsg errmsg-checkout-street">Заполните данное поле</em>
+                          </div>
+                          <div class="input-block">
+                            <input class="js__input-notempty" type="text" name="house" required="required" data-bouncer-target=".errmsg-checkout-house"/><span>Дом</span><em class="errmsg errmsg-checkout-house">Заполните данное поле</em>
+                          </div>
+                          <div class="input-block">
+                            <input class="js__input-notempty" type="text" name="korpus" required="required" data-bouncer-target=".errmsg-checkout-korpus"/><span>Корпус</span><em class="errmsg errmsg-checkout-korpus">Заполните данное поле</em>
+                          </div>
+                          <div class="input-block">
+                            <input class="js__input-notempty" type="text" name="podezd" required="required" data-bouncer-target=".errmsg-checkout-podezd"/><span>Подъезд</span><em class="errmsg errmsg-checkout-podezd">Заполните данное поле</em>
+                          </div>
+                          <div class="input-block">
+                            <input class="js__input-notempty" type="text" name="kvartira" required="required" data-bouncer-target=".errmsg-checkout-kvartira"/><span>Квартира</span><em class="errmsg errmsg-checkout-kvartira">Заполните данное поле</em>
+                          </div>
+                          <div class="input-block">
+                            <input class="js__input-notempty" type="text" name="etaj" required="required" data-bouncer-target=".errmsg-checkout-etaj"/><span>Этаж</span><em class="errmsg errmsg-checkout-etaj">Заполните данное поле</em>
+                          </div>
+                        </div>
+                        <!--Map-->
+                        <div class="checkout-map__map"><em>Россия, Москва</em>
+                          <h2>Малый Конюшковский переулок дом 2</h2>
+                          <div><a href="tel:+7(495)223-60-20">+7 (495) 223-60-20</a><a href="tel:+7(495)517-74-46">+7 (495) 517-74-46</a><span>Пн-Пт: 10 - 20, Сб-Вс: 11-20</span></div>
+                          <div class="map">
+                            <script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3oaj0lWo8FPlp3REB-FOl4qiMbDTup8A&amp;callback=initMap"></script>
+                            <script>
+                              function initMap() {
+                                map = new google.maps.Map(document.getElementById('map'), {
+                                  center: {lat: -34.397, lng: 150.644},
+                                  zoom: 8,
+                                  panControl: false,
+                                  zoomControl: false,
+                                  mapTypeControl: false,
+                                  scaleControl: false,
+                                  streetViewControl: false,
+                                  overviewMapControl: false,
+                                  rotateControl: false,
+                                  fullscreenControl: false,
+                                  style: [
+                                    {
+                                      "elementType": "geometry",
+                                      "stylers": [
+                                        {
+                                          "color": "#f5f5f5"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "elementType": "labels.icon",
+                                      "stylers": [
+                                        {
+                                          "visibility": "off"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "elementType": "labels.text.fill",
+                                      "stylers": [
+                                        {
+                                          "color": "#616161"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "elementType": "labels.text.stroke",
+                                      "stylers": [
+                                        {
+                                          "color": "#f5f5f5"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "featureType": "administrative.land_parcel",
+                                      "elementType": "labels.text.fill",
+                                      "stylers": [
+                                        {
+                                          "color": "#bdbdbd"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "featureType": "poi",
+                                      "elementType": "geometry",
+                                      "stylers": [
+                                        {
+                                          "color": "#eeeeee"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "featureType": "poi",
+                                      "elementType": "labels.text.fill",
+                                      "stylers": [
+                                        {
+                                          "color": "#757575"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "featureType": "poi.park",
+                                      "elementType": "geometry",
+                                      "stylers": [
+                                        {
+                                          "color": "#e5e5e5"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "featureType": "poi.park",
+                                      "elementType": "labels.text.fill",
+                                      "stylers": [
+                                        {
+                                          "color": "#9e9e9e"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "featureType": "road",
+                                      "elementType": "geometry",
+                                      "stylers": [
+                                        {
+                                          "color": "#ffffff"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "featureType": "road.arterial",
+                                      "elementType": "labels.text.fill",
+                                      "stylers": [
+                                        {
+                                          "color": "#757575"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "featureType": "road.highway",
+                                      "elementType": "geometry",
+                                      "stylers": [
+                                        {
+                                          "color": "#dadada"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "featureType": "road.highway",
+                                      "elementType": "labels.text.fill",
+                                      "stylers": [
+                                        {
+                                          "color": "#616161"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "featureType": "road.local",
+                                      "elementType": "labels.text.fill",
+                                      "stylers": [
+                                        {
+                                          "color": "#9e9e9e"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "featureType": "transit.line",
+                                      "elementType": "geometry",
+                                      "stylers": [
+                                        {
+                                          "color": "#e5e5e5"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "featureType": "transit.station",
+                                      "elementType": "geometry",
+                                      "stylers": [
+                                        {
+                                          "color": "#eeeeee"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "featureType": "water",
+                                      "elementType": "geometry",
+                                      "stylers": [
+                                        {
+                                          "color": "#c9c9c9"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "featureType": "water",
+                                      "elementType": "labels.text.fill",
+                                      "stylers": [
+                                        {
+                                          "color": "#9e9e9e"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                });
+                              }
+                            </script>
+                            <div id="map"></div>
+                          </div>
+                        </div>
+                        <div class="checkout__textarea"><span>Комментарий к заказу</span>
+                          <div class="textarea-block textarea-block--white">
+                            <textarea class="js__input-notempty" name="message" data-bouncer-target=".errmsg--checkoutmessage"></textarea><span>Напишите что-нибудь</span><em class="errmsg errmsg--checkoutmessage">Заполните данное поле</em>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="checkout__form-item">
+                    <div class="checkout__form-head">
+                      <div class="half">
+                        <div>
+                          <div class="label-check">
+                            <svg class="icon">
+                              <use xlink:href="ico/sprite.svg#check"></use>
+                            </svg><span>Оплата</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="checkout__form-content">
+                      <div class="payment-radio">
+                        <label class="text-top" form="payment-radio-1">
+                          <input type="radio" name="payment" id="payment-radio-1"/><b>При получении</b><span>Оплата курьеру картой или наличными</span>
+                        </label>
+                        <label form="payment-radio-3">
+                          <input type="radio" name="payment" id="payment-radio-3"/><b>Счет для юридических лиц</b>
+                        </label>
+                        <label form="payment-radio-4">
+                          <input type="radio" name="payment" id="payment-radio-4"/><b>Яндекс.Касса</b>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="checkout__result">
+                <div class="checkout__result-wrap">
+                  <div class="checkout__result-head"><span>Итого</span><em>9 500₽</em></div>
+                  <div class="checkout__result-content">
+                    <div class="line"><span>Товаров на сумму</span><em>12 500₽</em></div>
+                    <div class="line"><span>Скидка</span><em>2 500₽</em></div>
+                    <div class="line"><span>Доставка курьером</span><em>780₽</em></div>
+                    <div class="line"><span>Оплата</span><em>Наличными</em></div>
+                  </div>
+                  <div class="checkout__result-footer">
+                    <label class="policy-check">
+                      <input type="checkbox" name="policy"/><span>Я даю согласие на обработку личных данных в соответствии c<a href="#policy">политикой конфиденциальности</a></span>
+                    </label>
+                    <button class="btn-black" type="submit" name="submit"><span>ПОДТВЕРДИТЬ ЗАКАЗ</span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <footer class="footer">
+        <div class="footer__top">
+          <div class="container">
+            <ul class="footer__link">
+              <li><a href="#">О салоне</a></li>
+              <li><a href="#">Статьи</a></li>
+              <li><a href="#">Акции</a></li>
+              <li><a href="#">Индивидуальный заказ</a></li>
+              <li><a href="#">Контакты</a></li>
+              <li><a href="#">Доставка</a></li>
+              <li><a href="#">Возврат и обмен</a></li>
+              <li><a href="#">Политика конфиденциальности </a></li>
+            </ul>
+            <div class="footer__top-contact"><a href="tel:+7-(495)-223-60-20">+7 (495) 223-60-20</a>
+              <div class="social">
+                <ul>
+                  <li><a href="#vk">
+                      <svg class="icon">
+                        <use xlink:href="ico/sprite.svg#vk"></use>
+                      </svg></a></li>
+                  <li><a href="#fb">
+                      <svg class="icon">
+                        <use xlink:href="ico/sprite.svg#fb"></use>
+                      </svg></a></li>
+                  <li><a href="#in">
+                      <svg class="icon">
+                        <use xlink:href="ico/sprite.svg#in"></use>
+                      </svg></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <div class="container"><span>© 2020, ООО «Русская Платиновая Компания». Все права защищены.</span><a href="rusodot.ru">Дизайн и разработка — RUSO</a></div>
+        </div>
+      </footer>
+      <div class="remodal remodal-rel js-modal" data-remodal-id="reglogin">
+        <button class="remodal-close" data-remodal-action="close"></button>
+        <div class="cmodal">
+          <div class="cmodal-item cmodal-rel-reglogin cmodal-reglogin active">
+            <div class="cmodal-tab__wrap">
+              <div class="cmodal-tab__btn js-tabmodal-btn active" data-modal=".cmodal-login"><span>Вход</span></div>
+              <div class="cmodal-tab__btn js-tabmodal-btn" data-modal=".cmodal-reg"><span>Регистрация</span></div>
+            </div>
+            <!--Modal Login-->
+            <div class="cmodal-item js-tabmodal-content cmodal-rel-login cmodal-login active">
+              <form class="js-form-validator">
+                <h2>Вход</h2>
+                <div class="cmodal-social"><span>Через соц-сети:</span>
+                  <div class="social">
+                    <ul>
+                      <li><a href="#vk">
+                          <svg class="icon">
+                            <use xlink:href="ico/sprite.svg#vk"></use>
+                          </svg></a></li>
+                      <li><a href="#fb">
+                          <svg class="icon">
+                            <use xlink:href="ico/sprite.svg#fb"></use>
+                          </svg></a></li>
+                      <li><a href="#in">
+                          <svg class="icon">
+                            <use xlink:href="ico/sprite.svg#in"></use>
+                          </svg></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="input-block">
+                  <input class="js__input-notempty" type="email" name="email" required="required" data-bouncer-target=".errmsg-login-email"/><span>Email</span><em class="errmsg errmsg-login-email">Заполните данное поле</em>
+                </div>
+                <div class="input-block">
+                  <input class="js__input-notempty js-no-pass-check" type="password" minlength="8" name="password" required="required" data-bouncer-target=".errmsg-login-password"/><span>Пароль</span><em class="errmsg errmsg-login-password">Заполните данное поле</em>
+                </div>
+                <button class="btn-yellow cmodal-submit" type="submit" name="submit"><span>ВОЙТИ НА САЙТ</span></button>
+                <div class="btn-forgot"><a href="#Забыли-пароль?"><span>Забыли пароль?</span></a></div>
+              </form>
+            </div>
+            <!--Modal Reg-->
+            <div class="cmodal-item js-tabmodal-content cmodal-rel-reg cmodal-reg">
+              <form class="js-form-validator" data-submit="modalRegSubmit">
+                <h2>Регистрация</h2>
+                <div class="cmodal-social"><span>Через соц-сети:</span>
+                  <div class="social">
+                    <ul>
+                      <li><a href="#vk">
+                          <svg class="icon">
+                            <use xlink:href="ico/sprite.svg#vk"></use>
+                          </svg></a></li>
+                      <li><a href="#fb">
+                          <svg class="icon">
+                            <use xlink:href="ico/sprite.svg#fb"></use>
+                          </svg></a></li>
+                      <li><a href="#in">
+                          <svg class="icon">
+                            <use xlink:href="ico/sprite.svg#in"></use>
+                          </svg></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="input-block">
+                  <input class="js__input-notempty" type="text" name="name" required="required" data-bouncer-target=".errmsg-modal-reg-name"/><span>Имя</span><em class="errmsg errmsg-modal-reg-name">Заполните данное поле</em>
+                </div>
+                <div class="input-block">
+                  <input class="js__input-notempty" type="text" name="name" required="required" data-bouncer-target=".errmsg-modal-reg-name"/><span>Фамилия</span><em class="errmsg errmsg-modal-reg-name">Заполните данное поле</em>
+                </div>
+                <div class="input-block">
+                  <input class="js__input-notempty" type="email" name="email" required="required" data-bouncer-target=".errmsg-modal-reg-email"/><span>Email</span><em class="errmsg errmsg-modal-reg-email">Заполните данное поле</em>
+                </div>
+                <div class="input-block">
+                  <input class="js__input-notempty" id="input-reg-pass" type="password" minlength="8" name="password" required="required" data-bouncer-target=".errmsg-modal-reg-password"/><span>Пароль</span><em class="errmsg errmsg-modal-reg-password">Заполните данное поле</em>
+                </div>
+                <div class="input-block">
+                  <input class="js__input-notempty" type="password" minlength="8" name="repeat-pass" required="required" data-bouncer-match="#input-reg-pass" data-bouncer-target=".errmsg-modal-reg-repassword"/><span>Повторите пароль</span><em class="errmsg errmsg-modal-reg-repassword">Заполните данное поле</em>
+                </div>
+                <button class="btn-yellow cmodal-submit" type="submit" name="submit"><span>ЗАРЕГИСТРИРОВАТЬСЯ</span></button>
+                <p>Нажимая на кнопку «Зарегистрироваться», вы даете согласие на обработку личных данных в соответствии c политикой конфиденциальности,</p>
+              </form>
+            </div>
+          </div>
+          <!--Modal Phone-->
+          <div class="cmodal-item cmodal-phone cmodal-rel-phone">
+            <form class="js-form-validator" data-submit="modalPhoneSubmit">
+              <h2>Телефон</h2>
+              <div class="input-block">
+                <input class="js__input-notempty js-phone-mask" type="phone" name="phone" required="required" data-bouncer-target=".errmsg-modal-phone-phone"/><span>Телефон</span><em class="errmsg errmsg-modal-phone-phone">Заполните данное поле</em>
+              </div>
+              <button class="btn-yellow cmodal-submit" type="submit" name="submit"><span>Получить код</span></button>
+            </form>
+          </div>
+          <!--Modal Phone Number-->
+          <div class="cmodal-item cmodal-phonenum cmodal-middle cmodal-rel-phonenum">
+            <form class="js-form-validator" data-submit="modalPhoneNumSubmit">
+              <div class="cmodal-head">
+                <h2>Подтверждение телефона</h2><span>Введите код высланный по указанному телефону</span>
+              </div>
+              <div class="number-block js-phone-code"></div>
+              <div class="cmodal-footer">
+                <button class="btn-yellow cmodal-submit" type="submit" name="submit"><span>ПОДТВЕРДИТЬ</span></button><span class="text-repeat">Отправить повторно можно через<span>90</span>секунд</span><a class="link-resend" href="#resend">Не приходит СМС</a>
+              </div>
+            </form>
+          </div>
+          <!--Modal Success-->
+          <div class="cmodal-item cmodal-success cmodal-max cmodal-rel-success">
+            <svg class="icon">
+              <use xlink:href="ico/sprite.svg#check"></use>
+            </svg>
+            <h2>Спасибо, ваша заявка была успешно отправлена</h2><span>В течении 24 часов мы свяжемся с вами</span>
+            <button class="btn-yellow" type="button" data-remodal-action="close"><span>ВЕРНУТЬСЯ</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="remodal remodal-rep js-modal" data-remodal-id="repass">
+        <button class="remodal-close" data-remodal-action="close"></button>
+        <div class="cmodal cmodal-rep">
+          <!--Modal Phone-->
+          <div class="cmodal-item cmodal-middle cmodal-rep-phone cmodal-phone active">
+            <form class="js-form-validator" data-submit="modalRepPhoneSubmit">
+              <div class="cmodal-head">
+                <h2>Восстановление пароля</h2><span>Введите номер телефона и мы вышлем вам код подтверждения</span>
+              </div>
+              <div class="input-block">
+                <input class="js__input-notempty js-phone-mask" type="phone" name="phone" required="required" data-bouncer-target=".errmsg-modal-rep-phone"/><span>Телефон</span><em class="errmsg errmsg-modal-rep-phone">Заполните данное поле</em>
+              </div>
+              <button class="btn-yellow cmodal-submit" type="submit" name="submit"><span>Получить код</span></button>
+            </form>
+          </div>
+          <!--Modal Phone Number-->
+          <div class="cmodal-item cmodal-rep-phonenum cmodal-phonenum cmodal-middle">
+            <form class="js-form-validator" data-submit="modalRepPhoneNumSubmit">
+              <div class="cmodal-head">
+                <h2>Подтверждение телефона</h2><span>Введите код высланный по указанному телефону</span>
+              </div>
+              <div class="number-block js-phone-code"></div>
+              <div class="cmodal-footer">
+                <button class="btn-yellow cmodal-submit" type="submit" name="submit"><span>ПОДТВЕРДИТЬ</span></button><span class="text-repeat">Отправить повторно можно через<span>90</span>секунд</span><a class="link-resend" href="#resend">Не приходит СМС</a>
+              </div>
+            </form>
+          </div>
+          <!--Modal Reg-->
+          <div class="cmodal-item cmodal-rep-pass cmodal-reg">
+            <form class="js-form-validator" data-submit="modalRepPassSubmit">
+              <h2>Новый пароль</h2>
+              <div class="input-block">
+                <input class="js__input-notempty" id="input-rep-pass" type="password" minlength="8" name="password" required="required" data-bouncer-target=".errmsg-modal-rep-password"/><span>Придумайте новый пароль</span><em class="errmsg errmsg-modal-rep-password">Заполните данное поле</em>
+              </div>
+              <div class="input-block">
+                <input class="js__input-notempty" type="password" minlength="8" name="repeat-pass" required="required" data-bouncer-match="#input-rep-pass" data-bouncer-target=".errmsg-modal-rep-repassword"/><span>Повторите пароль</span><em class="errmsg errmsg-modal-rep-repassword">Заполните данное поле</em>
+              </div>
+              <button class="btn-yellow cmodal-submit" type="submit" name="submit"><span>ИЗМЕНИТЬ ПАРОЛЬ</span></button>
+            </form>
+          </div>
+          <!--Modal Success-->
+          <div class="cmodal-item cmodal-success cmodal-max cmodal-rep-success">
+            <svg class="icon">
+              <use xlink:href="ico/sprite.svg#check"></use>
+            </svg>
+            <h2>Спасибо, ваша заявка была успешно отправлена</h2><span>В течении 24 часов мы свяжемся с вами</span>
+            <button class="btn-yellow" type="button" data-remodal-action="close"><span>ВЕРНУТЬСЯ</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="remodal remodal-success js-modal" data-remodal-id="success">
+        <button class="remodal-close" data-remodal-action="close"></button>
+        <div class="cmodal cmodal-single">
+          <!--Modal Success-->
+          <div class="cmodal-item cmodal-success cmodal-max active">
+            <svg class="icon">
+              <use xlink:href="ico/sprite.svg#check"></use>
+            </svg>
+            <h2>Спасибо, ваша заявка была успешно отправлена</h2><span>В течении 24 часов мы свяжемся с вами</span>
+            <button class="btn-yellow" type="button" data-remodal-action="close"><span>ВЕРНУТЬСЯ</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="remodal remodal-request js-modal" data-remodal-id="request">
+        <button class="remodal-close" data-remodal-action="close"></button>
+        <div class="cmodal cmodal-single">
+          <!--Modal Success-->
+          <div class="cmodal-item cmodal-middle active">
+            <form class="js-form-validator">
+              <h2>Оставить заявку</h2>
+              <div class="input-block">
+                <input class="js__input-notempty" type="text" name="name" required="required" data-bouncer-target=".errmsg-request-name"/><span>Email</span><em class="errmsg errmsg-request-name">Заполните данное поле</em>
+              </div>
+              <div class="input-block">
+                <input class="js__input-notempty js-phone-mask" type="phone" name="phone" required="required" data-bouncer-target=".errmsg-modal-request-phone"/><span>Телефон</span><em class="errmsg errmsg-modal-request-phone">Заполните данное поле</em>
+              </div>
+              <button class="btn-yellow cmodal-submit" type="submit" name="submit"><span>ВОЙТИ НА САЙТ</span></button>
+              <p>Нажимая на кнопку «Отправить», вы даете согласие на обработку личных данных в соответствии c политикой конфиденциальности,</p>
+            </form>
+          </div>
+        </div>
+      </div>
+      <script src="js/include/jquery-3.5.1.min.js"></script>
+      <script src="js/include/remodal.min.js"></script>
+      <script src="js/include/nouislider.min.js"></script>
+      <script src="js/main.js"></script>
+    </div>
+  </body>
+</html>

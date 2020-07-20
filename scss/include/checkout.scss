@@ -1,0 +1,33 @@
+.checkout {
+  background: #FBFBFB;
+  
+  &__wrap {
+    display: flex;
+    flex-wrap: wrap;
+
+    h1 {
+      width: 100%;
+    }
+  }
+  
+  &__form {
+    width: calc(100% - 323px);
+    padding-right: 48px;
+    
+    &-item {
+      border: 1px solid #F4F4F4;
+      box-sizing: border-box;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+  }
+  
+  &__result {
+    width: 323px;
+    
+    &-wrap {
+      position: sticky;
+      top: 83px;
+    }
+  }
+}
