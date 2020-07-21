@@ -1,18 +1,18 @@
 section.checkout
   .container
-    .checkout__wrap
+    form.js-form-validator(data-submit="checkoutSubmit").checkout__wrap
       h1 Оформление заказа
 
       .checkout__form
-        form.js-form-validator(data-submit="checkoutSubmit")
-          .checkout__form-item
+          .checkout__form-item.first
             .checkout__form-head
               .half
-                div
+                div.half-first
                   .label-check
-                    +svg("check")
+                    i
+                     +svg("check")
                     span Заполните данные
-                div
+                div.half-second
                   em Вы можете войти, чтобы данные заполнились автоматически
                   button(type="button").btn-silver
                     span ВОЙТИ В АККАУНТ
@@ -38,15 +38,16 @@ section.checkout
                 span Телефон
                 em.errmsg.errmsg-checkout-phone Заполните данное поле
 
-          .checkout__form-item
+          .checkout__form-item.second
             .checkout__form-head
               .half
-                div
+                div.half-first
                   .label-check
-                    +svg("check")
+                    i
+                     +svg("check")
                     span Доставка
-                div
-                  label.pickupstore(for="id-pickupstore")
+                div.half-second
+                  label.checkbox.pickupstore(for="id-pickupstore")
                     input(type="checkbox", id="id-pickupstore")
                     span Забрать заказ из магазина
 
@@ -54,12 +55,12 @@ section.checkout
               .checkout-map
                 //Inputs
                 .checkout-map__inputs
-                  .input-block
+                  .input-block.big
                     input.js__input-notempty(type='text' name="city" required data-bouncer-target=".errmsg-checkout-city")
                     span Город
                     em.errmsg.errmsg-checkout-city Заполните данное поле
 
-                  .input-block
+                  .input-block.big
                     input.js__input-notempty(type='text' name="street" required data-bouncer-target=".errmsg-checkout-street")
                     span Улица
                     em.errmsg.errmsg-checkout-street Заполните данное поле
@@ -70,22 +71,22 @@ section.checkout
                     em.errmsg.errmsg-checkout-house Заполните данное поле
 
                   .input-block
-                    input.js__input-notempty(type='text' name="korpus" required data-bouncer-target=".errmsg-checkout-korpus")
+                    input.js__input-notempty(type='text' name="korpus" data-bouncer-target=".errmsg-checkout-korpus")
                     span Корпус
                     em.errmsg.errmsg-checkout-korpus Заполните данное поле
 
                   .input-block
-                    input.js__input-notempty(type='text' name="podezd" required data-bouncer-target=".errmsg-checkout-podezd")
+                    input.js__input-notempty(type='text' name="podezd" data-bouncer-target=".errmsg-checkout-podezd")
                     span Подъезд
                     em.errmsg.errmsg-checkout-podezd Заполните данное поле
 
                   .input-block
-                    input.js__input-notempty(type='text' name="kvartira" required data-bouncer-target=".errmsg-checkout-kvartira")
+                    input.js__input-notempty(type='text' name="kvartira" data-bouncer-target=".errmsg-checkout-kvartira")
                     span Квартира
                     em.errmsg.errmsg-checkout-kvartira Заполните данное поле
 
                   .input-block
-                    input.js__input-notempty(type='text' name="etaj" required data-bouncer-target=".errmsg-checkout-etaj")
+                    input.js__input-notempty(type='text' name="etaj" data-bouncer-target=".errmsg-checkout-etaj")
                     span Этаж
                     em.errmsg.errmsg-checkout-etaj Заполните данное поле
 
@@ -281,33 +282,37 @@ section.checkout
 
                 .checkout__textarea
                   span Комментарий к заказу
-                  .textarea-block.textarea-block--white
+                  .textarea-block
                     textarea.js__input-notempty(name="message" data-bouncer-target=".errmsg--checkoutmessage")
                     span Напишите что-нибудь
                     em.errmsg.errmsg--checkoutmessage Заполните данное поле
 
-          .checkout__form-item
+          .checkout__form-item.third
             .checkout__form-head
               .half
                 div
                   .label-check
-                    +svg("check")
+                    i
+                      +svg("check")
                     span Оплата
 
             .checkout__form-content
               .payment-radio
-                  label(form="payment-radio-1").text-top
+                .payment-radio__item
                     input(type="radio" name="payment" id="payment-radio-1")
-                    b При получении
-                    span Оплата курьеру картой или наличными
+                    label(for="payment-radio-1").text-top
+                      b При получении
+                      span Оплата курьеру картой или наличными
 
-                  label(form="payment-radio-3")
+                .payment-radio__item
                     input(type="radio" name="payment" id="payment-radio-3")
-                    b Счет для юридических лиц
+                    label(for="payment-radio-3")
+                      b Счет для юридических лиц
 
-                  label(form="payment-radio-4")
+                .payment-radio__item
                     input(type="radio" name="payment" id="payment-radio-4")
-                    b Яндекс.Касса
+                    label(for="payment-radio-4")
+                      b Яндекс.Касса
 
 
 
@@ -326,16 +331,10 @@ section.checkout
             .line
               span Скидка
               em 2 500₽
-            .line
-              span Доставка курьером
-              em 780₽
-            .line
-              span Оплата
-              em Наличными
 
           .checkout__result-footer
-            label.policy-check
-              input(type="checkbox" name="policy")
+            label(for="policy-id").checkbox.policy-check
+              input(type="checkbox" required name="policy" id="policy-id")
               span Я даю согласие на обработку личных данных в соответствии c
                 a(href="#policy") политикой конфиденциальности
 

@@ -134,7 +134,7 @@
             <form class="js-form-validator checkout__wrap" data-submit="checkoutSubmit">
               <h1>Оформление заказа</h1>
               <div class="checkout__form">
-                <div class="checkout__form-item">
+                <div class="checkout__form-item first">
                   <div class="checkout__form-head">
                     <div class="half">
                       <div class="half-first">
@@ -163,7 +163,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="checkout__form-item">
+                <div class="checkout__form-item second">
                   <div class="checkout__form-head">
                     <div class="half">
                       <div class="half-first">
@@ -173,7 +173,7 @@
                             </svg></i><span>Доставка</span></div>
                       </div>
                       <div class="half-second">
-                        <label class="pickupstore" for="id-pickupstore">
+                        <label class="checkbox pickupstore" for="id-pickupstore">
                           <input type="checkbox" id="id-pickupstore"/><span>Забрать заказ из магазина</span>
                         </label>
                       </div>
@@ -183,26 +183,26 @@
                     <div class="checkout-map">
                       <!--Inputs-->
                       <div class="checkout-map__inputs">
-                        <div class="input-block">
+                        <div class="input-block big">
                           <input class="js__input-notempty" type="text" name="city" required="required" data-bouncer-target=".errmsg-checkout-city"/><span>Город</span><em class="errmsg errmsg-checkout-city">Заполните данное поле</em>
                         </div>
-                        <div class="input-block">
+                        <div class="input-block big">
                           <input class="js__input-notempty" type="text" name="street" required="required" data-bouncer-target=".errmsg-checkout-street"/><span>Улица</span><em class="errmsg errmsg-checkout-street">Заполните данное поле</em>
                         </div>
                         <div class="input-block">
                           <input class="js__input-notempty" type="text" name="house" required="required" data-bouncer-target=".errmsg-checkout-house"/><span>Дом</span><em class="errmsg errmsg-checkout-house">Заполните данное поле</em>
                         </div>
                         <div class="input-block">
-                          <input class="js__input-notempty" type="text" name="korpus" required="required" data-bouncer-target=".errmsg-checkout-korpus"/><span>Корпус</span><em class="errmsg errmsg-checkout-korpus">Заполните данное поле</em>
+                          <input class="js__input-notempty" type="text" name="korpus" data-bouncer-target=".errmsg-checkout-korpus"/><span>Корпус</span><em class="errmsg errmsg-checkout-korpus">Заполните данное поле</em>
                         </div>
                         <div class="input-block">
-                          <input class="js__input-notempty" type="text" name="podezd" required="required" data-bouncer-target=".errmsg-checkout-podezd"/><span>Подъезд</span><em class="errmsg errmsg-checkout-podezd">Заполните данное поле</em>
+                          <input class="js__input-notempty" type="text" name="podezd" data-bouncer-target=".errmsg-checkout-podezd"/><span>Подъезд</span><em class="errmsg errmsg-checkout-podezd">Заполните данное поле</em>
                         </div>
                         <div class="input-block">
-                          <input class="js__input-notempty" type="text" name="kvartira" required="required" data-bouncer-target=".errmsg-checkout-kvartira"/><span>Квартира</span><em class="errmsg errmsg-checkout-kvartira">Заполните данное поле</em>
+                          <input class="js__input-notempty" type="text" name="kvartira" data-bouncer-target=".errmsg-checkout-kvartira"/><span>Квартира</span><em class="errmsg errmsg-checkout-kvartira">Заполните данное поле</em>
                         </div>
                         <div class="input-block">
-                          <input class="js__input-notempty" type="text" name="etaj" required="required" data-bouncer-target=".errmsg-checkout-etaj"/><span>Этаж</span><em class="errmsg errmsg-checkout-etaj">Заполните данное поле</em>
+                          <input class="js__input-notempty" type="text" name="etaj" data-bouncer-target=".errmsg-checkout-etaj"/><span>Этаж</span><em class="errmsg errmsg-checkout-etaj">Заполните данное поле</em>
                         </div>
                       </div>
                       <!--Map-->
@@ -398,7 +398,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="checkout__form-item">
+                <div class="checkout__form-item third">
                   <div class="checkout__form-head">
                     <div class="half">
                       <div>
@@ -411,15 +411,18 @@
                   </div>
                   <div class="checkout__form-content">
                     <div class="payment-radio">
-                      <label class="text-top" form="payment-radio-1">
-                        <input type="radio" name="payment" id="payment-radio-1"/><b>При получении</b><span>Оплата курьеру картой или наличными</span>
-                      </label>
-                      <label form="payment-radio-3">
-                        <input type="radio" name="payment" id="payment-radio-3"/><b>Счет для юридических лиц</b>
-                      </label>
-                      <label form="payment-radio-4">
-                        <input type="radio" name="payment" id="payment-radio-4"/><b>Яндекс.Касса</b>
-                      </label>
+                      <div class="payment-radio__item">
+                        <input type="radio" name="payment" id="payment-radio-1"/>
+                        <label class="text-top" for="payment-radio-1"><b>При получении</b><span>Оплата курьеру картой или наличными</span></label>
+                      </div>
+                      <div class="payment-radio__item">
+                        <input type="radio" name="payment" id="payment-radio-3"/>
+                        <label for="payment-radio-3"><b>Счет для юридических лиц</b></label>
+                      </div>
+                      <div class="payment-radio__item">
+                        <input type="radio" name="payment" id="payment-radio-4"/>
+                        <label for="payment-radio-4"><b>Яндекс.Касса</b></label>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -432,8 +435,8 @@
                     <div class="line"><span>Скидка</span><em>2 500₽</em></div>
                   </div>
                   <div class="checkout__result-footer">
-                    <label class="policy-check">
-                      <input type="checkbox" name="policy"/><span>Я даю согласие на обработку личных данных в соответствии c<a href="#policy">политикой конфиденциальности</a></span>
+                    <label class="checkbox policy-check" for="policy-id">
+                      <input type="checkbox" required="required" name="policy" id="policy-id"/><span>Я даю согласие на обработку личных данных в соответствии c<a href="#policy">политикой конфиденциальности</a></span>
                     </label>
                     <button class="btn-black" type="submit" name="submit"><span>ПОДТВЕРДИТЬ ЗАКАЗ</span></button>
                   </div>

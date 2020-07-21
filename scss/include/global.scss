@@ -3535,3 +3535,62 @@ button, .btn--progress {
 div[class^="swiper-button"] {
   outline: none;
 }
+
+//policy-check
+.checkbox {
+  position: relative;
+  display: inline-block;
+  
+  input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    
+    &:checked + span:after {
+      background-color: #1F1F1F;
+    }
+    
+    &.error + span:after {
+      border-color: red;
+    }
+  }
+  
+  span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 21px;
+    color: #000000;
+    display: block;
+    padding-left: 33px;
+    cursor: pointer;
+    user-select: none;
+  
+    &:after {
+      position: absolute;
+      top: 2px;
+      left: 0;
+      content: "";
+      width: 20px;
+      height: 20px;
+      display: block;
+      border: 1px solid #1F1F1F;
+      box-sizing: border-box;
+      border-radius: 3px;
+      transition: .2s;
+      background: #fff url("../ico/check.svg") center center no-repeat;
+      background-size: 8px 6px;
+    }
+    
+    a {
+      color: #C7B386;
+      font-size: 13px;
+      margin-left: 4px;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

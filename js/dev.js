@@ -702,7 +702,7 @@ if (inputs.length) {
         // console.log("blur")
         
         if(!$this.value) {
-          $this.classList.add("error")
+          // $this.classList.add("error")
         }
       }, 100)
     })
