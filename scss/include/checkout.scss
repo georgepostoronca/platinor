@@ -1,12 +1,44 @@
 .checkout {
   background: #FBFBFB;
   
+  @media(max-width: 768px) {
+    background-color: #fff;
+  }
+  
   &__wrap {
     display: flex;
     flex-wrap: wrap;
-
+  
+    @media(max-width: 992px) {
+      flex-wrap: wrap;
+    }
+  
+    @media(max-width: 768px) {
+      width: calc(100% + 40px);
+      margin-left: -20px;
+    }
+  
+    @media(max-width: 370px) {
+      width: calc(100% + 30px);
+      margin-left: -15px;
+    }
+  
+  
     h1 {
       width: 100%;
+  
+      @media(max-width: 768px) {
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 30px;
+        letter-spacing: -0.2px;
+        margin-bottom: 30px;
+      }
+  
+      @media(max-width: 370px) {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
     }
   }
   
@@ -14,11 +46,25 @@
     width: calc(100% - 323px);
     padding-right: 48px;
     
+    @media(max-width: 992px) {
+      width: 100%;
+      padding-right: 0;
+    }
+    
     &-item {
       border: 1px solid #F4F4F4;
       box-sizing: border-box;
       border-radius: 5px;
       margin-bottom: 20px;
+      background-color: #fff;
+  
+      @media(max-width: 768px) {
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        margin-bottom: 0;
+        border-radius: 0;
+      }
       
       &.first {
         .checkout__form-content {
@@ -35,6 +81,12 @@
             padding-top: 20px;
             padding-bottom: 10px;
           }
+          
+          @media(max-width: 768px) {
+            padding-top: 0;
+            margin-top: 18px;
+            padding-bottom: 5px;
+          }
         }
         
         .input-block {
@@ -50,17 +102,42 @@
           @media(max-width: 992px) {
             width: 100%;
           }
+          
+          @media(max-width: 768px) {
+            margin-bottom: 28px;
+          }
         }
       }
       
-      .second {
+      &.second {
         .half {
           @media(max-width: 1200px) {
             justify-content: space-between;
             
             > div {
               width: 50%;
+              
+              @media(max-width: 480px) {
+                width: 100%;
+              }
             }
+            
+            &-second {
+              margin-top: 0;
+              justify-content: flex-end;
+  
+              @media(max-width: 480px) {
+                margin-top: 20px;
+                justify-content: flex-start;
+              }
+            }
+          }
+        }
+  
+        .input-block {
+    
+          @media(max-width: 768px) {
+            margin-bottom: 28px;
           }
         }
       }
@@ -73,6 +150,11 @@
           @media(max-width: 992px) {
             padding-top: 20px;
             padding-bottom: 10px;
+          }
+  
+          @media(max-width: 768px) {
+            padding-top: 30px;
+            padding-bottom: 35px;
           }
         }
       }
@@ -87,6 +169,11 @@
         padding-right: 20px;
       }
   
+      @media(max-width: 768px) {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      
       .half {
         display: flex;
         justify-content: space-between;
@@ -119,6 +206,10 @@
             justify-content: space-between;
           }
           
+          @media(max-width: 768px) {
+            margin-top: 28px;
+          }
+          
           em {
             margin-right: 26px;
           }
@@ -132,6 +223,11 @@
         line-height: 19px;
         color: #969696;
         width: 206px;
+        
+        @media(max-width: 480px) {
+          width: 100%;
+          margin-bottom: 10px;
+        }
       }
       
       button {
@@ -197,6 +293,10 @@
       padding-top: 20px;
       padding-bottom: 30px;
     }
+  
+    @media(max-width: 768px) {
+      padding-bottom: 35px;
+    }
     
     &__inputs {
       display: flex;
@@ -236,8 +336,132 @@
     &__map {
       display: none;
       
-      &.active {
-        display: none;
+      .head {
+        display: flex;
+  
+        @media(max-width: 1180px) {
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+        
+        em {
+          font-weight: normal;
+          font-size: 13px;
+          line-height: 1.2;
+          color: #969696;
+          font-style: normal;
+          width: 24.9%;
+          
+          @media(max-width: 1180px) {
+            width: 100%;
+            margin-bottom: 20px;
+          }
+        }
+        
+        h2 {
+          font-style: normal;
+          font-weight: 500;
+          font-size: 25px;
+          line-height: 33px;
+          color: #000000;
+  
+          position: relative;
+          top: -12px;
+          padding-right: 20px;
+          margin-bottom: 0;
+  
+          @media(max-width: 1280px) {
+            flex: 0 1 auto;
+          }
+  
+          @media(max-width: 1180px) {
+            width: calc(100% - 200px);
+            flex: 0 1 auto;
+            box-sizing: border-box;
+          }
+  
+          @media(max-width: 768px) {
+            width: 100%;
+          }
+        }
+        
+        > div {
+          width: 45%;
+          
+          @media(max-width: 1280px) {
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            flex: 1 0 auto;
+          }
+  
+          @media(max-width: 1180px) {
+            width: 200px;
+            flex: 0 1 auto;
+          }
+          
+          @media(max-width: 768px) {
+            width: 100%;
+          }
+          
+          a {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 1;
+            color: #000000;
+            margin-left: 10px;
+            white-space: nowrap;
+            transition: .2s;
+            
+            &:hover {
+              color: #C7B386;
+            }
+  
+            @media(max-width: 1280px) {
+              text-align: right;
+              margin-bottom: 10px;
+            }
+  
+            @media(max-width: 768px) {
+              text-align: left;
+              margin-left: 0;
+            }
+          }
+          
+          span {
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 1.2;
+            color: #000000;
+            display: block;
+            width: 100%;
+            text-align: right;
+            margin-top: 18px;
+            flex-wrap: wrap;
+            
+            @media(max-width: 1280px) {
+              margin-top: 0;
+            }
+  
+            @media(max-width: 768px) {
+              text-align: left;
+            }
+          }
+        }
+      }
+      
+      .map {
+        margin-top: 40px;
+        
+        @media (max-width: 768px) {
+          margin-top: 20px;
+        }
+      }
+  
+      #map, .map {
+        height: 247px;
+        margin-bottom: 40px;
       }
     }
   }
@@ -247,6 +471,10 @@
   
     @media(max-width: 992px) {
       margin-top: 10px;
+    }
+  
+    @media(max-width: 768px) {
+      margin-top: 6px;
     }
     
     > span {
@@ -262,11 +490,23 @@
       @media(max-width: 992px) {
         margin-bottom: 10px;
       }
+  
+      @media(max-width: 768px) {
+        margin-bottom: 7px;
+      }
     }
   }
   
   &__result {
     width: 323px;
+  
+    @media(max-width: 992px) {
+      width: 100%;
+    }
+  
+    @media(max-width: 768px) {
+      background: #FBFBFB;
+    }
     
     &-wrap {
       position: sticky;
@@ -279,6 +519,14 @@
       padding-left: 29px;
       padding-right: 24px;
       padding-bottom: 33px;
+      background-color: #fff;
+  
+      @media(max-width: 768px) {
+        padding-left: 20px;
+        padding-right: 20px;
+        background: #FBFBFB;
+        border-radius: 0;
+      }
     }
     
     &-head {
@@ -288,6 +536,10 @@
   
       padding-top: 26px;
       padding-bottom: 17px;
+      
+      @media(max-width: 768px) {
+        margin-bottom: 22px;
+      }
       
       span {
         font-style: normal;
@@ -307,6 +559,10 @@
     &-content {
       border-bottom: 1px solid #F4F4F4;
       padding-top: 22px;
+  
+      @media(max-width: 768px) {
+        padding-top: 0;
+      }
       
       .line {
         display: flex;
@@ -338,6 +594,16 @@
   
       .policy-check {
         margin-bottom: 29px;
+        
+        @media(max-width: 768px) {
+          margin-bottom: 20px;
+        }
+      }
+      
+      button {
+        @media(max-width: 768px) {
+          min-width: 100%;
+        }
       }
     }
   }
@@ -361,6 +627,10 @@
     @media(max-width: 992px) {
       width: 100%;
       //margin-bottom: 10px;
+    }
+    
+    @media(max-width: 768px) {
+      margin-bottom: 14px;
     }
   }
   

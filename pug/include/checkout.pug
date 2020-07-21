@@ -48,7 +48,7 @@ section.checkout
                     span Доставка
                 div.half-second
                   label.checkbox.pickupstore(for="id-pickupstore")
-                    input(type="checkbox", id="id-pickupstore")
+                    input(type="checkbox", class="js-change-delivery", id="id-pickupstore", data-shop="2", data-curier="3")
                     span Забрать заказ из магазина
 
             .checkout__form-content
@@ -93,13 +93,14 @@ section.checkout
 
                 //Map
                 .checkout-map__map
-                  em Россия, Москва
-                  h2 Малый Конюшковский переулок дом 2
+                  .head
+                    em Россия, Москва
+                    h2 Малый Конюшковский переулок дом 2
 
-                  div
-                    a(href="tel:+7(495)223-60-20") +7 (495) 223-60-20
-                    a(href="tel:+7(495)517-74-46") +7 (495) 517-74-46
-                    span Пн-Пт: 10 - 20, Сб-Вс: 11-20
+                    div
+                      a(href="tel:+7(495)223-60-20") +7 (495) 223-60-20
+                      a(href="tel:+7(495)517-74-46") +7 (495) 517-74-46
+                      span Пн-Пт: 10-20, Сб-Вс: 11-20
 
                   .map
                     script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3oaj0lWo8FPlp3REB-FOl4qiMbDTup8A&callback=initMap")

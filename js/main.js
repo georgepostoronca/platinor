@@ -1778,3 +1778,39 @@ if(formsIntersect.length) {
     imageObserver.observe(v);
   })
 }
+
+
+
+
+// Delivery Checkbox
+let deliverycheck = $(".js-change-delivery");
+let deliveryform = $(".checkout-map__inputs");
+let deliverymap = $(".checkout-map__map");
+
+function tabdelivery(type) {
+  if(type) {
+    deliveryform.show();
+    deliverymap.hide();
+  } else {
+    deliveryform.hide();
+    deliverymap.show();
+  }
+}
+
+if(deliverycheck.prop("checked")) {
+  deliverycheck.val(deliverycheck.data("shop"));
+  tabdelivery(false)
+} else {
+  deliverycheck.val(deliverycheck.data("curier"));
+  tabdelivery(true)
+}
+
+deliverycheck.on("change", function() {
+  if(deliverycheck.prop("checked")) {
+    tabdelivery(false)
+    deliverycheck.val(deliverycheck.data("shop"));
+  } else {
+    deliverycheck.val(deliverycheck.data("curier"));
+    tabdelivery(true)
+  }
+});

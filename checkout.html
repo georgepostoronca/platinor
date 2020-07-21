@@ -174,7 +174,7 @@
                       </div>
                       <div class="half-second">
                         <label class="checkbox pickupstore" for="id-pickupstore">
-                          <input type="checkbox" id="id-pickupstore"/><span>Забрать заказ из магазина</span>
+                          <input class="js-change-delivery" type="checkbox" id="id-pickupstore" data-shop="2" data-curier="3"/><span>Забрать заказ из магазина</span>
                         </label>
                       </div>
                     </div>
@@ -206,9 +206,11 @@
                         </div>
                       </div>
                       <!--Map-->
-                      <div class="checkout-map__map"><em>Россия, Москва</em>
-                        <h2>Малый Конюшковский переулок дом 2</h2>
-                        <div><a href="tel:+7(495)223-60-20">+7 (495) 223-60-20</a><a href="tel:+7(495)517-74-46">+7 (495) 517-74-46</a><span>Пн-Пт: 10 - 20, Сб-Вс: 11-20</span></div>
+                      <div class="checkout-map__map">
+                        <div class="head"><em>Россия, Москва</em>
+                          <h2>Малый Конюшковский переулок дом 2</h2>
+                          <div><a href="tel:+7(495)223-60-20">+7 (495) 223-60-20</a><a href="tel:+7(495)517-74-46">+7 (495) 517-74-46</a><span>Пн-Пт: 10-20, Сб-Вс: 11-20</span></div>
+                        </div>
                         <div class="map">
                           <script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3oaj0lWo8FPlp3REB-FOl4qiMbDTup8A&amp;callback=initMap"></script>
                           <script>
