@@ -19,7 +19,7 @@ section.checkout
 
             .checkout__form-content
               .input-block
-                input.js__input-notempty(type='text' name="text" required data-bouncer-target=".errmsg-checkout-name")
+                input.js__input-notempty(type='text' name="text" value="text" required data-bouncer-target=".errmsg-checkout-name")
                 span Имя
                 em.errmsg.errmsg-checkout-name Заполните данное поле
 
@@ -34,7 +34,7 @@ section.checkout
                 em.errmsg.errmsg-checkout-email Заполните данное поле
 
               .input-block
-                input.js__input-notempty.js-phone-mask(type='phone' name="phone" required data-bouncer-target=".errmsg-checkout-phone")
+                input.js__input-notempty.js-phone-mask(type='tel' name="phone" required data-bouncer-target=".errmsg-checkout-phone")
                 span Телефон
                 em.errmsg.errmsg-checkout-phone Заполните данное поле
 

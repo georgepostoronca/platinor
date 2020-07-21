@@ -682,6 +682,7 @@ var inputs = document.querySelectorAll(".js__input-notempty");
 if (inputs.length) {
   inputs = [].slice.call(inputs);
   inputs.forEach(function (el) {
+    if(el.value) el.classList.add("focus");
     el.addEventListener("focus", function() {
       // console.log("Focus");
       let $this = this;
