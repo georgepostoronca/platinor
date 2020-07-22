@@ -648,6 +648,10 @@ a {
   box-sizing: border-box;
   border: 1px solid #1F1F1F;
   
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
   &:hover {
     border-color: #1F1F1F;
     background: transparent;
@@ -3652,4 +3656,11 @@ div[class^="swiper-button"] {
 
 .bx-sls .bx-ui-sls-pane .dropdown-item.bx-ui-sls-variant-active > span {
   color: #fff;
+}
+
+
+
+//Checkout Success
+.checkout-success {
+  width: 100%;
 }

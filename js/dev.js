@@ -731,6 +731,8 @@ function Tabs(el) {
 
   this.btns.forEach(function (item) {
     item.addEventListener("click", function (el) {
+      console.log(item)
+      location.hash = item.dataset.hash;
       var index = Array.prototype.slice.call(this.parentElement.children).indexOf(this)
 
       this.classList.add("active");
@@ -744,6 +746,12 @@ function Tabs(el) {
       });
     });
   });
+  
+  
+  let hash = location.hash;
+  if(hash) {
+    $(".js-tabs-btn[data-hash='"+ hash +"']").trigger("click");
+  }
 }
 
 var tabs = new Tabs(".js-tabs");
@@ -975,10 +983,10 @@ var tahheadfix = document.querySelector(".js-tabhead");
 if (tahheadfix) {
   document.body.onscroll = function (scroll) {
     if (window.scrollY >= tahheadfix.offsetTop) {
-      console.log("Fixed");
+      // console.log("Fixed");
       tahheadfix.classList.add("fixed");
     } else {
-      console.log("No Fixed");
+      // console.log("No Fixed");
       tahheadfix.classList.remove("fixed");
     }
   }
