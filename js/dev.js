@@ -932,8 +932,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
       }, false);
 
       document.addEventListener('bouncerFormValid', function (el) {
-        var fn = el.target.dataset.submit;
-        window[fn](el);
+        try {
+          var fn = el.target.dataset.submit;
+          window[fn](el);
+        } catch(e) {
+          console.log("Form Submit Error!")
+        }
       }, false);
 
       let arrinput = [].slice.apply(document.querySelectorAll("input[type='password']"));

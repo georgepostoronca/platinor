@@ -1,5 +1,10 @@
 section.checkout
   .container
+    script.
+      function checkoutSubmit(form) {
+        console.log(form.target)
+      }
+
     form.js-form-validator(data-submit="checkoutSubmit").checkout__wrap
       h1 Оформление заказа
 

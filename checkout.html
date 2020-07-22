@@ -131,6 +131,12 @@
       <div class="blockattach__content">
         <section class="checkout">
           <div class="container">
+            <script>
+              function checkoutSubmit(form) {
+                console.log(form.target)
+              }
+              
+            </script>
             <form class="js-form-validator checkout__wrap" data-submit="checkoutSubmit">
               <h1>Оформление заказа</h1>
               <div class="checkout__form">
