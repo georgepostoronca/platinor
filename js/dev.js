@@ -1788,13 +1788,25 @@ let deliverycheck = $(".js-change-delivery");
 let deliveryform = $(".checkout-map__inputs");
 let deliverymap = $(".checkout-map__map");
 
+function disableInputInBlock(parent, type) {
+  $(parent).find("input").each(function() {
+    if(type) {
+      $(this).prop('disabled', true);
+    } else {
+      $(this).prop('disabled', false);
+    }
+  });
+}
+
 function tabdelivery(type) {
   if(type) {
     deliveryform.show();
     deliverymap.hide();
+    disableInputInBlock(deliveryform, false)
   } else {
     deliveryform.hide();
     deliverymap.show();
+    disableInputInBlock(deliveryform, true)
   }
 }
 
@@ -1808,8 +1820,8 @@ if(deliverycheck.prop("checked")) {
 
 deliverycheck.on("change", function() {
   if(deliverycheck.prop("checked")) {
-    tabdelivery(false)
     deliverycheck.val(deliverycheck.data("shop"));
+    tabdelivery(false)
   } else {
     deliverycheck.val(deliverycheck.data("curier"));
     tabdelivery(true)

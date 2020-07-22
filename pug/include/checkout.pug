@@ -14,7 +14,7 @@ section.checkout
                     span Заполните данные
                 div.half-second
                   em Вы можете войти, чтобы данные заполнились автоматически
-                  button(type="button").btn-silver
+                  a(href="").btn-silver
                     span ВОЙТИ В АККАУНТ
 
             .checkout__form-content
@@ -98,9 +98,14 @@ section.checkout
                     h2 Малый Конюшковский переулок дом 2
 
                     div
-                      a(href="tel:+7(495)223-60-20") +7 (495) 223-60-20
-                      a(href="tel:+7(495)517-74-46") +7 (495) 517-74-46
-                      span Пн-Пт: 10-20, Сб-Вс: 11-20
+                      //a(href="tel:+7(495)223-60-20") +7 (495) 223-60-20
+                      //a(href="tel:+7(495)517-74-46") +7 (495) 517-74-46
+                      //span Пн-Пт: 10-20, Сб-Вс: 11-20
+
+                      a(href="tel:+7 (495) 223-60-20") +7 (495) 223-60-20
+                      span
+                        em Пн-Пт: 10:00 - 20:00,
+                        em Сб-Вс: 11:00 - 20:00
 
                   .map
                     script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3oaj0lWo8FPlp3REB-FOl4qiMbDTup8A&callback=initMap")
