@@ -1789,6 +1789,7 @@ if(formsIntersect.length) {
 
 // Delivery Checkbox
 let deliverycheck = $(".js-change-delivery");
+let deliverycheckHidden = $(".js-change-delivery-hidden");
 let deliveryform = $(".checkout-map__inputs");
 let deliverymap = $(".checkout-map__map");
 
@@ -1815,19 +1816,19 @@ function tabdelivery(type) {
 }
 
 if(deliverycheck.prop("checked")) {
-  deliverycheck.val(deliverycheck.data("shop"));
+  deliverycheckHidden.val(deliverycheck.data("shop"));
   tabdelivery(false)
 } else {
-  deliverycheck.val(deliverycheck.data("curier"));
+  deliverycheckHidden.val(deliverycheck.data("curier"));
   tabdelivery(true)
 }
 
 deliverycheck.on("change", function() {
   if(deliverycheck.prop("checked")) {
-    deliverycheck.val(deliverycheck.data("shop"));
+    deliverycheckHidden.val(deliverycheck.data("shop"));
     tabdelivery(false)
   } else {
-    deliverycheck.val(deliverycheck.data("curier"));
+    deliverycheckHidden.val(deliverycheck.data("curier"));
     tabdelivery(true)
   }
 });
