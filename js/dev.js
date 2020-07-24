@@ -291,14 +291,26 @@ if (document.querySelector(".swiper-container")) {
             prevEl: '.prodslid-min-button-prev',
           },
           on: {
-            init: function () {
+            init: function (arg) {
               document.querySelector('.js__prodslid-min-slider').classList.remove("loading");
-            }
+  
+              console.log(this.$el[0])
+              let slides = [].slice.call(this.$el[0].querySelectorAll(".swiper-slide"));
+              
+              slides.forEach(function(el, index) {
+                el.addEventListener("click", function() {
+                  // console.log(index)
+                  prodslider.slideTo(index);
+                });
+              });
+            },
           },
-          watchSlidesVisibility: true,
-          watchSlidesProgress: true,
+          touchRatio: 0.4,
           preventClicks: false,
           preventClicksPropagation: false,
+          // slideToClickedSlide: true,
+          // watchSlidesVisibility: true,
+          // watchSlidesProgress: true,
           breakpoints: {
             0: {
               slidesPerView: 5,
@@ -311,6 +323,7 @@ if (document.querySelector(".swiper-container")) {
           }
         });
       }
+  
 
       // prodslid slider
       if (document.querySelector('.js__prodslid-slider')) {
