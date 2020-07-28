@@ -64,10 +64,11 @@
     }
     
     &:hover {
-      picture {
-
-        img {
-          transform: scale(1.2);
+      @media(min-width: 1025px) {
+        picture {
+          img {
+            transform: scale(1.2);
+          }
         }
       }
     }
@@ -76,6 +77,7 @@
       margin-bottom: 40px;
       display: block;
       overflow: hidden;
+      background: #FAFAFA;
   
       @media(max-width: 768px) {
         //width: 215px;
@@ -240,13 +242,18 @@
       
       &.n2 {
         float: right;
-        margin-top: 246px;
+        //margin-top: 246px;
         //margin-bottom: 577px;
         margin-bottom: 449px;
+  
+        margin-top: 0;
     
         @media(max-width: 1180px) {
-          margin-bottom: 20%;
-          margin-top: 10%;
+          //margin-bottom: 20%;
+          //margin-top: 10%;
+  
+          margin-bottom: 8%;
+          margin-top: 0;
         }
       }
       

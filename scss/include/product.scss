@@ -513,7 +513,9 @@
   
     scrollbar-color: transparent transparent;
     scrollbar-width: thin;
-
+    
+    overflow-y: hidden;
+  
     &::-webkit-scrollbar {
       width: 1px;
       height: 0;

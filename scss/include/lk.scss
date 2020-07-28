@@ -405,6 +405,11 @@
       }
     }
     
+    .btn-text {
+      position: relative;
+      top: -1px;
+    }
+    
     .btn-group {
       @media(max-width: 768px) {
         width: 100%;

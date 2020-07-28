@@ -1020,7 +1020,7 @@ function PhoneCode(el) {
     input.required = true;
 
     if (i != 1) input.disabled = true;
-    el.append(input);
+    el.appendChild(input);
     inputs.push(input);
   }
 
@@ -1244,12 +1244,17 @@ productTab();
   wrap.noUiSlider.on('update', function (values, handle) {
     inputs[handle].value = parseInt(values[handle]);
   });
-
-  let event = new Event('change');
-  wrap.noUiSlider.on('change', function (values, handle) {
-    console.log("End")
-    inputs[handle].dispatchEvent(event);
-  });
+  
+  try {
+    let event = new Event('change');
+    wrap.noUiSlider.on('change', function (values, handle) {
+      console.log("End")
+      inputs[handle].dispatchEvent(event);
+    });
+    
+  } catch(e) {
+    console.log(e)
+  }
 
   wrap.addEventListener("resetRange", function () {
     wrap.noUiSlider.reset();
@@ -1770,39 +1775,50 @@ $(document).on('focus', 'input[type="phone"]', function (e) {
 
 // FadeIn
 const fadein = document.querySelectorAll(".js-fadein");
-if(fadein.length) {
-  let fade = [].slice.call(fadein);
-  const imageObserver = new IntersectionObserver(function(entries, imgObserver) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        if(!entry.target.classList.contains("animate")) {
-          // console.log(entry.target)
-          entry.target.classList.add("animate");
+if(window.IntersectionObserver) {
+  if(fadein.length) {
+    let fade = [].slice.call(fadein);
+    const imageObserver = new IntersectionObserver(function(entries, imgObserver) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          if(!entry.target.classList.contains("animate")) {
+            // console.log(entry.target)
+            entry.target.classList.add("animate");
+          }
         }
-      }
+      })
+    });
+    
+    fade.forEach(function(v) {
+      imageObserver.observe(v);
     })
-  });
+  }
   
-  fade.forEach(function(v) {
-    imageObserver.observe(v);
+} else {
+  let fade = [].slice.call(fadein);
+  fade.forEach(function(entry) {
+    console.log(entry)
+    entry.classList.add("animate");
   })
 }
 
 
-const formsIntersect = document.querySelectorAll("form");
-if(formsIntersect.length) {
-  let fade = [].slice.call(formsIntersect);
-  const imageObserver = new IntersectionObserver(function(entries, imgObserver) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.querySelectorAll("input")[0].focus()
-      }
+if(window.IntersectionObserver) {
+  const formsIntersect = document.querySelectorAll("form");
+  if(formsIntersect.length) {
+    let fade = [].slice.call(formsIntersect);
+    const imageObserver = new IntersectionObserver(function(entries, imgObserver) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll("input")[0].focus()
+        }
+      })
+    });
+    
+    fade.forEach(function(v) {
+      imageObserver.observe(v);
     })
-  });
-  
-  fade.forEach(function(v) {
-    imageObserver.observe(v);
-  })
+  }
 }
 
 
