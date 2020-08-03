@@ -19,8 +19,11 @@ section.checkout
                     span Заполните данные
                 div.half-second
                   em Вы можете войти, чтобы данные заполнились автоматически
-                  a(href="").btn-silver
-                    span ВОЙТИ В АККАУНТ
+                  a(href="javascript:void(0)" data-remodal-target="reglogin" type="button").btn-silver
+                    span ВОЙТИ В АККАУНТ 2
+
+                  //- <a class="btn-silver" href="javascript:void(0)" data-remodal-target="reglogin">
+                  //-                               <span>ВОЙТИ В АККАУНТ</span></a>
 
             .checkout__form-content
               .input-block

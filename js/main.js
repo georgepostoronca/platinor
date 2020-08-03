@@ -124,6 +124,7 @@ if (document.querySelector(".swiper-container")) {
       var firstStart = false;
       var progresSlideInterval;
 
+      // headslid
       var headslid = new Swiper('.js__headslid-slider', {
         autoHeight: true,
         loop: true,
@@ -142,8 +143,8 @@ if (document.querySelector(".swiper-container")) {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         },
-        preventClicks: false,
-        preventClicksPropagation: false,
+        // preventClicks: false,
+        // preventClicksPropagation: false,
         on: {
           init: function () {
             setTimeout(function () {
@@ -161,7 +162,8 @@ if (document.querySelector(".swiper-container")) {
         }
       });
 
-
+      
+      // StopSlider
       function StopSlider() {
         clearInterval(progresSlideInterval);
         document.querySelector(".headslid").classList.remove("progress-active");
@@ -709,16 +711,16 @@ if (inputs.length) {
         }, 200);
       }
     });
-    el.addEventListener("blur", function (item) {
+    el.addEventListener("blur", function(item) {
       let $this = this;
+
       setTimeout(function() {
         if(!$this.value) $this.classList.remove("focus")
-        // console.log("blur")
         
-        if(!$this.value) {
-          // $this.classList.add("error")
-        }
-      }, 100)
+        // if($this.value === "" && $this.type == "tel") {
+        //   $this.classList.add("error");
+        // }
+      })
     })
   });
 }
@@ -780,12 +782,12 @@ oepnClose({
     var input = [].slice.call(document.querySelectorAll(".js-block-newpass input"));
 
     if (document.querySelector(".js-block-newpass").classList.contains("active")) {
-      console.log("True")
+      // console.log("True")
       input.forEach(function (el) {
         el.required = true;
       })
     } else {
-      console.log("False")
+      // console.log("False")
       input.forEach(function (el) {
         el.required = false;
         el.value = "";
@@ -814,7 +816,9 @@ if (validatorClass.length) {
 
     var el = [].slice.call(document.querySelectorAll(".js-phone-mask"));
     el.forEach(function (item) {
-      $(item).mask("+9 (999) 999 99 99", {autoclear: true});
+      $(item).mask("+9 (999) 999 99 99", {
+        autoclear: true
+      });
     });
   });
 }
@@ -926,6 +930,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         patterns: {
           email: /^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$/,
           password: /(?=.*\d)(?=.*[a-zа-яё|A-ZА-ЯЁ]).{8,}/,
+          tel: /^(\+7|7|8)?[\s\-]?\(?[0-9]{3}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/,
+          phone: /^(\+7|7|8)?[\s\-]?\(?[0-9]{3}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/
         },
         customValidations: {
           valueMismatch: function (field) {
@@ -1248,7 +1254,7 @@ productTab();
   try {
     let event = new Event('change');
     wrap.noUiSlider.on('change', function (values, handle) {
-      console.log("End")
+      // console.log("End")
       inputs[handle].dispatchEvent(event);
     });
     
@@ -1330,6 +1336,8 @@ const customselect = [].slice.call(document.querySelectorAll(".js-cselect"));
 const btnReset = [].slice.call(document.querySelectorAll(".js-form-reset"));
 
 let arrFilter = [];
+let submitFlag = true;
+let submitFlagTimer = undefined;
 customselect.forEach(function (item) {
   const input = [].slice.call(item.querySelectorAll("input"));
   const selected = item.querySelector(".js-cselect-selected");
@@ -1395,6 +1403,27 @@ customselect.forEach(function (item) {
       head.classList.add("selected");
     });
   }
+  
+  // submitThisForm
+  function submitThisForm(context, once) {
+    let submitData = form.dataset.submit;
+    
+    submitFlagTimer = setTimeout(function() {
+      submitFlag = true;
+    }, 1000)
+
+    if(once) {
+      if(submitFlag) {
+        window[submitData](context);
+        submitFlag = false;
+      }
+    } else {
+      setTimeout(function() {
+        window[submitData](context);
+      });
+    }
+  
+  }
 
   setTimeout(function () {
     init();
@@ -1419,7 +1448,15 @@ customselect.forEach(function (item) {
       button.type = "button";
 
       button.addEventListener("click", function () {
-        $(item).trigger("click");
+        
+        if(item.type === "radio") {
+          submitThisForm(form)
+          console.log("radio")
+        } else {
+          $(item).trigger("click");
+          console.log("checkbox or all")
+        }
+  
         item.checked = false;
 
         if (!$(item).closest(".custom-select__content").find("input:checked").length) {
@@ -1429,7 +1466,7 @@ customselect.forEach(function (item) {
         if (item.type == "radio") {
           $(item).closest(".js-cselect").find(".js-cselect-selected").text("Не выбрано");
         }
-
+  
         $(tmp).remove();
       });
 
@@ -1487,8 +1524,10 @@ customselect.forEach(function (item) {
 
       renderSelectedItem();
 
-      let submitData = this.form.dataset.submit;
-      window[submitData](this.form);
+      // let submitData = this.form.dataset.submit;
+      // window[submitData](this.form);
+      // console.log(this)
+      submitThisForm(this.form)
     });
   });
 
@@ -1509,8 +1548,9 @@ customselect.forEach(function (item) {
       renderSelectedItem();
     }, 100);
   
-    let submitData = this.closest("form").dataset.submit;
-    window[submitData](this.closest("form"));
+    // let submitData = this.closest("form").dataset.submit;
+    // window[submitData](this.closest("form"));
+    submitThisForm(this.closest("form"), true)
   });
 
   // if (!item.querySelector(".js-cselect-dropdown")) {
@@ -1539,16 +1579,24 @@ customselect.forEach(function (item) {
         }
       });
   
-      let submitData = this.closest("form").dataset.submit;
-      window[submitData](this.closest("form"));
+      // let submitData = this.closest("form").dataset.submit;
+      // window[submitData](this.closest("form"));
+      submitThisForm(this.closest("form"), true)
     })
   });
   
   $(".ring-type input").each(function() {
-    $(this).on("change", function() {
-      let submitData = this.form.dataset.submit;
-      window[submitData](this.form);
-    })
+    console.log("awd")
+    function ringFnChange(form) {
+      submitThisForm(this.form)
+    }
+    
+    // $(this).on("change", ringFnChange)
+    // this.addEventListener("change", function() {
+    //   console.log(this)
+    // });
+    
+    this.onclick = ringFnChange
   });
 });
 

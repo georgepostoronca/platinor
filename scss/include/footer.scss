@@ -20,7 +20,9 @@
             margin-right: 28px;
 
             @media(max-width: 1180px) {
-                margin-right: 15px;
+              //margin-right: 15px;
+              margin-left: 7px;
+              margin-right: 7px;
             }
 
             &:last-child {

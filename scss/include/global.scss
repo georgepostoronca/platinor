@@ -616,6 +616,9 @@ a {
   align-items: center;
   justify-content: center;
   
+  box-shadow: none;
+  appearance: none;
+  
   &:hover {
     background: #EDEDED;
   }
@@ -1526,6 +1529,7 @@ a {
   cursor: pointer;
   border: 1px solid #C7B386;
   transition: .2s;
+  user-select: none;
   
   @media (max-width: 768px) {
     height: 51px;
@@ -1542,6 +1546,24 @@ a {
   
   &:active {
     border-color: rgba(#C7B386, .5);
+  }
+  
+  &.spinner {
+    //pointer-events: none;
+    //
+    //&:after {
+    //  //background: #C7B386;
+    //}
+    pointer-events: none;
+    background-image: url("../ico/spinner-white.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+
+    span {
+      opacity: 0;
+
+    }
   }
   
   span{
@@ -3659,13 +3681,26 @@ div[class^="swiper-button"] {
   color: #fff;
 }
 
-
-
 //Checkout Success
 .checkout-success {
   width: 100%;
 }
 
+@media(max-width: 768px) {
+  .checkout-success .container h1 {
+    text-align: center;
+  }
+  .checkout-success .container {
+    display: flex;
+    
+    flex-direction:column;
+    justify-content: center;
+  }
+}
+
 .checkout-success .btn-black {
   margin-bottom: 10px;
+  margin-right: 10px;
+  align-self:center;
 }
+
