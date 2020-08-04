@@ -1335,6 +1335,7 @@ productTab();
 const customselect = [].slice.call(document.querySelectorAll(".js-cselect"));
 const btnReset = [].slice.call(document.querySelectorAll(".js-form-reset"));
 
+
 let arrFilter = [];
 let submitFlag = true;
 let submitFlagTimer = undefined;
@@ -1578,6 +1579,8 @@ customselect.forEach(function (item) {
           selected.innerText = "Не выбрано";
         }
       });
+  
+      $(".ring-type input").prop("checked", false)
   
       // let submitData = this.closest("form").dataset.submit;
       // window[submitData](this.closest("form"));
