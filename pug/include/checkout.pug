@@ -117,20 +117,24 @@ section.checkout
                         em Сб-Вс: 11:00 - 20:00
 
                   .map
-                    script(src="https://api-maps.yandex.ru/2.1/?apikey=ec6bb29e-b209-4613-85ee-e55cc783f87e&load=Map&lang=ru_RU")
+                    script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=ec6bb29e-b209-4613-85ee-e55cc783f87e")
                     script.
-                      ymaps.ready(function () {
-                        let coords = [55.76, 37.64];
-                        let map = new ymaps.Map("map", {
-                          center: coords,
-                          zoom: 12
-                        });
+                      let coords = [55.758240, 37.580193];
+                      ymaps.ready(function() {
+                        var myMap = new ymaps.Map("map", {
+                                center: coords,
+                                zoom: 13
+                            }, {
+                                //- searchControlProvider: 'yandex#search'
+                            });
 
-                        if (map) {
-                          ymaps.modules.require(['Placemark', 'Circle'], function (Placemark, Circle) {
-                            let placemark = new Placemark(coords);
-                          });
-                        }
+                        myMap.geoObjects
+                            .add(new ymaps.Placemark(coords, {
+                                balloonContent: 'цвет <strong>воды пляжа бонди</strong>'
+                            }, {
+                                preset: 'islands#icon',
+                                iconColor: '#0095b6'
+                            }))
                       });
                     #map
 
