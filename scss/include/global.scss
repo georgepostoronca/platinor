@@ -2645,7 +2645,7 @@ textarea {
     display: inline-flex;
     align-items: center;
     //padding-left: 10px;
-    padding-right: 10px;
+    //padding-right: 10px;
     
     //height: 32px;
     border-radius: 4px;
@@ -2677,6 +2677,8 @@ textarea {
   
       position: relative;
       top: -1px;
+
+      padding-right: 10px;
   
       //padding-top: 4px;
       padding-top: 8px;
@@ -2706,6 +2708,8 @@ textarea {
       position: relative;
       top: 0;
       transition: .2s;
+      right: 10px;
+      pointer-events: none;
     }
     
     &.active {

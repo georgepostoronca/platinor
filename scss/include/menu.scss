@@ -512,7 +512,6 @@
     }
     
     span {
-      display: block;
       position: absolute;
       top: -6px;
       left: 16px;
@@ -533,6 +532,8 @@
   
       padding-left: 1px;
       padding-bottom: 2px;
+      color: #000;
+      border: 1px solid #fff;
     }
   }
   
@@ -772,11 +773,11 @@
 
   &__close {
     //width: 84px;
-    width: 50px;
+    width: 60px;
     height: 84px;
     position: absolute;
     top: 50%;
-    right: 15px;
+    right: 0;
     transform: translateY(-50%);
   
     display: flex;
@@ -807,6 +808,12 @@
       width: 14px;
       height: 14px;
       transition: .2s;
+      right: 20px;
+      position: relative;
+
+      @media(max-width: 992px) {
+        right: 0;
+      }
     }
   }
 }

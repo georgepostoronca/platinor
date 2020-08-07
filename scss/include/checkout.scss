@@ -88,6 +88,7 @@
             padding-bottom: 5px;
           }
         }
+
         
         .input-block {
           width: 311px;
@@ -628,6 +629,12 @@
         line-height: 19px;
         color: #969696;
         text-align: center;
+
+        span {
+          color: red;
+          display: inline-block;
+          margin-right: 2px;
+        }
       }
     }
   }
