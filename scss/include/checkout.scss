@@ -618,6 +618,17 @@
           min-width: 100%;
         }
       }
+
+      em {
+        display: block;
+        margin-top: 10px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 19px;
+        color: #969696;
+        text-align: center;
+      }
     }
   }
 }
