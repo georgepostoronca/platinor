@@ -67,7 +67,7 @@
         font-size: 120px;
         line-height: 1;
         color: #1F1F1F;
-        font-family: 'Ogg';
+        font-family: 'Ogg', serif;
         
         margin-top: 26px;
         margin-bottom: 65px;
@@ -81,6 +81,10 @@
         opacity: 0;
         transition: 1s;
         transition-delay: .2s;
+
+        @media(max-width: 1200px) {
+          font-size: 90px;
+        }
         
         @media(max-width: 768px) {
           margin-top: 22px;
@@ -97,9 +101,8 @@
       
       img {
         display: block;
-        margin: 0 auto;
-        margin-bottom: 95px;
-        
+        margin: 0 auto 95px;
+
         @media(max-width: 768px) {
           max-width: 80%;
           margin-bottom: 51px;
@@ -174,7 +177,7 @@
     
     &:after {
       content: "";
-      width: 0%;
+      width: 0;
       height: 100%;
       background: #E0D4B8;
       display: block;

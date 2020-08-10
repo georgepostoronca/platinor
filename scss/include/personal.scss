@@ -174,7 +174,8 @@
     &:before {
       counter-increment: section;
       content: "0" counter(section);
-      font-family: "Ogg";
+      //font-family: "Ogg";
+      font-family: "Ogg", Georgia, sans-serif;
       font-style: normal;
       font-weight: normal;
       font-size: 75px;

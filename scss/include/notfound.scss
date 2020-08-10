@@ -75,7 +75,8 @@
   
   &:after {
     content: "4";
-    font-family: "Ogg", serif;
+    //font-family: "Ogg", serif;
+    font-family: "Ogg", Georgia, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 350px;
@@ -101,7 +102,8 @@
   &:before {
     content: "4";
     width: 208px;
-    font-family: "Ogg", serif;
+    //font-family: "Ogg", serif;
+    font-family: "Ogg", Georgia, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 350px;
