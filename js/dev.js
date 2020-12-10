@@ -1,3 +1,42 @@
+let HTML = document.querySelector("html");
+
+// Detect Browser
+let detectBrowser;
+try {
+  detectBrowser = {
+    isAndroid: /Android/.test(navigator.userAgent),
+    isCordova: !!window.cordova,
+    isEdge: /Edge/.test(navigator.userAgent),
+    isFirefox: /Firefox/.test(navigator.userAgent),
+    isChrome: /Google Inc/.test(navigator.vendor),
+    isChromeIOS: /CriOS/.test(navigator.userAgent),
+    isChromiumBased: !!window.chrome && !/Edge/.test(navigator.userAgent),
+    isIE: /Trident/.test(navigator.userAgent),
+    isIOS: /(iPhone|iPad|iPod)/.test(navigator.platform),
+    isOpera: /OPR/.test(navigator.userAgent),
+    isSafari: /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent),
+    isTouchScreen: ('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch,
+    isWebComponentsSupported: 'registerElement' in document && 'import' in document.createElement('link') && 'content' in document.createElement('template')
+  }
+} catch(e) {
+  console.log(e)
+}
+
+if(detectBrowser) {
+  if(detectBrowser.isChrome) {
+    HTML.classList.add("browser-chrome");
+  }
+
+  if(detectBrowser.isSafari) {
+    HTML.classList.add("browser-safari");
+  }
+
+  if(detectBrowser.isFirefox) {
+    HTML.classList.add("browser-firefox");
+  }
+}
+
+
 function scrolled(o) {
   if (o.offsetWidth + o.scrollLeft == o.scrollWidth) {
     o.parentNode.classList.add("end");
@@ -15,6 +54,69 @@ function scrolled(o) {
     o.parentNode.classList.add("start");
   }
 }
+
+
+/*! Copyright (c) 2016 Naufal Rabbani (http://github.com/BosNaufal)
+* Licensed Under MIT (http://opensource.org/licenses/MIT)
+*
+* Click Outside JS - Version@0.0.1
+*
+*/
+
+(function () {
+
+  function onClickOutside(el, cb) {
+
+    // make a event handler for click event
+    this.evt = function (e) {
+      var itsChildren = el.contains(e.target);
+      if(e.target != el && !itsChildren) {
+        return cb ? cb(e) : null;
+      }
+    };
+
+    // Attach Event Listener to body
+    document.addEventListener('click', this.evt, false);
+
+    return this;
+  }
+
+
+  // Remove Event Listener from body
+  onClickOutside.prototype.remove = function () {
+    document.removeEventListener('click', this.evt, false);
+  };
+
+  // Reinit Event Listener
+  onClickOutside.prototype.reinit = function () {
+    document.addEventListener('click', this.evt, false);
+  };
+
+
+  // refs: Webpack UMD
+  if(typeof module === 'object' && typeof exports === 'object') {
+    module.exports = onClickOutside;
+  }
+  else if(typeof define === 'function' && define.amd) {
+    define([], onClickOutside);
+  }
+  else if(typeof exports === 'object') {
+    exports['onClickOutside'] = onClickOutside;
+  }
+  else {
+    window.onClickOutside = onClickOutside;
+  }
+
+})();
+
+
+
+// Detect Browser
+// Safari
+if(/constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification))) {
+  document.querySelector("html").classList.add("browser-safari");
+}
+
 
 (function (ELEMENT) {
   ELEMENT.matches = ELEMENT.matches || ELEMENT.mozMatchesSelector || ELEMENT.msMatchesSelector || ELEMENT.oMatchesSelector || ELEMENT.webkitMatchesSelector;
@@ -281,8 +383,6 @@ if (document.querySelector(".swiper-container")) {
 
     // Product Slider
     productSlider = function productSliders() {
-      // console.log("Reinit Product Slider");
-
       // prodslid-min slider
       if (document.querySelector('.js__prodslid-min-slider')) {
         var prodslidMin = new Swiper('.js__prodslid-min-slider', {
@@ -342,7 +442,9 @@ if (document.querySelector(".swiper-container")) {
           }
         });
       }
+      scrollsizeFnReinit();
     }
+
     productSlider();
 
     // prodsizeslid slider
@@ -467,7 +569,7 @@ if (document.querySelector(".swiper-container")) {
   });
 }
 
-console.log(productSlider)
+// console.log(productSlider)
 
 // ==============================
 // Function
@@ -555,7 +657,8 @@ function isVisible(elem) { //открыто ли условное окно
   elements = [].slice.call(document.querySelectorAll(element));
 
   elements.forEach(function (el) {
-    // console.log(el);
+    let flag = false;
+
     if (el.classList.contains(first)) {
       getSiblings(el, function (el) {
         el.classList.add(inactive);
@@ -585,6 +688,16 @@ function isVisible(elem) { //открыто ли условное окно
         getSiblings(document.querySelector(element + "." + first), function (el) {
           el.classList.add(inactive);
           el.classList.remove(active);
+        });
+      }
+    });
+
+    el.addEventListener("click", function() {
+      if(window.matchMedia("(max-width: 992px)").matches) {
+        this.classList.toggle("opensub");
+
+        var myEvent = new onClickOutside(el, (e) => {
+          this.classList.remove("opensub");
         });
       }
     });
@@ -654,7 +767,7 @@ oepnClose({
 
 
 // Product Slider
-(function ProductSlider() {
+let productSliderFn = function ProductSlider() {
   var el = document.querySelectorAll(".product");
   if (!el.length) return;
 
@@ -689,7 +802,11 @@ oepnClose({
       }
     });
   });
-})();
+}
+
+productSliderFn();
+var varGlobal = "AWdwadwdawd";
+window.productSlideReinit = productSliderFn;
 
 
 // Add class when input is not empty
@@ -1125,36 +1242,36 @@ if (tabmodalbtn.length) {
 // Popup
 
 $('.js-modal').remodal({
-  closeOnOutsideClick: false,
+  // closeOnOutsideClick: false,
   hashTracking: false
 });
 
 $(document).on('closing', '.js-modal', function (e) {
 
-  if ($(".cmodal").length) {
-    if ($(e.currentTarget).hasClass("remodal-rel")) {
-      setTimeout(function () {
-        $(".remodal-rel .cmodal-item").removeClass("active");
-        $(".cmodal-rel-reglogin").addClass("active");
-
-        $(".cmodal-tab__btn:first-child").addClass("active").siblings().removeClass("active");
-        $(".cmodal-rel-login").addClass("active");
-      }, 300)
-    }
-
-    if ($(e.currentTarget).hasClass("remodal-rep")) {
-      setTimeout(function () {
-        $(".remodal-rep .cmodal-item").removeClass("active");
-        $(".cmodal-rep-phone").addClass("active");
-      }, 300)
-    }
-
-    $(".cmodal-item form").each(function (item) {
-      $(this).get(0).reset();
-      $(this).find("input").removeClass("error notempty")
-      $(this).find("textarea").removeClass("error")
-    });
-  }
+  // if ($(".cmodal").length) {
+  //   if ($(e.currentTarget).hasClass("remodal-rel")) {
+  //     setTimeout(function () {
+  //       $(".remodal-rel .cmodal-item").removeClass("active");
+  //       $(".cmodal-rel-reglogin").addClass("active");
+  //
+  //       $(".cmodal-tab__btn:first-child").addClass("active").siblings().removeClass("active");
+  //       $(".cmodal-rel-login").addClass("active");
+  //     }, 300)
+  //   }
+  //
+  //   if ($(e.currentTarget).hasClass("remodal-rep")) {
+  //     setTimeout(function () {
+  //       $(".remodal-rep .cmodal-item").removeClass("active");
+  //       $(".cmodal-rep-phone").addClass("active");
+  //     }, 300)
+  //   }
+  //
+  //   $(".cmodal-item form").each(function (item) {
+  //     $(this).get(0).reset();
+  //     $(this).find("input").removeClass("error notempty")
+  //     $(this).find("textarea").removeClass("error")
+  //   });
+  // }
 });
 
 
@@ -1351,9 +1468,21 @@ customselect.forEach(function (item) {
   const min = item.querySelector(".js-range-min");
   const max = item.querySelector(".js-range-max");
 
+  function formatNumber(number) {
+    return new Intl.NumberFormat('ru-RU', {
+      style: 'currency',
+      currency: 'RUB',
+      minimumFractionDigits: 0
+    }).format(number)
+  }
 
   if (min && max) {
-    selected.innerText = min.value + (min.value > 0 ? "₽" : "") + " - " + max.value + (max.value > 0 ? "₽" : "");
+    // console.log(
+    //     formatNumber(min.value)
+    //     + " - " +
+    //     formatNumber(max.value)
+    // );
+    selected.innerText = formatNumber(min.value) + " - " + formatNumber(max.value);
   }
 
   selected.addEventListener("click", function () {
@@ -1521,7 +1650,8 @@ customselect.forEach(function (item) {
     // Input Change
     el.addEventListener("change", function () {
       if (this.classList.contains("js-range-result")) {
-        selected.innerText = min.value + (min.value > 0 ? "₽" : "") + " - " + max.value + (max.value > 0 ? "₽" : "");
+        // selected.innerText = min.value + (min.value > 0 ? "₽" : "") + " - " + max.value + (max.value > 0 ? "₽" : "");
+        selected.innerText = formatNumber(min.value) + " - " + formatNumber(max.value);
       }
 
       renderSelectedItem();
@@ -1590,16 +1720,18 @@ customselect.forEach(function (item) {
   });
   
   $(".ring-type input").each(function() {
-    console.log("awd")
+    // console.log("awd")
     function ringFnChange(form) {
+      getSiblings(this.parentElement, function (el) {
+        el.querySelector("input").checked = false;
+      });
       submitThisForm(this.form)
     }
-    
+
     // $(this).on("change", ringFnChange)
     // this.addEventListener("change", function() {
     //   console.log(this)
     // });
-    
     this.onclick = ringFnChange
   });
 });
@@ -1674,22 +1806,57 @@ $(".js-cselect-dropdown").each(function () {
   // });
 });
 
+function setCookie(name, value, options = {}) {
 
+  options = {
+    path: '/',
+    // при необходимости добавьте другие значения по умолчанию
+    ...options
+  };
+
+  if (options.expires instanceof Date) {
+    options.expires = options.expires.toUTCString();
+  }
+
+  let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+  for (let optionKey in options) {
+    updatedCookie += "; " + optionKey;
+    let optionValue = options[optionKey];
+    if (optionValue !== true) {
+      updatedCookie += "=" + optionValue;
+    }
+  }
+
+  document.cookie = updatedCookie;
+}
+
+function getCookie(name) {
+  let matches = document.cookie.match(new RegExp(
+      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+if(!getCookie("grid")) {
+  setCookie('grid', 'N');
+}
 function ChangeGrid(el) {
   const parent = el.parentElement;
   const max = parent.querySelector(".max");
   const min = parent.querySelector(".min");
-
   const grid = document.querySelector(".js-changegrid");
 
   if (el.classList.contains("max")) {
     max.classList.add("active");
     min.classList.remove("active");
-    grid.classList.remove("min")
+    grid.classList.remove("min");
+    setCookie('grid', 'N');
   } else {
     max.classList.remove("active");
     min.classList.add("active");
     grid.classList.add("min")
+    setCookie('grid', 'Y');
   }
 }
 
@@ -1706,9 +1873,10 @@ $(".js-close-filter").click(function () {
 
 
 // Scroll Size
-(function () {
+let scrollsizeFn = function () {
   let root = document.querySelector(".js-scrollsize");
   if (!root) return false;
+  root.classList.add("start")
   let wrap = root.querySelector(".js-scrollsize-wrap");
   let prev = root.querySelector(".js-scrollsize-prev");
   let next = root.querySelector(".js-scrollsize-next");
@@ -1766,7 +1934,10 @@ $(".js-close-filter").click(function () {
     wrap.scrollLeft += item.clientWidth;
     checkBtnDisable();
   });
-})();
+};
+
+scrollsizeFn();
+window.scrollsizeFnReinit = scrollsizeFn;
 
 
 var arFiles = [];
@@ -1921,3 +2092,91 @@ deliverycheck.on("change", function() {
     tabdelivery(true)
   }
 });
+
+function togglePreloader(type) {
+  let el = document.querySelector(".ajax-preloader");
+  if(!el) return false;
+
+  if(type) {
+    el.classList.add("active");
+  } else {
+    el.classList.remove("active");
+  }
+}
+
+
+// Cookie
+function setCookie(name, value, options = {}) {
+
+  options = {
+    path: '/',
+    // при необходимости добавьте другие значения по умолчанию
+    ...options
+  };
+
+  if (options.expires instanceof Date) {
+    options.expires = options.expires.toUTCString();
+  }
+
+  let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+  for (let optionKey in options) {
+    updatedCookie += "; " + optionKey;
+    let optionValue = options[optionKey];
+    if (optionValue !== true) {
+      updatedCookie += "=" + optionValue;
+    }
+  }
+
+  document.cookie = updatedCookie;
+}
+function getCookie(name) {
+  let matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+console.log(getCookie("cookiemessage"))
+if(!getCookie("cookiemessage")) {
+  setCookie("cookiemessage", true)
+}
+
+let cookieBlock = document.querySelector(".js-cookie");
+
+if(cookieBlock) {
+  window.onload = function() {
+    if(getCookie("cookiemessage") === "true") {
+      cookieBlock.classList.remove("hidden");
+    } else {
+      cookieBlock.classList.add("hidden");
+    }
+  };
+
+  let cookieClose = cookieBlock.querySelector(".js-cookie-close");
+  cookieClose.addEventListener("click", function() {
+    setCookie("cookiemessage", false);
+    cookieBlock.classList.add("hidden");
+  });
+}
+
+// ==============
+// Dealing with Textarea Height
+function calcHeight(value) {
+  let numberOfLineBreaks = (value.match(/\n/g) || []).length;
+  // min-height + lines x line-height + padding + border
+  let newHeight = 40 + numberOfLineBreaks * 18.4;
+  return newHeight;
+}
+
+let textarea = [].slice.call(document.querySelectorAll("textarea"));
+if(textarea.length) {
+  textarea.forEach(function(item) {
+    // item.addEventListener("keyup", function() {
+    //   item.style.height = calcHeight(item.value) + "px";
+    // });
+    item.addEventListener("input", function() {
+      item.style.height = calcHeight(item.value) + "px";
+    });
+  })
+}

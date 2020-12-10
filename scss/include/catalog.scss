@@ -34,10 +34,12 @@
       //padding-bottom: 223px;
     
       background: url(../img/ellipse.jpg) 60.1% 52.8% no-repeat;
-      background-size: auto;
+      //background-size: auto;
+      background-size: 512px;
   
       @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
         background: url(../img/ellipse@2x.jpg) 60.1% 52.8% no-repeat;
+        background-size: 512px;
       }
   
       &:after {

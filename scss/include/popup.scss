@@ -4,6 +4,10 @@
   }
 }
 
+.remodal {
+  background-color: transparent;
+}
+
 .remodal-wrapper {
   @media(max-width: 580px) {
     padding: 0;
@@ -137,6 +141,82 @@
             }
           }
         }
+      }
+    }
+  }
+
+  &[data-remodal-id='addproduct'] {
+    width: 649px;
+
+    @media(max-width: 700px) {
+      width: 100%;
+    }
+
+    .cmodal {
+      &-item {
+        width: 100%;
+        padding: 30px 34px 51px;
+
+        @media(max-width: 600px) {
+          padding: 30px 25px 30px;
+        }
+
+        @media(max-width: 580px) {
+          padding-top: 60px;
+        }
+      }
+
+      h2 {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 35px;
+        line-height: 40px;
+        margin-bottom: 55px;
+
+        @media(max-width: 600px) {
+          margin-bottom: 30px;
+        }
+      }
+
+      .listitems {
+        margin-bottom: 10px;
+      }
+
+      &-footer {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 44px;
+
+        @media(max-width: 600px) {
+          flex-wrap: wrap;
+          margin-top: 30px;
+        }
+
+        .btn-black, .btn-submit {
+          min-width: inherit;
+          width: calc(50% - 11px);
+
+          @media(max-width: 600px) {
+            width: 100%;
+            margin-top: 10px;
+
+            &:first-child {
+              margin-top: 0;
+            }
+          }
+        }
+
+        //.btn-submit {
+        //  span {
+        //    color: #fff;
+        //  }
+        //
+        //  &:hover {
+        //    span {
+        //      color: $black;
+        //    }
+        //  }
+        //}
       }
     }
   }
@@ -373,7 +453,23 @@
       }
     }
   }
-  
+
+  @at-root .bx-mac.bx-firefox {
+    .btn-yellow {
+      span {
+        top: 2px;
+      }
+    }
+  }
+
+  @at-root .bx-mac.bx-chrome {
+    .btn-yellow {
+      span {
+        top: 2px;
+      }
+    }
+  }
+
   &-reglogin {
     padding: 0;
     width: auto;

@@ -159,9 +159,9 @@
             font-style: normal;
             font-weight: normal;
             font-size: 13px;
-            line-height: 0px;
             color: #535353;
             opacity: 0.6;
+            line-height: 1;
 
             @media(max-width: 768px) {
                 width: 100%;
@@ -176,7 +176,7 @@
 
         a {
             font-size: 13px;
-            line-height: 0px;
+            line-height: 1;
             color: #535353;
             opacity: 0.6;
             transition: .2s;

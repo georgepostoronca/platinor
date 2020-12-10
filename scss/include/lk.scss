@@ -678,6 +678,12 @@
       
       span {
         font-size: 20px;
+        position: relative;
+        top: 1px;
+
+        @at-root .bx-mac & {
+          top: -2px;
+        }
       }
     }
   }

@@ -214,6 +214,14 @@
           em {
             margin-right: 26px;
           }
+
+          .pickupstore {
+            span {
+              &:after {
+                top: 2px;
+              }
+            }
+          }
         }
       }
       
@@ -269,6 +277,10 @@
           width: calc(100% - 30px);
           position: relative;
           top: 2px;
+
+          @at-root html.bx-firefox.bx-retina &, html.browser-chrome.bx-retina & {
+            top: 4px;
+          }
         }
         
       }

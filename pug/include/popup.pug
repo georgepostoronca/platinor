@@ -1,3 +1,4 @@
+//reglogin
 .remodal.remodal-rel.js-modal(data-remodal-id='reglogin')
   button(data-remodal-action="close" class="remodal-close")
   .cmodal
@@ -121,7 +122,7 @@
         span ВЕРНУТЬСЯ
 
 
-
+//repass
 .remodal.remodal-rep.js-modal(data-remodal-id='repass')
   button(data-remodal-action="close" class="remodal-close")
   .cmodal.cmodal-rep
@@ -188,6 +189,7 @@
         span ВЕРНУТЬСЯ
 
 
+//success
 .remodal.remodal-success.js-modal(data-remodal-id='success')
   button(data-remodal-action="close" class="remodal-close")
   .cmodal.cmodal-single
@@ -199,6 +201,8 @@
       button(type="button" data-remodal-action="close").btn-yellow
         span ВЕРНУТЬСЯ
 
+
+//request
 .remodal.remodal-request.js-modal(data-remodal-id='request')
   button(data-remodal-action="close" class="remodal-close")
   .cmodal.cmodal-single
@@ -221,3 +225,27 @@
           span ВОЙТИ НА САЙТ
 
         p Нажимая на кнопку «Отправить», вы даете согласие на обработку личных данных в соответствии c политикой конфиденциальности,
+
+
+//addproduct
+.remodal.remodal-addproduct.js-modal(data-remodal-id='addproduct')
+  button(data-remodal-action="close" class="remodal-close")
+  .cmodal.cmodal-single
+    //Modal Success
+    .cmodal-item.cmodal-middle.active
+      h2 Товар добавлен в корзину:
+
+      .listitems
+        .listitems__img
+          img(src="img/prodslid-1.jpg" srcset="img/prodslid-1@2x.jpg" alt="IMG")
+        .listitems__info
+          a(href="#") Кольцо из палладия с бриллиантами
+          em Размер: 16
+        .listitems__price
+          b 314 990₽
+
+      .cmodal-footer
+        .btn-black.btn-black--border(data-remodal-action="close")
+          span ПРОДОЛЖИТЬ ПОКУПКИ
+        .btn-submit
+          span ОФОРМИТЬ ЗАКАЗ

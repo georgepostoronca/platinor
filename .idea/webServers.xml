@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="3415adf7-69ad-47ba-927c-607c6774397e" name="platinor" url="http://185.5.250.2">
+        <fileTransfer rootFolder="/public_html/cms/platinor.ruso.md/local/templates/template" host="185.5.250.2" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="87a062a8-0237-4899-a68d-d0123abfa17f" name="newplatinor" url="http://92.53.96.160">
+        <fileTransfer rootFolder="/platinor_ruso/public_html/local/templates/template" host="92.53.96.160" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="5d05f77d-fa34-4332-8507-50dc0e011e2b" name="platinorVPS" url="http://45.90.32.253">
+        <fileTransfer rootFolder="/home/bitrix/www/local/templates/template" accessType="SFTP" host="45.90.32.253" port="22" sshConfigId="8f20406b-0d2d-4942-ad21-7ecaafa179cc" sshConfig="root@45.90.32.253:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

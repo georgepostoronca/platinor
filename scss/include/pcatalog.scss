@@ -1,4 +1,28 @@
+.ajax-preloader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(#fff, .8) url("../ico/spinner.svg") center calc(50vh - 148px) no-repeat;
+  background-size: 50px 50px;
+  display: block;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: .2s;
+
+  &.active {
+    pointer-events: auto;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
 .pcatalog {
+  position: relative;
+
   &__wrap {
   
   }
@@ -32,8 +56,15 @@
       justify-content: space-between;
       align-items: flex-end;
       width: 100%;
-  
-      margin-top: 15px;
+      margin-top: 14px;
+    }
+
+    @media(max-width: 768px) {
+      margin-top: 19px;
+
+      @at-root .bx-retina & {
+        margin-top: 24px;
+      }
     }
     
     h1 {
@@ -41,6 +72,12 @@
       margin-bottom: 0;
       margin-right: 27px;
       display: inline-block;
+      position: relative;
+      left: -5px;
+
+      @media(max-width: 768px) {
+        left: -2px;
+      }
     }
 
     em {
@@ -58,7 +95,7 @@
       }
   
       @media(max-width: 768px) {
-        top: -4px;
+        top: -5px;
       }
     }
   }
@@ -99,10 +136,10 @@
       background: #FBF7F0;
       overflow: hidden;
       
-      width: calc( 100% + 30px);
+      width: calc( 100% + 40px);
       position: relative;
       //padding-left: 15px;
-      left: -15px;
+      left: -20px;
       padding-left: 0;
     }
     
@@ -126,9 +163,12 @@
       display: flex;
       align-items: center;
       flex-wrap: wrap;
+      width: calc(100% - 69px);
   
       @media(max-width: 992px) {
         overflow: auto;
+        //width: calc(100% - 15px);
+        width: 100%;
       }
       
       em {
@@ -154,10 +194,12 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        padding-right: 5%;
   
         @media(max-width: 992px) {
           flex-wrap: nowrap;
           overflow: auto;
+          width: 100%;
         }
         
         li {
@@ -167,6 +209,7 @@
   
           margin-bottom: 10px;
           margin-top: 10px;
+          border-radius: 5px;
           
           @media(max-width: 768px) {
             margin-bottom: 18px;
@@ -189,7 +232,6 @@
   
           &.active, &:hover {
             background: #C7B386;
-            border-radius: 5px;
             
             a {
               color: #fff;
@@ -205,7 +247,21 @@
             text-decoration: none;
             display: block;
             white-space: nowrap;
-            padding: 5px 8px 8px;
+
+            padding-top: 6px;
+            padding-left: 8px;
+            padding-right: 8px;
+            padding-bottom: 8px;
+
+            @at-root .bx-firefox & {
+              padding-top: 6px;
+              padding-bottom: 7px;
+            }
+
+            @at-root .browser-chrome & {
+              padding-top: 6px;
+              padding-bottom: 7px;
+            }
           }
         }
       }
@@ -218,7 +274,9 @@
     background: #FAFAFA;
     border-radius: 5px;
     display: flex;
-  
+    position: relative;
+    //top: -8px;
+
     @media(max-width: 992px) {
       display: none;
     }
@@ -270,8 +328,7 @@
     @media(max-width: 992px) {
       margin-bottom: 23px;
     }
-    
-    
+
     .filter__select {
       @media(max-width: 992px) {
         position: fixed;
@@ -687,8 +744,8 @@
   
   .custom-select {
     //min-width: 127px;
-    margin-right: 40px;
-  
+    margin-right: 20px;
+
     margin-top: 5px;
     margin-bottom: 5px;
     
@@ -739,6 +796,17 @@
           
           opacity: 0;
           transition: 0s;
+
+          @media(max-width: 992px) {
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+          }
+
+          @media(max-width: 768px) {
+            font-size: 11px;
+            text-transform: uppercase;
+          }
         }
         
         &.active {
@@ -768,13 +836,7 @@
         &.selected {
           background-color: #fff;
           
-          span {
-            font-weight: 500;
-            font-size: 16px;
-            line-height: 1;
-            color: #000000;
-            opacity: 1;
-          }
+
         }
       }
       
@@ -909,6 +971,11 @@
         color: #1F1F1F;
         text-transform: uppercase;
         cursor: default;
+
+        @at-root .bx-firefox & {
+          position: relative;
+          top: -1px;
+        }
       }
       
       button {
@@ -983,12 +1050,14 @@
     
     span{
       font-style: normal;
-      font-weight: 500;
+      font-weight: 600;
       font-size: 11px;
       line-height: 1;
       letter-spacing: 0.1em;
       color: #1F1F1F;
       text-align: center;
+      position: relative;
+      top: -1px;
     }
   }
   
@@ -1029,7 +1098,6 @@
         justify-content: center;
         
         outline: none;
-        
         flex: 0 1 auto;
         
         svg {
@@ -1041,13 +1109,23 @@
         
         span {
           font-style: normal;
-          font-weight: 500;
-          font-size: 11px;
+          //font-weight: 500;
+          //font-size: 16px;
           line-height: 1;
-          letter-spacing: 0.1em;
+          //letter-spacing: 0.1em;
           color: #1F1F1F;
           position: relative;
           top: -1px;
+
+          //font-weight: 600;
+          font-weight: 500;
+          font-size: 14px;
+          text-transform: uppercase;
+
+          @media(max-width: 768px) {
+            font-size: 11px;
+            text-transform: uppercase;
+          }
         }
       }
       
@@ -1082,13 +1160,22 @@
             text-overflow: ellipsis;
             opacity: 1;
             padding: 5px 30px 5px 0;
+            position: relative;
+            top: -1px;
+
+            //font-size: 11px;
+            //text-transform: uppercase;
+
+            text-align: center;
+            font-weight: 500;
           }
           
           &:after {
             right: 10px;
             left: initial;
-            margin-top: 1px;
+            //margin-top: 1px;
             filter: none;
+            //position: relative;
           }
         }
         
