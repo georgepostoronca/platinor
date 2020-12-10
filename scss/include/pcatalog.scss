@@ -87,6 +87,9 @@
       font-size: 16px;
       line-height: 1;
       color: #A1A1A1;
+
+      white-space: nowrap;
+      margin-top: 20px;
   
       @media(max-width: 992px) {
         font-size: 13px;

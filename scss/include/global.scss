@@ -3828,7 +3828,8 @@ div[class^="swiper-button"] {
       }
 
       @at-root html.bx-firefox.bx-retina &, html.browser-chrome.bx-retina &  {
-        top: 1px;
+        top: 0;
+        //top: 1px;
         //top: -1px;
       }
 
