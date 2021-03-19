@@ -110,7 +110,6 @@ function scrolled(o) {
 })();
 
 
-
 // Detect Browser
 // Safari
 if(/constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification))) {
@@ -208,6 +207,16 @@ function loadScript(url, callback) {
   document.getElementsByTagName("body")[0].appendChild(script);
 }
 
+// Page Load
+document.addEventListener("DOMContentLoaded", function() {
+  document.body.classList.add("page-loaded");
+
+  setTimeout(function() {
+    if (document.body.classList.contains("page-loaded")) {
+      document.body.classList.add("page-loaded")
+    }
+  }, 3000)
+});
 
 // Init Slider
 var productSlider = "!!";
@@ -222,7 +231,7 @@ if (document.querySelector(".swiper-container")) {
         this.touchEventsData.formElements = '*';
         i.call(this);
       };
-      
+
       var firstStart = false;
       var progresSlideInterval;
 
@@ -264,7 +273,7 @@ if (document.querySelector(".swiper-container")) {
         }
       });
 
-      
+
       // StopSlider
       function StopSlider() {
         clearInterval(progresSlideInterval);
@@ -307,6 +316,9 @@ if (document.querySelector(".swiper-container")) {
           slidesPerColumnFill: "row",
           spaceBetween: 24,
           threshold: 20,
+          allowTouchMove: false,
+          noSwiping: true,
+          simulateTouch: false,
           navigation: {
             nextEl: item.closest(".topproduct").querySelector(".arrow-slider__next"),
             prevEl: item.closest(".topproduct").querySelector(".arrow-slider__prev"),
@@ -395,10 +407,10 @@ if (document.querySelector(".swiper-container")) {
           on: {
             init: function (arg) {
               document.querySelector('.js__prodslid-min-slider').classList.remove("loading");
-  
+
               console.log(this.$el[0])
               let slides = [].slice.call(this.$el[0].querySelectorAll(".swiper-slide"));
-              
+
               slides.forEach(function(el, index) {
                 el.addEventListener("click", function() {
                   // console.log(index)
@@ -425,7 +437,7 @@ if (document.querySelector(".swiper-container")) {
           }
         });
       }
-  
+
 
       // prodslid slider
       if (document.querySelector('.js__prodslid-slider')) {
@@ -734,13 +746,14 @@ oepnClose({
   el: searchBlock,
   type: "toggle",
   callback: function (el) {
+    let $this = this;
+
     setTimeout(function () {
-      // onClickClose(searchBlock, function () {
-      //   searchBlock.classList.remove("active");
-      // });
-  
+      let input = $this.el.querySelector('input');
+      input.focus();
+
       el.classList.toggle("active");
-        
+
       jQuery(function ($) {
         $(document).mouseup(function (e) { // событие клика по веб-документу
           var div = $(searchBlock); // тут указываем ID элемента
@@ -767,50 +780,322 @@ oepnClose({
 
 
 // Product Slider
-let productSliderFn = function ProductSlider() {
-  var el = document.querySelectorAll(".product");
-  if (!el.length) return;
+window.mobileAndTabletCheck = function() {
+  let check = false;
+  (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) check = true;})(navigator.userAgent||navigator.vendor||window.opera);
+  return check;
+};
 
-  el = [].slice.call(el);
-  el.forEach(function (el) {
-    var slider = el.querySelector(".product__slider");
-    var pagination = el.querySelector(".product__pagination");
-    var items = [].slice.call(el.querySelectorAll(".product__slider-item"));
-  
-    if(items.length == 0) return false;
-    items = [].slice.call(items);
-    items.forEach(function (item, index) {
-      var $this = item;
-      var span = document.createElement("span");
-      if (index == 0) {
-        $this.classList.add("active");
-        span.classList.add("active");
+function swipedetect(el, callback){
+  var touchsurface = el,
+    swipedir,
+    startX,
+    startY,
+    distX,
+    distY,
+    threshold = 80, //required min distance traveled to be considered swipe
+    restraint = 100, // maximum distance allowed at the same time in perpendicular direction
+    allowedTime = 300, // maximum time allowed to travel that distance
+    elapsedTime,
+    startTime,
+    handleswipe = callback || function(swipedir){}
+
+  touchsurface.addEventListener('touchstart', function(e){
+    var touchobj = e.changedTouches[0]
+    swipedir = 'none'
+    dist = 0
+    startX = touchobj.pageX
+    startY = touchobj.pageY
+    startTime = new Date().getTime() // record time when finger first makes contact with surface
+    // e.preventDefault()
+  }, false)
+
+  touchsurface.addEventListener('touchmove', function(e){
+    // e.preventDefault() // prevent scrolling when inside DIV
+  }, false)
+
+  touchsurface.addEventListener('touchend', function(e){
+    var touchobj = e.changedTouches[0]
+    distX = touchobj.pageX - startX // get horizontal dist traveled by finger while in contact with surface
+    distY = touchobj.pageY - startY // get vertical dist traveled by finger while in contact with surface
+    elapsedTime = new Date().getTime() - startTime // get time elapsed
+    if (elapsedTime <= allowedTime){ // first condition for awipe met
+      if (Math.abs(distX) >= threshold && Math.abs(distY) <= restraint){ // 2nd condition for horizontal swipe met
+        swipedir = (distX < 0)? 'left' : 'right' // if dist traveled is negative, it indicates left swipe
       }
-      span.addEventListener("mouseover", function (el) {
-        this.classList.add("active");
-        $this.classList.add("active");
-        getSiblings($this, function (el) {
-          el.classList.remove("active");
-        });
-        getSiblings(this, function (el) {
-          el.classList.remove("active");
-        });
-      });
-      
-      if(pagination) {
-        pagination.appendChild(span);
+      else if (Math.abs(distY) >= threshold && Math.abs(distX) <= restraint){ // 2nd condition for vertical swipe met
+        swipedir = (distY < 0)? 'up' : 'down' // if dist traveled is negative, it indicates up swipe
       }
+    }
+    handleswipe(swipedir)
+    // e.preventDefault()
+  }, false)
+}
+
+// let productEls = document.querySelectorAll(".product");
+// let productSliderFn;
+//
+// window.productSlideReinit = function () {
+//   let el = productEls;
+//   if (!el.length) return;
+//   el = [].slice.call(el);
+//
+//   el.forEach(function (el) {
+//     let slider = el.querySelector(".product__slider");
+//     let pagination = el.querySelector(".product__pagination");
+//     let items = [].slice.call(el.querySelectorAll(".product__slider-item"));
+//
+//     let active = 0;
+//
+//     el.addEventListener('touchstart', (ev) => {
+//       console.log(this, ev)
+//     }, false);
+//
+//     if(items.length > 1 && mobileAndTabletCheck()) {
+//
+//       let hammertime = new Hammer(slider, {});
+//       hammertime.on('swipeleft swiperight', function(ev) {
+//         console.log(ev.type);
+//
+//         if (ev.type === 'swipeleft') {
+//           // console.log("next");
+//           incdec(true);
+//           goTo(active);
+//         } else {
+//           // console.log("prev");
+//           incdec(false);
+//           goTo(active);
+//         }
+//       });
+//     }
+//
+//     function incdec(bool) {
+//       // console.log("incdec: ", active);
+//       if(bool) {
+//         if(active === items.length - 1) {
+//           active = 0;
+//         } else {
+//           active += 1;
+//         }
+//       } else {
+//         if(active === 0) {
+//           active = items.length - 1;
+//         } else {
+//           active -= 1;
+//         }
+//       }
+//     }
+//
+//     function goTo(index) {
+//       let elIndex = items[index];
+//       elIndex.classList.add("active");
+//       getSiblings(elIndex, function (el) {
+//         el.classList.remove("active");
+//       });
+//
+//       let paginItem = pagination.children[index];
+//       paginItem.classList.add("active");
+//       getSiblings(paginItem, function (el) {
+//         el.classList.remove("active");
+//       });
+//     }
+//
+//     if(items.length === 0) return false;
+//     items = [].slice.call(items);
+//     items.forEach(function (item, index) {
+//       let $this = item;
+//       let span = document.createElement("span");
+//       if (index === 0) {
+//         $this.classList.add("active");
+//         span.classList.add("active");
+//       }
+//       span.addEventListener("mouseover", function (el) {
+//         active = index;
+//         this.classList.add("active");
+//         $this.classList.add("active");
+//         getSiblings($this, function (el) {
+//           el.classList.remove("active");
+//         });
+//         getSiblings(this, function (el) {
+//           el.classList.remove("active");
+//         });
+//       });
+//
+//       if(pagination) {
+//         pagination.appendChild(span);
+//       }
+//     });
+//   });
+// }
+//
+// if (productEls.length) {
+//   loadScript(defaultPATH + "/js/include/hammer.min.js", function () {
+//     productSlideReinit();
+//   });
+// }
+
+function productCustomSlider(root) {
+  const clases = {
+    root: ".product",
+    slider: ".product__slider",
+    item: ".product__slider-item",
+    info: ".product__info",
+    pagination: "product__pagination",
+    hovers: "product__hovers"
+  }
+
+  let active = 0;
+  let slider = root.querySelector(clases.slider);
+  let sliderItems = slider.children;
+  let rootLink = null;
+
+  if(slider.href) {
+    rootLink = slider.href
+  } else if(root.dataset.href) {
+    rootLink = root.dataset.href
+  } else {
+    rootLink = false;
+  }
+
+  if(sliderItems.length) {
+    slider.children[active].classList.add("active");
+  } else {
+    slider.classList.add("--empty")
+  }
+
+  if (sliderItems.length < 2) {
+    return false;
+  }
+
+  let info = root.querySelector(clases.info);
+  let count = [].slice.call(slider.children);
+
+  // Create pagination parent element
+  let pagination = document.createElement("div");
+  pagination.classList.add(clases.pagination);
+  info.append(pagination);
+
+  // Create hovers parent element
+  let hovers = rootLink ? document.createElement("a") :  document.createElement("div");
+  if(rootLink) hovers.href = rootLink;
+  hovers.classList.add(clases.hovers);
+  root.append(hovers)
+
+  function activeThis(el, index) {
+    [].slice.call(el).forEach(item => {
+      item.classList.remove("active");
     });
+
+    el[index].classList.add("active");
+  }
+
+  // Slider Items Each
+  count.forEach(function(el, index) {
+    let hover = document.createElement("span");
+    let item = document.createElement("span");
+
+    if(index === 0) {
+      item.classList.add("active");
+    }
+
+    function itemEvent(item) {
+      let index = [].slice.call(item.target.parentElement.children).indexOf(item.target);
+      active = index;
+      goTo(index);
+      activeThis(pagination.children, index)
+    }
+
+    // Hover on items hover
+    hover.addEventListener("mouseover", function(item) {
+      itemEvent(item);
+    });
+
+    // Click on pagination pagination
+    item.addEventListener("click", function(item) {
+      itemEvent(item);
+    });
+
+    // Hover on pagination pagination
+    item.addEventListener("mouseover", function(item) {
+      itemEvent(item);
+    });
+
+    // Append items in DOM
+    pagination.append(item);
+    hovers.append(hover);
+  });
+
+  // Gto To index
+  function goTo(index) {
+    // console.log(active);
+    if(sliderItems[index].classList.contains("active")) return false;
+    activeThis(sliderItems, index);
+  }
+
+  // Swipe Detect
+  // swipedetect(slider, function(dir) {
+  //   if(dir === "left") {
+  //     if(active === sliderItems.length - 1) {
+  //       active = 0;
+  //     } else {
+  //       active += 1;
+  //     }
+  //   } else if(dir === "right") {
+  //     if(active === 0) {
+  //       active = sliderItems.length - 1;
+  //     } else {
+  //       active -= 1;
+  //     }
+  //   }
+  //
+  //   goTo(active);
+  //   activeThis(pagination.children, active)
+  // });
+
+
+  let hammertime = new Hammer(slider, {});
+  hammertime.on('swipeleft swiperight', function(ev) {
+    // alert(ev.type)
+
+    if (ev.type === 'swipeleft') {
+      if(active === sliderItems.length - 1) {
+        active = 0;
+      } else {
+        active += 1;
+      }
+    } else {
+      if(active === 0) {
+        active = sliderItems.length - 1;
+      } else {
+        active -= 1;
+      }
+    }
+
+    goTo(active);
+    activeThis(pagination.children, active)
   });
 }
 
-productSliderFn();
-var varGlobal = "AWdwadwdawd";
-window.productSlideReinit = productSliderFn;
+let productsCustomItems = [].slice.call(document.querySelectorAll(".product"));
+window.productSlideReinit = function () {
+  productsCustomItems = [].slice.call(document.querySelectorAll(".product"));
+  console.log("productSlideReinit")
+  productsCustomItems.forEach(function(item) {
+    productCustomSlider(item);
+  });
+}
+
+if (productsCustomItems.length) {
+  loadScript(defaultPATH + "/js/include/hammer.min.js", function () {
+    productSlideReinit();
+  });
+}
+
+// productSlideReinit();
 
 
 // Add class when input is not empty
-var inputs = document.querySelectorAll(".js__input-notempty");
+let inputs = document.querySelectorAll(".js__input-notempty");
 if (inputs.length) {
   inputs = [].slice.call(inputs);
   inputs.forEach(function (el) {
@@ -821,7 +1106,7 @@ if (inputs.length) {
       setTimeout(function() {
         $this.classList.add("focus");
       });
-  
+
       if(el === document.activeElement) {
         setTimeout(function() {
           $this.classList.add("focus");
@@ -833,7 +1118,7 @@ if (inputs.length) {
 
       setTimeout(function() {
         if(!$this.value) $this.classList.remove("focus")
-        
+
         // if($this.value === "" && $this.type == "tel") {
         //   $this.classList.add("error");
         // }
@@ -878,8 +1163,8 @@ function Tabs(el) {
       });
     });
   });
-  
-  
+
+
   let hash = location.hash;
   if(hash) {
     $(".js-tabs-btn[data-hash='"+ hash +"']").trigger("click");
@@ -927,13 +1212,29 @@ function executeFunctionByName(functionName, context /*, args */) {
 
 
 var validatorClass = document.querySelectorAll(".js-form-validator");
+
+$.fn.setCursorPosition = function(pos) {
+  console.log(pos)
+  if ($(this).get(0).setSelectionRange) {
+    $(this).get(0).setSelectionRange(pos, pos);
+  } else if ($(this).get(0).createTextRange) {
+    var range = $(this).get(0).createTextRange();
+    range.collapse(true);
+    range.moveEnd('character', pos);
+    range.moveStart('character', pos);
+    range.select();
+  }
+};
+
 if (validatorClass.length) {
   loadScript(defaultPATH + "/js/include/jquery.maskedinput.min.js", function () {
     console.log("maskedinput Loaded");
 
     var el = [].slice.call(document.querySelectorAll(".js-phone-mask"));
     el.forEach(function (item) {
-      $(item).mask("+9 (999) 999 99 99", {
+      $(item).click(function() {
+        $(this).setCursorPosition(1);
+      }).mask("+9 (999) 999 99 99", {
         autoclear: true
       });
     });
@@ -982,12 +1283,12 @@ function check(pass, input) {
     if (pass.match(vv)) {
       protect++;
     }
-    
+
     if (pass.length > 16) {
       protect++;
     }
-    
-    
+
+
 
     if (protect == 1) {
       $(input).parent().removeClass("low");
@@ -1013,7 +1314,7 @@ function check(pass, input) {
       // $(input).parent().addClass('good');
       // $(input).parent().find(".pass-check span").text("Хороший")
       // return "Хороший";
-  
+
       $(input).parent().removeClass("low");
       $(input).parent().removeClass("normal");
       $(input).parent().removeClass("good");
@@ -1186,7 +1487,7 @@ function PhoneCode(el) {
         nrclick = 0;
       }
     });
-    
+
     item.addEventListener("focus", function() {
       let index = $(this).index();
       this.value = "";
@@ -1247,6 +1548,7 @@ $('.js-modal').remodal({
 });
 
 $(document).on('closing', '.js-modal', function (e) {
+  autoCloseModal(e);
 
   // if ($(".cmodal").length) {
   //   if ($(e.currentTarget).hasClass("remodal-rel")) {
@@ -1274,15 +1576,13 @@ $(document).on('closing', '.js-modal', function (e) {
   // }
 });
 
-
 $(document).on('opened', '.js-modal', function (e) {
-  
   let form = this.querySelector("form");
   if(form) {
     let firstInput = form.querySelectorAll("input")[0];
     firstInput.focus();
   }
-  
+
   let tmp = document.createElement("div");
   tmp.dataset.dataRemodalAction = "close";
   tmp.classList.add("remodal-close");
@@ -1297,6 +1597,67 @@ $(document).on('opened', '.js-modal', function (e) {
     $(e.currentTarget).closest(".remodal-wrapper").append(tmp)
   }
 });
+
+let modalautoopen = "modalautoopen";
+let openedpage = "openedpage";
+
+let instautoopen = $('[data-remodal-id=autoopen]').remodal();
+function openModal() {
+  instautoopen.open();
+}
+
+function autoOpenMpdal() {
+  let nrpage = getCookie(openedpage);
+  let open = getCookie(modalautoopen);
+
+  function returnCookie() {
+    return Boolean(parseInt(getCookie(modalautoopen)));
+  }
+
+  let ifopen = function() {
+    if (returnCookie())
+      if (instautoopen.getState() !== 'opened')
+        openModal();
+  }
+
+  if (!open) {
+    setCookie(modalautoopen, 1, {
+      expires: 3600 * 24,
+      "max-age": 3600 * 24
+    });
+  }
+
+  if(nrpage) {
+    if (isNaN(nrpage)) {
+      setCookie(openedpage, 1)
+    } else {
+      setCookie(openedpage, Number(nrpage) + 1)
+    }
+  } else {
+    setCookie(openedpage, 1)
+  }
+
+  if (Number(nrpage) >= 2) {
+    ifopen();
+    setCookie(openedpage, 0);
+  } else {
+    setTimeout(function() {
+      console.log("Open Modal");
+      ifopen();
+    }, 3000);
+  }
+}
+
+function autoCloseModal(e) {
+  if(e.currentTarget.classList.contains("remodal-autoopen")) {
+    setCookie(modalautoopen, 0, {
+      expires: 3600 * 24,
+      "max-age": 3600 * 24
+    })
+  }
+}
+
+document.addEventListener("DOMContentLoaded", autoOpenMpdal);
 
 // Product Tab
 productTab = function () {
@@ -1368,14 +1729,14 @@ productTab();
   wrap.noUiSlider.on('update', function (values, handle) {
     inputs[handle].value = parseInt(values[handle]);
   });
-  
+
   try {
     let event = new Event('change');
     wrap.noUiSlider.on('change', function (values, handle) {
       // console.log("End")
       inputs[handle].dispatchEvent(event);
     });
-    
+
   } catch(e) {
     console.log(e)
   }
@@ -1457,6 +1818,57 @@ const btnReset = [].slice.call(document.querySelectorAll(".js-form-reset"));
 let arrFilter = [];
 let submitFlag = true;
 let submitFlagTimer = undefined;
+let grupsyncEl = [].slice.call(document.querySelectorAll("[data-sync-name='proba'] input"));
+
+// ================
+let syncprob = [].slice.call(document.querySelectorAll("[data-sync='proba'] input"));
+syncprob.forEach((item) => {
+  item.addEventListener("change", (ev) => {
+    let name = item.dataset.name;
+    if(!name) return false;
+
+    grupsyncEl.forEach((item) => {
+      item.checked = false;
+      item.parentElement.style.display = "flex";
+
+      switch(name) {
+        case 'platina':
+          if(!item.dataset.name.includes("pt")) {
+            item.parentElement.style.display = "none";
+          }
+          break;
+        case 'palladij':
+          if(!item.dataset.name.includes("pd")) {
+            item.parentElement.style.display = "none";
+          }
+          break;
+        case 'zoloto':
+          if(!item.dataset.name.includes("au")) {
+            item.parentElement.style.display = "none";
+          }
+          break;
+        default:
+          item.parentElement.style.display = "none";
+          break;
+      }
+    });
+
+  });
+});
+
+function resetMetalSyncFilter() {
+  grupsyncEl[0].closest(".js-cselect").querySelector(".js-cselect-selected").innerText = "Не выбрано";
+  // console.log(grupsyncEl[0], grupsyncEl[0].closest(".js-cselect-selected"));
+
+  grupsyncEl.forEach((item) => {
+    item.checked = false;
+    item.parentElement.style.display = "flex";
+    // console.log(item, item.closest(".js-cselect").querySelector(".js-cselect-head"))
+    item.closest(".js-cselect").querySelector(".js-cselect-head").classList.remove("selected");
+  });
+}
+// ================
+
 customselect.forEach(function (item) {
   const input = [].slice.call(item.querySelectorAll("input"));
   const selected = item.querySelector(".js-cselect-selected");
@@ -1482,7 +1894,7 @@ customselect.forEach(function (item) {
     //     + " - " +
     //     formatNumber(max.value)
     // );
-    selected.innerText = formatNumber(min.value) + " - " + formatNumber(max.value);
+    // selected.innerText = formatNumber(min.value) + " - " + formatNumber(max.value);
   }
 
   selected.addEventListener("click", function () {
@@ -1515,7 +1927,7 @@ customselect.forEach(function (item) {
 
       let value = el.dataset.value;
       if (el.type === "checkbox") {
-        if (checkedInput == 0) {
+        if (checkedInput === 0) {
           selected.innerText = "Не выбрано";
           head.classList.remove("selected");
           head.classList.remove("active");
@@ -1534,11 +1946,11 @@ customselect.forEach(function (item) {
       head.classList.add("selected");
     });
   }
-  
+
   // submitThisForm
   function submitThisForm(context, once) {
     let submitData = form.dataset.submit;
-    
+
     submitFlagTimer = setTimeout(function() {
       submitFlag = true;
     }, 1000)
@@ -1553,7 +1965,7 @@ customselect.forEach(function (item) {
         window[submitData](context);
       });
     }
-  
+
   }
 
   setTimeout(function () {
@@ -1574,30 +1986,54 @@ customselect.forEach(function (item) {
       let tmp = document.createElement("div")
       tmp.classList.add("filter-selected__item");
 
+      if (item.dataset.name) tmp.dataset.name = item.dataset.name;
+
       let span = document.createElement("span")
       let button = document.createElement("button")
       button.type = "button";
 
-      button.addEventListener("click", function () {
-        
+      button.addEventListener("click", function (ev) {
+        // console.log("awdawawwad")
+
         if(item.type === "radio") {
           submitThisForm(form)
-          console.log("radio")
+          // console.log("radio")
         } else {
           $(item).trigger("click");
-          console.log("checkbox or all")
         }
-  
-        item.checked = false;
 
-        if (!$(item).closest(".custom-select__content").find("input:checked").length) {
-          // console.log("true")
-          $(item).closest(".js-cselect").find(".js-cselect-head").removeClass("selected");
+        if (ev.target.parentElement.dataset.name) {
+          if (ev.target.parentElement.dataset.name.includes("platina") ||
+            ev.target.parentElement.dataset.name.includes("palladij") ||
+            ev.target.parentElement.dataset.name.includes("zoloto")) {
+            let parent = document.querySelector(".filter-selected");
+            [].slice.call(parent.children).forEach(item => {
+              if (item.dataset.name) {
+                if (item.dataset.name.includes("pt") ||
+                  item.dataset.name.includes("pd") ||
+                  item.dataset.name.includes("au")) {
+                  item.remove();
+                  resetMetalSyncFilter();
+                }
+              }
+            });
+          }
         }
-        if (item.type == "radio") {
+
+        setTimeout(() => {
+          if (!$(item).closest(".custom-select__content").find("input:checked").length) {
+            // console.log("true")
+            // console.log("awdwadwd 1");
+            $(item).closest(".js-cselect").find(".js-cselect-head").removeClass("selected");
+          }
+        }, 100)
+
+        if (item.type === "radio") {
+          // console.log("awdwadwd 2");
           $(item).closest(".js-cselect").find(".js-cselect-selected").text("Не выбрано");
         }
-  
+
+        item.checked = false;
         $(tmp).remove();
       });
 
@@ -1608,6 +2044,7 @@ customselect.forEach(function (item) {
       $(".filter-selected").append($(tmp))
     });
   }
+
 
   input.forEach(function (el) {
     el.addEventListener("click", function () {
@@ -1651,7 +2088,17 @@ customselect.forEach(function (item) {
     el.addEventListener("change", function () {
       if (this.classList.contains("js-range-result")) {
         // selected.innerText = min.value + (min.value > 0 ? "₽" : "") + " - " + max.value + (max.value > 0 ? "₽" : "");
-        selected.innerText = formatNumber(min.value) + " - " + formatNumber(max.value);
+        // selected.innerText = formatNumber(min.value) + " - " + formatNumber(max.value);
+      }
+
+      let rangeResult = $(".range-result");
+      if(rangeResult.length) {
+        try {
+          $range_result = formatNumber(min.value) + " - " + formatNumber(max.value);
+          rangeResult.html($range_result);
+        } catch (e) {
+          console.log(e)
+        }
       }
 
       renderSelectedItem();
@@ -1666,6 +2113,7 @@ customselect.forEach(function (item) {
   reset.addEventListener("click", function () {
     input.forEach(function (el) {
       el.checked = false;
+      el.parentElement.style.display = "flex";
       head.classList.remove("selected");
       head.classList.remove("active");
 
@@ -1679,7 +2127,7 @@ customselect.forEach(function (item) {
     setTimeout(function () {
       renderSelectedItem();
     }, 100);
-  
+
     // let submitData = this.closest("form").dataset.submit;
     // window[submitData](this.closest("form"));
     submitThisForm(this.closest("form"), true)
@@ -1701,6 +2149,7 @@ customselect.forEach(function (item) {
 
       input.forEach(function (el) {
         el.checked = false;
+        el.parentElement.style.display = "flex";
         head.classList.remove("selected");
         head.classList.remove("active");
 
@@ -1710,15 +2159,15 @@ customselect.forEach(function (item) {
           selected.innerText = "Не выбрано";
         }
       });
-  
+
       $(".ring-type input").prop("checked", false)
-  
+
       // let submitData = this.closest("form").dataset.submit;
       // window[submitData](this.closest("form"));
       submitThisForm(this.closest("form"), true)
     })
   });
-  
+
   $(".ring-type input").each(function() {
     // console.log("awd")
     function ringFnChange(form) {
@@ -1740,7 +2189,11 @@ customselect.forEach(function (item) {
 $(".js-cselect-dropdown").each(function () {
   // let root = $(this).closest(".js-cselect-dropdown");
   // let input = $(this).find(".js-notindexed");
-  const head = $(this).closest(".custom-select__dropdown");
+
+  // const head = $(this).closest(".custom-select__dropdown");
+  const head = $(this).find(".custom-select__dropdown-head");
+
+
   // const headParent = $(this).closest(".js-cselect").find(".js-cselect-head");
   // let inputs = $(this)
   //                 .closest(".js-cselect-dropdown")
@@ -1755,7 +2208,7 @@ $(".js-cselect-dropdown").each(function () {
 
   // console.log(head)
   head.on("click", function () {
-    $(this).toggleClass("open")
+    $(this).parent().toggleClass("open");
   });
 
   // input.on("change", function() {
@@ -2011,12 +2464,12 @@ if(window.IntersectionObserver) {
         }
       })
     });
-    
+
     fade.forEach(function(v) {
       imageObserver.observe(v);
     })
   }
-  
+
 } else {
   let fade = [].slice.call(fadein);
   fade.forEach(function(entry) {
@@ -2037,7 +2490,7 @@ if(window.IntersectionObserver) {
         }
       })
     });
-    
+
     fade.forEach(function(v) {
       imageObserver.observe(v);
     })
@@ -2137,7 +2590,7 @@ function getCookie(name) {
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
-console.log(getCookie("cookiemessage"))
+// console.log(getCookie("cookiemessage"))
 if(!getCookie("cookiemessage")) {
   setCookie("cookiemessage", true)
 }
@@ -2180,3 +2633,61 @@ if(textarea.length) {
     });
   })
 }
+
+
+// Open Seo
+let seoOpenBtn = document.querySelector(".js-seo-open");
+let seoTextContent = document.querySelector(".seo-text");
+
+if(seoOpenBtn) {
+  seoOpenBtn.addEventListener("click", function() {
+    seoTextContent.classList.toggle("active");
+  });
+}
+
+
+
+// Time Chabge Text
+function compareTime(time) {
+  let dayFrom = '10:00';
+  let dayTo = '20:30';
+
+  let nightFrom = '20:31';
+  let nightTo = '9:59';
+
+  let dayFromDate = new Date('01/01/2000 ' + dayFrom);
+  let dayToDate = new Date('01/01/2000 ' + dayTo);
+
+  let nightFromDate = new Date('01/01/2000 ' + nightFrom);
+  let nightToDate = new Date('01/01/2000 ' + nightTo);
+
+  let now = new Date('01/01/2000 ' + time)
+
+  if (now >= dayFromDate && now <= dayToDate ) {
+    // console.log("day");
+    return true;
+  } else {
+    // console.log("night");
+    return false;
+  }
+}
+
+function timeText() {
+  let timeTextChange = document.querySelector(".js-time-change-text");
+  if(timeTextChange) {
+    let time = compareTime(new Date().toLocaleTimeString());
+    let textDay = "Мы перезвоним вам в ближайшее время";
+    let textNight = "Мы перезвоним вам в рабочее время (10:00 до 20:30)";
+
+    if(time) {
+      console.log("day")
+      timeTextChange.innerText = textDay;
+    } else {
+      console.log("night")
+      timeTextChange.innerText = textNight;
+    }
+  }
+}
+
+// timeText();
+

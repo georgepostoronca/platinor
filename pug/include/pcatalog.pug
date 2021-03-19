@@ -421,19 +421,19 @@ section.pcatalog
           }
       .pcatalog__grid.js-changegrid
         each val in [1,2,3,4,5,6,7,8,9]
-          .product
+          .product(data-href="http://link.loc")
             .product__label
               span.sale СКИДКА 50%
               span.best БЕСТСЕЛЛЕР
             a(href="#").product__slider
-              .product__slider-item.active
-                img(src="img/image-1.jpg", srcset="img/image-1@2x.jpg 2x", alt="IMG", loading="lazy")
-              .product__slider-item
-                img(src="img/image-2.jpg", srcset="img/image-2@2x.jpg 2x", alt="IMG", loading="lazy")
-              .product__slider-item
-                img(src="img/image-3.jpg", srcset="img/image-3@2x.jpg 2x", alt="IMG", loading="lazy")
-              .product__slider-item
-                img(src="img/image-3.jpg", srcset="img/image-3@2x.jpg 2x", alt="IMG", loading="lazy")
+              //.product__slider-item.active
+              //  img(src="img/image-1.jpg", srcset="img/image-1@2x.jpg 2x", alt="IMG", loading="lazy")
+              //.product__slider-item
+              //  img(src="img/image-2.jpg", srcset="img/image-2@2x.jpg 2x", alt="IMG", loading="lazy")
+              //.product__slider-item
+              //  img(src="img/image-3.jpg", srcset="img/image-3@2x.jpg 2x", alt="IMG", loading="lazy")
+              //.product__slider-item
+              //  img(src="img/image-3.jpg", srcset="img/image-3@2x.jpg 2x", alt="IMG", loading="lazy")
 
             .product__info
               .product__pagination

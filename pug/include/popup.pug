@@ -227,6 +227,32 @@
         p Нажимая на кнопку «Отправить», вы даете согласие на обработку личных данных в соответствии c политикой конфиденциальности,
 
 
+//request
+.remodal.remodal-request.remodal-autoopen.js-modal(data-remodal-id='autoopen')
+  button(data-remodal-action="close" class="remodal-close")
+  .cmodal.cmodal-single
+    //Modal Success
+    .cmodal-item.cmodal-middle.active
+      form.js-form-validator
+        h2 Давайте мы поможем вам выбрать украшение
+
+        .input-block
+          input.js__input-notempty(type='text' name="name" data-bouncer-target=".errmsg-request-name")
+          span Имя (необязательно)
+          em.errmsg.errmsg-request-name Заполните данное поле
+
+        .input-block
+          input.js__input-notempty.js-phone-mask(type='phone' name="phone" required data-bouncer-target=".errmsg-modal-request-phone")
+          span Телефон
+          em.errmsg.errmsg-modal-request-phone Заполните данное поле
+
+        button(type="submit" name="submit").btn-yellow.cmodal-submit
+          span ОТПРАВИТЬ
+
+        p Нажимая на кнопку «Отправить», вы даете согласие на обработку личных данных в соответствии c политикой конфиденциальности,
+
+
+
 //addproduct
 .remodal.remodal-addproduct.js-modal(data-remodal-id='addproduct')
   button(data-remodal-action="close" class="remodal-close")
