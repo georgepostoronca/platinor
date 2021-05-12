@@ -12,6 +12,6 @@
     "lodash.debounce": "^4.0.8",
     "lodash.foreach": "^4.5.0",
     "platform.js": "^1.0.0",
-    "swiper": "^5.4.1"
+    "swiper": "^6.5.1"
   }
 }
